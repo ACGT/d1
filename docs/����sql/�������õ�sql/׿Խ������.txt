@@ -1,0 +1,7 @@
+
+select  gdsmst_gdsname,rakmst_rackname,gdsmst_memberprice,10,gdsmst_otherimg3,gdsmst_imgurl,gdsmst_bigimg,gdsmst_briefintrduce,'一口价'
+,'新品','北京','北京','买家承担','有','有',10,10,15,'','货到付款 银行电汇 支付宝 财付通 招行 工行 建行 农行等',gdsmst_brandname,
+'是','是','D1优尚网','美容服饰','	美容服饰','北京','北京','	国内最大的美容服饰用品网上商城','http://www.d1.com.cn/images/logo.gif'
+ from gdsmst JOIN rckmst ON 
+rakmst_rackcode = left(gdsmst_rackcode,3) where gdsmst_validflag=1
+and (gdsmst_rackcode like '017%' or gdsmst_rackcode like '015009%' or gdsmst_rackcode like '015002004%')

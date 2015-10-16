@@ -1,0 +1,99 @@
+@charset "utf-8";
+body {color: #636363;font:12px tahoma,arial,宋体,sans-serif}
+ul, li, dl, dd, dt, ol {list-style: none outside none;}
+ul, ol {list-style-type: none;}
+a {color: #5B5B5B;}
+a, ins {text-decoration: none;}
+em, input {font-style: normal;}
+input {font-size: 12px;}
+a {color: #5B5B5B;}
+a:hover {color: #F26521;}
+* {margin: 0;padding: 0;}
+img, fieldset {border: 0 none;}
+.w{ margin:0 auto; width:980px;}
+
+.head{ background:url(/activities/20111230qcms/img/qcms_02.jpg) no-repeat scroll 0px 0 transparent; width:980px; height:688px;position:relative;}
+.head .flt{top:264px; left:30px;z-index:2; position:absolute;}
+.head .hotware{ left:90px; top:270px;z-index:1;width:400px; height:400px; position:absolute;}
+.head span {font-size:22px; font-weight:bold;color:#cc1319;position:absolute; font:宋体;}
+.head .shoting { top:280px; left:550px; width:395px;}
+.head .shoting em { color:#000000;}
+.head .shoting_pro {top:420px; left:565px;font-size:16px;}
+.head .hours { top:475px; left:650px;}
+.head .mins {top:475px; left:725px;}
+.head .secs {top:475px; left:795px;}
+.head .shot_num {top:520px; left:570px; color:#000000;font-weight:normal;font-size:12px;}
+.head .shot_num em {color:#FF0000;font-weight:bold;}
+.head .normal_price {top:565px; left:570px; text-decoration:line-through; font-weight:normal;font-size:12px;}
+.head .shot_price {top:580px; left:570px; font-size:24px;}
+.head .shot_pic {top:560px; left:760px; position:absolute;}
+.head .title {float:left; margin-left:10px;text-align:left;}
+
+.sec {padding-top: 10px;}
+.sec .sec_box {border: 1px solid #E0DFDF;margin-bottom: 10px;}
+.sec .secing {height: 440px;position: relative;}
+.sec_price {color: #636363 !important;margin: 3px 0;}
+.sec_price ins {background: url("/activities/20111230qcms/img/money_icon.gif") no-repeat scroll 3px 7px transparent;color: #D80C18;font-size: 14px;font-weight: bold;padding: 4px 12px 0;}
+.secing h3 {background: url("/activities/20111230qcms/img/comm_img_sprite.gif") repeat-x scroll 0 -579px transparent;border: 1px solid #FFFFFF;height: 33px;padding: 0 15px 0 155px;}
+.secing h3 img, .secing h3 a, .secing h3 span {display: inline;float: left;}
+.secing h3 a, .secing h3 span {color: #B41603;float: right;font: 12px '宋体';margin: 10px 0 0 14px;}
+.secing h3 a {background: url("/activities/20111230qcms/img/comm_img_sprite.gif") no-repeat scroll right -622px transparent;padding-right: 18px;}
+.secing h3 a:hover {color: #B41603;text-decoration: underline;}
+.secing h3 span {background: url("/activities/20111230qcms/img/comm_img_sprite.gif") no-repeat scroll right -640px transparent;cursor: pointer;height: 24px;padding-right: 16px;position: relative;}
+.secing h3 span div {-moz-border-bottom-colors: none;-moz-border-image: none;-moz-border-left-colors: none;-moz-border-right-colors: none; -moz-border-top-colors: none;background: url("/activities/20111230qcms/img/active_bg.gif") repeat-x scroll center top #FDFAF5;border-color: #E0DFDF;border-style: solid;border-width: 0 1px 1px;cursor: default;display: none;padding: 18px;position: absolute;right: -17px;top: 24px;width: 276px;}
+.secing h3 span div p {color: #975D56;line-height: 18px;margin-bottom: 15px;}
+.secing .secing_con {-moz-border-bottom-colors: none;-moz-border-image: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;background-color: #F4F4F4;border-color: #E0DFDF #FFFFFF #FFFFFF;border-right: 1px solid #FFFFFF;border-style: solid;border-width: 1px;height: 393px;padding: 10px 0 0 17px;}
+.secing_con .secing_l, .secing_con .secing_r {display: inline;float: left;}
+.secing_l {border: 4px solid #AD1401;height: 369px;overflow: hidden;padding: 1px;width: 523px;}
+.secing_r {background: url("/activities/20111230qcms/img/sec_ty.jpg") no-repeat scroll 0 0 transparent;height: 379px;padding-left: 20px;width: 359px;}
+.secing_r p {color: #000000;font: 20px/32px Microsoft YaHei,'微软雅黑','黑体','宋体';height: 96px;margin-top: 10px;overflow: hidden;}
+.secing_r p b {color: #E40016;}
+.secing_r .t_note {color: #E40016;font-weight: bold;margin: 50px 0 5px;}
+.secing_r .sec_time {background: url("/activities/20111230qcms/img/sec_time_bg.gif") no-repeat scroll 0 0 transparent;color: #FFFFFF;height: 33px;line-height: 33px;}
+.sec_time span {color: #FFFFFF;display: inline;float: left;font: 24px Arial;height: 28px;margin-right: 22px;padding-top: 5px;text-align: center;width: 44px;}
+.secing_r .sec_num {color: #000000;margin: 5px 0 35px;}
+.sec_num em {padding-left: 30px;}
+.sec_num b {color: #E40016;padding: 0 3px;}
+.secing_r dl {height: 124px;}
+.secing_r dl dt, .secing_r dl dd {display: inline;float: left;width: 158px;}
+.secing_r dl span {display: block;height: 30px;margin-bottom: 20px;}
+.secing_r dl a {background: url("/activities/20111230qcms/img/comm_img_sprite.gif") no-repeat scroll 0 0 transparent;display: block;height: 49px;width: 139px;}
+.secing_r dl dt span {overflow: hidden;width: 139px;}
+.secing_r dl dt span b {background: url("/activities/20111230qcms/img/money_icon_r.gif") no-repeat scroll 0 14px transparent;color: #E40016;font: bold 30px Arial;padding-left: 12px;}
+.secing_r dl dt a {background-position: 0 -802px;}
+.secing_r dl dt a.sec_off {background-position: 0 -852px;}
+.secing_r dl dt a.sec_end {background-position: 0 -952px;}
+.secing_r dl dd {width: 180px;}
+.secing_r dl dd span {font: 16px '宋体';height: 14px;padding: 9px 0 7px;text-decoration: line-through;}
+.secing_r dl dd a {background-position: 0 -902px;}
+.sec_tag {height: 147px;left: 0;position: absolute;top: 0;width: 147px;}
+.secwill {height: 382px;width:980px;}
+.secwill h3, .acting h3, .buytime h3 {background-color: #EDEDED;border: 1px solid #FFFFFF;font-size: 14px;height: 38px;}
+.secwill .scroll_box {border: 1px solid #E0DFDF;height: 371px;overflow: hidden;padding-left: 8px;padding-top:10px;width: 970px;}
+.secwill h3 span, .acting h3 span, .acting h3 a, .buytime h3 span {display: inline;float: left;}
+.secwill h3 span, .acting h3 span, .buytime h3 span {background: url("/activities/20111230qcms/img/time_icon.gif") no-repeat scroll 0 0 transparent;height: 26px;padding: 12px 0 0 40px;width: 320px;}
+.secwill h3 span em, .acting h3 span em, .buytime h3 span em {color: #B1AEAE;font-weight: normal;padding-left: 3px;}
+.scroll_box span, .scroll_box .secWill_con {display: inline;float: left;}
+.scroll_box span {background: url("/activities/20111230qcms/img/comm_img_sprite.gif") repeat scroll 0 -692px transparent;cursor: pointer;height: 31px;margin-top: 140px;overflow: hidden;width: 16px;}
+.scroll_box span.next {background-position: -26px -692px;}
+.scroll_box span.prev_yes {background-position: -52px -692px;}
+.scroll_box span.next_yes {background-position: -78px -692px;}
+.scroll_box .secWill_con {height: 362px;margin-left:10px;overflow: hidden;position: relative;width: 916px;}
+.secWill_con ul {left: 0;position: absolute;width: 1000%;}
+.secWill_con li {background-color: #EDEDED;display: inline;float: left;height: 361px;margin-right: 10px;overflow: hidden;width: 218px;}
+.secWill_con li h5 {background:#7D7D7D;color: #FFFFFF;font-size: 12px;font-weight: normal;line-height: 31px;margin-bottom: 12px;text-align: center;}
+.secWill_con li a, .secWill_con li p {display: block;margin: 0;width: 192px;}
+.secWill_con li .ks_time {display: block;margin: 0;width: 210px;}
+.secWill_con li .text_link {height: 35px;line-height: 18px;margin: 5px 0;overflow: hidden;}
+.secWill_con li .text_link a {color: #545454;}
+.secWill_con li .text_link a:hover {color: #545454;text-decoration: underline;}
+.secWill_con li .sec_price {height: 20px;line-height: 20px;}
+.secWill_con li .sec_price b {color:red;}
+.secWill_con li .sec_price em.rmb, .secWill_con li .sec_price em {color: #898989;display: inline;float: right;height: 16px;line-height: 16px;width: 98px;}
+.secWill_con li .sec_price em.rmb {background: url("/activities/20111230qcms/img/money_icon_r.gif") no-repeat scroll 0 3px transparent;color: #FF0101;float: left;font: bold 16px Arial;padding-left: 12px;width: 62px;}
+.secWill_con li .ks_time {color: #898989;margin-top: 5px;padding-top: 12px;}
+.secWill_con li .ks_time b {color: #AB2F27;padding: 0 3px;}
+.acting h3 a {color: #E60116;float: right;font: 12px '宋体';margin: 14px 17px 0 0;}
+.acting h3 a:hover {color: #E60116;text-decoration: underline;}
+.acting .acting_con {border-top: 1px solid #E0DFDF;padding-top: 10px;}
+.acting_con a {display: inline;float: left;height: 158px;margin: 0 0 12px 12px;width: 300px;}

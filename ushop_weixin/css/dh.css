@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+.main .choose_sku {
+	position: fixed;
+	z-index: 104;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	font-size: 0.14rem;
+}
+
+.main .choose_sku::after {
+	content: '\20';
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+}
+
+.main .choose_sku  .ui-dialog {
+	display: inline-block;
+	vertical-align: middle;
+	width: 3.00rem;
+	height: 3.70rem;
+	background: #fff;
+	overflow: hidden;
+	text-align: left;
+	border: 2px solid #f1424f;
+}
+
+.main .choose_sku  .ui-dialog .title {
+	height: .30rem;
+	background: #f1424f;
+	color: #fff;
+	font-size: .14rem;
+	padding-left: .06rem;
+	position: relative;
+}
+
+.main .choose_sku  .ui-dialog .title>span {
+	cursor: pointer;
+	position: absolute;
+	right: .08rem;
+	font-size: .16rem;
+	color: #fff;
+	line-height: .30rem;
+	width: .18rem;
+}
+
+.main .choose_sku  .ui-dialog .content {
+	padding-left: .08rem;
+}
+
+.main .choose_sku  .ui-dialog .content .sku1 {
+	
+}
+
+.main .choose_sku  .ui-dialog .content .sku1 .skutxt, .main .choose_sku  .ui-dialog .content .sku2 .skutxt
+	{
+	height: .28rem;
+	font-size: .14rem;
+}
+
+.main .choose_sku  .ui-dialog .content .sku1 li {
+	line-height: .21rem;
+	height: .90rem;
+	width: .65rem;
+	margin-right: .05rem;
+	float: left;
+	text-align: center
+}
+
+.main .choose_sku  .ui-dialog .content .sku1 li:last-child {
+	margin-right: 0rem;
+}
+
+.main .choose_sku  .ui-dialog .content .sku2 {
+	font-size: .14rem;
+}
+
+.main .choose_sku  .ui-dialog .content .sku2 li {
+	line-height: .30rem;
+	margin-right: .08rem;
+	float: left;
+	text-align: center
+}
+
+.main .choose_sku  .ui-dialog .content .sku2 li:last-child {
+	margin-right: 0rem;
+}
+
+.main .choose_sku  .ui-dialog .content .sku1 li a {
+	width: .60rem;
+	height: .60rem;
+	border: 2px solid #c2c2c2;
+	display: block;
+	font-size: .14rem;
+}
+
+.main .choose_sku  .ui-dialog .content .sku2 li a {
+	padding: 0 .10rem;
+	height: .28rem;
+	border: 2px solid #c2c2c2;
+	display: block;
+	font-size: .14rem;
+}
+
+.main .choose_sku  .ui-dialog .content .sku1 li a.cur, .main .choose_sku  .ui-dialog .content .sku2 li a.cur
+	{
+	border: 2px solid #dd0000;
+}
+
+.main .choose_sku  .ui-dialog .but {
+	height: 0.35rem;
+	color: #fff;
+	line-height: 0.35rem;
+	margin-top: .10rem;
+	text-align: center;
+}
+
+.main .choose_sku  .ui-dialog .but a {
+	height: 0.35rem;
+	background: #f1424f;
+	border-radius: 0.05rem;
+	display: inline-block;
+	width: 50%;
+	color: #fff;
+	cursor: pointer;
+}
+
+.main .choose_sku .txt {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.08rem;
+	width: 3rem;
+	background-color: rgba(51, 51, 51, .9);
+	-webkit-border-radius: .02rem;
+	border-radius: .02rem;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3)
+}
+
+.main .choose_sku .txt .skulist {
+	
+}
+
+.main .choose_sku .txt .skulist a {
+	display: inline-block;
+	border: 1px solid #ceced0;
+	background-color: #fafafa;
+	padding: 0.05rem 0.12rem;
+	margin: .10rem 0.08rem 0.10rem 0;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 0.05rem;
+	border-radius: 0.05rem;
+	font-size: 0.12rem;
+	cursor: pointer;
+}
+
+.main .choose_sku .txt .skulist  .cur {
+	border: 1px solid #f1424f;
+	background-color: #f1424f;
+	color: #ffffff;
+}
+
+.main .choose_sku .txt .skuerr {
+	line-height: 30px;
+	font-size: .12rem;
+	color: #ffffff;
+}
+
+.main .choose_sku .txt .but {
+	height: 0.35rem;
+	color: #fff;
+	line-height: 0.35rem;
+	text-align: center;
+}
+
+.main .choose_sku .txt .but a {
+	height: 0.35rem;
+	display: inline-block;
+	width: 80%;
+	color: #fff;
+	background: #f1424f;
+	cursor: pointer;
+}
+
+.main .cart_msg {
+	position: fixed;
+	z-index: 102;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	font-size: 0.14rem;
+	display: none;
+}
+
+.main .cart_msg::after {
+	content: '\20';
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+}
+
+.main .cart_msg .txt {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.08rem;
+	width: 3rem;
+	background-color: rgba(51, 51, 51, .9);
+	-webkit-border-radius: .02rem;
+	border-radius: .02rem;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3)
+}
+
+.main .cart_msg .txt i {
+	color: #fff;
+	font-style: normal;
+	padding: 0.08rem;
+	font-size: .14rem;
+	display: inline-block;
+}
+
+.main .cart_msg .txt .but {
+	height: 0.35rem;
+	color: #fff;
+	line-height: 0.35rem;
+}
+
+.main .cart_msg .txt .but a {
+	height: 0.35rem;
+	display: inline-block;
+	width: 50%;
+	color: #fff;
+	cursor: pointer;
+}

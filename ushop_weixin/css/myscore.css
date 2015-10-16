@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+.main {
+	background-color: #fff;
+	font-family: 微软雅黑;
+	min-width: 320px;
+	margin: .10rem auto;
+	font-size: .14rem;
+	max-width: 640px;
+}
+
+.main .ulist {
+	padding: .10rem 0 .10rem .10rem;
+}
+
+.main .ulist .ul_span h2 {
+	font-size: .18rem;
+	line-height: .40rem;
+	font-weight: normal;
+}
+
+.main .ulist .scorelist {
+	
+}
+
+.main .ulist .scorelist li {
+	height: .50rem;
+	border-bottom: 1px solid #ededed;
+	padding-top: .08rem;
+}
+
+.main .ulist .scorelist li:last-child {
+	border: 0px
+}
+
+.main .ulist .scorelist li .item {
+	height: .50rem;
+	font-size: .14rem
+}
+
+.main .ulist .scorelist li .item .itop {
+	display: -webkit-box;
+	width: 100%;
+}
+
+.main .ulist .scorelist li .item .itop .l {
+	display: block;
+	width: 2.30rem;
+	height: .25rem;
+	line-height: .24rem;
+}
+
+.main .ulist .scorelist li .item .itop .r {
+	-webkit-box-flex: 1;
+	flax: 1;
+	line-height: .24rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	display: block;
+}
+
+.main  .m_page {
+	display: -webkit-box;
+	display: flex;
+	height: 0.29rem;
+	padding: 15px;
+}
+
+.main  .m_page>div {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	line-height: 29px;
+	white-space: nowrap;
+	border-radius: 2px;
+	cursor: pointer;
+	font-size: 0.14rem;
+	text-align: center;
+}
+
+.main  .m_page .mp_cell.s {
+	width: 0.45rem;
+	margin: 0 5px;
+}
+
+.main  .m_page .mp_cell.l {
+	width: 0.55rem;
+	margin: 0 5px;
+}
+
+.main  .m_page .mp_cell.r {
+	width: 0.55rem;
+	margin: 0 5px;
+}
+
+.main  .m_page .mp_cell.e {
+	width: 0.45rem;
+	margin: 0 5px;
+}
+
+.main  .m_page .mp_cell.m {
+	-webkit-box-flex: 1;
+	flex: 1;
+	position: relative;
+	box-shadow: 0 3px 3px #d7d7d7 inset;
+	background: #fff;
+}
+
+.main  .m_page .mp_cell .vselect i {
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	border-left: 2px solid #9d9d9d;
+	border-bottom: 2px solid #9d9d9d;
+	-webkit-transform: rotate(-45deg);
+	margin-left: 2px;
+	margin-bottom: 2px;
+}
+
+.main  .m_page .mp_cell .go_select {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-appearance: none;
+	border: 0;
+	border-radius: 0;
+	cursor: pointer;
+	font-size: 0.12rem;
+}
+
+@media only screen and (min-width:480px) {
+	.main {
+		font-size: 21px;
+	}
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bisdata>
+<reqId>79_0</reqId> 
+<serviceId>1000010000000028</serviceId> 
+<bizdata>
+   <sign>
+         <idx>00</idx>
+         <value></value>
+    </sign>
+<data>
+<encode>utf-8</encode>  
+<LPMS_Pionts>
+<Request>
+<PropertySet>
+</PropertySet>
+</Request>
+<Response>
+<PointsLeft></PointsLeft>
+<STNumber></STNumber>
+<PointsRedemed></PointsRedemed>
+<TCTNumber></TCTNumber>
+<TCAmount></TCAmount>
+<RedemPoint></RedemPoint>
+<ListOfAccrualResponse>
+<CardNumber></CardNumber>
+<AccrualTime></AccrualTime>
+<AccrualPoint></AccrualPoint>
+<AccrualSource></AccrualSource>
+<parameter2></parameter2>
+</ListOfAccrualResponse>
+<Operation></Operation>
+<parameter1></parameter1>
+<TTTime></TTTime>
+<Partner></Partner>
+<MemberID></MemberID>
+<UserName></UserName>
+<PartyNo></PartyNo>
+<MemberName></MemberName>
+<IDType></IDType>
+<IDNo></IDNo>
+<Sex></Sex>
+<BirthDate></BirthDate>
+<Email></Email>
+<PhoneNo></PhoneNo>
+<Amount></Amount>
+</Response>
+</LPMS_Pionts>
+</data>
+</bizdata>
+</bisdata>

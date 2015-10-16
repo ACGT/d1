@@ -1,0 +1,63 @@
+--普通
+insert into d1marketing..email_temp (email) 
+select distinct rtrim(odrmst_remail)  from dba.odrmst_history inner join dba.odrdtl_history 
+on odrmst_odrid =odrdtl_odrid
+--inner join mbrmst on mbrmst_id=odrmst_mbrid --and mbrmst_sex=1-- and mbrmst_birthday>'1974-1-1'
+where odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_remail not in (select email from bademail) and odrmst_temp<>'pingan'
+and odrmst_remail not in (select edmmst_email from edmmst)
+--and (  (odrdtl_rackcode like '017%' and  mbrmst_sex=1)  or mbrmst_sex=0)
+and odrmst_orderdate>'2010-1-1' --and odrdtl_finalprice>=19
+and odrdtl_rackcode like '014%'
+--and ( (odrdtl_rackcode like '017002%'
+        --  ) or(odrdtl_rackcode like '015002%'
+        --) or(odrdtl_rackcode like '017005%'
+         --) or(odrdtl_rackcode like '015009%'
+        -- )  
+--   or (mbrmst_sex=0)
+  --  )
+and odrmst_remail not in 
+(select email from d1marketing..email_temp)
+
+(
+create table d1marketing..email_temp (email varchar(200))
+select * from email_temp0402
+017002、015002
+truncate table email_temp0518
+drop table email_temp0518
+drop table odremail_temp
+insert into d1marketing..email_temp (email) 
+select distinct rtrim(odrmst_remail)  from odrmst_recent inner join odrdtl_recent on odrmst_odrid =odrdtl_odrid
+--inner join mbrmst on mbrmst_id=odrmst_mbrid --and mbrmst_sex=1 --and mbrmst_birthday>'1974-1-1'
+where odrmst_orderstatus in (3,31,5,51,6,61)  
+and odrmst_remail not in (select email from bademail) and odrmst_temp<>'pingan'
+and odrmst_remail not in (select edmmst_email from edmmst)
+and odrdtl_creatdate>'2010-1-1' --and odrdtl_finalprice>=19
+and odrdtl_rackcode like '014%'
+--and (  (odrdtl_rackcode like '017%' and  mbrmst_sex=1)  or mbrmst_sex=0
+         -- ) or(odrdtl_rackcode like '015002%'
+          --) or(odrdtl_rackcode like '017005%'
+         --) or(odrdtl_rackcode like '015009%'
+       ) 
+
+    )
+)
+
+
+
+--edm
+select * from edmmst where edmmst_014=1 --or edmmst_015002=1
+
+and 
+edmmst_email not in (select email from bademail)
+
+
+--新客户
+select distinct (rtrim(mbrmst_email)) from mbrmst where mbrmst_createdate>='2009-11-1'
+and mbrmst_email not in (select odrmst_remail from odrmst_history where odrmst_orderstatus in (3,31,5,51,6,61) and odrmst_orderdate>'2009-11-1')
+and  mbrmst_email not in (select odrmst_remail from odremail_temp where odrmst_orderstatus  in (3,31,5,51,6,61)and odrmst_orderdate>'2009-11-1' )
+and mbrmst_email not in  (select email from bademail)
+and mbrmst_email not in (select edmmst_email from edmmst)
+and mbrmst_temp<>'pingan'
+and mbrmst_sex=1
+and mbrmst_birthday >'1950-1-1' and mbrmst_birthday<'1986-1-1'

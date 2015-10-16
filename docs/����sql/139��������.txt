@@ -1,0 +1,40 @@
+select odrmst_odrid, from odrodr_recent where odrmst_temp='fanxian_139' and odrmst_orderdate>'2011-4-1'
+and odrmst_orderdate<'2011-5-1'
+and odrmst_orderstatus in (3,31,5,51,6,61) 
+
+
+
+
+select * into d1marketing..odrfanxian139_6 from (
+select    odrmst_tktvalue,((select isnull(sum(odrdtl_finalprice*odrdtl_gdscount),0)  
+from odrdtl_recent where 
+odrdtl_gdsname not like '%优惠特价%' and odrdtl_temp<>'团购商品' and (odrdtl_specialflag& 1)<>1 and odrdtl_gdsid<>'01204969'
+ and odrdtl_odrid=OdrMst_odrid))summnoey,OdrMst_odrid,odrmst_mbrid,odrmst_rphone,odrmst_temp,odrmst_orderdate
+--select top 10 * 
+from odrmst_recent where odrmst_temp='fanxian_139' and odrmst_orderdate>'2011-6-1'
+and odrmst_orderdate<'2011-7-1'
+and odrmst_orderstatus in (3,31,5,51,6,61)) a
+订单号	商品名称	会员id	手机号	数量	商品总价	佣金比例	用券金额	佣金金额	联盟	订单日期
+
+
+select * into d1marketing..odrdtlfanxian139_6 from (
+select odrdtl_odrid,odrdtl_gdsname,odrmst_mbrid,odrmst_rphone,OdrDtl_gdscount,OdrDtl_finalprice*OdrDtl_gdscount allmoney
+,summnoey,odrmst_tktvalue,0.0  as lmbl,0.0 as lmmoney,odrdtl_rackcode,odrmst_temp,odrmst_orderdate
+from odrdtl_recent join
+ d1marketing..odrfanxian139_6 on odrdtl_odrid=odrmst_odrid where OdrDtl_shipstatus=3)a
+
+订单号	商品名称	会员id	手机号	数量	商品总价	佣金比例	用券金额	佣金金额	联盟	订单日期
+
+
+
+综合商品类4% 服饰8% 自有品牌14.4
+select * from 
+update d1marketing..odrdtlfanxian139_6 set lmbl=0.04 where 
+--(odrdtl_rackcode like '017%' or odrdtl_rackcode like '015009%') 
+--odrdtl_gdsname like '%feel mind%'
+lmbl=0
+and allmoney>0
+
+select odrdtl_odrid,odrdtl_gdsname,odrmst_mbrid,odrmst_rphone,OdrDtl_gdscount,allmoney,lmbl,odrmst_tktvalue
+,allmoney*lmbl*(1-(select odrmst_tktvalue/summnoey from d1marketing..odrfanxian139_6 where summnoey>0 
+and odrmst_odrid=odrdtl_odrid)),odrmst_temp,odrmst_orderdate from d1marketing..odrdtlfanxian139_6  where allmoney>0

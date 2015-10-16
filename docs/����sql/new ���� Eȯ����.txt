@@ -1,0 +1,111 @@
+
+--利用随机数生成D1券 Start
+declare @rnd int
+declare @count int
+declare @str varchar(200)
+declare @start varchar(50)
+declare @rndflag varchar(50)
+declare @rnd2 int
+
+set @count=1
+while @count<=1001
+  begin
+    set @start='000000000'+cast(@count as varchar)
+    set @rnd=cast( floor(rand()*10000000) as int)
+    set @rnd2=cast( floor(rand()*10000000) as int)
+    set @rnd=@rnd+@rnd2
+    set @rnd=cast( floor(rand()*@rnd) as int)
+    set @rndflag='0000000000'+cast(@rnd as varchar)
+    set @str='mqmdxc19'+right(@start,4)
+    set @str=@str+right(@rndflag,5)
+    --set @rnd=cast( floor(rand()*@rnd) as int)
+    --set @rndflag='0000000000'+cast(@rnd as varchar)
+    --set @str=@str+right(@rndflag,4)
+    if not exists(select tktcrd_cardno from tktcrd where tktcrd_cardno=@str)
+      begin
+	set nocount on --不返回"所影响行数"
+	insert into tktcrd (tktcrd_cardno,tktcrd_value,tktcrd_realvalue,tktcrd_discount,tktcrd_type,tktcrd_validflag,
+	tktcrd_enddate,tktcrd_validates,tktcrd_validatee,tktcrd_memo) 
+	values(@str,100,100,0.15,'004003',0,'2011-11-23 23:59:59','2011-09-23','2011-11-30 23:59:59',' 买东西优惠券--大伟') 
+	print @str
+	set @count=@count+1
+      end
+    else
+      continue      
+end
+
+
+--利用随机数生成D1券 Start
+--D27，yahoo0902
+--E03,21cn0902，
+declare @rnd int
+declare @count int
+declare @str varchar(200)
+declare @start varchar(50)
+declare @rndflag varchar(50)
+declare @rnd2 int
+
+set @count=1
+while @count<=20
+  begin
+    set @start='000000000'+cast(@count as varchar)
+    set @rnd=cast( floor(rand()*10000000) as int)
+    set @rnd2=cast( floor(rand()*10000000) as int)
+    set @rnd=@rnd+@rnd2
+    set @rnd=cast( floor(rand()*@rnd) as int)
+    set @rndflag='0000000000'+cast(@rnd as varchar)
+    set @str='d1030_sczq31008'+right(@rndflag,1)
+    set @rnd=cast( floor(rand()*@rnd) as int)
+    set @rndflag='0000000000'+cast(@rnd as varchar)
+    set @str=@str+right(@rndflag,4)
+    set @rnd=cast( floor(rand()*@rnd) as int)
+    set @rndflag='0000000000'+cast(@rnd as varchar)
+    set @str=@str+right(@rndflag,4)
+    if not exists(select tktpwd_cardno from tktpwd where tktpwd_cardno=@str)
+      begin
+	set nocount on --不返回"所影响行数"
+	insert into tktpwd (tktpwd_cardno,tktpwd_pwd,tktpwd_value,tktpwd_enddate,tktpwd_gdsvalue,tktpwd_rackcode,
+tktpwd_sendcount,tktpwd_maxcount,tktpwd_everymaxcount,tktpwd_createdate,tktpwd_tktstartdate,tktpwd_tktenddate,tktpwd_mbrid,tktpwd_ifvip,tktpwd_sprckcodestr,tktpwd_baihuo,tktpwd_memo)
+values(@str,'www.d1.com.cn',100,'2010-11-30 23:59:59',300,'000',0,1,1,getdate(),'2010-08-30','2010-11-30 23:59:59',0,0,'',0,'市场部中秋礼券')
+ 
+	print @str
+	set @count=@count+1
+      end
+    else
+      continue      
+end
+
+
+select top 10 * from odrtktnfl
+insert into odrtktnfl(odrtktnfl_cardnot,odrtktnfl_memo)
+values('mafxjf15','飞信积分优惠券，不参加网盟返利----项海丽')
+
+select top 10 * from tktnewmbr----限制新会员使用表
+insert into tktnewmbr(tktnewmbr_title,tktnewmbr_memo)
+values('mncg18','成果网限注册新客----刘红娜')
+
+tktact---限制会员同一批券使用券的张数
+select top 10 * from  tktact
+insert into tktact
+select 'my139c18','2011-8-20','2011-12-1','139邮箱活动 优惠券申请20-20--冶佳',2
+
+insert into tktpwd (tktpwd_cardno,tktpwd_pwd,tktpwd_value,tktpwd_enddate,tktpwd_gdsvalue,tktpwd_rackcode,
+tktpwd_sendcount,tktpwd_maxcount,tktpwd_everymaxcount,tktpwd_createdate,tktpwd_tktstartdate,tktpwd_tktenddate,tktpwd_mbrid,tktpwd_ifvip,tktpwd_sprckcodestr,tktpwd_baihuo)
+select top 500 cardno,'www.d1.com.cn',5,'2010-6-30 23:59:59',0,'000',0,1,1,getdate(),'2010-02-24','2010-6-30 23:59:59',0,0,'',0 from cardno100223 order by cardno desc
+
+
+select top 100 * from tktpwd where 
+--tktpwd_cardno='D43_0224243196380'
+--update tktcrd set tktcrd_validates='2010-03-23 00:00:00.000'
+--where
+tktpwd_cardno like 'd1101_soso0323%'
+
+create table cardno100223(cardno varchar(50))
+
+select * from cardno100223
+
+delete from cardno100223
+
+drop table cardno100223
+
+select *  from tencenttktmail where status=0

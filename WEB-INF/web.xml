@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+<servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.d1.servlet.IndexServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <!-- 业界标准 用.do后缀来表示 controler -->
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>afterlogin</servlet-name>
+        <servlet-class>com.d1.servlet.AfterLoginRedirectServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>afterlogin</servlet-name>
+        <!-- 业界标准 用.do后缀来表示 controler -->
+        <url-pattern>/afterlogin.do</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>shuoshuo</servlet-name>
+        <servlet-class>com.d1.servlet.ShuoShuoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>shuoshuo</servlet-name>
+        <url-pattern>/shuoshuo.do</url-pattern>
+    </servlet-mapping>
+	<servlet>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>com.d1.servlet.InitServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>InitServlet</servlet-name>
+      	<url-pattern>/InitServlet</url-pattern>
+   	</servlet-mapping>
+	<servlet>
+		<servlet-name>ImageCode</servlet-name>
+		<servlet-class>com.d1.servlet.ImageCode</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>ImageCode</servlet-name>
+      	<url-pattern>/ImageCode</url-pattern>
+   	</servlet-mapping>
+   	
+   	 <servlet>
+   	<servlet-name>UploadFileServlet</servlet-name>
+    <servlet-class>com.d1.servlet.UploadFileServlet</servlet-class>
+    </servlet>
+   		<servlet-mapping>
+    	<servlet-name>UploadFileServlet</servlet-name>
+      	<url-pattern>/servlet/UploadFileServlet</url-pattern>
+   	    </servlet-mapping>
+   	
+   	<servlet>
+   	    <servlet-name>Upload</servlet-name>
+    <servlet-class>com.d1.servlet.Upload</servlet-class>
+    </servlet>
+   
+   	
+   	<servlet-mapping>
+    	<servlet-name>Upload</servlet-name>
+      	<url-pattern>/servlet/Upload</url-pattern>
+   	</servlet-mapping>
+   	
+   	 	<servlet>
+   	    <servlet-name>Upload1</servlet-name>
+    <servlet-class>com.d1.servlet.Upload1</servlet-class>
+    </servlet>
+   
+   	
+   	<servlet-mapping>
+    	<servlet-name>Upload1</servlet-name>
+      	<url-pattern>/servlet/Upload1</url-pattern>
+   	</servlet-mapping>
+   	
+   	
+   	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>
+			org.tuckey.web.filters.urlrewrite.UrlRewriteFilter
+		</filter-class>
+		<init-param>
+			<param-name>confPath</param-name>
+			<param-value>/WEB-INF/urlrewrite.xml</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>commons</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	
+	<!-- filter>  	
+		<filter-name>CacheFilter</filter-name>
+		<filter-class>
+	    		com.d1.servlet.CacheFilter
+		</filter-class>
+		<init-param>
+			<param-name>cache_millis</param-name>
+			<param-value>30000</param-value>
+		</init-param>
+	</filter>
+	       
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>/result.jsp</url-pattern>
+	</filter-mapping-->
+	
+	
+
+	<error-page>  
+         <error-code>404</error-code>  
+         <location>/404.jsp</location>  
+   </error-page>  
+
+
+	
+</web-app>

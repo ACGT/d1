@@ -1,0 +1,40 @@
+@charset "utf-8";
+/*底部*/
+.foot{ height:450px; background-color: #FFFFFF;}
+.foot .wrapper {
+width: 980px;
+margin: 0 auto;
+clear: both;
+position: relative;
+}
+.foot .other_help {background:#fff;margin-top:10px;overflow:hidden;height:226px;padding-top:10px;}
+.foot .us_virtue{display:inline-block}
+.foot .us_virtue span {background-image: url(http://images.d1.com.cn/images2014/index/index_iconnew.png);width:160px;height:50px;display:inline-block;margin-right:80px;}
+.foot .us_virtue .zp {background-position:2px -76px;}
+.foot .us_virtue .ps {background-position:-159px -76px;}
+.foot .us_virtue .aq {background-position:-332px -76px}
+.foot .us_virtue .fw {background-position:-514px -76px}
+.foot .other_help dl {float:left;margin:20px 40px 0 0}
+.foot .other_help dt {font-size:14px;font-weight:bold;margin-bottom:10px;}
+.foot .other_help dd {line-height:24px;}
+.foot .other_help dd a {color:#818181;}
+.foot .other_help dd a:hover {color:#aa2e44}
+.foot .other_help dl .wx{background-image: url(http://images.d1.com.cn/zt2014/0304/erweima2.png);background-position:0px -343px; width:240px; height:125px;}
+
+.foot #footer {width:980px;margin:0 auto;text-align:center;margin-top:10px;color:#7b7b7b;line-height:24px;}
+.foot #footer a {margin:0 5px}
+.foot  #footer span {display:inline-block;width:337px;}.index_body .ib_sg h2 .sgh2txt {
+	font-size: 12px;
+	font-weight: normal;
+	color: #989898;
+	padding-left:15px;
+}
+.foot .top {
+	width:1050px;
+	border-top: 1px solid #DDD;
+}
+
+.foot .bottom {
+	width:1050px;
+	border-bottom: 1px solid #F1F1F1;
+}

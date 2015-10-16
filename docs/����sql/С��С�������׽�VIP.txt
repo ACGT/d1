@@ -1,0 +1,32 @@
+
+update mbrmst set mbrmst_specialtype=mbrmst_specialtype|1 ,mbrmst_vipbegindate=getdate(),mbrmst_vipenddate=getdate()+365
+
+--select top 10 * from bjvip
+
+--insert into bjvip(bjvip_mbrid,bjvip_allmoney,bjvip_endtime)
+--select mbrmst_id,2000,'2011-01-01 00:00:00.000'  from mbrmst
+where mbrmst_specialtype&1=0 and
+ mbrmst_id not in (4,1966,2919,4272,8,155604,270296) and mbrmst_id in (select   distinct(odrmst_mbrid) from odrmst where OdrMst_orderdate>'2010-07-05' 
+ 
+and odrmst_orderstatus in (3,31,5,51,6,61) and odrmst_mbrid in (select f1 from xiaoshang) ) and mbrmst_id not in (select bjvip_mbrid from bjvip)
+
+
+select * from 
+
+update bjvip set bjvip_endtime='2012-01-01 00:00:00.000' where bjvip_createtime>'2010-7-15 16:00:44.867' and bjvip_createtime<'2010-7-15 17:40:44.867'
+
+select distinct(email) from xiaoshang where f1
+in (select   distinct(odrmst_mbrid) from odrmst where OdrMst_orderdate>'2010-07-05' 
+ 
+and odrmst_orderstatus in (3,31,5,51,6,61) and odrmst_mbrid in (select f1 from xiaoshang) ) and email is not null
+
+
+
+group by odrmst_mbrid having count(odrmst_mbrid)>=2
+
+
+
+select top 10 * from xiaoyou
+
+
+

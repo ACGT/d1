@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>D1优尚网触屏版</title>
+    	<meta name="author" content="m.d1.cn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css" charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/address.css" charset="utf-8"/>
+        <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="/res/wap/js/com.js?1.21"></script>
+	</head>
+		  <body>
+		        <header class="p_header">
+		              <div class="h_txt">
+					  <div class="pageback"><a href="javascript:window.history.back(-1);" >返回</a></div>
+					    <div class="h_h2"><h2>选择收货人地址</h2></div>
+					    <div class="home"><a href="/wap/index.html"></a></div>
+			            <div class="myuser"><a href="/wap/user/index.html"></a></div>
+						<div class="carth"><a href="/wap/flow.html"></a></div>
+			          </div>
+			    </header>
+				<div class="main">
+					<div class="m_addbut">
+						<div class="ma_but"><a href="addro.html" class="l">添加收货人</a></div>
+						<div class="ma_but"><a  href="flowcheck.html"" class="r">下一步</a></div>
+					</div>
+					<div class="m_addlist">
+						<ul>
+							
+						</ul>
+					</div>
+					<div class="m_next">
+						<a  href="flowcheck.html" class="r">下一步</a>
+					</div>
+				</div>
+				<div id="footer" class="footer">
+				<script  language="javascript">
+					getwapFoot();
+				</script>
+				</div>
+		 </body>
+</html>
+<script language="javascript">
+function loaddata(){
+	  $.ajax({
+		type: 'get', 
+      url: '/ajax/wap/getaddr.jsp',
+		dataType:'json',
+		success: function(json){
+				/*处理数据*/
+				if(json.status=="1"){
+				showitem(json);
+				}else if(json.status=="-1"){
+					window.location.href='/wap/login.html';
+				}
+      }
+	});
+	}
+	function showitem(json){
+	var addresss=eval(json.addresss);
+	  var addrhtml=""
+	if(addresss.length>0){
+	   for(var i=0;i<addresss.length;i++){
+		   addrhtml='<li>';
+		   addrhtml=addrhtml+'<div class="item">';
+		   addrhtml=addrhtml+'<div class="title">';
+		   addrhtml=addrhtml+'	<input class="chaddr" type="radio" id="chaddr" name="chooseAddr" ';
+		   if(addresss[i].rflag==0){
+			   addrhtml=addrhtml+' checked ';
+		   }
+		   addrhtml=addrhtml+' value="'+addresss[i].rid+'"><span>收件人：'+addresss[i].rname+'</span>';
+		   addrhtml=addrhtml+'</div>';
+		   addrhtml=addrhtml+'<div class="content">';
+		   addrhtml=addrhtml+'	<span class="address">'+addresss[i].rprov+addresss[i].rcity+addresss[i].raddress+'</span>';
+		   addrhtml=addrhtml+'	<span class="phone">手机：'+addresss[i].rphone;
+		   if(addresss[i].rtel!=""){
+			   addrhtml=addrhtml+'&nbsp;&nbsp;电话：'+addresss[i].rtel;
+		   }
+		   addrhtml=addrhtml+'</span></div>';
+		   addrhtml=addrhtml+'</div>';
+		   addrhtml=addrhtml+'</li>';
+		   $(".m_addlist ul").append(addrhtml);
+	   }
+	
+	}	
+	}
+
+	loaddata();
+	</script>
+	<div style="display:none;">
+<script language="javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+</div>

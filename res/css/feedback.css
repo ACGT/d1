@@ -1,0 +1,60 @@
+ body{ background:#fff; font-size:12px;}
+  .center{ margin:0px auto; width:980px;}
+  .yhfk_main{ width:759px;  margin:0px auto;  text-align:center; }
+   .yhfk_maintab{ width:759px; height:151px; margin:0px auto; background-image:url(http://images.d1.com.cn/images2012/New/feedback/1.jpg); text-align:center; background-repeat:no-repeat;}
+  .yhfk_maintab1{ width:759px;  margin:0px auto; background-image:url(http://images.d1.com.cn/images2012/New/feedback/2.jpg); text-align:center; }
+  .yhfk_main table{ margin:0px auto; text-align:left;}
+  .yhfk_main table .td1{ width:120px; text-align:right; color:#333; font-size:15px;}
+  .yhfk_main table .td2{ width:280px;}
+  .yhfk_main table td .input1{ width:270px; border:solid 1px #acacac; background:#f4f4f4; height:23px; font-size:14px;}
+  .yhfk_main table td .input2{ vertical-align:middle; margin-left:15px;}
+  .yhfk_main table td a { text-decoration:underline; color:#333;}
+  .yhfk_main table td a img{ border:none;}
+ .yhfk_maintab2{ width:759px; height:118px; margin:0px auto; background-image:url(http://images.d1.com.cn/images2012/New/feedback/3.jpg); text-align:center; background-repeat:no-repeat;}
+  a img{ border:none;}
+  
+  .yhfk_succ{ width:760px; height:487px; margin:0px auto; background-image:url(http://images.d1.com.cn/images2012/New/feedback/yhfk_suc.jpg); text-align:center;}
+  
+  .yhfk_ceo{ width:759px; height:676px; margin:0px auto; background-image:url(http://images.d1.com.cn/images2012/New/feedback/bg_ceo.jpg);}
+  .yhfk_ceo table{ margin:0px auto; text-align:left;}
+  .yhfk_ceo table .td1{ width:130px; text-align:right; color:#333; font-size:15px;}
+  .yhfk_ceo table .td2{ width:240px;}
+  .yhfk_ceo table td .input1{ width:240px; border:solid 1px #acacac; background:#f4f4f4; height:23px; font-size:14px;}
+  
+  .ceo_succ{ width:760px; height:486px; margin:0px auto; background-image:url(http://images.d1.com.cn/images2012/New/feedback/ceo_suc.jpg); text-align:center;}
+  
+  ul, li {
+	/*清除ul和li上默认的小圆点*/
+	list-style: none;
+}
+ul {
+	/*清除子菜单的缩进值*/
+	padding: 0;
+	margin: 0;
+}
+ .hmain {
+	
+}
+ .limain {
+	width: 160px;
+}
+.main ul, .hmain ul {
+	display: none;
+}
+.hmain {
+	float: left;
+	margin-right: 1px;
+}
+ .hmain1 {
+
+	float: left;
+	margin-right: 1px;
+}
+.button1 {
+	background: url(/res/js/jquery.uploadify-v2.1.4/button1.png) no-repeat;
+	width: 63px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	border: 0;
+}

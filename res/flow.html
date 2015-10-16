@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试JS页面</title>
+<script type="text/javascript" src="js/d1.js"></script>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.amount{width:25px; height:15px; background-color:#f5f5f5; border:solid 1px #ccc; text-align:center}
+.box_window{font-size: 12px;font-family: "宋体";position:absolute;z-index:9999;display:none;display:none;}
+.box_window .content{border: solid 1px #DFC9B2;background-color: #FDF2E3;line-height: 20px;padding: 11px 8px 8px;}
+.box_window .content p{line-height:20px;text-align:center;}
+.box_window a{color: #1A66B3;text-decoration: none;}
+.box_window a:hover{text-decoration: underline;}
+.box_window .c_b{width: 9px;height: 6px;margin: 0 auto;position: relative;margin-top: -1px;font-size: 0;overflow: hidden;background:url(images/flow/p_window_b.gif) no-repeat;}
+</style>
+<script type="text/javascript">
+var isblur=0,isShow_locListDiv=true;
+(function($){
+	$.showAlert = function(obj,msg,w,title,fn){
+		isShow_locListDiv = true;
+		var f1;switch(true){case typeof(fn) == "string":f1 = new Function("e", fn);break;case fn instanceof Function:f1 = fn;break;default:f1 = function(){$.showClose();};break;}
+		$('#locListDiv > .content').html(((typeof title !="undefined")?"<p>"+title+"</p>":"")+"<p>"+msg+"</p><p><a href='###' id='locClose'>关闭</a></p>");
+		$('#locClose').click(function(){f1();});
+		$('#locListDiv').show();
+		var $obj = $(obj);
+		var offset=$obj.offset();
+		var x = (offset.left-(w-$obj.width())/2)+"px";
+		var y = (offset.top-$('#locListDiv').height())+"px";
+		$('#locListDiv').css({left:x,top:y,width:w+"px"});
+		isblur = 1;
+	}
+	
+	$.showConfirm = function(obj,msg,w,fn,fc){
+		isShow_locListDiv = true;
+		var f1;switch(true){case typeof(fn) == "string":f1 = new Function("e", fn);break;case fn instanceof Function:f1 = fn;break;default:f1 = function(){$.showClose();};break;}
+		var f2;switch(true){case typeof(fc) == "string":f2 = new Function("e", fc);break;case fc instanceof Function:f2 = fc;break;default:f2 = function(){$.showClose();};break;}
+		$('#locListDiv > .content').html("<p>"+msg+"</p><p><a href='###' id='locConfirm'>确定</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='###' id='locCancle'>取消</a></p>");
+		$('#locConfirm').click(function(){f1();});
+		$('#locCancle').click(function(){f2();});
+		$('#locListDiv').show();
+		var $obj = $(obj);
+		var offset=$obj.offset();
+		var x = (offset.left-(w-$obj.width())/2)+"px";
+		var y = (offset.top-$('#locListDiv').height())+"px";
+		$('#locListDiv').css({left:x,top:y,width:w+"px"});
+		isblur = 1;
+	}
+	
+	$.showClose = function(){
+		//$("body").unbind('click');
+		$("#locListDiv").hide();
+		isblur=0;
+	}
+	
+	$.addEvent = function(){alert(1);
+		if(isblur==1||$("#locListDiv").is(':hidden')){
+			isblur=0;
+			return;
+		}
+		var e=event||window.event;
+		var sender=e.srcElement||e.target;
+		var isShow_locListDiv=true;
+		while(sender){
+			if(sender!=$("#locListDiv").get(0)&&sender){
+				sender=sender.offsetParent;
+				isShow_locListDiv=false;
+				continue;
+			}else if(sender){
+				isShow_locListDiv=true;
+				break;
+			}
+		}
+		if(!isShow_locListDiv){
+			$.showClose();
+		}
+	}
+})(jQuery);
+
+$(document).ready(function(){
+	
+	/*var hiddenlocListDiv=function(){return function(event){alert(1);if(isblur==1||document.getElementById("locListDiv").style.display=="none"){isblur=0;return;}
+	var e=event||window.event;var sender=e.srcElement||e.target;while(sender){if(sender!=document.getElementById("locListDiv")&&sender){sender=sender.offsetParent;isShow_locListDiv=false;continue;}else if(sender){isShow_locListDiv=true;break;}}
+	if(!isShow_locListDiv){document.getElementById("locListDiv").style.display="none";}}}
+	var addEvent=function(el,evname,func){if(el.attachEvent){el.attachEvent("on"+evname,func,true);}else if(el.addEventListener){el.addEventListener(evname,func,false);}else{el["on"+evname]=func;}};
+	addEvent(document,"click",hiddenlocListDiv());*/
+	$("body").bind('click',function(){
+		$.addEvent();
+	});
+});
+</script>
+</head>
+
+<body>
+<br/><br/><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="###" onclick="$.showAlert(this,'你好',216)">提示框</a>
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="###" onclick="$.showConfirm(this,'确认提示',126)">确认框</a>
+<div id="locListDiv" class="box_window">
+ 	<div class="content"></div>
+ 	<div class="c_b"></div>
+</div>
+</body>
+</html>

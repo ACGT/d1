@@ -1,0 +1,1 @@
+这几个jar文件需要放在resin4的lib目录下，否则会报ClassNotFoundException

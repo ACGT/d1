@@ -1,0 +1,37 @@
+以后每月和杨柳确定券头和subad即可
+
+ 
+
+select odrmst_odrid,odrmst_pname,odrmst_gdsmoney,odrmst_tktvalue,odrmst_acturepaymoney,odrmst_temp,tktmst_cardno,odrmst_subad
+
+into d1marketing..feixin201105_2
+
+from odrmst_recent inner join tktmst on (tktmst_id=odrmst_tktid and 
+
+  ((tktmst_cardno like 'd1030_fxjf%' or tktmst_cardno like 'fx%' or tktmst_cardno like 'mafx%' or tktmst_cardno like 'd1030fx%')))
+
+where odrmst_orderdate>'2011-5-1' and odrmst_orderdate<'2011-6-1'
+
+and odrmst_orderstatus in (3,31,5,51,6,61)
+
+订单号 姓名 商品金额 购物券 实付商品金额 跟踪代码 券号 subad 
+
+ d1030_fxjf	fx	mafx	d1030fx 
+
+insert into d1marketing..feixin201105_2
+(odrmst_odrid,odrmst_pname,odrmst_gdsmoney,odrmst_tktvalue,odrmst_acturepaymoney,odrmst_temp,odrmst_subad)
+select odrmst_odrid,odrmst_pname,odrmst_gdsmoney,odrmst_tktvalue,odrmst_acturepaymoney,odrmst_temp,odrmst_subad
+
+from odrmst_recent where  odrmst_subad like 'fxjf%'
+
+and odrmst_odrid not in (select odrmst_odrid from d1marketing..feixin201105_2)
+and odrmst_orderdate>'2011-5-1' and odrmst_orderdate<'2011-6-1'
+
+and odrmst_orderstatus in (3,31,5,51,6,61)
+
+ 
+
+select * from d1marketing..feixin201105_2 order by odrmst_odrid
+
+
+select top 10 * from tktmst where tktmst_cardno like 'd1030fx%'

@@ -1,0 +1,45 @@
+/* CSS Document */
+body{ margin:0px auto; margin:0px; padding:0px; background-color:#fff; font-size:12px;}
+div{ border:0; margin:0px; padding:0px;}
+a{ margin:0px; padding:0px; text-decoration:none }
+ul{margin:0px; padding:0px; list-style:none}
+li{margin:0px; padding:0px;}
+a img{ border:none;}
+.clear{ float:none; }
+
+.center{ width:980px; margin:0px auto; padding-top:10px;}
+.orderdetail{ width:980px; margin:0px auto; overflow:hidden;  }
+.order_title{ width:960px; overflow:hidden; background:#ffecf2; font-size:14px; color:#211d1e; line-height:38px; padding-left:20px;
+              border-bottom:solid 1px #c64063;
+             }
+.order_imglist{padding-left:25px;}
+.order_imglist img{ margin-right:5px;}
+.order_create{ width:955px; border-bottom:solid 1px #c64063; padding-top:5px; padding-bottom:18px; padding-left:25px; }
+.tip{ width:165px; height:80px; background:#ffecf2; color:#010000; padding-top:10px; text-align:center; line-height:18px; border:solid 1px #f9d9e4;}
+.tip span{ font-size:13px;}
+.tip a{ color:#3051ae; text-decoration:underline; font-size:12px;}
+.order_zz{width:955px; border-bottom:solid 1px #c64063; padding-top:15px; padding-bottom:50px; padding-left:25px;  }
+.order_zz span{ font-size:14px; color:#211d1e;}
+.order_zz span img{ vertical-align:middle;}
+.order_userinfo{ width:980px; border-bottom:solid 1px #c64063; padding-top:15px; padding-bottom:50px; }
+.order_userinfo table span{ font-size:14px;}
+.order_userinfo table { line-height:20px;}
+.order_userinfo table td{ border-bottom:dashed 1px #c2c2c2;}
+.order_gdsinfo{ width:955px;  padding-top:15px; padding-left:25px;  }
+.order_gdsinfo span{ font-size:14px; color:#211d1e;}
+.order_gdsinfo #ordert{ text-align:center; color:#333; background-color:#c2c2c2; border-top:solid 1px #c64063; float:right; border-collapse: separate;}
+.order_gdsinfo #ordert td.d1{ background:#f7edee;}
+.order_gdsinfo #ordert td{ background:#fff;}
+.sptitle{  width:270px;  text-align:left; float:left; padding-left:5px;}
+.sptitle a { color:#333; text-decoration:none; line-height:18px;}
+.sptitle a:hover{ color:#a22d48; text-decoration:none;}
+.order_gdsinfo #ordert span{color:#ca3433; font-size:13px;}
+.order_gdsinfo #ordert .a{ color:#0014a7; text-decoration:underline; display:block; padding-top:4px;}
+.ordert1{ width:955px; float:right; text-align:right; line-height:25px;}
+.ordert1 span{ font-size:13px; }
+.ordert1 a{ font-size:14px; color:#0014a7; text-decoration:underline;}
+.order_zz table td{ height:18px;}
+.order_zz table td a{color:#0014a7; text-decoration:underline; }
+
+
+

@@ -1,0 +1,457 @@
+@charset "utf-8";
+
+.main {
+	min-height: 300px;
+	background-color: #fff;
+	font-family: 微软雅黑;
+}
+
+.main .p_item {
+	padding: 0 0.15rem;
+}
+
+.main .p_item  .pi_img {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+}
+
+.main .p_item h1 {
+	font-size: 0.16rem;
+	line-height: 0.32rem;
+	font-weight: normal;
+}
+
+.main .p_item h2 {
+	font-size: 0.14rem;
+	color: #adadad;
+	line-height: 0.25rem;
+	font-weight: normal;
+}
+
+.main .p_item .pi_price {
+	background: #db372e;
+	height: 0.77rem;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	color: #ffffff;
+	margin-top: 0.1rem;
+}
+
+.main .p_item .pi_price .actt {
+	width: 0.75rem;
+	padding-top: 0.20rem;
+	margin-left: 0.15rem;
+	background: #be1623;
+	font-size: 0.16rem;
+	text-align: center;
+}
+
+.main .p_item .pi_price .price {
+	width: 1.3rem;
+	padding-left: 0.10rem;
+	font-family: 微软雅黑;
+}
+
+.main .p_item .pi_price .price .mprice {
+	font-size: 0.28rem;
+	font-weight: bold;
+	line-height: 0.36rem;
+	display: block;
+}
+
+.main .p_item .pi_price .price .py {
+	font-size: 0.20rem;
+}
+
+.main .p_item .pi_price .price .sprice {
+	font-size: 0.12rem;
+	font-weight: normal;
+	line-height: 0.25rem;
+	display: block;
+}
+
+.main .p_item .pi_price .actzk {
+	-webkit-box-flex: 1;
+	padding-top: .15rem;
+}
+
+.main .p_item .pi_price .actzk .zk {
+	line-height: .22rem;
+	font-size: 0.12rem;
+	width: 0.50rem;
+	height: 0.22rem; line-height：0 .22rem;
+	background: #ef950b;
+	text-align: center;
+	display: block;
+}
+
+.main .p_item .pi_sgdtl {
+	padding-left: .15rem;
+	background: #ededed;
+	height: 0.65rem;
+	-webkit-box-shadow: 0 2px 4px #d9d9d9;
+	box-shadow: 0 2px 4px #d9d9d9;
+}
+
+.main .p_item .pi_sgdtl .pis_t {
+	height: 0.25rem;
+}
+
+.main .p_item .pi_sgdtl .pis_m {
+	width: 90%;
+	height: 0.05rem;
+	background: #bd1723;
+}
+
+.main .p_item .pi_sgdtl .pis_m .s {
+	background: #018d36;
+	height: 0.05rem;
+	position: relative;
+}
+
+.main .p_item .pi_sgdtl .pis_m .s .f {
+	position: absolute;
+	border-color: #bd1723 transparent transparent transparent;
+	border-style: dashed dashed solid dashed;
+	border-width: 5px;
+	top: -0.05rem;
+	right: -0.05rem;
+}
+
+.main .p_item .pi_sgdtl .pis_m .s .txt {
+	position: absolute;
+	top: -0.25rem;
+	right: -0.35rem;
+	font-size: 0.12rem;
+}
+
+.main .p_item .pi_sgdtl .pis_b {
+	font-size: 0.14rem;
+	text-align: center;
+}
+
+.main .p_item .pi_sgdtl .pis_b .sgtxt {
+	color: red;
+}
+
+.main .p_item .pi_cx {
+	margin-left: 0.50rem;
+	margin-top: 0.05rem;
+	font-size: 0.14rem;
+	line-height: 0.32rem;
+}
+
+.main .p_item .pi_cx .pic_m {
+	width: 0.50rem;
+	height: 0.25rem;
+	line-height: 0.25rem;
+	background: #e74109;
+	color: #ffffff;
+	text-align: center;
+	display: inline-block;
+}
+
+.main .p_item  .pi_dtl {
+	margin-top: 0.08rem;
+	font-size: 0.16rem;
+}
+
+.main .p_item  .pi_dtl .pid_p {
+	position: relative;
+	padding-left: 0.15rem;
+	height: 0.50rem;
+	line-height: 0.50rem;
+	border-bottom: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+}
+
+.main .p_item  .pi_dtl .pid_com {
+	position: relative;
+	padding-left: 0.15rem;
+	height: 0.50rem;
+	line-height: 0.50rem;
+	border-bottom: 1px solid #cccccc;
+}
+
+.main .p_item  .pi_dtl .pid_p span, .main .p_item  .pi_dtl .pid_com span
+	{
+	position: absolute;
+	right: 0.50rem;
+	width: 0.20rem;
+	top: 0.10rem;
+	height: 0.40rem;
+	background-image: url(http://images.d1.com.cn/wap/2014/iconcp.png);
+	background-position: -321px -57px;
+	background-repeat: no-repeat;
+}
+
+.main .p_item  .pi_dtl .pid_p a, .main .p_item  .pi_dtl .pid_com a {
+	width: 100%;
+	display: block;
+}
+
+.main .p_item  .pi_dtl .pid_com img {
+	vertical-align: middle;
+	width: .21rem;
+	height: .21rem;
+}
+
+.main .p_item  .pi_std {
+	font-size: 0.16rem;
+	margin-top: 0.10rem;
+}
+
+.main .p_item  .pi_std .pis_grp {
+	margin-top: 0.15rem;
+}
+
+.main
+ 
+.p_item
+  
+.pi_std
+ 
+.pis_grp
+ 
+.tit
+,
+{
+display
+:black
+;line-height
+:
+ 
+0
+.50rem
+;
+ 
+height
+:
+0
+.50rem
+;padding-top
+:
+.30rem
+;
+}
+/*.main .p_item  .pi_std .pis_grp span,.main .p_item  .pi_std .pis_sku span{display: inline-block;}*/
+.main .p_item  .pi_std .pis_grp a {
+	display: inline-block;
+	border: 1px solid #ceced0;
+	background-color: #fafafa;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 0.10rem;
+	width: .60rem;
+	height: .90rem;
+}
+
+.main .p_item  .pi_std .pis_grp a:last-child {
+	margin-right: 0;
+}
+
+.main .p_item  .pi_std .pis_grp a img {
+	width: .60rem;
+	height: .60rem;
+}
+
+.main .p_item  .pi_std .pis_sku {
+	margin-top: 0.15rem;
+}
+
+,
+.main .p_item  .pi_std .pis_sku .tit {
+	
+}
+
+.main .p_item  .pi_std .pis_sku a {
+	display: inline-block;
+	border: 1px solid #ceced0;
+	background-color: #fafafa;
+	padding: 0.05rem 0.12rem;
+	margin: 0 0.05rem 0.05rem 0;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 0.05rem;
+	border-radius: 0.05rem;
+	font-size: 0.12rem;
+	cursor: pointer;
+}
+
+.main .p_item  .pi_std .pis_grp a:last-child, .main .p_item  .pi_std .pis_sku a:last-child
+	{
+	margin-right: 0;
+}
+
+.main .p_item  .pi_std .pis_count {
+	height: 0.50rem;
+}
+
+.main .p_item  .pi_std .pis_count .pcount {
+	display: inline-block;
+	height: .34rem;
+	border: 1px solid #999;
+	border-radius: 3px;
+	line-height: .34rem;
+}
+
+.main .p_item  .pi_std .pis_count .pcount a {
+	display: inline-block;
+	width: .33rem;
+	height: .33rem;
+	border-radius: 3px 0 0 3px;
+	background-color: #f5f4f4;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fffeff),
+		to(#f5f4f4));
+	text-align: center;
+	cursor: pointer;
+}
+
+.main .p_item  .pi_std .pis_grp .sku1current, .main .p_item  .pi_std .pis_sku .sku1current
+	{
+	border: 1px solid red;
+}
+
+.main .p_item  .pi_std .pis_count .pcount .r {
+	border-right: 1px solid #999;
+}
+
+.main .p_item  .pi_std .pis_count .pcount .l {
+	border-left: 1px solid #999;
+}
+
+.main .p_item  .pi_std .pis_count  .pcount .num {
+	padding: 0;
+	text-align: center;
+	border: 0;
+	width: .35rem;
+	height: .32rem;
+	line-height: .32rem;
+	font-size: .14rem;
+	color: #333;
+	background-color: #f5f4f4;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fffeff),
+		to(#f5f4f4));
+}
+
+.main  .pis_cart {
+	width: 100%;
+	padding: 5px 0;
+	background: #f1f1f5;
+	font-size: .14rem;
+}
+
+.main  .pis_cart .pisc_but {
+	width: 48%;
+	text-align: center;
+	display: inline-block;
+}
+
+.main .pis_cart .pisc_but a {
+	display: block;
+	height: .35rem;
+	margin: 0 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 0.05rem;
+	border-radius: 0.05rem;
+	line-height: .35rem;
+	font-size: .14rem;
+	color: #ffffff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.main  .pis_cart .l span {
+	margin-right: 5px;
+	vertical-align: -6px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url(http://images.d1.com.cn/wap/2014/fav.png) no-repeat;
+	background-size: 18px auto;
+}
+
+.main .pis_cart .r span {
+	margin-right: 5px;
+	vertical-align: -6px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url(http://images.d1.com.cn/wap/2014/cart.png) no-repeat;
+	background-size: 20px auto;
+}
+
+.main  .pis_cart .pisc_but a {
+	
+}
+
+.main  .pis_cart .pisc_but .l {
+	background: #ff9c00;
+}
+
+.main .pis_cart .pisc_but .r {
+	background: #d20001;
+}
+
+.main  .pis_bot {
+	height: 0.50rem;
+}
+
+.main .cart_msg {
+	position: fixed;
+	z-index: 102;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	font-size: 0.14rem;
+	display: none;
+}
+
+.main .cart_msg::after {
+	content: '\20';
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+}
+
+.main .cart_msg .txt {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.08rem;
+	width: 3rem;
+	background-color: rgba(51, 51, 51, .9);
+	-webkit-border-radius: .02rem;
+	border-radius: .02rem;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3)
+}
+
+.main .cart_msg .txt i {
+	color: #fff;
+	font-style: normal;
+	padding: 0.08rem;
+	font-size: .14rem;
+	display: inline-block;
+}
+
+.main .cart_msg .txt .but {
+	height: 0.35rem;
+	color: #fff;
+	line-height: 0.35rem;
+}
+
+.main .cart_msg .txt .but a {
+	height: 0.35rem;
+	display: inline-block;
+	width: 50%;
+	color: #fff;
+	cursor: pointer;
+}

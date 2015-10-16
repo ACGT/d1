@@ -1,0 +1,18 @@
+document.write("		<a name='top'></a>");
+document.write("		<div class='h_txt'>");
+document.write("			<div class='pageback'>");
+document.write("				<a href='javascript:window.history.back(-1);'>返回</a>");
+document.write("			</div>");
+document.write("			<div cclass='title' style='margin-top:-.08em' >");
+document.write("				<a href='chuhe.html?id=702' ><font size='4' color='#5c5c5e' > 早餐精选 </font></a><a href='chuhe.html?id=674' ><font size='4' color='#5c5c5e' > 五行植物粉</font></a>");
+document.write("			</div>");
+document.write("			<div class='home'>");
+document.write("				<a href='chuhe.html?id=677'></a>");
+document.write("			</div>");
+document.write("			<div class='myuser'>");
+document.write("				<a href='user_index.html'></a>");
+document.write("			</div>");
+document.write("			<div class='carth'>");
+document.write("				<a href='flow.html'></a>");
+document.write("			</div>");
+document.write("		</div>");

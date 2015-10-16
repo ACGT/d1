@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>D1优尚网触屏版</title>
+    	<meta name="author" content="m.d1.cn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css" charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/indexn.css?1.6" charset="utf-8"/>
+        <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="/res/wap/js/com.js"></script>
+		<script type="text/javascript" language="javascript" src="/res/js/wapcheck.js?1406565937421"></script>
+
+<script>
+if(!checkMobile()){
+	window.location.href="http://www.d1.com.cn/html/zhuanti/email_index.jsp?id=86";
+}
+</script>
+<style>
+.adimg{font-size:0px;}
+</style>
+	</head>
+		  <body>
+		        <header class="p_header">
+		          <a name="top"></a>
+		                <div class="h_txt">
+						<div class="logo">
+							<a href="/wap/index.html"></a>
+						</div>
+					    <div class="search">
+						<input type="submit" class="sbut" text="搜索" name="sbut" id="sbut" />
+						<input name="keyword" id="keyword" autocomplete="off" role="combobox" aria-haspopup="true" type="text" class="keys" />
+						</div>
+						<div class="myuser"><a href="/wap/user/index.html"></a></div>
+						<div class="carth">
+						 <a href="/wap/flow.html"></a>
+						</div>
+			          </div>
+			    </header>
+				<div class="main">
+				<div class="mcate">
+					    <a href="/wap/index.html" class="cur">首页</a>
+						<a href="/wap/result.html?rackcode=014">美妆</a>
+						<a href="/wap/result.html?rackcode=020">女装</a>
+						<a href="/wap/result.html?rackcode=030">男装</a>
+						<a href="/wap/cate.html">全部</a>
+					</div>
+				    <div class="mp_list sg">
+				    <div class="adimg">
+				    <img src="http://images.d1.com.cn/wap/2015/01/waptkt_01.jpg"  alt="">
+				    <div style="width:100%;display:-webkit-box">
+<div style="width:63%">
+<img src="http://images.d1.com.cn/wap/2015/01/waptkt_02.jpg"  alt="">
+</div>
+<div style="width:37%">
+<a href="http://m.d1.cn/wap/reg.html">	
+<img src="http://images.d1.com.cn/wap/2015/01/waptkt_03.jpg" border="0"></a>
+<a href="http://m.d1.cn/wap/login.html?url=/wap/waptkt.html">	
+<img src="http://images.d1.com.cn/wap/2015/01/waptkt_04.jpg" border="0"></a>
+</div>
+</div>
+<a href="http://m.d1.cn/html/newyear2015hb.jsp">
+ <img src="http://images.d1.com.cn/wap/2015/01/waptkt_05.jpg"  alt=""></a>
+ <div style="width:100%;display:-webkit-box">
+<div style="width:50%">
+<a href="http://m.d1.cn">	
+<img src="http://images.d1.com.cn/wap/2015/01/waptkt_06_2.jpg" border="0"></a>
+</div>
+<div style="width:50%">
+<a href="http://m.d1.cn/wap/result.html?rackcode=030&amp;shopd1=1">	
+<img src="http://images.d1.com.cn/wap/2015/01/waptkt_07_2.jpg" border="0"></a>
+</div>
+</div>
+<div style="width:100%;display:-webkit-box">
+<div style="width:50%">
+<a href="http://m.d1.cn/wap/result.html?rackcode=020&amp;shopd1=1">	
+<img src="http://images.d1.com.cn/wap/2015/01/waptkt_08_2.jpg" border="0"></a>
+</div>
+<div style="width:50%">
+<a href="http://m.d1.cn/wap/result.html?rackcode=015&amp;shopd1=1">	
+<img src="http://images.d1.com.cn/wap/2015/01/waptkt_09_2.jpg" border="0"></a>
+</div>
+</div>
+</div>
+ </div>
+					</div>
+				<div id="footer" class="footer">
+					<script  language="javascript">
+					getwapFoot();
+				   </script>
+				</div>
+<script  language="javascript">
+
+function gettkt(obj){
+		  $.ajax({
+				type: "get",
+				dataType: "json",
+				url: '/html/zt2013/etkt0708/gettkt.jsp',
+				cache: false,
+				error: function(XmlHttpRequest){
+				},success: function(json){
+					if(json.urlflag){
+						window.location.href=json.gourl;
+					}else{
+						 alert(json.message);
+					}
+                 	
+
+				},beforeSend: function(){
+				},complete: function(){
+				}
+			});
+}
+
+
+</script>
+
+
+
+<div style="display:none;">
+	<script language="javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+	</script>
+	</div>
+</body>
+</html>

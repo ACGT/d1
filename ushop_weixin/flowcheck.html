@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>锄禾触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/flowcheck.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script src="/res/wap/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/sync_d1_uer.js" ></script>
+</head>
+<body>
+	<header class="p_header">
+		<script type="text/javascript">
+			var title_string = "订单详情";
+		</script>
+		<script type="text/javascript" src="js/headers/header_with_title.js?201509111528"  ></script>
+	</header>
+	<div class="main">
+		<div class="pub m_address">
+			<div class="title">收货人信息</div>
+			<div class="item">
+				<input name="addrid" id="addrid" type="hidden" value="-1">
+			</div>
+			<div class="m_addlist" style="display: none;">
+				<ul>
+
+				</ul>
+			</div>
+		</div>
+		<div class="pub m_pay">
+			<div class="title">支付方式</div>
+			<div class="item"></div>
+			<input name="paytxt" id="paytxt" type="hidden" value="0">
+		</div>
+		<div class="pub m_tkt">
+			<div class="title">优惠券</div>
+			<div class="item">
+				<input name="tktid" id="tktid" type="hidden" value=""> <a
+					href="javascript:void(0);" id="tktshow"><span id="tkttxt">
+						选择优惠券</span> <i class="go top2"></i> </a>
+			</div>
+			<div class="tktlist" style="display: none;">
+				<ul>
+
+				</ul>
+			</div>
+		</div>
+		<div class="pub m_ship">
+			<div class="title">配送时间</div>
+			<div class="item">
+				<span><input class="shiptime" type="radio" checked
+					name="shiptime" value="送货时间不限">送货时间不限</span> <span><input
+					class="shiptime" type="radio" name="shiptime" value="周六日及节假日送货">周六日及节假日送货</span>
+				<span><input class="shiptime" type="radio" name="shiptime"
+					value="周一至周五工作日送货">周一至周五工作日送货</span>
+			</div>
+		</div>
+		<div class="pub m_cart">
+			<div class="title">购物车信息</div>
+			<div class="c_list"></div>
+		</div>
+		<div class="memo">
+			<input type="text" class="msg" name="memo" id="memo"
+				placeholder="在这里可以留言给卖家哦">
+		</div>
+		<div class="msgerr" id="msgerr">
+			<div class="txt">
+				<i> </i>
+				<div class="but">
+					<a href="javascript:void(0)" onclick="$('#msgerr').hide();"
+						id="stroll">关闭</a>
+				</div>
+			</div>
+		</div>
+		<div class="m_next">
+			<div class="totlenum"></div>
+			<a href="javascript:void(0)" class="r" id="sndOK">提交订单</a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/flowcheck.js?201509071352"></script>
+<script language="javascript">
+		 		var ua = window.navigator.userAgent.toLowerCase(); 
+				if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+					$.ajax({
+						type: 'get', 
+						url: '/ajax/wap/wxcheck.jsp',
+						dataType:'json',
+						success: function(json){
+							if(!json.success){
+						       window.location.href="/wap/wxtt.jsp?backurl=/wap/flowcheck.html";
+							}
+						}
+					});
+				}
+		 		Bindaddr('0');
+		 		Bindcart();
+		 		 
+		 		    var ua = window.navigator.userAgent.toLowerCase();
+		 		    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+		 		        
+		 		   
+		 		if (typeof WeixinJSBridge == "undefined"){
+		 		   if( document.addEventListener ){
+		 		       document.addEventListener('WeixinJSBridgeReady', wxpay, false);
+		 		   }else if (document.attachEvent){
+		 		       document.attachEvent('WeixinJSBridgeReady', wxpay); 
+		 		       document.attachEvent('onWeixinJSBridgeReady', wxpay);
+		 		   }
+		 		}else{
+		 			wxpay();
+		 		}
+		 		   }else{
+		 			  Bindpay();
+		 		    }
+		 		
+				</script>
+<div style="display: none;">
+	<script language="javascript">
+				var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+				</script>
+</div>
+
+</html>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+.main{margin: 0 auto;min-width:3.20rem;max-width:6.40rem;font-size:20px;background:#f6f6f6;}
+.main .shop{padding:.10rem 0;}
+.main .shop .shopbanner img{width:100%;}
+.shoplist .itemtitle{width:95%;height:.40rem;line-height:.40rem;padding-left:5%;font-size:.18rem;}
+.shoplist ul{width:100%;}
+.shoplist li{width:49%;float:left;margin-top:.10rem;border-bottom:1px solid #b2b2b2;}
+.shoplist li.r{margin-left:2%;}
+.shoplist li .listitem{background:#fff;padding:5px;}
+.shoplist li .listitem .pic{text-align:center;position:relative;}
+.shoplist li .listitem .pic img{width:7.0em;height:7.0em}
+.shoplist li .listitem .txt{height:1.10rem;}
+.shoplist li .listitem .txt .title{width:95%;padding-right:5%;font-size:.14rem;font-family:微软雅黑;max-height:.50rem;line-height:.25rem;text-overflow:ellipsis;overflow:hidden;-webkit-text-overflow:ellipsis;}
+.shoplist li .listitem  .price{height:.30rem;position:relative;line-height:.26rem;}
+.shoplist li .listitem  .price .m{color:#f1424f;font-size:.18rem;}
+.shoplist li .listitem  .price .s{color:#a4a4a4;font-size:.14rem;text-decoration: line-through;}
+.shoplist li .listitem  .price .zk{color:#a4a4a4;font-size:.14rem;}
+.shoplist li .listitem  .price .sale{color:#a4a4a4;font-size:.14rem;}
+.shoplist li .listitem  .price .ms{height:.18rem;display:inline-block;width:.60rem;} 
+.shoplist li .listitem  .price .bg1{background:url(http://images.d1.com.cn/wap/2015/03/wapmsbg1_2.jpg) no-repeat;}
+.shoplist li .listitem  .price .bg2{background:url(http://images.d1.com.cn/wap/2015/03/wapmsbg2_2.gif) no-repeat;}
+.shoplist li .listitem  .price .bg3{background:url(http://images.d1.com.cn/wap/2015/03/wapmsbg3_2.jpg) no-repeat;}
+
+@media only screen and (min-width:640px){
+	.main{font-size:40px;}
+ .shoplist li .listitem .txt .title{height:.30rem;}
+  .shoplist li .listitem  .price .m{color:#f1424f;font-size:.22rem;}
+  .shoplist li .listitem .txt .title{font-size:.16rem;}
+}
+

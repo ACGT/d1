@@ -1,0 +1,42 @@
+body {text-decoration:none;margin:0px auto 0px;padding:0px;font-size:12px;line-height:18px;}
+ul,li{margin:0px;padding:0px;list-style:none;}
+img{border:0px;}
+#all{margin: 10px auto 0;width:980px;background:url("http://images.d1.com.cn/images2012/New/jifen/bg.gif") repeat 0px 0px;}
+#cav{width:980px;background:url("http://images.d1.com.cn/images2012/New/jifen/bg1.gif") no-repeat 0px 0px;padding:239px 0px 20px 0px;height:auto}
+#b1{width:920px;background-color:#ffffff;margin:0px auto;height:auto;}
+#c1{width:888px;margin:0px auto;padding:22px 10px 0px 10px;height:51px}
+#c11_0,#c11_1{padding:8px 0px 0px 20px;color:#000000;background:url("http://images.d1.com.cn/images2012/New/jifen/bg8.gif") no-repeat 0px 8px;float:left;}
+#c12_0,#c12_1{float:right;}
+.clear{clear:both;}
+#c12_0 img,c12_1 img{margin-right:10px;}
+#c2{margin:0px auto 10px;background:url("http://images.d1.com.cn/images2012/New/jifen/bg2.gif") no-repeat 0px 0px;width:888px;height:340px;}
+#c21{float:left;padding-top:91px;margin-left:5px;background:url("http://images.d1.com.cn/images2012/New/jifen/bg4.gif") no-repeat 0px 51px;width:216px;}
+#c21 li{padding-left:12px;padding-right:10px;font-size:12px;height:38px;line-height:16px;}
+#l1{background:url("http://images.d1.com.cn/images2012/New/jifen/bg5.gif") no-repeat 10px 5px;}
+#l2{background:url("http://images.d1.com.cn/images2012/New/jifen/bg5.gif") no-repeat -13px 5px;}
+#l3{background:url("http://images.d1.com.cn/images2012/New/jifen/bg5.gif") no-repeat -37px 5px;}
+#l4{background:url("http://images.d1.com.cn/images2012/New/jifen/bg5.gif") no-repeat -60px 5px;}
+#l5{background:url("http://images.d1.com.cn/images2012/New/jifen/bg5.gif") no-repeat -84px 5px;}
+#l6{background:url("http://images.d1.com.cn/images2012/New/jifen/bg5.gif") no-repeat -109px 5px;}
+#c21 li a{color:#1d1d1d;text-decoration:none;}
+#c21 div{background-color:#ffffff;}
+#c21 .n1{white-space:nowrap;overflow:hidden;text-align:left;width:200px;}
+#c21 .n2{float:left;}
+#c21 .n3{float:right;font-size:12px;font-weight:800;color:#ffffff;}
+#c21 .n3 a{color:#A10034;text-decoration:none;}
+#c22{float:right;padding-top:14px;width:650px;}
+#c22 li{background:url("http://images.d1.com.cn/images2012/New/jifen/bg9.gif") no-repeat 0px 0px;width:162px;height:309px;float:left;position:relative;}
+#c22 li .t1{position:absolute;top:49px;left:49px;width:84;height:20px;text-align:center;font-size:12px;font-weight:800;color:#ffffff;}
+#c22 li .t2{position:absolute;top:68px;left:20px;width:120px; height:120px; background-color:#ffffff;}
+#c22 li .t3{position:absolute;top:195px;left:17px; width:130px;over-flow:hidden;text-align:center;}
+#c22 li .t4{position:absolute;top:265px;left:45px;}
+#c3{margin:0px auto 10px;background:url("http://images.d1.com.cn/images2012/New/jifen/bg3.gif") no-repeat 0px 0px;width:888px;height:auto;padding-top:45px;}
+.c3a{width:868px;margin:0px auto;height:24px;background:url("http://images.d1.com.cn/images2012/New/jifen/bg7.gif") repeat 0px 0px;margin:20px 0px 20px 0px }
+.c3a .c3b{height:24px;background:url("http://images.d1.com.cn/images2012/New/jifen/bg6.gif") no-repeat 0px 0px;padding:3px 0px 0px 20px;color:#ffffff;font-size:12px;font-weight:800;text-align:left;width:500px;}
+.c3c ul{}
+.c3c li{float:left;height:330px;width:220px;}
+.c3c .s1{width:200px;height:200px;margin:5px auto 0px;background-color:#ffffff;}
+.c3c .s2{width:200px;margin:5px auto 0px;text-align:center;height:65px;}
+.c3c .s3{width:200px;margin:5px auto 0px;text-align:center;}
+.c3b {float:left;}
+.jf1{color:#A10034;font-weight:800;font-size:14px;}

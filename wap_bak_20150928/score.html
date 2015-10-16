@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>D1优尚网触屏版</title>
+    	<meta name="author" content="m.d1.cn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css" charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/score.css" charset="utf-8"/>
+        <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="/res/wap/js/waplistcart.js"></script>
+	</head>
+		  <body>
+		        <header class="p_header">
+		              <div class="h_txt">
+					  <div class="pageback"><a href="javascript:window.history.back(-1);" >返回</a></div>
+					    <div class="h_h2"><h2>积分商城</h2></div>
+			          </div>
+			    </header>
+				<div class="main">
+				    <div class="cate">
+						<span>我的积分	</span>
+						<a href="/wap/user/myscore.html">查看积分</a>
+					</div>
+				    <div class="m_plist">
+				       <div class="mp_sort">
+					       <div class="mps_con">
+						     <div class="mpsc_txt">
+							   <a href="javascript:void(0)"  attr="0"  class="cur" >1-500</a>
+						       <a href="javascript:void(0)"  attr="1">501-1000</a>
+							   <a href="javascript:void(0)"  attr="2">1001以上</a>
+							 </div>
+						   </div>
+				       </div>
+					   <div class="mp_list">
+					       <ul>
+							 
+						   </ul>
+
+				       </div>
+					</div>
+					<div class="choose_sku" id="choose_sku" style="display:none;" >
+					</div>
+					
+				 <div class="cart_msg" id="cartmsg" style="display:none;" >
+					         <div class="txt">
+					            <i>加入购物车成功!</i>
+					          <div class="but"><a href="javascript:void(0)" onclick="$('#cartmsg').hide();" id="stroll">继续购物</a><a href="flow.html">去购物车</a></div>
+
+					        </div>
+					        </div>
+				</div>
+				 
+				<div id="footer" class="footer">
+				    <span class="user">请登陆&nbsp;&nbsp;注册</span>
+					<span class="top"><a href="#top">回到顶部</a></span>
+				</div>
+				<script language="javascript">
+				function addCart(obj){
+				   
+				    $.inCart(obj,{ajaxUrl:'/ajax/flow/listAwardInCart.jsp'});
+
+			}
+				function loaddata(cls1){
+					
+				  var url=document.URL;
+				  var para="";
+				 
+				  var cls=0;
+				 
+					  if(cls1!=""){
+						  cls=cls1;
+					  }else{
+				   if(url.lastIndexOf("?")>0)
+				   {
+				        para=url.substring(url.lastIndexOf("?")+1,url.length);
+						var arr=para.split("&");
+						para="";
+						for(var i=0;i<arr.length;i++)
+						{
+						  
+						   if(arr[i].split("=")[0]=="cls"){
+							   cls=arr[i].split("=")[1];
+						   }
+						}
+				   }
+				}
+
+					  $.ajax({
+							type: 'get', 
+					        url: '/ajax/wap/getlogin.jsp?u=type',
+							dataType:'json',
+							success: function(p){
+									/*处理数据*/
+									if(p.status=="1"){
+									 $(".cate>span").html("我的积分："+p.userscore);
+									}
+					        }
+						});
+					
+					  $.ajax({
+						type: 'get', 
+				        url: '/ajax/wap/getscores.jsp',
+				        data:{cls:cls},
+						dataType:'json',
+						success: function(data){
+								/*处理数据*/
+								
+								if(data.status=="1"){
+								showlist(data,cls);
+								
+								}
+				        }
+					});
+					}
+
+					function showlist(data,cls){
+						
+
+					var scores=eval(data.scores);
+					$(".mp_list ul").html('');
+					if(scores.length>0){
+						var pli="";
+					   for(var i=0;i<scores.length;i++){
+						  var pprice=scores[i].score_mprice;
+						  
+						pli='<li>';
+						pli+='<div class="iteml"><a href="product.html?id='+scores[i].score_gdsid+'"><img src="'+scores[i].score_img+'" border="0"></a></div>';
+						pli+='	  <div class="itemr">';
+						pli+='	      <span class="title"><a href="product.html?id='+scores[i].p_gdsid+'">'+scores[i].score_gdsname+'</a></span>';
+						pli+='		  <div class="ptxt">';
+						pli+='		     <span class="pm">原价：￥'+pprice+'</span>';
+						pli+='		  </div>';
+						pli+='		 <div class="ptxt">';
+						pli+='			 <span class="ps">'+scores[i].score_jifen+'积分+￥'+scores[i].score_dhprice+'</span>';
+						pli+='			 <span class="pc"><a href="###" attr="'+scores[i].score_id+'" onclick="addCart(this);">兑换</a></span>';
+						pli+='		  </div>';
+						pli+='	  </div>';
+						pli+='  </li>';
+					   $(".mp_list ul").append(pli);
+					   }
+
+					  
+					}
+
+					   
+				$(".mpsc_txt>a").click(function(){
+							$(".mpsc_txt>a").removeClass("cur");
+							$(this).addClass("cur");
+							var corder=$(this).attr('attr');
+					
+							loaddata(corder);
+					});
+					}
+					loaddata('');
+					function op(obj){
+						if (window.confirm("确定要兑换此商品吗?一经兑换,不能恢复.")){
+							addCart(obj);
+						}
+					}
+					
+					
+
+					</script>
+						<div style="display:none;">
+					<script language="javascript">
+					var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+					document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+					</script>
+					</div>
+				          </body>
+				</html>

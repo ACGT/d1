@@ -1,0 +1,5 @@
+select top 10 replace(odrmst_temp,col002,col001),col001,* from 
+odrmst_recent join baidukey110413 on   odrmst_temp like '%'+col002+'%'
+
+update  odrmst_recent set odrmst_temp=replace(odrmst_temp,col002,col001) from 
+odrmst_recent join baidukey110413 on   odrmst_temp like '%'+col002+'%'

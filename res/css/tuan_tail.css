@@ -1,0 +1,45 @@
+/*底部开*/
+
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input { margin: 0px; padding: 0px; }
+#footer a{text-decoration:none;font-size:12px; font-weight:normal;}
+#footer a:hover{color:#8F1442;font-size:12px;font-weight:normal;}
+#footer{ margin:0 auto; font-size:12px;font-weight:normal;}
+img{border:none;}	
+.left{float:left;}
+.right{float:right;}
+#footer ul,li{ margin: 0px; padding: 0px;list-style:none;}
+#helpbox{
+	margin-top:8px;
+	width:980px;
+	height:210px;
+	clear:both;
+	text-align:left;
+	background-image: url(http://images.d1.com.cn/images2011/tailimg/index_helpbg.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+#helpbox1{
+	width:968px;
+	padding: 11px;
+	height:188px;
+	clear:both;
+	text-align:left;
+}
+#helpbox1 div{
+	float:left;
+	width:158px;
+	height:170px;
+	border-left:1px solid #E2E2E2;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
+#helpbox1 div img{border-bottom:1px solid #ebebeb;margin-left:10px;}
+#helpbox1 div ul li{line-height:27px;list-style:none;border-bottom:1px solid #ebebeb;text-indent:15px;font-size:12px;margin:0px 10px 0px 10px;background:url('http://images.d1.com.cn/images2011/tailimg/bggonggandian.gif') no-repeat 5px 10px;}
+#copyright{margin-top:8px;height:131px;width:979px;border-color:#E2E2E2;border-style:solid;border-width:1px 1px 0px 1px;clear:both;color:#7b7b7b;line-height:22px;font-size:12px;}
+#copyright div ul{margin-top:18px;}
+#copyright div ul li{display:inline;}
+#footer #footerline{width:979px;height:14px;background:url('http://images.d1.com.cn/images2011/tailimg/homeimg09/bgfooterline.gif');}
+#helpbox1 a{text-decoration: none;	color:#7b7b7b;}#copyright a{text-decoration: none;	color:#535353;}
+/*底部关*/

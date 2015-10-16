@@ -1,0 +1,15 @@
+
+select * into tktgdscard1224 from (
+select top 1001 'd1030_ydt01101'+convert(varchar(15),(convert(int,rand(tktmst_id+convert(int,rand()*100000))*1000000000))) cardno,'01407682' gdsid
+ from  tktmst order by newid()
+)a
+
+
+
+select * from tktgdscard1224
+
+生成数量:1千1张（1,001）
+使用范围:指定单品 商品号01407682
+满多少可使用：设置此单品特价为30元，需支付运费
+使用期限:如2010-12-22至2011-1-31
+头:d1030_ydt01101

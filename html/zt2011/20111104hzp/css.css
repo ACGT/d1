@@ -1,0 +1,98 @@
+body {
+	background-color: #FFF;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.time{ height:21px; line-height:21px; font-size:14px; font-weight:800; color:#fff;}
+.daynum{ color:#FFFF00;font-size:16px;}
+.hour {
+	color:#FFFF00; font-size:16px;
+}
+.minute {
+	color:#FFFF00;font-size:16px;
+}
+.second {
+	color:#FFFF00;font-size:16px;
+}
+.actbg1{position:absolute;width:160px;height:424;z-index:999;left:0px;}
+.actbg2{
+	position:absolute;
+	width:160px;
+	height:424;
+	z-index:999;
+	left:820px;
+}
+.showmenu1 {
+	background-image: url(http://images.d1.com.cn/zt2011/0916gqcx/zmjq_04.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:60px;
+}
+.showmenu2 {
+	background-image: url(http://images.d1.com.cn/zt2011/0916gqcx/zdp_03.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:60px;
+}
+.showmenu3 {
+	background-image: url(http://images.d1.com.cn/zt2011/0916gqcx/zxc_03.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:60px;
+}
+.showmenu4 {
+	background-image: url(http://images.d1.com.cn/zt2011/0916gqcx/abt_03.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:60px;
+}
+.showmenu5 {
+	background-image: url(http://images.d1.com.cn/zt2011/0916gqcx/zjjf_03.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:60px;
+}
+#jptjbt {
+	height: 52px;
+	width: 960px;
+}
+
+.jptjbts1 {
+	height: 52px;
+	width: 185px;
+	float:left;
+}
+.jptjbts2 {
+	height: 52px;
+	width: 205px;
+	float:left;
+}
+
+.jptjbts3 {
+	height: 52px;
+	width: 200px;
+	float:left;
+}
+.nonehot {
+	DISPLAY: none
+}
+.blockhot {
+	DISPLAY: block;
+}
+
+body {	text-decoration: none;	margin: 0px auto 0px;	padding: 0px; font-size:12px;line-height:18px;}
+ul,li{margin:0px;padding:0px;list-style:none;}
+img{border:0px;}
+
+#c3{margin:0px auto 10px;background:url("http://www.d1.com.cn/html/zt2011/20111104hzp/images/bg3.gif") no-repeat 0px 0px;width:960px;height:auto;padding-top:45px; }
+.c3a{width:940px;margin:0px auto;height:24px;background:url("http://www.d1.com.cn/html/zt2011/20111104hzp/images/bg7.gif") repeat 0px 0px;margin:20px 0px 20px 0px }
+.c3a .c3b{height:24px;background:url("http://www.d1.com.cn/html/zt2011/20111104hzp/images/bg6.gif") no-repeat 0px 0px;padding:6px 0px 0px 20px;color:#ffffff;font-size:12px;font-weight:800;text-align:left;width:500px;}
+.c3c ul{}
+.c3c li{float:left;height:330px;width:220px; font-size:12px;line-height:22px;}
+.c3c .s1{width:240px;height:200px;margin:5px auto 0px;background-color:#ffffff;font-size:12px;line-height:22px;}
+.c3c .s2{width:240px;margin:5px auto 0px;text-align:center;height:65px;font-size:12px;line-height:22px;}
+.c3c .s3{width:240px;margin:5px auto 0px;text-align:center;font-size:12px;line-height:22px;}
+.c3b {float:left;}
+.jf1{color:#A10034;font-weight:800;font-size:14px;}

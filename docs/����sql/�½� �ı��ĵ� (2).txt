@@ -1,0 +1,65 @@
+
+按楼层  
+
+现结 定期全部结算 月结销售
+	
+进行汇总					
+
+select sum(stock_count*stock_inprice),provide_Btype,d1mall_id from stock inner join gdsmst on stock_gdsid=gdsmst_gdsid 
+inner join d1mall on gdsmst_rackcode like d1mall_rackcode+'%' join provide on provide_shopcode=gdsmst_provide --where d1mall_id in (6,5)
+
+ group by provide_Btype,d1mall_id
+
+按负责人 
+
+现结 定期全部结算 月结销售
+	
+进行汇总
+select sum(stock_count*stock_inprice)
+,provide_Btype,mnggdsdtl_mstid
+ from stock inner join gdsmst on stock_gdsid=gdsmst_gdsid 
+join provide on provide_shopcode=gdsmst_provide
+join dba.mnggdsdtl on gdsmst_rackcode like mnggdsdtl_rackcode+'%' and mnggdsdtl_brand=gdsmst_brand --where mnggdsdtl_mstid=3
+group by  provide_Btype,mnggdsdtl_mstid
+
+
+
+select sum(stock_count*stock_inprice),sum(stock_count),provide_Btype,d1mall_id from stock inner join gdsmst on stock_gdsid=gdsmst_gdsid 
+inner join d1mall on gdsmst_rackcode like d1mall_rackcode+'%' join provide on provide_shopcode=gdsmst_provide where d1mall_id in (6,5)
+
+ group by provide_Btype,d1mall_id
+
+
+select sum(stock_count*stock_inprice),sum(stock_count)
+,provide_Btype,mnggdsdtl_mstid
+ from stock inner join gdsmst on stock_gdsid=gdsmst_gdsid 
+join provide on provide_shopcode=gdsmst_provide
+join dba.mnggdsdtl on gdsmst_rackcode like mnggdsdtl_rackcode+'%' and mnggdsdtl_brand=gdsmst_brand --where mnggdsdtl_mstid=3
+group by  provide_Btype,mnggdsdtl_mstid
+
+if not exists(select 1 from stock_statisbyd1mall where stock_stsyear=year(getdate()) and stock_stsmonth=month(getdate()) and stock_rackcode=@rackcode)
+insert stockzzsum(stockzzsum_year,stockzzsum_month,stockzzsum_outsum,stockzzsum_outcount)
+select 2099,13,sum(odrdtl_sendcount) as sumsendcount,sum(odrdtl_purprice*odrdtl_sendcount),d1mall_id
+ as sumpurprice from odrdtl_recent 
+inner join gdsmst on odrdtl_gdsid=gdsmst_gdsid
+inner join d1mall on odrdtl_rackcode like d1mall_rackcode+'%'
+where odrdtl_shipstatus in(2,3)
+and odrdtl_purvaliddate is null and odrdtl_purtype=4
+group by d1mall_id
+
+update stockzzsum set stockzzsum_totsum=sumprice, stockzzsum_sumcount=sumcount from 
+(select sum(stock_count*stock_inprice) sumprice,sum(stock_count) sumcount,d1mall_id
+ from stock inner join gdsmst on stock_gdsid=gdsmst_gdsid 
+inner join d1mall on gdsmst_rackcode like d1mall_rackcode+'%'  
+group by d1mall_id) a join stockzzsum on stockzzsum_mallid=d1mall_id   where  d1mall_id=1
+
+
+
+
+create table stockprosum(stockprosum_id int indentity(1,1),stockprosum_mallid int,stockprosum_mngid int,stockprosum_bttype int
+,stockprosum_sumvalue float,stockprosum_createdate datetime default(getdate()))
+
+
+create table stockzzsum(stockzzsum_id int indentity(1,1),stockzzsum_year int,stockzzsum_month int,stockzzsum_totsum float,stockzzsum_sumcount int
+,stockzzsum_outsum float,stockzzsum_outcount int,stockzzsum_salecount int,stockzzsum_createdate datetime default(getdate()))
+

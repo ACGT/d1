@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bisdata>
+<reqId>79_0</reqId> 
+<serviceId>1000010000000028</serviceId> 
+<bizdata>
+   <sign>
+         <idx>00</idx>
+         <value/>
+    </sign>
+<data>
+<encode>utf-8</encode>  
+<LPMS_Pionts>
+<Request>
+<PropertySet>
+<SiebelMessage><ProcessName>PA Redeem Process</ProcessName><TerminalID></TerminalID><param>0902079</param><FirmID></FirmID><StoreID></StoreID><Operation>Redemption</Operation><Method>CancelRedeemPortionTxn</Method><TTNumber>20150320142957</TTNumber><TTTime>2015-03-20</TTTime><CardNumber></CardNumber><TransactionType>1000</TransactionType><Amount>10</Amount><CancelAmount>5</CancelAmount><Partner>79_0</Partner><CTNumber>TTNumber0116001</CTNumber><MemberType></MemberType><MemberID>110000015850196</MemberID><UserName></UserName><PartyNo></PartyNo><ReconcileTime></ReconcileTime><OrderId>TTNumber0116001</OrderId><AccountName></AccountName><TxnType></TxnType><Channel></Channel><AttchAmount>0</AttchAmount><MemberName></MemberName><IDType></IDType><IDNo></IDNo><Sex></Sex><BirthDate></BirthDate><Email></Email><PhoneNo></PhoneNo><StartTime></StartTime><EndTime></EndTime><QueryYear></QueryYear><QueryMonth></QueryMonth><pagesize></pagesize><startrownum></startrownum><recordcountneeded></recordcountneeded><Sortorder></Sortorder><searchspec></searchspec><Ext1></Ext1><Ext2></Ext2></SiebelMessage></PropertySet>
+</Request>
+<Response>
+<PointsLeft/>
+<STNumber/>
+<PointsRedemed/>
+<TCTNumber/>
+<TCAmount/>
+<RedemPoint/>
+<ListOfAccrualResponse>
+<CardNumber/>
+<AccrualTime/>
+<AccrualPoint/>
+<AccrualSource/>
+<parameter2/>
+</ListOfAccrualResponse>
+<Operation/>
+<parameter1/>
+<TTTime/>
+<Partner/>
+<MemberID/>
+<UserName/>
+<PartyNo/>
+<MemberName/>
+<IDType/>
+<IDNo/>
+<Sex/>
+<BirthDate/>
+<Email/>
+<PhoneNo/>
+<Amount/>
+</Response>
+</LPMS_Pionts>
+</data>
+</bizdata>
+</bisdata>

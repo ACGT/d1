@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--build LINUX file system-->
+<project name="d1" default="compile" basedir=".">
+
+	<!-- set global properties for this build -->
+    <property name="webapp.name" value="d1"/>
+
+    <property name="src" value="src"/>
+
+	<property name="output" value="WEB-INF/classes"/>
+	<property name="web" value="web"/>
+	<property name="conf" value="conf"/>
+	<property name="docs" value="docs"/>
+	<property name="name" value="reading"/>
+	<property name="Name" value="Reading"/>
+	<property name="version" value="0.1.0"/>
+	<property name="year" value="2010-2011"/>
+	<property name="status" value="final"/>
+	<property name="release" value="1nd"/>
+	<property name="short.version" value="0.1"/>
+
+	<property name="deployfiledir" value="./WEB-INF/lib"/>
+	<property name="workdir" value="./WEB-INF/work"/>
+	<property name="worktmpdir" value="./WEB-INF/tmp"/>
+
+	<path id="project.class.path">
+		<pathelement path="${java.class.path}"/>
+		<fileset dir="${deployfiledir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="init" >
+		<!-- create the time stamp -->
+		<tstamp/>
+		<mkdir dir="${output}"/>
+	</target>
+
+	<target name="compile" depends="init">
+
+		<javac srcdir="${src}" destdir="${output}" encoding="GBK" debug="on" includeantruntime="on">
+			<classpath refid="project.class.path"/>
+		</javac>
+
+		<!--copy todir="${output}">
+			<fileset dir="${src}">
+				<include name="**\*.xml"/>
+			</fileset>
+		</copy-->
+	</target>
+	
+	<target name="docs">
+		<mkdir dir="${docs}/api"/>
+
+		<!-- put javadocs in ${dist}/docs dir -->
+		<javadoc packagenames="com.d1.*"
+			 sourcepath="${src}"
+			 destdir="${docs}/api"
+			 author="kk"
+			 version="2.0"
+			 access="public"
+			 use="true"
+			 windowtitle="d1 API">
+			<bottom><![CDATA[<i>Copyright &#169; 2012-2046 www.d1.com.cn Corp. All Rights Reserved.</i>]]></bottom>
+			<classpath refid="project.class.path"/>
+		</javadoc>
+	</target>
+
+	<target name="clean">
+		<delete dir="${output}/com"/>
+		<delete file="${deployfiledir}/d11.0.jar"/>
+		<delete dir="${docs}/api"/>
+	</target>
+	
+	<target name="sendmail" description="run sendmail... ">
+		<java classname="com.d1.util.SendMail" classpath="${output}" fork="true" maxmemory="256m">
+			<classpath refid="project.class.path"/> 
+		</java>
+	</target>
+	
+	<target name="sendmail_2" description="run sendmail... ">
+			<java classname="com.d1.mail.TestSmtpMail" classpath="${output}" fork="true" maxmemory="256m">
+				<classpath refid="project.class.path"/> 
+			</java>
+		</target>
+	<!--
+	<target name="dep" depends="compile">
+      <delete file="${deployfiledir}/d11.0.jar"/>
+
+      <jar destfile="${deployfiledir}/d11.0.jar"
+       basedir="${output}"
+      />
+    </target>-->
+
+    <!--target name="dep2">
+      <jar destfile="${basedir}/lib/d11.0.jar"
+       basedir="${output}"/>
+    </target-->
+
+    <target name="comp" depends="init">
+                <javac srcdir="${src}" destdir="${output}" encoding="gbk" debug="on">
+                        <classpath refid="project.class.path"/>
+                </javac>
+    </target>
+</project>
+

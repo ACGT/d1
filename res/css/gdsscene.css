@@ -1,0 +1,112 @@
+body{ background:#fff;}
+    a img{ border:none;}
+    .gdscene_center{ margin:0px auto; background:#fff;}
+    .gdscene_top{ margin:0px auto; background-image:url(http://images.d1.com.cn/images2012/index2012/czdhbg.gif);height:37px;}
+    #dh{ margin:0px auto; width:950px; padding-left:30px;background-image:url(http://images.d1.com.cn/images2012/index2012/zhbg.gif); height:37px; overflow:hidden; }
+    #dh a{ color:#000000; margin-right:10px; margin-left:10px; font-size:12px; line-height:37px; text-decoration:none;}
+    #dh a:hover{ color:#a22d48;}
+    #dh img{ line-height:37px;}
+    .gdscsne_logo{ margin:0px auto; width:980px; position:relative; height:547px; overflow:hidden;}
+    .pricegd{background-color: #fff;width:160px; filter: alpha(opacity=80);-moz-opacity: 0.8;opacity: 0.8; height:240px;position:absolute; bottom:50px; left:120px;  z-index:99; border:solid 1px #ccc;   }
+    .pricegd span{margin:0px auto; width:100%; display:block; height:20px;  font-size:12px; padding-left:5px; line-height:20px; _line-height:20px;   }
+    .pricegd div span a{color:#000;}
+    .pricegd span .font1{ color:#be0000; }
+    .pricegd span .font2{ color:#000; }
+    .pricegd .newspan{background:#be0000; color:#fff; font-family:'微软雅黑'; font-weight:bold; height:25px; line-height:25px;} 
+    .gdscsne_dp{width:980px; margin:0px auto; overflow:hidden; padding-top:10px; padding-bottom:10px;}
+    .gdscsne_dp ul{ margin:0px; padding:0px; list-style:none; padding-left:10px; padding-right:10px;}
+    .gdscsne_dp ul li{float:left; width:316px; height:380px; margin-right:6px; overflow:hidden; margin-bottom:10px; z-index:1000;}
+    .gdtj{width:980px; overflow:hidden; margin:0px auto;  margin-top:10px;  }
+    .list{ margin:0px auto; width:980px; overflow:hidden;background-color:#CCCCCC; margin:0px; padding-bottom:15px; }
+    .list ul{ width:950px; margin:0px auto; overflow:hidden; list-style:none; padding:0px;  }
+    .list ul li{ width:230px; background:#fff; float:left; margin-right:10px; margin-top:10px; padding-top:10px; padding-bottom:10px;}
+    .list ul li div{ width:200px; margin:0px auto;}
+    
+  
+    .otherpjf{  background-color: #000; height:auto;position:absolute; border:solid 1px #ccc; margin-left:260px; margin-top:-257px; +margin-left:240px; z-index:10000;  display:none;padding-left:10px;}
+    .otherpjf1{ background-color: #000;  height:auto;position:absolute;  border:solid 1px #ccc; margin-left:-40px; margin-top:-241px; z-index:10000; display:none; padding-left:10px; }
+    
+    .otherpjf a{ color:#000;}
+    
+    .pricegds{background-color: #fff; filter: alpha(opacity=90);-moz-opacity: 0.9;opacity: 0.9;width:160px; position:absolute; bottom:27px; left:450px;  z-index:99; border:solid 1px #fff;   }
+    .pricegds span{margin:0px auto; width:100%; display:block; height:20px;  font-size:12px; padding-left:5px; line-height:20px; _line-height:20px;   }
+    .pricegds div span a{color:#000;}
+    .pricegds span .font1{ color:#be0000; }
+    .pricegds span .font2{ color:#000; }
+    .otherpjfs{  background-color: #000; height:auto;position:absolute; border:solid 1px #fff; margin-left:540px; margin-top:-225px; +margin-top:275px; +margin-left:200px; z-index:10000;  display:none;padding-left:10px;}
+    .otherpjfs a{ color:#000;}
+    .font1{ color:#be0000;}
+    .font2{ color:#000;}
+  
+    #focus {width:493px; height:130px; overflow:hidden; position:relative; }
+    #focus ul { width:530px; position:absolute; list-style:none; padding:0px;}
+	#focus ul li {float:left; width:82px; overflow:hidden; position:relative;  margin-right:8px; text-align:center; padding-top:15px;}
+	#focus ul li img { border:solid 1px #fff; margin:0px; padding:0px;}
+	#focus ul li div {position:absolute; overflow:hidden;}
+	#focus .preNext {width:18px; height:18px; position:absolute; top:65px;  cursor:pointer;}
+	#focus .pre2012 {left:0;}
+	#focus .next2012 {right:0;}
+	
+	#focus ul li div a{ text-decoration:none; color:#fff;}
+	#focus ul li div a:hover{ text-decoration:underline;}
+
+    .des{ background:#000; filter: alpha(opacity=80);-moz-opacity: 0.8;opacity: 0.8;   width:78px; left:2px; text-align:right; color:#fff; line-height:25px; font-size:12px;  top:85px;  }
+  
+  .detail_gdscoll{ width:980px; margin-top:1px;}
+	.gdscollleft{ width:600px; margin:7px;  float:left; }
+	.gdscollright{ width:360px; float:left; margin-top:7px; margin-bottom:7px;}
+	.gdscollright1{ width:360px; float:left;  margin:7px; _margin:4px;}
+	.gdscollleft1{ width:600px; float:left; margin-top:7px; margin-bottom:7px; }
+	.gdscollleft ul{ list-style:none; width:600px; margin:0px; padding:0px;}
+	.gdscollleft ul li{ height:108px; font-size:12px; color:#333; overflow:hidden; font-weight:none; text-align:left; }
+	.gdscollleft ul li span{ display:block; height:128px; overflow:hidden;  padding-top:4px; padding-left:30px; float:left; color:#010004; }
+	.gdscollleft ul li img{ border:solid 1px #000;}
+	.gdscollleft ul li div{ float:left; width:220px; margin-left:18px; height:108px; line-height:18px;}
+	.gdscollleft ul li div span{ display:block; height:auto; overflow:hidden; padding-left:0px; width:210px;}
+	.gdscollleft ul li div .span1_1{ padding-top:2px;  width:250px;}
+	.gdscollleft ul li div .span2_1{ padding-top:4px; width:250px;}
+	.gdscollleft ul li div .span3_1{ padding-top:4px;  padding-left:0px;width:250px;}
+	.span3_1 a{float:left; margin-right:6px; display:block;}
+	
+	.gdscollleft1 ul{ list-style:none; width:600px; margin:0px; padding:0px;}
+	.gdscollleft1 ul li{ height:108px; font-size:13px; color:#333; overflow:hidden; text-align:left; }
+	.gdscollleft1 ul li span{ display:block; height:128px; overflow:hidden;  padding-top:4px; padding-left:30px; float:left; color:#010004;}
+	.gdscollleft1 ul li img{ border:solid 1px #000;}
+	.gdscollleft1 ul li div{ float:left; width:220px; margin-left:18px; height:108px; line-height:18px;}
+	.gdscollleft1 ul li div span{ display:block; height:auto; overflow:hidden; padding-left:0px; }
+	.gdscollleft1 ul li div .span1_1{ padding-top:2px; width:250px; }
+	.gdscollleft1 ul li div .span2_1{ padding-top:4px; width:250px;}
+	.gdscollleft1 ul li div .span3_1{ padding-top:4px; padding-left:0px; width:250px;}
+	.clear{ clear:both;font-size:1px;line-height:0;height:0px;*zoom:1; float:none;}
+	.textdiv{ width:320px;height:8px; padding-left:25px; padding-right:15px; padding-top:22px; line-height:18px;text-align:left;}
+	.textdiv font{ color:#333; }
+
+    .gdscollleft1 ul li div .sq{position:absolute; margin-left:396px;margin-left:396px\0; _margin-left:-24px;+margin-left:146px; +margin-top:-92px;  _margin-top:-66px;display:none;}
+    .gdscollleft ul li div .sq{position:absolute; margin-left:396px;margin-left:396px\0; _margin-left:-24px; +margin-left:146px; +margin-top:-92px;  _margin-top:-66px;display:none;}
+  
+     #scolllist1{ width:458px; overflow:hidden; }
+    .newgdscoll{bottom:25px; right:20px;  position:relative; background-color: #f5f5f5;width:540px;  padding-bottom:10px;position:absolute; bottom:50px;   z-index:99; border:solid 1px #ccc; }
+    .newgdscoll ul{position:absolute; padding:0px; padding-left:10px; margin-top:15px; width:448px; height:140px;}
+    .newgdscoll li{ float:left; margin-right:10px; width:102px; overflow:hidden; color:#000; height:130px;}
+    .newgdscoll li a img{  background:#fff;}
+    .preNext { position:absolute; top:32px;  cursor:pointer;}
+	.pre2012 {left:15px;}
+	.next2012 {right:15px;}
+	
+	
+	.gdscoll20120713{ width:980px; margin:0px auto;}
+	.gdscoll20120713 ul{ width:980px; margin:0px; padding-top:10px; padding-left:8px; list-style:none;}
+	.gdscoll20120713 ul li { width:470px;_width:473px; margin-right:8px; padding-top:10px; padding-left:8px; float:left; margin-bottom:10px; padding-bottom:10px;}
+
+	 a img{ border:none;}
+	.gdscoll20120713 .leftg{ float:left;}
+	.price { font-size:12px; color:#000; line-height:18px;}
+	.leftg{ float:left; width:320px;}
+	.rightg{ float:left; width:150px; _width:120px; overflow:hidden; text-align:center;}
+	.newsubgdscoll{ width:150px; _width:120px; margin:0px auto; text-align:center; position:relative; height:547px;  padding-top:30px; }
+    .newsubgdscoll .preNext1 { position:absolute; left:40px; cursor:pointer;}
+	.newsubgdscoll .pre20121 {top:0px;}
+	.newsubgdscoll .next20121 {bottom:0px;}
+	.gdscoll20120713  .gdetaillist{ width:150px; _width:132px;  padding:0px; margin:0px; position:absolute; left:0px; top:0px;}
+	.gdscoll20120713 .gdetaillist li{width:150px; _width:120px; padding:0px; margin:0px; margin-bottom:7px; float:none; overflow:hidden; height:125px; font-size:12px; }
+	

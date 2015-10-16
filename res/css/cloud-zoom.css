@@ -1,0 +1,49 @@
+.gdsblock{width:410px; height:495px;}
+.gdsblock ul{clear:both; padding-top:8px;padding-left:20px;}
+.gdsblock li { float:left; margin-right:10px;}
+.gdsblock li img{border:1px solid #f5f5f5;padding:1px}
+.gdsblock .img-hover {
+border: 2px solid #e4393c;
+padding: 0;
+}
+p.author{clear:both;text-align:center;color:#999;font-size:11px;}
+	p.author a{text-decoration:none;color:#666;border-bottom:1px dashed #CCC;}
+
+/* This is the moving lens square underneath the mouse pointer. */
+.cloud-zoom-lens {
+	border: 1px solid #888;
+	margin:-1px;	/* Set this to minus the border thickness. */
+	background:#fff;	
+	_background:none;
+	cursor:move;		
+}
+
+/* This is for the title text. */
+.cloud-zoom-title {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute !important;
+	background-color:#000;
+	color:#fff;
+	padding:3px;
+	width:100%;
+	text-align:center;	
+	font-weight:bold;
+	font-size:10px;
+	top:0px;
+}
+
+/* This is the zoom window. */
+.cloud-zoom-big {
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+
+/* This is the loading message. */
+.cloud-zoom-loading {
+	color:white;	
+	background:#222;
+	padding:3px;
+	border:1px solid #000;
+}
+
+

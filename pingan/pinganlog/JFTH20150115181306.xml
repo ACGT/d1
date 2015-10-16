@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bisdata>
+<reqId>79_0</reqId> 
+<serviceId>1000010000000023</serviceId> 
+<bizdata>
+   <sign>
+         <idx>00</idx>
+         <value>NIELCe+QuVvjZ8pnVzybCA1HzYh3qCFWRcd8hTLARQu94wHOJEYzKYE5tFCJ1I51</value>
+    </sign>
+<data>
+<encode>utf-8</encode>  
+<PA_Upload>
+<Request>
+<PropertySet>
+<SiebelMessage>
+<ListOfPoints>
+</ListOfPoints>
+<ListOfPoints>
+</ListOfPoints>
+<Method>CancelAccrualTxn</Method><PartnerCode>79_0</PartnerCode><MemberCode>110000008918878</MemberCode><MemCodeType>3</MemCodeType><TransNum>196102051783</TransNum><BasePoints>52.0</BasePoints><PreTransDate>2014-11-27</PreTransDate><THTransDate>2014-11-27</THTransDate><ProductNum>0902034</ProductNum><OrderId>196102051783</OrderId></SiebelMessage>
+</PropertySet>
+</Request>
+</PA_Upload>
+</data>
+</bizdata>
+</bisdata>

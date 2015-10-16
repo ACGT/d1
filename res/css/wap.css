@@ -1,0 +1,33 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,hr,pre,form,fieldset,input,textarea,p,label,blockquote,th,td,button,span{padding:0;margin:0;}
+body{ background:#fff;font:14px Arial,"微软雅黑";color:#4b4b4b; padding-bottom:15px; line-height:18px;  padding-left:3px}
+* html,* html body{background-image:url(about:blank);background-attachment:fixed;}
+
+table{border-collapse:collapse;}
+fieldset,img{border:none;}
+address,caption,cite,code,dfn,th,var,em{font-weight:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+input,select,button{vertical-align:middle;font-size:12px;}
+em{font-style:normal;}
+img{display:inline-block;}
+a {text-decoration:none;color:#4169E1}
+a:hover {color:#aa2e44}
+.clear {clear:both;font-size:1px;line-height:0;height:0px;*zoom:1;}
+
+.top{ margin-top:3px; }
+.top ul li{float:left;border-bottom:solid 1px #000;  }
+.top ul li a{ color:#000;}
+.top ul li a:hover{ color:#aa2e44;}
+#search{ width:160px; height:19px; float:left}
+#search1{ width:160px; height:19px; float:left}
+.search{ display:block; background:#a52a2a; color:#fff;  width:51px; font-size:15px; float:left; }
+.search:hover{ color:#fff;}
+table tr td{ padding-top:2px; padding-bottom:2px; line-height:20px;}
+.rmfl span{ display:block; width:70px; margin-left:3px; float:left; color:#aa2e44;}
+.rmfl li{ float:left;}
+.keyword{ background:#ffa07a; color:#f00; }
+.keyword a{ color:#000;}
+.keyword a:hover{ color:#aa2e44;}
+
+.tip_box { height:auto; line-height:28px; border:1px solid #ffe2a6; background-color:#fffadc; color:#ffa00e; text-align:center; margin-bottom:15px;}

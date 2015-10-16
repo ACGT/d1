@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/reg.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/dh.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="/res/wap/js/com.js"></script>
+<script type="text/javascript" src="/res/wap/js/waplistcart.js"></script>
+</head>
+<body>
+	<header class="p_header">
+		<a name="top"></a>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>
+					<i></i>输入兑换码
+				</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<div class="phonecode  pd">
+			<div class="getcode">
+				<input name="dhcode" id="dhcode" class="phonec" type="text"
+					placeholder="输入商品兑换码">
+			</div>
+		</div>
+		<div class="phonereg  pd">
+			<div class="regtxt">
+				<a href="javascript:dhok(this);" class="regbut">提交</a>
+			</div>
+		</div>
+		<div class="choose_sku" id="choose_sku" style="display: none;">
+
+		</div>
+		<div class="cart_msg" id="cartmsg" style="display: none;">
+			<div class="txt">
+				<i>加入购物车成功!</i>
+				<div class="but">
+					<a href="javascript:void(0)" onclick="$('#cartmsg').hide();"
+						id="stroll">继续购物</a><a href="flow.html">去购物车</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				   </script>
+	</div>
+	<script language="javascript">
+$chsku=$("#choose_sku");
+function dhok(obj){
+	var dhcode=$("#dhcode").val();
+	if (dhcode == ''){
+	       $(".reg_err").html("兑换码不能为空，请输入！");
+	      return;	
+	}else{
+		  $.ajax({
+				type: "get",
+				dataType: "json",
+				url: '/ajax/wap/choosecart.jsp',
+				cache: false,
+				data: {id:dhcode},
+				error: function(XmlHttpRequest){
+				},success: function(json){
+					if(json.code==1){
+						alert(json.message);
+					}else if(json.code==0){
+						$choosesku(dhcode,$chsku)
+					
+					}else if(json.code==2){
+				          $(obj).attr('attr',dhcode);
+						 $.inCart(obj,{ajaxUrl:'/ajax/wap/dhInCart.jsp'});
+					}else  if(json.code==99){
+						window.location.href="/wap/login.html";
+					}
+				},beforeSend: function(){
+				},complete: function(){
+				}
+			});
+}
+}
+
+ function skuclose(){
+	$chsku.hide();
+	};
+$choosesku=function(code,chsku){
+$.ajax({
+	type: "get",
+	dataType: "text",
+	url: '/ajax/wap/chooseskunew.jsp',
+	cache: false,
+	data: {code:code},
+	error: function(XmlHttpRequest){
+		alert('错误');
+	},success: function(data){
+		chsku.html(data);
+		chsku.show();
+	}
+});
+};
+
+</script>
+
+
+
+	<div style="display: none;">
+		<script language="javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+	</script>
+	</div>
+</body>
+</html>

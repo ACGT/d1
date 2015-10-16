@@ -1,0 +1,150 @@
+2010年至今购物过的所有顾客（排除已经购买过FM商品的客户），给他们每个人的帐户发一张   满30-30的FM减免券 。
+
+insert into tktmst(tktmst_cardno,tktmst_value,tktmst_type,tktmst_mbrid,tktmst_validflag,tktmst_createdate,tktmst_validates
+,tktmst_validatee,tktmst_rackcode,tktmst_gdsvalue,tktmst_payid,tktmst_memo,tktmst_sprckcodestr)
+
+select distinct  'd1111fm110623'+cast(mbrmst_id as varchar(20)),30,'015002',mbrmst_id,0,'2011-6-27 00:00:00.000','2011-6-27 00:00:00.000',
+'2011-7-7 23:59:59','017',30,-1,'30-30的FM减免券',',4114,'  from d1marketing..feelmindtkt
+
+
+insert into d1marketing..email_temp2 (email) 
+select distinct odrmst_mbrid  from dba.odrmst_history inner join dba.odrdtl_history 
+on odrmst_odrid =odrdtl_odrid
+--inner join mbrmst on mbrmst_id=odrmst_mbrid --and mbrmst_sex=1-- and mbrmst_birthday>'1974-1-1'
+where odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_remail not in (select email from bademail) and odrmst_temp<>'pingan'
+and odrmst_orderdate>'2010-1-1' --and  odrmst_orderdate<'2011-6-18'
+and odrmst_rphone not in(select phone from badsms) 
+and odrdtl_gdsname like '%feel mind%'
+and odrmst_mbrid not in 
+(select email from d1marketing..email_temp2)
+
+(
+create table d1marketing..email_temp2 (email varchar(200))
+select * from email_temp0402
+017002、015002
+truncate table d1marketing..email_temp
+drop table email_temp0518
+drop table odremail_temp
+insert into d1marketing..email_temp (email) 
+select distinct odrmst_mbrid  from odrmst_recent-- inner join odrdtl_recent on odrmst_odrid =odrdtl_odrid
+--inner join mbrmst on mbrmst_id=odrmst_mbrid --and mbrmst_sex=1 --and mbrmst_birthday>'1974-1-1'
+where odrmst_orderstatus in (3,31,5,51,6,61)  
+and odrmst_remail not in (select email from bademail) and odrmst_temp<>'pingan'
+and odrmst_orderdate>'2010-1-1' and  odrmst_orderdate<'2011-6-18'
+--and odrdtl_gdsname like '%feel mind%'
+and odrmst_rphone not in(select phone from badsms) 
+
+select * from d1marketing..feelmindtkt where  mbrmst_id
+--<>1314246
+
+--and  mbrmst_usephone='13512648810'
+in(
+select min(mbrmst_id) from d1marketing..feelmindtkt group by mbrmst_email having count(mbrmst_email)>1)
+
+
+delete  from d1marketing..feelmindtkt where  mbrmst_email='service@d1.com.cn' order by mbrmst_id
+
+service@d1.com.cn
+
+
+
+
+where email in (select email from d1marketing..email_temp2)
+
+
+select * into   d1marketing..feelmindtkt from(
+select  mbrmst_id,mbrmst_usephone,mbrmst_email from  d1marketing.. email_temp
+join mbrmst on mbrmst_id=email) a
+
+
+
+
+
+09年1月至11年2月购物过,但近四个月未购物的用户
+
+
+
+
+insert into tktmst(tktmst_cardno,tktmst_value,tktmst_type,tktmst_mbrid,tktmst_validflag,tktmst_createdate,tktmst_validates
+,tktmst_validatee,tktmst_rackcode,tktmst_gdsvalue,tktmst_payid,tktmst_memo,tktmst_sprckcodestr)
+
+select distinct  'pzold17'+cast(mbrid as varchar(20)),15,'001012',mbrid,0,'2011-7-13 00:00:00.000','2011-7-13 00:00:00.000',
+'2011-7-27 23:59:59','000',15,-1,'09年1月至11年2月购物过,但近四个月未购物的用户--圆真',''  from d1marketing..email_tkttemp
+where 
+where mbrid not in 
+(select mbrid from d1marketing..email_tkttemp2)
+and email not in 
+(select email from d1marketing..email_tkttemp2)
+
+
+delete from d1marketing..email_tkttemp
+where  
+  email  like '%pingan%' 
+(select email from d1marketing..email_tkttemp2)
+
+
+select top 10 * from mbrmst where mbrmst_uid='bjgjl'
+
+
+insert into d1marketing..email_tkttemp (mbrid,email) 
+select distinct odrmst_mbrid,odrmst_remail  from dba.odrmst_history --inner join dba.odrdtl_history 
+--on odrmst_odrid =odrdtl_odrid
+--inner join mbrmst on mbrmst_id=odrmst_mbrid --and mbrmst_sex=1-- and mbrmst_birthday>'1974-1-1'
+where odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_remail not in (select email from bademail) 
+and odrmst_temp<>'pingan'
+and odrmst_orderdate>'2009-1-1' 
+and  odrmst_orderdate<'2011-3-1'
+--and odrdtl_gdsname like '%feel mind%'
+--and odrmst_mbrid not in 
+--(select mbrid from d1marketing..email_tkttemp2)
+
+(
+create table d1marketing..email_tkttemp2 (mbrid int,email varchar(200))
+select * from email_temp0402
+017002、015002
+truncate table d1marketing..email_temp2
+drop table email_temp0518
+drop table odremail_temp
+insert into d1marketing..email_tkttemp (mbrid,email) 
+select distinct odrmst_mbrid,odrmst_remail  from odrmst_recent-- inner join odrdtl_recent on odrmst_odrid =odrdtl_odrid
+--inner join mbrmst on mbrmst_id=odrmst_mbrid --and mbrmst_sex=1 --and mbrmst_birthday>'1974-1-1'
+where odrmst_orderstatus in (3,31,5,51,6,61)  
+and odrmst_remail not in (select email from bademail) and odrmst_temp<>'pingan'
+and odrmst_orderdate<'2011-3-1'-- and  odrmst_orderdate<'2011-6-18'
+--and odrdtl_gdsname like '%feel mind%'
+and odrmst_rphone not in(select phone from badsms) 
+
+select * from d1marketing..feelmindtkt where  mbrmst_id
+--<>1314246
+
+--and  mbrmst_usephone='13512648810'
+in(
+select min(mbrmst_id) from d1marketing..feelmindtkt group by mbrmst_email having count(mbrmst_email)>1)
+
+
+delete  from d1marketing..feelmindtkt where  mbrmst_email='service@d1.com.cn' order by mbrmst_id
+
+service@d1.com.cn
+
+
+
+
+where email in (select email from d1marketing..email_temp2)
+
+
+select * into   d1marketing..feelmindtkt from(
+select  mbrmst_id,mbrmst_usephone,mbrmst_email from  d1marketing.. email_temp
+join mbrmst on mbrmst_id=email) a
+
+
+
+
+
+
+
+
+
+
+

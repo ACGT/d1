@@ -1,0 +1,161 @@
+body{margin:0px auto;padding:0px; margin:0px; border:0px; font-size:12px;}
+div{margin:0px; padding:0px; border:0px;}
+ul{margin:0px; padding:0px; border:0px;}
+li{margin:0px; padding:0px; border:0px;}
+.clear{ float:none;}
+a{margin:0px; padding:0px; border:0px; text-decoration:none;}
+.all{ margin:0px auto; width:980px;_zoom:1;}
+.r_b{ width:980px; margin:0px auto;_zoom:1;margin-top:10px;}
+.navrac{ width:959px; height:38px; background-image:url('http://images.d1.com.cn/images2012/New/result/spjs_7.gif');text-align:left;
+         padding-left:10px;float:left;}
+.navrac a {color:#666666;font-size:12px; height:25px; padding-top:10px; display:block; float:left; padding-left:8px;}
+.navrac a:hover{ text-decoration:none;color:#8B2323;font-size:12px; }
+.navrac .dis{ text-decoration:none;color:#A52A2A;font-size:12px; font-weight:bold }
+.navrac b{float:left;padding-top:10px;margin-left:6px;}
+.r_top_content{overflow:hidden;_zoom:1;}
+.r_left{ width:205px;margin-top:1px; float:left}
+.CatTitle{height:auto; color:#892E3F;background:#EBEBEB;font-size:14px; font-weight:bold; padding-left:10px;line-height:34px;}
+.right{ float:left; width:765px; _width:680px; overflow:hidden; margin-left:5px; margin-top:1px; }
+
+/* �����ʽ */
+.r_left .box{border:1px solid #DFDFDF;margin-bottom:20px;}
+
+/*resultҳ��ķ�����ʽ*/
+/*sClass*/
+.classList{font-size:12px;padding:10px;position:relative;}
+.classList .water{background:#FFF;height:10px;position:absolute;z-index:1px;left:0;top:0;width:100%;}
+.foldheader  {cursor:hand; list-style-image: url(http://images.d1.com.cn/images2012/New/result/l_b1.gif);margin-top:2px; padding-left:10px; border:solid 1px #000;}
+.foldheader1 {cursor:hand;list-style:none;margin-top:-10px;} 
+.foldheader1 li{height:22px;line-height:22px;border-bottom:1px solid #FFF;}
+.foldheader1 a{color:#555555; padding:2px;display:block;padding-left:22px;}
+.foldheader1 a:hover{ background-color:#EBEBEB; color:#A52A2A;}
+.foldheader1 li.parent{height:24px;line-height:24px;color:#000;font-size:14px;font-weight:bold;border-top:1px dashed #c0c0c0;margin-top:8px;margin-bottom: 4px;padding-top:4px;}
+.foldheader1 li.parent a{color:#000;padding-left:12px;}
+.foldheader1 li.parent a:hover{color:#A52A2A}
+.foldheader1 a.on{background-color:#EBEBEB; color:#A52A2A;}
+
+
+.foldinglist {cursor:hand; background-image: url(http://images.d1.com.cn/images2012/New/result/l_b3.gif) ;margin-top:5px; background-repeat:no-repeat; background-position:70px; +background-position:20px;
+              list-style:none; padding-left:80px;  +padding-left:30px; width:135px;   _padding-left:30px; width:90px;_background-position:20px; z-index:2 }
+.foldinglist li{ z-index:4}
+.foldinglist a{ color:#555555; line-height:16px;}
+.foldinglist a:hover{ background-color:#C0C0C0; color:#A52A2A}
+.foldinglist .dc{background:#C0C0C0;}
+
+.sClass {float:left;width:203px;font-size:12px;color:#555555;margin:0px;background:#FFFFFF;  border:solid 1px #ccc;}
+.sClass ul{ list-style:none; padding-left:20px; padding-top:10px; padding-bottom:10px; }
+.sClass ul li{ line-height:20px; font-size:12px; font-weight:bold; }
+.sClass ul li a{ color:#555}
+.sClass ul li a:hover{background:#C0C0C0; color:#A52A2A}
+
+.sClass ul li .dc{background:#C0C0C0;}
+.sClass dd {float:left;}
+.sClass dd a{text-decoration:none}
+.sClass dd a:link,.sClass dd a:visited{padding:1px;color:#555555;}
+.sClass dd a:hover{background:#C0C0C0;}
+
+/*resultҳ���Ʒ����ʽ*/
+/*sBrand*/
+.sBrand{cursor:hand;list-style:none;overflow:hidden;_zoom:1;margin-left:22px;}
+.sBrand li{width:170px;float:left;height:20px;line-height:20px;overflow:hidden;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;margin-right:5px;}
+.sBrand li.on{background:#C0C0C0;}
+.sBrand a{color: #4B4B4B;text-decoration: none;}
+.sBrand a:hover{color: #AA2E44;}
+
+/*resultҳ�������������ʽ*/
+/*sSale*/
+.sSale {font-size:12px;}
+.sSale img{float:left;}
+.sSale .gs_left_content_sub {width: 196px;height: 70px;padding-top: 10px;padding-left: 7px;}
+.sSale .gs_left_content_sub div {float: left;padding-left: 15px;line-height: 18px;width: 110px;padding-right: 10px;text-align: left;padding-top: 2px;}
+.sSale .span1 {color: #B50126;font-family: "微软雅黑";display: inline-block;padding-top: 5px;margin-right: 12px;font-weight: bold;}
+.sSale .span2 {display: inline-block;padding-top: 5px;color: #999;text-decoration: line-through;}
+.sSale hr {width: 95%;color: #DFDFDF;border: dashed 1px #DFDFDF;}
+.sSale .water{margin-top:-2px;background:#FFF;height:10px;}
+
+/*resultҳ����������ͼƬ��ʽ*/
+/*seltu*/
+.seltu{width:765px;margin-bottom:10px;background:#FFFFFF;color:#555555; margin-left:5px;_zoom:1;}
+.seltu .tj{position:relative; width:200px;height:200px;z-index:1;margin:0 auto;}
+.seltu .tj a img{border:#cccccc 1px solid;width:200px;height:200px;}
+.seltu .tj .di{position:absolute;top:0;left:0;z-index:999;width:79px;height:79px;border:none;}
+.seltu ul{width:200px;margin:0 auto;}
+.seltu dl{float:left;width:245px;text-align:center}
+.seltu dt{text-align:center;margin-top:2px;margin-bottom:10px}
+.seltu dd {height:94px; overflow:hidden;margin-left:5px;margin-right:5px;color:#555555;}/* 80 */
+.seltu dd { list-style:none}
+.seltu dd li { text-align:center;height: 25px;line-height: 25px}
+.seltu dd li.title{height:36px; height:34px\0; overflow:hidden;line-height: 18px;}
+.seltu dd a{text-decoration:none}
+.seltu dd a:link,.seltu dd a:visited{padding:1px;color:#555555;}
+.seltu dd span.me{font-size:12px; font-weight:bold; color:#f00;	letter-spacing:-1px;text-decoration:none;margin-right:10px;}
+.seltu dd span.sale{font-size: 12px; font-weight:bold;color : #666666; text-decoration:line-through}
+
+
+/*resultҳ���������ʽ*/
+/*sSort*/
+.sSort {float:left;width:765px; margin-left:5px; line-height:40px;background:url(http://images.d1.com.cn/images2012/New/result/spjs_7.gif);text-align:left;}
+.sSort dd {float:left;margin:5px; _margin-top:8px;}
+
+
+/*resultҳ���ѡ������ʽ�����ͼ۸�*/
+/*top*/
+.r_right{float:left;width:770px;_zoom:1;_overflow:hidden; }
+.r_right .top{margin-bottom:10px;list-style-image: url(http://images.d1.com.cn/images2012/New/result/spjs_7.gif)}
+.r_right .top dl{overflow:hidden;width:760px;padding:2px 0;margin:0 5px;zoom:1;border-bottom:1px dashed #E7CDAE;}
+.r_right .top dl.first{border-top:0;}
+.r_right .top dt{line-height:25px;float:left;width:100px;font-weight:bold;text-align:right;margin:0 5px;}
+.r_right .top dd{float:left;width:640px;_width:634px;overflow:hidden;padding:2px 0;margin:0 5px;}
+.r_right .top dd div{height:25px;float:left;text-align:left;margin-right:10px;margin-bottom:1px;border:1px }
+.r_right .top dd div.curr{background:#FFF9D9;border:1px solid #EED97B;}
+.r_right .top dd a{white-space:nowrap;display:block;text-decoration:none;}
+.r_right .top dd a:link,.top dd a:visited{padding:1px;color:#005aa0;}
+.r_right .top dd a:hover,.top dd a:active,
+.r_right .top dd a.curr:link,.top dd a.curr:visited{line-height:15px;background:#4598D2;color:#fff;margin-top:1px;margin-bottom:1px;}
+
+div#floatTips1{z-index:2;position:absolute;display:block;padding:0;margin:0;cursor:pointer;text-align:center;overflow:hidden;}
+div#floatTips1 a{display:inline-block;width:100%;padding:1px 0px;background:#eee;}
+div#floatTips1 img{float:right}
+div#floatTips1 img.Clos{margin-right:4px;margin-bottom:2px}
+
+/*�µ���ʽ*/
+.newlist {width:765px; margin:0px auto; background-color:#f0f0f0; margin-left:5px; }
+.newlist ul {width:765px;padding:0 0 0px; padding-left:30px;  padding-top:15px; padding-bottom:15px;}
+.newlist li {float:left; margin-right:34px; width:210px;  margin-bottom:20px;    }
+.newlist p {text-align:left; }
+.newlist p strong {font-weight:bold; font-size:15px; color:#a63c4f;margin-right:10px;}
+.newlist .retime {background:rgba(0,0,0,0.5);font-size:12px;text-align:left;line-height:16px;overflow:hidden; bottom:0px; margin-top:-41px; position:relative; width:200px; padding-top:3px; padding-bottom:2px;
+*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b3000000,endColorstr=#b3000000); z-index:1111; height:36px; display:none;  }
+.retime a{text-decoration:none; }
+.lf{ padding:5px; background-color:#fff; overflow:hidden; }
+.newlist p .newspan{ display:block; width:120px; height:35px; margin-top:5px; text-align:center; line-height:35px; border-right:solid 1px #f3f3f3; float:left;}
+.newlist p .newspan1{ display:block; width:79px; height:35px; margin-top:5px; text-align:center; line-height:35px; color:#333;float:left;}
+.lb{background-color:#f7f7f7;  padding:5px;  width:200px; height:42px; line-height:20px; font-size:12px;color:#7b7b7b; overflow:hidden;
+ text-align:left; vertical-align:middle; padding-top:8px;}
+.newlist .lf .di{position:absolute;z-index:999;width:79px;height:79px;border:none;}
+.xgss{ margin-top:10px;}
+.xgss em{height:14px; margin:4px 0; line-height:14px; padding:0 8px; border-right:solid 1px #ccc; float:left;}
+
+.floatdp{ position:absolute; z-index:22222; background:#fff; width:278px; overflow:hidden;margin-top:-430px; margin-left:-265px;
+}
+.floatdp1{ position:absolute; z-index:22222; background:url('http://images.d1.com.cn/images2012/index2012/xsj1.png') no-repeat;
+          background-position:right 250px; width:278px; overflow:hidden;margin-top:-430px; margin-left:-265px;
+}
+.dpdisplay{ width:246px;}
+.dpdisplay ul { list-decoration:none; margin:0px; padding:0px; }
+.dpdisplay ul li{  float:left; background:url('http://images.d1.com.cn/images2012/aleeishe/images/0031.jpg') no-repeat; margin:0px; padding:0px; position:none; width:246px;}
+.pj{background:#ccc; padding:5px;padding-top:0px; padding-left:6px; padding-bottom:2px;overflow:hidden;}
+.pj a{ float:left; margin-right:3px; margin-bottom:3px;}
+
+.allb {width:246; overflow:hidden; position:relative; margin:0px; padding:0px; background:#808080;}
+.allimglist{ overflow:hidden;}
+.allimglist img {border:0px;}
+.allb ul {position:absolute; display:block; list-style-type:none;z-index:10000;margin:0; padding:0; top:330px; right:10px; width:auto;}
+.allb ul li { padding:0px 3px;float:left;display:block; margin:0px;background:url('http://images.d1.com.cn/images2012/index2012/c2.png') no-repeat;cursor:pointer; height:14px; width:14px; }
+.allb ul li.on { background:url('http://images.d1.com.cn/images2012/index2012/c1.png') no-repeat; margin:0px; }
+
+.allimglist span{ width:246px; display:block;}
+.allimglist ul li{ float:left;}
+
+.next{position:absolute; right:0px; top:310px; curson:hand;}
+.pre{position:absolute; left:0px; top:310px; curson:hand;}

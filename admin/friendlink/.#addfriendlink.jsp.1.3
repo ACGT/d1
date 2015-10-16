@@ -1,0 +1,133 @@
+<%@ page contentType="text/html; charset=UTF-8"%><%@include file="/inc/header.jsp"%>
+<%@include file="/admin/chkrgt.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>?????????</title>
+<link href="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/css/global.css")%>" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/d1.js")%>"></script>
+<style type="text/css">
+  a{ color:#6495ED; font-size:14px; text-decoration:underline;}
+  table a{color:#6495ED; font-size:12px; text-decoration:underline; margin-right:4px; }
+  td{ height:30px;}
+  input{ width:250px;}
+  span{ color:#f00;}
+</style>
+<script type="text/javascript" language="javascript">
+   function Check()
+   {
+	   var kw=$("#keyword").val();
+	   var ws=$("#website").val();
+	   if(kw=='')
+		   {
+		   $('#keyword_notice').html('????????????');
+		   return false;
+		   }
+	   else
+		   {
+		   $('#keyword_notice').html('');
+		    }
+	   if(ws=='')
+		   {
+		   $('#website_notice').html('???????????);
+		   return false;
+		   }
+	   else
+		   {
+		   $('#website_notice').html('');
+		   }
+	   return true;
+	     }
+   
+   function cancle()
+   {
+	   $("#keyword").val('');
+	   $("#website").val('');
+	   $("#qq").val('');
+	   $("#page").val('');
+	   $("#nofollow").val('0');
+	   $("#keyword").focus();
+   }
+</script>
+
+</head>
+<body>
+<%
+  if("post".equals(request.getMethod().toLowerCase()))   
+  {
+	  String keyword=request.getParameter("keyword");
+	  String website=request.getParameter("website");
+	  String qq=request.getParameter("qq");
+	  String pages=request.getParameter("page");
+	  String nofollow=request.getParameter("nofollow");
+	  
+	  if(keyword==null||keyword.length()==0)
+	  {
+		  Tools.outJs(out, "???????????, "back");
+		  return;
+	  }
+	  if(website==null||website.length()==0)
+	  {
+		  Tools.outJs(out, "?????????", "back");
+		  return;
+	  }
+	  if(qq!=null&&qq.length()>0&&!Tools.isMath(qq))
+	  {
+		  Tools.outJs(out, "qq?????????", "back");
+		  return;
+	  }
+	  FriendLink fl=new FriendLink();
+	  fl.setFriendlink_keword(keyword);
+	  fl.setFriendlink_website(website);
+	  fl.setFriendlink_page(pages);
+	  fl.setFriendlink_qq(qq);
+	  fl.setFriendlink_nofollow(new Long(nofollow));
+	  fl=(FriendLink)Tools.getManager(FriendLink.class).create(fl);
+	  if(fl!=null)
+	  {
+		  Tools.outJs(out, "????????, "/admin/friendlink/addfriendlink.jsp");
+	  }
+  }
+
+%>
+<div style="margin:0px auto; width:980px; text-align:center; padding-top:25px;">
+   <h1 style=" font-size:25px;">?????????</h1>
+   <a href="friendlinklist.jsp">?????????</a><br/>
+   <form id="friendlink" method="post" action="addfriendlink.jsp" onsubmit="Check();">
+   <table style=" margin:0px auto; font-size:14px;text-align:left;">
+        <tr><td>??????</td><td><input type="text" id="keyword" name="keyword" onblur="Check();"/>&nbsp;&nbsp;<span id="keyword_notice"></span></td></tr>
+        <tr><td>?????/td><td><input type="text" id="website" name="website" onblur="Check();"/>&nbsp;&nbsp;<span id="website_notice">??????</span></td></tr>
+        <tr><td>???QQ??/td><td><input type="text" id="qq" name="qq"/>&nbsp;&nbsp;</td></tr>
+        <tr><td>????????/td><td><select id="page" name="page">
+                                          <option value="1">???</option>
+                                          <option value="2_1">??????????/option>
+                                          <option value="2_2">????????</option>
+                                          <option value="2_3">????????</option>
+                                          <option value="2_4">????????</option>
+                                          <option value="2_5">????????</option>
+                                          <option value="2_6">????????</option>
+                                          <option value="3">?????/option>
+                                          <option value="4">result??/option>
+                                          <option value="5">?????????</option>
+                                          <option value="5-1">?????????</option>
+                                          <option value="6">??????</option>
+                                          <option value="7">?????/option>
+                                    </select></td></tr>
+        <tr><td>???nofollow??/td><td><select id="nofollow" name="nofollow">
+                                          <option value="0">??/option>
+                                          <option value="1">??/option>
+                                       </select></td></tr>
+                  <tr><td colspan="2"><input type="submit" value="???" style="width:80px;"/>&nbsp;&nbsp;<input type="button" value="???" style="width:80px;" onclick="cancle();"/></td></tr>
+   </table>
+     
+   </form>
+</div>
+</body>
+</html>
+
+
+
+
+

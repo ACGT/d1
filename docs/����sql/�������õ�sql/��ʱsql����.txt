@@ -1,0 +1,64 @@
+select * from smssndmst
+
+--给买过特定商品的人发短信 
+insert into smssnddtl (smsid,phone,mbrid,name,ifsend) 
+select DISTINCT 245,odrmst_rphone,max(odrmst_mbrid),max(odrmst_rname),-1 from  d1marketing..mbroldsmsold727 
+where --odrmst_odrid=odrdtl_odrid and
+ len(odrmst_rphone)=11 
+and (odrmst_rphone like '13%' or odrmst_rphone like '15%' or odrmst_rphone like '18%') 
+and odrmst_mbrid not in(select mbrmstpingan_mbrid from mbrmstpingan) 
+--and odrmst_orderdate>='2011-1-1' and odrmst_orderdate<='2011-4-1' --and (odrdtl_rackcode like '014%') 
+--and odrdtl_gdsname like '%贝佳斯%'
+ --and (odrdtl_gifttype='' or odrdtl_gifttype is null) 
+--and odrdtl_finalprice>1 and odrdtl_shipstatus=3 and odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_rphone not in(select phone from badsms) 
+group by odrmst_rphone 
+
+select * into d1marketing..mbroldsmsold727 from (
+select top 40000 * from d1marketing..mbroldsmsold where 
+ odrmst_rphone not in(select odrmst_rphone from d1marketing..mbroldsmsold2010) order by newid())a
+
+
+select * into d1marketing..mbroldsmsold2010 from 
+--insert into d1marketing..mbroldsms
+(select distinct odrmst_rphone,max(odrmst_mbrid) odrmst_mbrid,max(odrmst_rname) odrmst_rname from  dba.odrmst_history,dba.odrdtl_history 
+where odrmst_odrid=odrdtl_odrid 
+and odrmst_mbrid not in(select mbrmstpingan_mbrid from mbrmstpingan) 
+and odrmst_orderdate>'2010-1-1' and odrmst_orderdate<='2011-1-1' --and (odrdtl_rackcode like '014%') 
+--and odrdtl_gdsname like '%贝佳斯%'
+ and odrdtl_shipstatus=3 and odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_rphone not in(select phone from badsms) 
+group by odrmst_rphone 
+
+)a
+
+
+insert into d1marketing..mbroldsmsold
+select distinct Lot8znph_phone,max(Lot8znph_mbrid) odrmst_mbrid,'gjl' from  Lot8znph group by Lot8znph_phone
+
+
+insert into smssnddtl (smsid,phone,mbrid,name,ifsend) 
+select DISTINCT 127,odrmst_rphone,max(odrmst_mbrid),max(odrmst_rname),-1 
+from  dba.odrmst_history,dba.odrdtl_history
+where odrmst_odrid=odrdtl_odrid and len(odrmst_rphone)=11 
+and (odrmst_rphone like '13%' or odrmst_rphone like '15%' or odrmst_rphone like '18%') 
+and odrmst_mbrid not in(select mbrmstpingan_mbrid from mbrmstpingan) 
+and odrmst_orderdate>='2009-1-1' and odrmst_orderdate<='2010-5-8' and (odrdtl_rackcode like '014%') 
+and odrdtl_gdsname like '%贝佳斯%' and (odrdtl_gifttype='' or odrdtl_gifttype is null) 
+and odrdtl_finalprice>1 and odrdtl_shipstatus=3 and odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_rphone not in(select phone from badsms) 
+and odrmst_mbrid not in (202828)
+and odrmst_rphone not in (select phone from smssnddtl where smsid=127) --!!!!!!!!!!!!!!!!!!!!!1
+group by odrmst_rphone 
+
+--全场
+insert into smssnddtl (smsid,phone,mbrid,name,ifsend) 
+select DISTINCT 125,odrmst_rphone,max(odrmst_mbrid),max(odrmst_rname),-1 
+from  odrmst
+where len(odrmst_rphone)=11 and (odrmst_rphone like '13%' or odrmst_rphone like '15%' or odrmst_rphone like '18%') 
+and odrmst_mbrid not in(select mbrmstpingan_mbrid from mbrmstpingan) 
+and odrmst_mbrid not in (202828)
+and odrmst_orderstatus in (3,31,5,51,6,61) and odrmst_rphone not in(select phone from badsms) 
+group by odrmst_rphone 
+
+select count(*) from smssnddtl where ifsend=-1

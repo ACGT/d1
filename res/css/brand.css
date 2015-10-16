@@ -1,0 +1,88 @@
+* { padding:0; margin:0; }
+li { list-style:none; }
+ul{padding:0; margin:0; }
+ .brandnav { float:left; width:88px; font-size:14px; font-weight:800; height:24px; color:#B3B3B3; line-height:24px;  text-align:center; cursor:pointer; background-image: url(http://images.d1.com.cn/images2011/brand/lin.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;}
+ .brandcurr { color:#6E2133;}
+ body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+h1,span,li{ padding:0px; margin:0px;}
+li{ list-style-type:none;}
+.listbrand{ width:938px}
+.listbrand1{ 
+    width:936px;
+	border-top: #999999 1px solid;
+	border-left: #999999 1px solid;
+	border-right: #999999 1px solid;
+}
+.listbrand li {
+	float: left;
+	width: 134px;
+	list-style-type: none;
+	text-align: center;
+	height:78px;
+}
+.listbrand1 li {
+	float: left;
+	list-style-type: none;
+	text-align: center;
+	height:68px;
+	border-bottom: #999999 1px solid;
+	padding-top:10px;
+}
+.adbg {
+	background-image: url(http://www.d1.com.cn/brand/images/pp_02.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.ppbg {
+	background-image: url(http://www.d1.com.cn/brand/images/pp_05.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.ppbg h1 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333333;
+	padding-top: 10px;
+	padding-left: 25px;
+	float: left;
+}
+.ppbg span {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ADADAD;
+	padding-top: 13px;
+	float: left;
+	padding-left: 6px;
+	font-weight: bold;
+}
+.ppfz {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #484848;
+}
+.td1 {
+	font-size: 11pt;
+	background-image: url(http://images.d1.com.cn/0730test/fenge.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	width: 107px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	height: 37px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 37px;
+}
+.a1 {
+	color: #000000;
+	text-decoration: none;
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bisdata>
+<reqId>79_0</reqId> 
+<serviceId>1000010000000029</serviceId> 
+<bizdata>
+   <sign>
+         <idx>00</idx>
+         <value/>
+    </sign>
+  <data>
+<encode>utf-8</encode>  
+<LPMS_Pionts>	 
+	<Request>
+	<PropertySet>
+	<SiebelMessage>
+        <ProcessName>PA Accrual Process</ProcessName>
+		<TerminalID/>
+		<param/>
+		<FirmID/>
+		<StoreID/>
+		<Operation>Accrual</Operation>
+        <Method>QueryTxn</Method>
+		<TTNumber>197189086103</TTNumber>
+		<TTTime/>
+		<CardNumber/>
+		<TransactionType/>
+		<Amount/>
+		<Partner>79_0</Partner>
+		<CTNumber/>
+		<MemberType/>
+		<MemberID/>
+		<UserName/>
+		<PartyNo/>
+        <ReconcileTime/>
+		<TxnType>REDEMPTION</TxnType>
+		<Channel/>
+		<MemberName/>
+		<IDType/>
+		<IDNo/>
+		<Sex/>
+		<BirthDate/>
+		<Email/>
+		<PhoneNo/>
+		<StartTime/>
+		<EndTime/>
+		<QueryYear/>
+		<QueryMonth/>
+		<pagesize/> 
+    	<startrownum/> 
+    	<recordcountneeded/> 
+        <Sortorder/>
+    	<searchspec/>
+	</SiebelMessage>
+	</PropertySet>
+	</Request>	
+</LPMS_Pionts>
+</data>
+</bizdata>
+</bisdata>

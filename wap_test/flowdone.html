@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/flowdone.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script src="/res/wap/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script src="/res/wap/js/flowdone.js?1.2" type="text/javascript"></script>
+</head>
+<body>
+	<header class="p_header">
+		<a name="top"></a>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>
+					<i></i>下单完成
+				</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<div class="orderpay">
+			<div class="ordertxt"></div>
+			<div class="ordermsg">
+				温馨提示： 1、请您在订单生成后7天内完成支付，逾期系统将自动取消本订单。<br>
+				2、由于商品的库存可能发生变化，建议您尽快支付。
+			</div>
+			<div class="paysnd"></div>
+		</div>
+	</div>
+
+</body>
+</html>
+<script language="javascript">
+function loaddata(){
+	  $.ajax({
+		type: 'get', 
+        url: '/ajax/wap/getflowdone.jsp',
+		dataType:'json',
+		success: function(json){
+				/*处理数据*/
+				if(json.status=="1"){
+				showitem(json);
+				}else{
+					window.location.href="/wap/index.html";
+				}
+        },beforeSend: function(){
+	    	$(".ordertxt").html("<img src=\"http://images.d1.com.cn/wap/2014/loading.gif\">")
+	    }
+	});
+	}
+	function showitem(json){
+		var orderhtml='<font color="#f1424f">订单提交成功！</font><br>';
+			orderhtml+='订单号：'+json.odrid+'<br>';
+			orderhtml+='应付金额：<font  color="#f1424f">'+json.odrmoney+'元</font><br>';
+			orderhtml+='支付方式：'+json.odrpaymethod+'<br>';
+			$(".ordertxt").html(orderhtml);
+			
+			if(json.odrpayid!=0&&json.odrpayid!=6&&json.odrstatus==0){
+			$(".paysnd").html('<a  href="/wap/flow/zhifu.jsp?payId='+json.odrpayid+'&OdrID='+json.odrid+'" class="pays" >在线支付</a>');
+			}else if(json.odrpayid==6&&json.odrstatus==0){
+			  $(".paysnd").html("<a  href=\"javascript:checkweixinpay('"+json.odrid+"');\" class=\"pays\" >微信支付</a>");
+			}
+			if(json.returl!=''){
+			$(".paysnd").append('<img src="'+json.returl+'" height="1" width="1" style="display:none;">');
+			}
+	}
+	loaddata();
+
+	</script>
+<div style="display: none;">
+	<script language="javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+	</script>
+</div>

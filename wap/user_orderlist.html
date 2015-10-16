@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/odrlist.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/com.js?201509291503"></script>
+<script type="text/javascript" src="js/sync_d1_user.js"  ></script>
+
+</head>
+<body>
+	<header class="p_header">
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>我的订单</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<div class="orderselect">
+			订单类型： <select class="orderstatus" name="orderstatus"
+				onchange="selectorder(this.value);">
+				<option value="1">未发货</option>
+				<option value="2">已发货</option>
+				<option value="3" selected>三个月订单</option>
+				<option value="4">历史订单</option>
+			</select>
+		</div>
+
+		<div class="m_odrlist">
+			<ul class="moul">
+
+
+			</ul>
+			<div class="m_page" style="display: none;">
+				<div class="mp_cell s">首页</div>
+				<div class="mp_cell l">上一页</div>
+				<div class="mp_cell m">
+					<span class="vselect">&nbsp;<i></i></span> <select
+						class="go_select" onchange="gourl(this.value);">
+					</select>
+				</div>
+				<div class="mp_cell r">下一页</div>
+				<div class="mp_cell e">尾页</div>
+			</div>
+		</div>
+
+
+
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				</script>
+	</div>
+	<script language="javascript">
+function selectorder(status){
+	loaddata(status);
+}
+
+function loaddata(status1){
+	
+  var url=document.URL;
+  var para="";
+  var pageno=1;
+  var status='3';
+  if(status1!=''){
+	  status=status1;
+  }
+   if(url.lastIndexOf("?")>0)
+   {
+        para=url.substring(url.lastIndexOf("?")+1,url.length);
+		var arr=para.split("&");
+		para="";
+		for(var i=0;i<arr.length;i++)
+		{
+		   if(arr[i].split("=")[0]=="pageno"){
+			   pageno=arr[i].split("=")[1];
+		   }
+		   if(arr[i].split("=")[0]=="status"){
+			   status=arr[i].split("=")[1];
+		   }
+		}
+   } 
+	var psize=12;
+	  $.ajax({
+		type: 'get', 
+        url: '/ajax/wap/getodrlist.jsp',
+        data:{pg:pageno,psize:psize,status:status},
+		dataType:'json',
+		success: function(data){
+			
+				/*处理数据*/
+				if(data.status=="1"){
+				showlist(data,psize,pageno,status);
+				}else{
+					$(".m_odrlist .moul").html('');
+				}
+        },beforeSend: function(){
+	    	$(".m_odrlist .moul").html("<div class=\"load\"><img src=\"http://images.d1.com.cn/wap/2014/loading.gif\"></div>")
+	    },complete: function(){
+          
+	    }
+	});
+	}
+
+	function gourl(parr){
+		c=parr.split(",");
+		var gourl="orderlist.html?pageno="+c[0]+"&status="+c[1]+"";
+		window.location.href=gourl;
+	}
+	function showlist(p,psize,pageno,status){
+		if(status=='2'||status=='3'||status=='4'){
+		if(p.num1==0) $(".orderstatus option[value='1']").remove();  
+		if(p.num2==0) $(".orderstatus option[value='2']").remove();  
+		}
+		
+		var pagenum=parseInt(p.allcount/psize);
+		if(p.allcount%psize>0) {
+			pagenum=pagenum+1;
+	     }
+		
+		if(p.allcount>psize){
+			$(".m_page").show();
+		$(".vselect").html(pageno+'/'+pagenum+'&nbsp;<i></i>');
+		 var pgnext=parseInt(pageno)+1;
+		 var pgup=parseInt(pageno)-1;
+		$(".m_page .mp_cell.s").html('<a attr="1,'+status+'" href="javascript:void(0)">首页</a>');
+		if(parseInt(pgup)>=1){
+		$(".m_page .mp_cell.l").html('<a attr="'+ pgup+','+status+'" href="javascript:void(0)">上一页</a>');
+		}else{
+			$(".m_page .mp_cell.l").hide();
+		}
+		 if(parseInt(pgnext)<=parseInt(pagenum)){
+		$(".m_page .mp_cell.r").html('<a attr="'+pgnext+','+status+'" href="javascript:void(0)">下一页</a>');
+		 }else{
+				$(".m_page .mp_cell.r").hide();
+			}
+		$(".m_page .mp_cell.e").html('<a attr="'+pagenum+','+status+'" href="javascript:void(0)">尾页</a>');
+		
+		pageselect="";
+		for(var i=1;i<=pagenum;i++){
+			if(i==pageno){
+			pageselect+='<option value="'+i+','+status+'" selected>第'+i+'页</option>';
+			}else{
+			pageselect+='<option value="'+i+','+status+'">第'+i+'页</option>';	
+			}
+		}
+		$(".go_select").html(pageselect);
+		
+		}else{
+			$(".m_page").hide();
+		}
+		$(".m_odrlist .moul").html('');
+	var orders=eval(p.orders);
+	if(orders.length>0){
+		var pli="";
+		var odrlen=orders.length;
+		var statustxt="";
+		var status=""
+	   for(var i=0;i<odrlen;i++){
+		   status=orders[i].order_status;
+		pli='<li>';
+		pli+='<div class="mo_item">';
+		pli+='<div class="order">';
+		pli+='    <span>订单号：<a href="/wap/orderdetail.html?odrid='+orders[i].order_odrid+'" style="color:#36c;">'+orders[i].order_odrid+' </a>';
+		if(orders[i].order_payid!=0&&orders[i].order_status==0){
+			pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" class="pays" >去支付</a>';
+			}
+		pli+='</span><span>金额：'+orders[i].order_allmoney+'&nbsp;&nbsp;'+orders[i].order_statustxt+'</span></div>';
+		pli+='<ul>';
+		var items=eval(orders[i].order_items);
+		var itemlen= items.length;
+		if(itemlen>0){
+			var itemstatus=0;
+			var itemstatustxt="";
+			var thtxt="";
+			for (var j=0;j<itemlen;j++){
+				itemstatus=items[j].orderitem_status;
+				thtxt="";
+				if(itemstatus>0){
+					itemstatustxt="已发货";
+					if (status>=3){
+						if(items[j].thurl==''){
+						thtxt="<a href=\"/wap/user/thorder.html?odrid="+orders[i].order_odrid+"&subodrid="+items[j].orderitem_id+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
+						}else{
+							thtxt=items[j].thurl;
+						}
+					}
+				 }else if(itemstatus==0&&status>0){
+					itemstatustxt="待发货";
+				}else if(itemstatus==0&&status==0){
+					itemstatustxt="待付款/待确认订单";
+				}else{
+					itemstatustxt="已取消";
+				}
+				pli+='<li>';
+				pli+='  <div class="product">';
+				pli+='	<img src="'+items[j].orderitem_img+'" class="pimg" />';
+				pli+='	<div class="pitemr">';
+				pli+='	    <p class="title">'+items[j].orderitem_gdsname+'</p>';
+				pli+='		<p class="price">商品单价：<font color="#f1424f">￥'+items[j].orderitem_price+'</font>&nbsp;&nbsp;&nbsp;&nbsp;商品数量：<font color="#f1424f">'+items[j].orderitem_count+'</font></p>';
+				pli+='		<p class="dtlstatus">'+itemstatustxt+'';
+				pli+='&nbsp;&nbsp;'+thtxt;
+				pli+='	</p></div>';
+				pli+='  </div>';
+				pli+='</li>';
+			}
+		}
+		pli+='</ul>';
+		if(orders[i].order_status>=3){
+		pli+='<div class="but">';
+		if(orders[i].order_status==3||orders[i].order_status==31){
+			pli+='	<span><a href="javascript:void(0);" class="sndok" attr="'+orders[i].order_odrid+'">确认收货</a></span>';
+		//pli+='	<span><a href="/wap/user/ordercom.html?odrid='+orders[i].order_odrid+'"></a></span>';
+		}else if((orders[i].order_status==5||orders[i].order_status==51)&&orders[i].order_comflag==0){
+          pli+='	<span><a href="/wap/user/ordercom.html?odrid='+orders[i].order_odrid+'">去评价</a></span>';
+		}
+		pli+='	<span><a href="/wap/user/ordership.html?ship='+orders[i].order_shipcom+'&shipcode='+orders[i].order_shipcode+'">'+orders[i].order_shipname+' 单号：'+orders[i].order_shipcode+' 物流跟踪>></a></span>';
+		pli+='</div>';
+		}
+		pli+='</div>';
+		pli+='  </li>';
+	   $(".m_odrlist .moul").append(pli);
+	   }
+
+	  
+	}
+
+	$(".m_page .mp_cell>a").click(function(){
+		var paras=$(this).attr('attr');
+		gourl(paras)
+		
+	});
+	 $(".sndok").click(function(){	
+		 if(window.confirm('您确定已经收到货了吗？')){
+		 var orderid=$(this).attr("attr");
+		   $.ajax({
+				type: "post",
+				dataType: "json",
+				url: '/ajax/wap/odroksnd.jsp',
+				data:{odrid:orderid},
+				error: function(XmlHttpRequest){
+					alert("内容错误！");
+				},success: function(json){
+					if(json.status=="1"){
+						if(window.confirm('确认收货成功！立即去评价吗？')){
+						window.location.href='/wap/user/ordercom.html?odrid='+orderid;
+						}
+					}else{
+						alert("确认收货失败！！");
+					}
+				}
+		   });
+		 }
+	 });
+	}
+	loaddata('');
+	
+	loadlogin();
+	
+	//alert(loginflag);
+	
+	sleep(1500);
+	
+	//alert(loginflag);
+	
+	if(loginflag!=1) {
+		window.location.href="login.html";
+	}
+	
+	</script>
+	<div style="display: none;">
+		<script language="javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+	</div>
+</body>
+</html>

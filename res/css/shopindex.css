@@ -1,0 +1,26 @@
+.modelist{ width:980px; margin:0px auto; overflow:hidden;}
+ .mode_title{ height:35px; border-bottom:solid 2px #b80024; line-height:45px; font-size:16px; font-weight:bold; font-family:'Î¢ÈíÑÅºÚ'; color:#333; width:100%;}
+ .mode_content{padding:0px;margin:0px auto;margin-bottom:10px;}
+ .mode_content dl{float:left;margin-bottom: 10px; padding:0px;overflow:hidden;}
+ .mode_content dl dt{margin:0px; padding:0px;}
+ .mode_content dl dd{padding: 2px 0px 2px 0px; font-size:12px; text-align: center;line-height: 18px;}
+ .bottom{ width:980px; margin:0px auto;}
+ .b_left{ width:151px; margin-right:6px; float:left;font-size:12px; border:solid 1px #dfdfdf;background:#fff;}
+ .b_right{ width:815px;float:left; overflow:hidden;background:#fff;border:solid 1px #dfdfdf;}
+ .b_title{height:43px; background:url('/admin/SHManage/images/si_bg.jpg');  line-height:43px; font-size:16px; font-weight:bold; font-family:'Î¢ÈíÑÅºÚ'; color:#333;width:100%; }
+ .imglist{ width:100%;margin-top:10px;}
+ .imglist dl{float:left;margin-bottom: 10px; padding:0px;overflow:hidden;height:260px;}
+ .imglist dl dt{margin:0px; padding:0px;}
+ .imglist dl dd{padding: 2px 0px 2px 0px; font-size:12px; text-align: center;line-height: 18px;}
+ a img{border:none;}
+ .b_left b{font-size:16px; color:#333;display:block;height:35px;line-height:35px;font-weight:bold; line-height}
+ .b_left a{font-size:12px;}
+ .mbodyllist {border:soild 1px #e4e4e4;border-top:none;}
+ .mbllistt {background-image: url(http://images.d1.com.cn/images2013/result/result001.jpg);background-repeat: no-repeat;background-position: center top;
+            height: 43px;line-height: 43px;padding-left: 15px;font-size:16px; font-weight:bold; font-family:'Î¢ÈíÑÅºÚ'; color:#333;}
+ .classList {font-size: 12px;padding: 10px;position: relative;}
+ .classList .water {background: #FFF;height: 10px;position: absolute;z-index: 1px;left: 0;top: 0;width: 100%;}
+ .foldheader1 {cursor: hand;list-style: none;margin-top: -10px;}
+ .foldheader1 li.parent {height: 28px;line-height: 28px;color: #515151;font-size: 12px;font-weight: bold;margin-top: 8px;margin-bottom: 4px;padding-top: 4px;}
+ .foldheader1 li {height: 28px;line-height: 28px;font-size:12px;overflow:hidden;}
+ .foldheader1 a {color: #515151;padding: 2px;display: block;padding-left: 22px;}

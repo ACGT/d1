@@ -1,0 +1,10 @@
+select distinct(mbrmst_email) from tktmst join mbrmst on mbrmst_id=tktmst_mbrid where tktmst_validatee >='2010-6-23' 
+and tktmst_validatee<'2010-7-31' and tktmst_validflag=0
+
+
+
+
+select distinct(mbrmst_email) from tktcrd join mbrmst on mbrmst_id=tktcrd_mbrid where tktcrd_validatee >='2010-6-30' 
+and tktcrd_validatee<'2010-7-31' and tktcrd_value=tktcrd_realvalue 
+ and mbrmst_email not in (select distinct(mbrmst_email) from tktmst join mbrmst on mbrmst_id=tktmst_mbrid where tktmst_validatee >='2010-6-30' 
+and tktmst_validatee<'2010-7-31' and tktmst_validflag=0)

@@ -1,0 +1,45 @@
+正式订单
+select odrmst_odrid,Odrmst_orderdate,case when (Convert(int,datepart(hour,odrmst_validdate))>=18)
+then convert(varchar(10),odrmst_validdate+1)+' 9:00' else odrmst_validdate end,odrmst_validdate,
+ (select  max(odrdtl_purenddate) from odrdtl_recent where odrdtl_odrid=odrmst_odrid and odrdtl_purbegindate is not null),
+odrmst_shipdate,paymst_name,case when  odrmst_specialmbr=0 then '第一次订购' else null end
+ from odrmst_recent join paymst on paymst_payid=odrmst_payid where --odrmst_odrid='110222001156' and
+--odrmst_odrid='110311009281 '
+odrmst_orderdate>'2011-2-21' and odrmst_orderdate<'2011-2-28' and odrmst_orderstatus in (3,31,5,51,6,61) 
+
+
+取消的订单
+select odrmst_odrid,Odrmst_orderdate,case when (Convert(int,datepart(hour,odrmst_validdate))>=18)
+then convert(varchar(10),odrmst_validdate+1)+' 9:00' else odrmst_validdate end,odrmst_validdate,
+ (select  max(odrdtl_purenddate) from odrdtl_recent where odrdtl_odrid=odrmst_odrid and odrdtl_purbegindate is not null),
+odrmst_shipdate,paymst_name,case when  odrmst_specialmbr=0 then '第一次订购' else null end,odrmst_ourmemo,
+(select max(odrlog_createtime) from odrlog_cancel where odrlog_odrid=odrmst_odrid)
+ from odrmst_recent join paymst on paymst_payid=odrmst_payid where --odrmst_odrid='110222001156' and
+--odrmst_odrid='110311009281 '
+odrmst_orderdate>'2011-2-21' and odrmst_orderdate<'2011-2-28' and odrmst_orderstatus in (-1,-2) -- (3,31,5,51,6,61) 
+
+
+
+
+
+Validate-orderdate
+Odrmst_phdate-validdate
+Shipdate-validdate
+
+Odrmst_orderdate 
+
+odrmst_validdate 确认\收款时间
+
+odrdtl_purbegindate 采购开始时间
+
+odrdtl_purenddate 采购结束时间/核货时间
+
+http://admin.d1.com.cn:322/ph_new/printedlist.asp  打印时间
+
+配货完成时间
+
+odrmst_phdate 最慢一条明细的出库时间 配货时间
+
+odrmst_shipdate  发货时间
+
+odrmst_realshipdate 真实发货时间

@@ -1,0 +1,69 @@
+@charset "utf-8";
+.main{min-height: 300px;background-color: #fff;font-family:微软雅黑;min-width:320px;margin:0 auto;}
+.main  .orderselect{margin:.10rem .10rem;height: .36rem;font-size:0.18rem;}
+.main  .orderselect .orderstatus{
+height: .30rem;
+width:2.00rem;
+cursor: pointer;font-size:0.18rem;}
+
+.main .m_odrlist{margin:15px 0;} 
+.main .m_odrlist li{padding-bottom:15px;overflow:hidden;}
+.main .m_odrlist li:last-child{padding-bottom:0}
+.main .m_odrlist .mo_item .order{width:100%;background:#ededed;height:0.50rem;font-size:0.14rem;padding-left:.20rem;line-height:.50rem;display:table;}
+.main .m_odrlist .mo_item .order span{display:table-cell;width:50%;}
+.main .m_odrlist .mo_item li{padding:6px 0;margin-left:.25rem;border-bottom:1px solid #c6c6c6;}
+.main .m_odrlist .mo_item li:last-child{border-bottom:0;}
+.main .m_odrlist .mo_item .product {height:.90rem;font-size:.12rem;}
+.main .m_odrlist .mo_item .product .pimg{float:left;margin-right:10px;}
+.main .m_odrlist .mo_item .product .pitemr p{line-height:.22rem;}
+.main .m_odrlist .mo_item .product .pitemr .title{height: .42rem;overflow: hidden;font-size: 12px;}
+.main .m_odrlist .mo_item  .but{display:table;width:100%;height:.40rem;font-size:.14rem;}
+.main .m_odrlist .mo_item  .but span{display:table-cell;width:50%;text-align:center;height:.40rem;}
+.main .m_odrlist .mo_item  .but span a{cursor:pointer; display: inline-block;width:95%;background:#ededed;font-size:.14rem;text-align:center;line-height:.32rem;border-radius:4px;}
+
+.main  .m_page{display: -webkit-box;
+display: flex;height:0.29rem;padding:15px;}
+.main  .m_page>div {
+background-color: #fff;
+border: 1px solid #ccc;
+line-height: 29px;
+white-space: nowrap;
+border-radius: 2px;
+cursor: pointer;
+font-size:0.14rem;
+text-align:center;
+}
+
+.main  .m_page .mp_cell.s{width:0.45rem;margin:0 5px;}
+.main  .m_page .mp_cell.l{width:0.55rem;margin:0 5px;}
+.main  .m_page .mp_cell.r{width:0.55rem;margin:0 5px;}
+.main  .m_page .mp_cell.e{width:0.45rem;margin:0 5px;}
+.main  .m_page .mp_cell.m{
+-webkit-box-flex: 1;
+flex: 1;
+position: relative;
+box-shadow: 0 3px 3px #d7d7d7 inset;
+background: #fff;}
+.main  .m_page .mp_cell .vselect i {
+display: inline-block;
+width: 5px;
+height: 5px;
+border-left: 2px solid #9d9d9d;
+border-bottom: 2px solid #9d9d9d;
+-webkit-transform: rotate(-45deg);
+margin-left: 2px;
+margin-bottom: 2px;
+}
+.main  .m_page .mp_cell .go_select{position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+opacity: 0;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-appearance: none;
+border: 0;
+border-radius: 0;
+cursor: pointer;font-size:0.12rem;}
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>D1优尚网触屏版</title>
+    	<meta name="author" content="m.d1.cn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css" charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/index.css?1.15" charset="utf-8"/>
+        <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="/res/wap/js/scroll.js"></script>
+        <script type="text/javascript" src="/res/wap/js/index.js"></script>
+        <script type="text/javascript" src="/res/wap/js/com.js"></script>
+
+	</head>
+		  <body>
+		        <header class="p_header">
+		          <a name="top"></a>
+		                <div class="h_txt">
+						<div class="logo">
+							<a href="/wap/index.html"></a>
+						</div>
+					    <div class="search">
+						<input type="submit" class="sbut" text="搜索" name="sbut" id="sbut" />
+						<input name="keyword" id="keyword" autocomplete="off" role="combobox" aria-haspopup="true" type="text" class="keys" />
+						</div>
+						<div class="myuser"><a href="/wap/user/index.html"></a></div>
+						<div class="carth">
+						 <a href="/wap/flow.html"></a>
+						</div>
+			          </div>
+			    </header>
+				<div class="main" >
+				
+					<div class="mcate">
+					    <a href="/wap/index.html" class="cur">首页</a>
+						<a href="/wap/result.html?rackcode=014">美妆</a>
+						<a href="/wap/result.html?rackcode=020">女装</a>
+						<a href="/wap/result.html?rackcode=030">男装</a>
+						<a href="/wap/cate.html">全部</a>
+					</div>
+					   <div class="mp_list sg">
+					   <span class="tmtit"><h2>限量闪购</h2></span>
+							<ul id="sgul">
+								
+							</ul>
+							<div style=" clear:both;"></div>
+				       </div>
+					</div>
+				</div>
+				<div id="footer" class="footer">
+				<script  language="javascript">
+					getwapFoot();
+				</script>
+				</div>
+				<script type="text/javascript" src="/res/wap/js/jquery.mobile.custom.js"></script>
+				<script type="text/javascript" src="/res/wap/js/loadimg.js"></script>
+				<script language="javascript">
+    var gPageSize = 10;
+    var i = 1; //设置当前页数，全局变量
+    $(function () {
+         //根据页数读取数据
+        function getData(pagenumber) {
+            i++;//页码自动增加，保证下次调用时为新的一页。
+            $.ajax({
+        		type: 'get', 
+                url: '/ajax/wap/getsglistpg.jsp',
+        		dataType:'json',
+        		data:{pg:pagenumber,psize:gPageSize},
+        		success: function(data){
+            	if (data.pstatus=="1") {
+                	showlist(data)
+                	meitem.getInViewportList();
+                }
+        		}
+            });
+        }
+        //初始化加载第一页数据
+        getData(1);
+
+        //==============核心代码=============
+        var winH = $(window).height(); //页面可视区域高度 
+        //定义鼠标滚动事件
+        $(window).scroll(function () {
+            var pageH = $(document.body).height();
+            var scrollT = $(window).scrollTop(); //滚动条top 
+            var aa = (pageH - winH - scrollT) / winH;
+            if (aa < 0.02) {//0.02是个参数
+                getData(i);
+            }
+        });
+        //==============核心代码=============
+       
+    	
+    });
+
+
+
+	function showlist(p){
+
+	var products=eval(p.products);
+	if(products.length>0){
+		var pli="";
+		var licls="";
+		var len=products.length;
+	   for(var i=0;i<len;i++){
+		  var pprice=products[i].p_mprice;
+		  if(products[i].p_issgflag||products[i].p_ismiaoshao){
+			  pprice=products[i].p_msprice;
+		  }
+		  var zk=(pprice*10.0/products[i].p_saleprice).toFixed(1);
+		   licls="";
+		  if(i!=0&&(i+1)%2==0){
+			  licls='class="r"';
+		  }
+		 pli+='<li '+licls+'>';
+		 pli+='<div class="sgitem">';
+		 pli+='	<div class="pic"><a href="product.html?id='+products[i].p_gdsid+'">';
+		 pli+='	<img src="http://images.d1.com.cn/wap/2014/load.png" _src="'+products[i].p_img+'" border="0" >';
+	     pli+='	</a></div>';
+		 pli+='	<div class="txt">';
+		pli+='		<p class="title"><a href="product.html?id='+products[i].p_gdsid+'">'+products[i].p_gdsname+'</a></p>';
+		pli+='		<div class="price">';
+		pli+='			<span class="m">￥'+pprice+'</span>';
+		pli+='		<span class="s">￥'+products[i].p_saleprice+'</span>';
+		pli+='		<span class="zk">'+ zk+'折</span>';
+		pli+='		   <p class="buytxt">'+products[i].p_buynum+'已购买</p>'; 
+		pli+='	   <div class="but">';
+		pli+='	     <a href="product.html?id='+products[i].p_gdsid+'"><i></i></a>';
+		pli+='	   </div>';
+		pli+='   </div> </div></div></li>';
+
+	 
+	   }
+	   $("#sgul").append(pli);
+	  
+	}
+
+	}
+	//loaddata();
+	$("#sbut").click(function(){
+		var headsearchkey =$("#keyword").val();
+		 window.location.href="/wap/search.html?headsearchkey="+headsearchkey;
+	});
+	
+	
+		
+	</script>
+		<div style="display:none;">
+	<script language="javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+	</script>
+	</div>
+          </body>
+</html>

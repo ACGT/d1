@@ -1,0 +1,87 @@
+
+
+*{}
+
+.tab-item1 td{ width:230px; height:338px;vertical-align:top;}
+.tab-item1 .item-td30{ width:30px;}
+.tab-item2 td{ width:186px; height:272px;}
+.tab-item2 .item-td25{ width:25px;}
+.item-td{padding-top:13px; text-align:center;}
+.item-box{ width:208px; overflow:hidden;margin:0px auto; padding:4px 0; border:1px solid #cdcdcd; background-color:#FFFFFF;}
+.item-box .pro{ display:block; margin:0px auto; border:0px;}
+.item-title{ color:#000000; font-size:14px; font-weight:bold; line-height:30px; text-decoration:none;}
+.item-box ul{ width:200px; list-style:none; margin:0px auto; padding:0px; overflow:hidden;}
+.item-box ul li{ float:left; display:block; font-size:12px; color:#727272; text-align:center;}
+.item-box li span{ float:left; display:block; margin-top:1px; margin-right:1px; width:54px; height:17px; line-height:17px; background:#e2e2e2;}
+.item-box img,.item2-box img{ border:0px;}
+.item2-box{ display:block; padding-top:20px;width:170px;margin:auto;padding-left:15px; text-align:center; vertical-align:top;}
+.item2-box .pro{ display:block; width:150px; height:150px; margin-bottom:10px; border:0px;}
+.item2-box p{ margin:0px; padding:0px; line-height:14px; font-size:12px; color:#727272; text-align:left; padding-bottom:12px;}
+.tab-list table{ background:url(http://images.d1.com.cn/zt2011/20111219lndq/xsq/qianggou_12.jpg) repeat-y;}
+.tab-list table h3{ height:35px; overflow:hidden;line-height:1.2em; margin:0 5px;padding:0px; font-size:14px; text-align:center;}
+.tab-list table h3 a{color:#000000; text-decoration:none;}
+.tab-list table h4 { margin:0px; text-align:center; font-weight:500;line-height:1.3em; font-size:12px;overflow:hidden;height:30px;}
+.tab-list table h4 a{ line-height:16px; color:#000000; text-decoration:none;}
+.tab-list table p{ margin:0px; padding:0px; padding-left:7px; line-height:22px; font-size:12px; text-align:left; color:#727272;}
+.tab-list .item2-box p{ margin:9px 0px; padding-left:0px; line-height:16px;}
+.tab-list table p span{ margin-left:10px; font-weight:bold; color:#dc0000;}
+.photoList{ width:445px; margin:30px 20px 13px 40px; padding:0px 3px 3px 0px; list-style:none; overflow:hidden; _zoom:1; border:1px solid #cdcdcd; background-color:#FFF; position:absolute;}
+.bigPhoto{ float:left; _display:inline; margin:3px 0px 0px 3px;}
+.tab-list .yqg{ display:block; width:75px; height:57px; padding-left:12px; padding-top:10px; line-height:16px; background:url(http://www.vjia.com/active/limittime/images/hd_bg.gif) no-repeat -441px -373px; position:absolute; top:60px; left:24px; _left:-16px; color:#FFF; font-weight:bold;}
+.tab-list .mingx,.tab-list .gus{ width:400px; padding:16px; border:1px solid #deddd5; background-color:#faf6da;}
+.mingx{ margin:30px 40px 16px 0px; position:relative; padding-top:30px; padding-left:30px}
+
+.mingx h2{ margin:10px 0px; _margin-top:0px; line-height:14px; font-size:14px; font-weight:bold;}
+.mingx dl{ margin:0px;}
+.mingx dl dt{ font-size:14px; line-height:20px; font-weight:bold; color:#000;}
+.mingx dl dd{ margin:0px; padding-right:29px; line-height:16px; color:#727272;}
+.mingx dl dd span{ color:#000; line-height:26px;}
+.hotj{ color:#dc0000; font-size:24px; font-weight:bold; font-family:"Î¢ÈíÑÅºÚ"; line-height:22px;}
+.mingx .btn{ display:block; position:absolute; right:10px; bottom:2px; z-index:4;}
+ .gus{ padding-right:20px; margin-bottom:15px;}
+.gus h1{ margin:0px; display:block; height:21px; line-height:29px;font-size:16px;}
+ .gus h1 a{ text-decoration:none; color:#dc0000;}
+ .gus img{ display:block; margin:9px 6px; border:0px;}
+ .gus p{ margin:0px; width:361px; color:#666666; font-size:12px; line-height:16px;}
+
+.hdgz{ width:980px; background-color:#d61636;}
+.hdgz p{ width:889px; margin-left:20px; padding:0px 36px 30px 23px; line-height:22px; background-color:#fffce5; overflow:hidden; zoom:1;}.xqyg{ width:389px; height:158px; padding-top:62px; padding-left:31px; background:url(images/hd_bg.gif) no-repeat 0px -220px #d61636; vertical-align:top;}
+.xqyg a,.xqyg img{ display:block; border:0px;}
+.xqyg a{ float:left; margin-right:30px;}
+.xqyg dl{ margin:0px; float:left; width:185px; padding-right:32px; line-height:16px;}
+.xqyg dl dt{ font-size:16px; font-weight:bold;}
+.xqyg dl dd{ margin-left:0px; margin:13px 0px; color:#727272;}
+/*****/
+td{margin:0;padding:0;}
+#timeBg{position:relative;display:block;}
+#timeArea{color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    left: 110px;
+    position: absolute;
+    top: 230px;}
+#timeArea span{margin:0 28px 0 1px;}
+#activeProductsArea .photo{display:block;width:200px;height:200px;background:#eee;margin:0 4px 10px 4px;}
+#hotProductsArea a img{display:block;width:150px;height:150px;background:#fff;margin-bottom:10px;}
+.tab-list ul #bigPhoto{width:350px;height:355px;}
+
+
+.btnA{text-align:center;}
+.btn{display:block;margin:auto;}
+.btn u{display:none;}
+#starProduct .btnA .btn{width:166px;height:58px;}
+#starProduct .btnA a.btn{background:url(http://www.vjia.com/active/limittime/images/btn_jqqd_02.jpg)}
+#starProduct .btnA b.btn{background:url(http://www.vjia.com/active/limittime/images/btn_jqqd_03.jpg);cursor:no-drop;}
+#starProduct .btnA span.btn{background:url(http://www.vjia.com/active/limittime/images/btn_jqqd_01.jpg);cursor:no-drop;}
+
+#activeProductsArea .btnA .btn{width:139px;height:46px;}
+#activeProductsArea .btnA a.btn{background:url(http://images.d1.com.cn/zt2011/20111219lndq/xsq/qianggou_31.jpg)}
+#activeProductsArea .btnA b.btn{background:url(http://www.vjia.com/active/limittime/images/qianggou_31_02.jpg);cursor:no-drop;}
+#activeProductsArea .btnA span.btn{background:url(http://www.vjia.com/active/limittime/images/qianggou_31_03.jpg);cursor:no-drop;}
+
+#moreLink{width:100px;height:30px;display:block;margin:auto;margin-right:30px;}
+#moreLink u{display:none;}
+#hotProductsArea a.btn{display:block;width:77px;height:22px;background:url(http://www.vjia.com/active/limittime/images/qianggou_27.jpg)}
+.tab-list .hide,.hide{display:none;}
+
+

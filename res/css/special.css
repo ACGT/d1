@@ -1,0 +1,105 @@
+body{margin:0px; padding:0px;}
+img{border:0px; }
+.sp_outer{background:url("http://images.d1.com.cn/images2012/New/zt/sp_bg.gif") center top no-repeat; }
+.sp_name{padding:5px 0px 0px 0px; }
+.sp_name a{display:block; width:130px; height:36px; overflow:hidden; font-size:12px; line-height:18px; color:#aa0000; text-decoration:none; }
+.sp_price{text-align:center; font-size:14px; font-weight:bold; line-height:16px; color:#53810f; padding-bottom:5px; }
+.sp_price span{color:#666; text-decoration:line-through; }
+td{font-size:12px;line-height:24px;}
+.td1{
+background-image:url(http://images.d1.com.cn/images2012/New/zt/tuangou_12.gif); 
+ background-repeat :no-repeat;
+}
+.td2{
+background-image:url(http://images.d1.com.cn/images2012/New/zt/bg01b.gif); 
+background-color:#E8E8E8; background-repeat :no-repeat;
+}
+dd,dt,dl,p,ul,li{ padding:0px; margin:0px;}
+li{ list-style-type:none;}
+td a{color:#2C2C2C; text-decoration:none;}
+td a:hover{color:#2C2C2C;text-decoration:none;}
+.pd10{ padding-top:10px;}
+.mg10{ margin-top:10px;}
+img{ border:0px;}
+
+.clearfm{clear:both;}
+.jacksbg {
+	margin:0 auto;
+	background-color: #2C2C2C;
+}
+.jkbody{margin:0 auto; width:962px; padding:0 9px 0 9px; background-color:#FFFFFF;}
+.jktop{ padding-top:4px; padding-bottom:3px;}
+.jkbottoml{ width:203px; float:left;}
+.lin {
+	border: 1px solid #E9E9E9;
+}
+.jkbml dt {
+	text-align: center; padding-top:8px;
+}
+.jkbml dd {
+	text-align: center;
+}
+.jkbml dd {
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.jkbottomr{ width:752px; float:right;}
+.jkbmr1{ padding-bottom:10px; float:left; width:750px;}
+.jkbmr1 li{ width:375px; float:left;}
+jkbmr2{  width:750px;}
+.bgstyle1 { background-image: url(http://images.d1.com.cn/images2012/New/zt/zippo_bg1.gif)}
+.bgstyle2 { background-image: url(http://images.d1.com.cn/images2012/New/zt/zippo_bg2.gif)}
+
+img {
+    border:0;}
+.border a {
+	font-size: 12px;
+	color: #000000;
+}
+.border a:link {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.border a:visited {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.border a:hover {
+	text-decoration: none;
+	color: #CC0000;
+}
+.border a:active {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.border{
+    border-color: #CCCCCC;
+	border-style:dotted;
+	border-width:1px;}
+.cc ul{
+    float:left;
+  	padding:0;
+	margin:0 0 0 0;
+	list-style:none;
+	display:inline;
+	width:100%;
+}
+.cc li{
+    text-align:center;
+    float:left;
+    width:148px;
+    margin:0;
+	padding:0;
+	}
+.cc p{
+    margin:0;
+	padding:10px 0 ;}
+.cc li a:hover{
+    text-align:center;
+    float:left;
+    width:148px;
+    background-color:#eeeeFF;
+    margin:0;
+	padding:0;
+	TEXT-DECORATION: none
+	}

@@ -1,0 +1,22 @@
+
+∏¸–¬…Û≈˙”‡∂Ó
+select (select 22165.7+sum(a.proaccount_money+a.proaccount_fare) from dba.proaccount a where a.proaccount_pshopcode='00001056' 
+and a.proaccount_spdate<=b.proaccount_spdate and a.proaccount_spdate>='2011-05-25 10:25:23.000'),* from dba.proaccount b where 1=1 and proaccount_pshopcode='00001056'
+and proaccount_spdate>='2011-05-25 10:25:23.000'
+order by proaccount_appflag desc, proaccount_spdate,proaccount_id
+
+
+update dba.proaccount set proaccount_ye=(select 22165.7+sum(a.proaccount_money+a.proaccount_fare) from dba.proaccount a where a.proaccount_pshopcode='00001056' 
+and a.proaccount_spdate<=dba.proaccount.proaccount_spdate and a.proaccount_spdate>='2011-05-25 10:25:23.000') 
+where 1=1 and proaccount_pshopcode='00001056'
+and proaccount_spdate>='2011-5-12 10:38:40'
+
+
+select * from dba.proaccount where proaccount_appflag=1 and proaccount_pshopcode='00001027'
+
+
+select * from dba.proaccount where proaccount_id=2035
+update dba.proaccount set proaccount_ye=0 where proaccount_id=2035
+
+select * from dba.proaccount where proaccount_pc=''
+update dba.proaccount set proaccount_money='' where proaccount_pc=''

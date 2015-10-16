@@ -1,0 +1,27 @@
+select  distinct  odrmst_odrid,odrmst_rname,odrmst_raddress,odrmst_orderdate,odrmst_mbrid from odrdtl,
+odrmst where odrdtl_odrid=odrmst_odrid and odrmst_ifrealsend=0 and odrmst_printflag=0 
+and odrdtl_shipstatus=1 and odrdtl_purtype in (6,2,3) and odrmst_orderdate>'2011-3-13 9:57:19' and odrmst_orderdate<'2011-6-21 9:00:00' 
+and not exists (select 1 from odrdtl as b where odrdtl.odrdtl_odrid=b.odrdtl_odrid and b.odrdtl_purtype in (1,5,11)) 
+and  exists (select top 1 1 from odrdtl as e where odrdtl.odrdtl_odrid=e.odrdtl_odrid and odrdtl_temp='ÍÅ¹º¶Ò»»')
+
+order by odrmst_mbrid,odrmst_rname,odrmst_odrid
+
+
+
+
+select * into d1marketing..tuandhodr1 from (
+select  distinct top 3000  odrmst_odrid,odrmst_rname,odrmst_raddress,odrmst_orderdate,odrmst_mbrid,odrmst_rphone from odrdtl,
+odrmst where odrdtl_odrid=odrmst_odrid and odrmst_ifrealsend=0 and odrmst_printflag=0 
+and odrdtl_shipstatus=1 and odrdtl_purtype in (6,2,3) and odrmst_orderdate>'2011-3-13 9:57:19' and odrmst_orderdate<'2011-6-21 15:00:00' 
+and not exists (select 1 from odrdtl as b where odrdtl.odrdtl_odrid=b.odrdtl_odrid and b.odrdtl_purtype in (1,5,11)) 
+and  exists (select top 1 1 from odrdtl as e where odrdtl.odrdtl_odrid=e.odrdtl_odrid and odrdtl_temp='ÍÅ¹º¶Ò»»')
+order by odrmst_mbrid,odrmst_rname,odrmst_odrid) a
+
+select * from d1marketing..tuandhodr1 where odrmst_rname in (
+select odrmst_rname from d1marketing..tuandhodr1 group by odrmst_rname having count(odrmst_rname)=1)
+
+
+select * from d1marketing..tuandhodr1 where odrmst_rname in (
+select odrmst_rname from d1marketing..tuandhodr1 group by odrmst_rname having count(odrmst_rname)>1)
+order by odrmst_mbrid,odrmst_rname,odrmst_odrid
+

@@ -1,0 +1,10 @@
+body{ font-size:12px;}
+a img{border:none;}
+.fl_count{background:url('/admin/SHManage/images/xjsp1_bg.jpg') no-repeat; height:210px; width:790px; padding:14px;}
+.fl_count ul{margin:0px;padding:0px;}
+.fl_count li{color:#333; cursor:hand; list-style:none; padding:2px 7px 2px 5px; line-height:18px; height:18px; width:110px; margin-left:5px; border:solid 1px #fff;}
+.fl_count li:hover{background:#deefff;color:#155b8f; border:solid 1px #72bdff; font-weight:bold; height:18px;}
+.hover1{background:#deefff;color:#155b8f; border:solid 1px #72bdff; font-weight:bold;}
+.divScroll{overflow:auto; scrollbar-face-color: #cdcdcd; scrollbar-shadow-color: #D2E5F4;scrollbar-highlight-color: #D2E5F4;scrollbar-3dlight-color: #FFFFFF;scrollbar-darkshadow-color: #FFFFFF;scrollbar-track-color: #f0f0f0;scrollbar-arrow-color: #fff";}
+.inputc{ border:solid 1px #d4d4d4;background:#f8f8f8; height:25px;}
+.label{background:url('/admin/SHManage/images/xjsp1_lbl.jpg') no-repeat; width:787px;height:41px;line-height:41px;}

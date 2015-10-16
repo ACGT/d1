@@ -1,0 +1,112 @@
+@charset "utf-8";
+.main .pub .title{margin-top:.10rem;position: relative;height:.49rem;padding:0 .15rem;background:#ededed;font-size:.14rem;color:#575757;line-height:.49rem;border-bottom:1px solid #c6c6c6;}
+.main .pub .item{font-size:.14rem;padding-left:.10rem;position:relative;}
+.main .pub .item .go{z-index:99;right:.30rem;position:absolute;background:url(http://images.d1.com.cn/wap/2014/iconcp.png) -240px -62px no-repeat;width:.30rem;height:.30rem;vertical-align:middle;}
+.main .pub .item .top1{top:50%;}
+.main .pub .item .top2{top:40%;}
+.main .pub .item .new-on .go{background-position:-268px -62px;}
+.main .m_address .addrnone{text-align:center;margin:0 .10rem;}
+.main .m_address .addrnone a{display:inline-block;
+height: .35rem;
+width:1.20rem;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-border-radius: 0.05rem;
+border-radius: 0.05rem;
+line-height: .35rem;
+font-size:.14rem;
+color: #ffffff;
+text-align: center;
+cursor:pointer;
+background:#f1424f;}
+
+.main .m_addlist{margin:.10rem 0;font-size:.14rem;}
+
+.main .m_addlist li{height:.1.20rem;border-bottom:1px solid #c6c6c6;padding:.10rem 0;}
+.main .m_addlist li:last-child{border-bottom:0;}
+.main .m_addlist .addritem {position:relative;padding-right:.55rem;}
+.main .m_addlist .addritem  .addrtitle{position: relative;height:.25rem;padding-left:.15rem;font-size:.14rem;color:#575757;line-height:.25rem;}
+.main .m_addlist .addritem  .addrtitle .chaddr{position:absolute;height:.21rem;width:.21rem;margin-right:.10rem;display:inline-block;}
+.main .m_addlist .addritem  .addrtitle span{padding-left:.35rem;display:block;}
+.main .m_addlist .addritem  .content{font-size:.14rem;color:#575757;padding-left:.15rem;}
+.main .m_addlist .addritem  .content .address{max-height:.48rem;line-height:.24rem;display:block;overflow:hidden;}
+.main .m_addlist .addritem  .content .phone{height:.22rem;line-height:.22rem;display:block;}
+.main .m_addlist .addritem   .edit{position:absolute;right:0;top:.10rem;width:.50rem;height:.50rem;line-height:.50rem;text-align:center;}
+.main .m_addlist .addritem   .edit a{height:100%;width:100%;display:block;font-size:.16rem;font-family:微软雅黑;color:#575757;}
+
+.main  .m_tkt .tktlist{font-size:.14rem;}
+.main  .m_tkt .tktlist .tktadd{height:.50rem;margin:.10rem;display:-webkit-box;}
+.main  .m_tkt .tktlist .tktadd .card{-webkit-box-flex: 1;display:block;height:.40rem;}
+.main  .m_tkt .tktlist .tktadd .card .cardno{height:.40rem;border:1px solid #c6c6c6;width:100%;font-size:.16rem;}
+.main  .m_tkt .tktlist .tktadd .active{margin-left:.10rem;display:block;width:1.00rem;background:#f1424f;height:.32rem;padding-top:.10rem;color:#fff;text-align:center;vertical-align:top;-webkit-border-radius: 0.05rem;font-size:.16rem;
+border-radius: 0.05rem;font-family:微软雅黑;}
+.main  .m_tkt .tktlist li{border-bottom:1px solid #c6c6c6;padding:.10rem 0;overflow:hidden;}
+.main  .m_tkt .tktlist li:last-child{border-bottom:0;}
+.main  .m_tkt .tktlist .tktitem{display:table;height:.25rem;padding-left:.10rem;line-height:.24rem;width:100%;}
+.main  .m_tkt .tktlist .tktitem>span{display:inline-block;font-size:.14rem;vertical-align: middle;}
+.main  .m_tkt .tktlist .tktitem input{vertical-align: middle;width:.22rem;height:.22rem;margin-right:.10rem;}
+.main  .m_tkt .tktlist .tktitem .wd0{width:.30rem;}
+.main  .m_tkt .tktlist .tktitem .wd1{width:.55rem;}
+.main  .m_tkt .tktlist .tktitem .wd2{width:.85rem;text-align:left;}
+.main  .m_tkt .tktlist .tktitem .wd3{text-align:left;-webkit-box-flex: 1; white-space:nowrap;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;}
+
+.main .pub .item span{vertical-align: middle;width:100%;white-space:nowrap;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;height:.30rem;line-height:.30rem;}
+.main .pub .item .checkcss{vertical-align: middle;width:.22rem;height:.22rem;margin-right:.10rem;font-size:.12rem;}
+.main .pub .item input,.main .m_addlist .addritem input{vertical-align: middle;width:.22rem;height:.22rem;margin-right:.10rem;}
+.main .m_cart .c_list{margin:.10rem;overflow:hidden;}
+.main .m_cart .c_list .act{font-size:.14rem;display:-webkit-box;color:#fff;height:0.36rem;line-height:0.36rem;background:#f1424f;overflow:hidden;}
+.main .m_cart .c_list .act .acttitle{height:100%;font-size:0.14rem;background:#cf1719;}
+.main .m_cart .c_list .act .acttxt{height:100%;font-size:0.12rem;-webkit-box-flex: 1;flex: 1;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;-webkit-text-overflow:ellipsis;}
+.main .m_cart .c_list .citem{padding:0 0.05rem;display:-webkit-box;height:.25rem;line-height:.24rem;width:100%;overflow:hidden;}
+.main .m_cart .c_list .citem>span{display:block;font-size:.14rem;vertical-align: middle;}
+.main .m_cart .c_list .citem .cwd1{width:64%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;-webkit-text-overflow:ellipsis;}
+.main .m_cart .c_list .citem .cwd2{width:18%;}
+.main .memo{margin:.10rem;}
+.main .memo .msg{width:100%;border:1px solid #cecece;font-size:.14rem;height:.36rem;}
+
+.main .m_next{margin:10px 0 30px 0; border-top:1px solid #f1424f}
+.main .m_next .totlenum{font-size:.14rem;margin:.10rem;font-weight:800;overflow:hidden;}
+.main .m_next .totlenum p{width:100%;display:block;}
+.main .m_next .totlenum span{display:inline-table;width:50%;}
+.main .m_next .totlenum span.r{text-align:right;}
+.main .m_next .totlenum .tot{color:#f1424f;}
+.main .m_next a{
+display: block;
+height: .35rem;
+margin: 0 10px;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-border-radius: 0.05rem;
+border-radius: 0.05rem;
+line-height: .35rem;
+font-size:.14rem;
+color: #ffffff;
+text-align: center;
+cursor:pointer;
+background:#f1424f;
+}
+
+
+
+.main .msgerr{position:fixed;
+z-index: 102;
+top: 30%;
+left: 0;
+right: 0;
+bottom: 0;
+text-align: center;
+font-size:0.14rem;
+display:none;
+}
+.main .msgerr .txt{display:inline-block;vertical-align:middle;padding:0.08rem;width:3rem;background-color:rgba(51,51,51,.9);-webkit-border-radius:.02rem;border-radius:.02rem;-webkit-box-shadow:0 0 2px 2px rgba(0,0,0,.3);box-shadow:0 0 2px 2px rgba(0,0,0,.3)
+}
+.main .msgerr .txt i{color:#fff;font-style:normal;padding:0.08rem;font-size:.14rem;display:inline-block;}
+.main .msgerr::after {
+content: '\20';
+vertical-align: middle;
+display: inline-block;
+height: 100%;
+}
+.main .msgerr .txt .but{height:0.35rem;color:#fff;line-height:0.35rem;}
+.main .msgerr .txt .but a{height:0.35rem;display:inline-block;width:50%;color:#fff;cursor:pointer;}
+

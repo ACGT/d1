@@ -1,0 +1,7 @@
+
+update bjvip set bjvip_mbrid=(select updatepaid_mbrid2 from updatepaid where updatepaid_mbrid1=bjvip.bjvip_mbrid)  
+where bjvip_mbrid in (select updatepaid_mbrid1 from updatepaid where updatepaid_mbrid2 not in (select bjvip_mbrid from bjvip) ) 
+
+select * from updatepaid where updatepaid_mbrid1 in (select bjvip_mbrid from bjvip) order by updatepaid_mbrid1
+select *,(select updatepaid_mbrid2 from updatepaid where updatepaid_mbrid1=bjvip.bjvip_mbrid) from bjvip
+where bjvip_mbrid in (select updatepaid_mbrid1 from updatepaid where updatepaid_mbrid2 not in (select bjvip_mbrid from bjvip)) order by bjvip_mbrid

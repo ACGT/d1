@@ -1,0 +1,28 @@
+on <full_table_name>
+for insert,update,delete
+as 
+	declare @pk varchar(128);
+begin
+
+  if exists(select 1 from inserted) and not exists(select 1 from deleted)
+	begin
+		--inserting
+		insert into f_access_log(class_name,oper_name,access_id,before_value) 
+		select '<class_name>','i',i.<table_id_name>,<insert_value> from inserted i;
+  end;
+  
+  if exists(select 1 from inserted) and exists(select 1 from deleted)
+  begin
+    -- updating
+    insert into f_access_log(class_name,oper_name,access_id,before_value,after_value) 
+		select '<class_name>','u',i.<table_id_name>,<before_value>,<after_value> from inserted i,deleted d where i.<table_id_name>=d.<table_id_name>;
+  end;
+  
+  if not exists(select 1 from inserted) and exists(select 1 from deleted)
+  begin
+    -- deleting
+		insert into f_access_log(class_name,oper_name,access_id,before_value) 
+		select '<class_name>','d',d.<table_id_name>,<delete_value> from deleted d;   
+  end;
+ 
+end;

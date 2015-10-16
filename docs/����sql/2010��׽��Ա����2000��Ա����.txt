@@ -1,0 +1,21 @@
+select count(*) from bjvip where bjvip_createtime<='2010-1-1'
+
+
+
+
+select count(*) from bjvip where bjvip_endtime<='2011-1-1'
+
+
+select * into bjvip20101203 from(
+insert into bjvip20101203(allmoney,odrmst_mbrid)
+select sum(OdrMst_acturepaymoney) allmoney,odrmst_mbrid from dba.odrmst_history where 
+exists (select bjvip_mbrid from bjvip where bjvip_mbrid=odrmst_mbrid and bjvip_endtime<='2011-1-1')
+and OdrMst_orderdate>'2010-1-1' 
+and odrmst_orderstatus in (3,31,5,51,6,61) 
+group by odrmst_mbrid) a
+
+select mbrmst_id,mbrmst_usephone,mbrmst_email from mbrmst where mbrmst_id 
+in (
+select bjvip_mbrid from bjvip left join  bjvip20101203
+ on bjvip_mbrid=odrmst_mbrid  where bjvip_endtime<='2011-1-1' 
+group by bjvip_mbrid having sum(isnull(allmoney,0))<2000)

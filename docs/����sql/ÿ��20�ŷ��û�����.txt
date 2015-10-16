@@ -1,0 +1,32 @@
+select * into usrscore110402 from (
+select  distinct odrmst_mbrid,isnull(sum(odrmst_tktvalue),0) tktvalue,0 usrscore_LXmonth from odrmst_recent where odrmst_orderstatus in (5,51,6,61,3,31) 
+and mbrmst_temp<>'pingan' and odrmst_orderdate>='2011-2-1' and odrmst_orderdate<'2011-3-1' group by odrmst_mbrid)
+
+ a
+
+
+select * into usrscore110402_2 from(
+select odrmst_mbrid,isnull(sum(odrdtl_sendcount*odrdtl_spendcount),0) usrscore_Scr,isnull(sum(odrdtl_sendcount*odrdtl_finalprice),0) usrscore_buymoney from odrmst_recent,odrdtl_recent 
+where odrmst_odrid=odrdtl_odrid and mbrmst_temp<>'pingan'
+and odrmst_orderstatus in (5,51,6,61,3,31) 
+and odrmst_orderdate>='2011-2-1' and odrmst_orderdate<'2011-3-1' group by odrmst_mbrid) a
+
+
+
+update usrscore110402 set  usrscore110402.usrscore_LXmonth=LXmonth from (
+select usrscore_mbrid,isnull(max(usrscore.usrscore_lxmonth),0) LXmonth  from usrscore join usrscore110402 
+on odrmst_mbrid=usrscore_mbrid group by usrscore_mbrid ) a where odrmst_mbrid=usrscore_mbrid 
+
+
+insert into usrscore(usrscore_mbrid,usrscore_year,usrscore_month,usrscore_LXmonth,usrscore_JLper,usrscore_Scr,usrscore_tktvalue,usrscore_buymoney,usrscore_allscr,usrscore_realscr)
+	  
+select a.odrmst_mbrid,2011,2,usrscore_LXmonth+1,(case when usrscore_LXmonth<7 then 0 when usrscore_LXmonth>=7 then 0.1
+when usrscore_LXmonth>=13 then 0.2  when usrscore_LXmonth>=24 then 0.3 when usrscore_LXmonth>=36 then 0.4 
+when usrscore_LXmonth>=48 then 0.5 end )as usrscore_JLper,usrscore_Scr,tktvalue,usrscore_buymoney,
+usrscore_Scr*(1+(case when usrscore_LXmonth<7 then 0 when usrscore_LXmonth>=7 then 0.1
+when usrscore_LXmonth>=13 then 0.2  when usrscore_LXmonth>=24 then 0.3 when usrscore_LXmonth>=36 then 0.4 
+when usrscore_LXmonth>=48 then 0.5 end )),usrscore_Scr*(1+(case when usrscore_LXmonth<7 then 0 when usrscore_LXmonth>=7 then 0.1
+when usrscore_LXmonth>=13 then 0.2  when usrscore_LXmonth>=24 then 0.3 when usrscore_LXmonth>=36 then 0.4 
+when usrscore_LXmonth>=48 then 0.5 end ))
+ 
+ from usrscore110402 a join usrscore110402_2 b on a.odrmst_mbrid=b.odrmst_mbrid

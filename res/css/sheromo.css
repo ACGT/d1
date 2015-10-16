@@ -1,0 +1,210 @@
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,hr,pre,form,fieldset,input,textarea,p,label,blockquote,th,td,button,span{padding:0;margin:0}
+body{ font-size:12px; background-color:#FFFFFF;}
+.clear{ clear:both;}
+ul,li{ list-style:none;}
+
+.sbody{
+	background-image:url(http://images.d1.com.cn/images2012/sheromo/bj.jpg);
+	background-position: center;
+}
+.pd10{ padding-top:10px;}
+.autobody{ width:980px; margin:0px auto;}
+/*��ҳ*/
+.stop{
+	height:130px;
+	background-image: url(http://images.d1.com.cn/images2012/sheromo/top002.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.stop .menu{
+	height:40px;
+	padding-top:10px;
+	padding-left:2px;
+}
+.stop .menu{position: absolute; margin-top:0px; z-index:1001; height:35px; line-height:30px; }
+.stop .menu ul{ padding:0px; margin:0px;}
+.stop .menu  li{
+	width:45px;
+	float:left;
+	position: relative; margin-top:0px; 	
+	background-repeat: no-repeat;
+	background-position: right center;
+	color: #ffffff;
+	font-size:14px;
+	text-align:center;
+	font-family:"微软雅黑";
+}
+.stop  li.lifestyle a {
+color: #ffffff;
+padding: 0px 5px 2px 5px;
+background-color: #9D8F86;
+text-decoration: none;
+font-family:"微软雅黑";
+}
+.stop  li a {
+color: #9D8F86;
+font-size: 14px;
+text-decoration: none;
+text-transform: uppercase;
+padding: 1px 9px;
+white-space: nowrap;
+font-family:"微软雅黑";
+}
+.stop  li a:hover {
+color: #ffffff;
+padding: 0px 5px 2px 5px;
+background-color: #9D8F86;
+text-decoration: none;
+font-family:"微软雅黑";
+}
+.scontent .left{width:219px;float:left; overflow:hidden;}
+.scontent .left .fclsmenu{
+	padding-left:20px;
+	width:199px;
+	background-image: url(http://images.d1.com.cn/images2012/sheromo/mltopbg.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding-top:25px;
+	font-family:"微软雅黑";
+}
+.fclsmenu a{ text-decoration:none;}
+.fclsmenu ul.one li{
+	padding-bottom: 0;
+	font-size: 13px;
+	line-height: 21px;
+	font-weight:800;
+	color: #fff;
+}
+.fclsmenu ul.one li a:hover,.fclsmenu ul.one ul.two li a:hover{ text-decoration:none;color:#D5D3CB}
+.fclsmenu ul.one ul.two li a{ padding-left:10px;}
+.fclsmenu ul.one li.selected a,.fclsmenu ul.one li.current a{
+color: #D5D3CB;
+}
+.fclsmenu ul.one ul.two {
+padding: 0 0 10px 0;
+}
+.fclsmenu ul.one ul.two li.selected a, .fclsmenu ul.one ul.two li.current a {
+	color: #D5D3CB;
+	background-image: url(http://images.d1.com.cn/images2012/sheromo/selected.png);
+	background-position: 0px 2px;
+	background-repeat: no-repeat;
+}
+.fclsmenu ul.one ul.two li a,.fclsmenu ul.one li a{
+padding-bottom: 0;
+	font-size: 13px;
+	line-height: 21px;
+	font-weight:800;
+	color: #fff;
+}
+.scontent {
+	background: url('http://images.d1.com.cn/images2012/sheromo/bj003.gif') repeat-y;
+}
+
+.scontent .right{ width:760px; float:right;}
+/*������Ʒ*/
+.hotlist{width:750px; margin:8px auto; overflow:hidden;}
+.hotlist li{
+	padding-left:6px;
+	padding-top:3px;
+	width:243px;
+	height:350px;
+	float:left;
+	background-image: url(http://images.d1.com.cn/images2012/sheromo/bj002.jpg);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+/*������Ʒ����*/
+
+/*����*/
+.scontent .right .top{
+	height:40px;
+	background-image: url(http://images.d1.com.cn/images2012/sheromo/003.jpg);
+	background-repeat: no-repeat;
+	 padding-top:15px;
+}
+.scontent .right .top h4{ font-size:14px; color:#333333; font-weight:800; padding-left:15px; float:left; width:80px;}
+.scontent .right .top  li{
+	margin-left:10px;
+	width:80px;
+	background-color:#9F9188;
+	height:20px;
+	float:left;
+	text-align: center;
+	line-height:20px;
+}
+.scontent .right .top  li a{color:#fff; text-decoration:none;}
+.scontent .right .top  li a:hover{color:#712549;text-decoration:none;}
+
+.alclasslist{ padding-top:10px; padding-bottom:15px;}
+.alclasslist h3{
+	font-size:16px;
+	font-weight:800;
+	color:#58412F;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #58412F;
+	height:25px;
+	padding-left:15px;
+}
+.alclasslist li{ width:245px; float:left; margin-top:8px;}
+.alclasslist li img{ border:1px solid #754A5B;}
+.alclasslist li .listp{ text-align:center; width:245px;}
+.alclasslist li .listp span{ font-size:12px; color:#9F486A; line-height:21px;}
+.alclasslist li .listp span a{ color:#9F486A;}
+.alclasslist li .listp span a:hover{ color:#712549;}
+.alclasslist li .listp .delprice{text-decoration: line-through;}
+/*������� */
+
+/*Ʒ�ƹ���ҳ��Ʒ�б���ʽ*/
+.plist{ padding-top:10px;}
+.plist h3{
+	font-size:16px;
+	font-weight:800;
+	color:#58412F;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #58412F;
+	height:25px;
+	padding-left:15px;
+			width:727px;
+		margin:0px auto;
+}
+
+.newlist {width:765px;overflow:hidden; padding:0px; margin:0px; }
+	.newlist ul {padding:0px; margin:0px;  margin-top:10px; margin-left:11px;}
+	.newlist li {float:left; margin-right:8px; _margin-right:6px; border:solid 1px #ccc;overflow:hidden; background:#fff; overflow:hidden; margin-bottom:10px;  }
+	.newlist p {text-align:left; }
+	.newlist p strong {font-weight:bold; font-size:15px; color:#a63c4f;margin-right:10px;}
+	.newlist .retime {background:rgba(0,0,0,0.5);font-size:12px;text-align:left;line-height:16px;overflow:hidden; bottom:0px; margin-top:-41px; position:relative; width:240px; padding-top:3px; padding-bottom:2px;
+	*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b3000000,endColorstr=#b3000000); z-index:1111; height:36px; display:none;  }
+	.retime a{text-decoration:none; }
+	.lf{background-color:#fff; over-flow:hidden; }
+	.newlist p .newspan{ display:block; width:120px; height:35px; margin-top:5px; text-align:center; line-height:35px; border-right:solid 1px #f3f3f3; float:left;}
+	.newlist p .newspan1{ display:block; width:79px; height:35px; margin-top:5px; text-align:center; line-height:35px; color:#333;float:left;}
+	.newlist .lf .di{position:absolute;z-index:999;width:79px;height:79px;border:none;}
+	.lb{background-color:#f7f7f7;  padding:5px; width:230px;   height:42px; line-height:20px; font-size:12px;color:#7b7b7b; overflow:hidden;}
+
+.floatdp{ position:absolute; z-index:22222; background:#fff; width:278px; overflow:hidden;margin-top:-430px; margin-left:-265px; 
+}
+.floatdp1{ position:absolute; z-index:22222; background:url('http://images.d1.com.cn/images2012/index2012/xsj1.png') no-repeat;
+          background-position:right 255px; width:278px; overflow:hidden;margin-top:-430px; margin-left:-265px;
+}
+.dpdisplay{ width:246px;}
+.dpdisplay ul { list-decoration:none; margin:0px; padding:0px; }
+.dpdisplay ul li{  float:left; background:url('http://images.d1.com.cn/images2012/aleeishe/images/0031.jpg') no-repeat; margin:0px; padding:0px; position:none; width:246px;}
+.pj{background:#ccc; padding:5px;padding-top:0px; padding-left:6px; padding-bottom:2px;overflow:hidden;}
+.pj a{ float:left; margin-right:3px; margin-bottom:3px;}
+
+.allb {width:246; overflow:hidden; position:relative; margin:0px; padding:0px; background:#808080;}
+.allimglist{ overflow:hidden;}
+.allimglist img {border:0px;}
+.allb ul {position:absolute; display:block; list-style-type:none;z-index:10000;margin:0; padding:0; top:330px; right:10px; width:auto;}
+.allb ul li { padding:0px 3px;float:left;display:block; margin:0px;background:url('http://images.d1.com.cn/images2012/index2012/c2.png') no-repeat;cursor:pointer; height:14px; width:14px; }
+.allb ul li.on { background:url('http://images.d1.com.cn/images2012/index2012/c1.png') no-repeat; margin:0px; }
+
+.allimglist span{ width:246px; display:block;}
+.allimglist ul li{ float:left;}
+
+.next{position:absolute; right:0px; top:310px; curson:hand;}
+.pre{position:absolute; left:0px; top:310px; curson:hand;}

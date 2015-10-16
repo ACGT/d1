@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>锄禾食品－我的收藏</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/uindex.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/com.js?1.21"></script>
+<script type="text/javascript" src="js/sync_d1_uer.js" ></script>
+</head>
+<body>
+	<header class="p_header">
+		<script type="text/javascript">
+			var title_string = "我的收藏";
+		</script>
+		<script type="text/javascript" src="js/headers/header_with_title.js?201509111528"  ></script>
+	</header>
+	<div class="main">
+
+		<div class="ulist">
+
+			<div class="favlist">
+				<ul>
+
+				</ul>
+				<div class="m_page">
+					<div class="mp_cell s">首页</div>
+					<div class="mp_cell l">上一页</div>
+					<div class="mp_cell m">
+						<span class="vselect">&nbsp;<i></i></span> <select
+							class="go_select" onchange="gourl(this.value);">
+						</select>
+					</div>
+					<div class="mp_cell r">下一页</div>
+					<div class="mp_cell e">尾页</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				</script>
+	</div>
+	<script language="javascript">
+function loaddata(code1,pageno1){
+	
+  var url=document.URL;
+  var para="";
+  var pg=1;
+  var code="";
+  if(code1!=""){
+	  code=code1;
+	  if(pg!=""){
+		  pg=pageno1;
+	  }
+  }else{
+   if(url.lastIndexOf("?")>0)
+   {
+        para=url.substring(url.lastIndexOf("?")+1,url.length);
+		var arr=para.split("&");
+		para="";
+		for(var i=0;i<arr.length;i++)
+		{
+		   if(arr[i].split("=")[0]=="pg"){
+			   pg=arr[i].split("=")[1];
+		   }else if(arr[i].split("=")[0]=="code"){
+			   code=arr[i].split("=")[1];
+		   }
+		}
+   }
+}
+
+ 
+	var psize=12;
+	  $.ajax({
+		type: 'get', 
+        url: '/ajax/wap/getfav.jsp',
+        data:{pg:pg,psize:psize},
+		dataType:'json',
+		timeout: 1000,
+		success: function(data){
+				/*处理数据*/
+				//resp_list = getRespDataList(p);
+				if(data.pstatus=="1"){
+				showlist(data,psize,pg);
+				}
+        }
+	});
+	}
+
+	function gourl(parr){
+		c=parr.split(",");
+		var gourl="myfav.html?pg="+c[0]+"";
+		window.location.href=gourl;
+	}
+	function showlist(p,psize,pageno){
+		
+		var pagenum=parseInt(p.page_total/psize);
+		if(p.page_total%psize>0) {
+			pagenum=pagenum+1;
+	     }
+		if(pagenum>1){
+		$(".vselect").html(pageno+'/'+pagenum+'&nbsp;<i></i>');
+		 var pgnext=parseInt(pageno)+1;
+		 var pgup=parseInt(pageno)-1;
+		$(".m_page .mp_cell.s").html('<a attr="1" href="javascript:void(0)">首页</a>');
+		if(parseInt(pgup)>=1){
+		$(".m_page .mp_cell.l").html('<a attr="'+ pgup+'" href="javascript:void(0)">上一页</a>');
+		}else{
+			$(".m_page .mp_cell.l").hide();
+		}
+		 if(parseInt(pgnext)<=parseInt(pagenum)){
+		$(".m_page .mp_cell.r").html('<a attr="'+pgnext+'" href="javascript:void(0)">下一页</a>');
+		 }else{
+				$(".m_page .mp_cell.r").hide();
+			}
+		$(".m_page .mp_cell.e").html('<a attr="'+pagenum+'" href="javascript:void(0)">尾页</a>');
+		
+		pageselect="";
+		for(var i=1;i<=pagenum;i++){
+			if(i==pageno){
+			pageselect+='<option value="'+i+'" selected>第'+i+'页</option>';
+			}else{
+			pageselect+='<option value="'+i+'">第'+i+'页</option>';	
+			}
+		}
+		$(".go_select").html(pageselect);
+		}else{
+			$(".m_page").hide();
+		}
+
+	var products=eval(p.products);
+	$(".favlist ul").html('');
+	if(products.length>0){
+		var pli="";
+	   for(var i=0;i<products.length;i++){
+		  var pprice=products[i].p_mprice;
+		  if(products[i].p_issgflag||products[i].p_ismiaoshao){
+			  pprice=products[i].p_msprice;
+		  }
+		  var zk=(pprice*10.0/products[i].p_saleprice).toFixed(1);
+		pli='<li>';
+		pli+='<div class="item">';
+		pli+='	<span class="l"><a href="/wap/product.html?id='+products[i].p_gdsid+'"><img src="'+products[i].p_img+'" border="0"></a></span>';
+		pli+='	<span class="r">';
+		pli+='		<a href="/wap/product.html?id='+products[i].p_gdsid+'">'+products[i].p_gdsname+'</a><<br>';
+		pli+='		价格￥'+pprice+'';
+		pli+='	</span>';
+		pli+='</div>';
+		pli+='  </li>';
+	   $(".favlist ul").append(pli);
+	   }
+
+	  
+	}
+
+	$(".m_page .mp_cell>a").click(function(){
+		var paras=$(this).attr('attr');
+		gourl(paras)
+		
+	});
+
+	}
+	loaddata('','');
+		</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+##by 陈刚
+
+网站基础jquery1.3.2+Sizzlev0.9.3+easyslider1.7+jqueryUI1.7.2(ui.draggable,ui.slider,dialog)
+
+################提示框说明##################################3
+弹出框样式等都可以最后更改。
+
+/*
+ * 提示框（类似alert）
+ * msg: 提示信息
+ * title：标题（可选）
+ * fn: 关闭提示框后执行的回调函数。（可选）
+ */
+$.alert = function(msg,title,fn)
+
+/*
+ * 确认框（类似confirm）
+ * msg: 提示信息
+ * title: 标题（可选）
+ * fnOk: 点击ok按钮的回调函数。（可选）
+ * fnCancel: 点击cancel的回调函数。（可选）
+ */
+$.confirm = function(msg,title,fn,fc)
+
+/*
+ * 加载框
+ * title: 标题
+ * width: 宽度
+ * url: 要获取内容的url地址
+ */
+$.load = function(title,width,url)
+
+/*
+ * 关闭提示框 
+ */
+$.close = function()
+
+
+##################ajax说明###########################################
+
+1.如果调用ajax，需要判断用户是否登录，并且自动弹出登陆框，请在包含header.jsp后再包含ajax/isLogin.jsp.或者写如下代码
+if(lUser == null){
+	response.setHeader("_d1-Ajax","0");
+	return;
+}
+
+2.如果需要在调用ajax触发自动调用弹出层，可以如下代码
+response.setHeader("_d1-Ajax","1");
+%>弹出窗口调用！！<%
+return;
+
+3.如果需要在调用ajax触发自动调用js函数，用下列方法
+response.setHeader("_d1-Ajax","2");
+%>Login_Dialog();<%
+return;
+
+4.如果需要调用ajax触发跳转，用下列方法
+response.setHeader("_d1-Ajax","3");
+%>http://www.d1.com.cn<%
+return;

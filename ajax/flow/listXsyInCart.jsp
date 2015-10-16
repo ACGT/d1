@@ -1,0 +1,183 @@
+<%@ page contentType="text/html; charset=UTF-8"%><%@include file="../../inc/header.jsp" %><%!
+
+private static String getErrorJSON(int error , long maxCount , HttpServletRequest request , HttpServletResponse response){
+	String str = null;
+	switch(error){
+		case 1:
+			//获得购物车总金额和总商品数量
+			int totalCount = CartHelper.getTotalProductCount(request,response);
+			float totalAmmount = CartHelper.getTotalPayMoney(request,response);
+			
+			str = "{\"code\":0,\"message\":\"\",\"totalCount\":"+totalCount+",\"totalAmount\":\""+Tools.getFormatMoney(totalAmmount)+"\"}";
+			break;
+		case -1:
+			str = "{\"code\":1,message:\"找不到优惠信息。\"}";
+			break;
+		case -2:
+			str = "{\"code\":1,message:\"参数错误。\"}";
+			break;
+		case -3:
+			str = "{\"code\":1,message:\"找不到商品。\"}";
+			break;
+		case -4:
+			str = "{\"code\":1,message:\"您选择的物品其中有不属于此类优惠的物品。\"}";
+			break;
+		case -5:
+			str = "{\"code\":1,message:\"您已经加过了此类优惠商品。\"}";
+			break;
+		case -6:
+			str = "{\"code\":1,message:\"您只能选择"+maxCount+"件商品！\"}";
+			break;
+		default:
+			str = "{\"code\":1,message:\"加入购物车发生错误，请稍后再试！\"}";
+	}
+	return str;
+}
+
+%><%
+String code = request.getParameter("code");
+if(code == null || !Tools.isMath(code)){
+	out.print("{\"code\":1,message:\"很抱歉，您输入的信息不正确，请确认后重试。\"}");
+	return;
+}
+
+ProductXsY pxy=(ProductXsY)Tools.getManager(ProductXsY.class).get(code);
+if(pxy == null){
+	out.print("{\"code\":1,message:\"很抱歉，您输入的信息不正确，请确认后重试。\"}");
+	return;
+}
+long iValidFlag=Tools.longValue(pxy.getGdsmstxsy_validflag(),1);
+if(iValidFlag == 1){
+	out.print("{\"code\":1,message:\"活动已结束！\"}");
+	return;
+}
+Date startdate=pxy.getGdsmstxsy_startdate();
+if(System.currentTimeMillis() < Tools.dateValue(startdate)){
+	out.print("{\"code\":1,message:\"活动还没开始！\"}");
+	return;
+}
+long maxcount=Tools.longValue(pxy.getGdsmstxsy_maxcount());
+if(maxcount <= 0){
+	out.print("{\"code\":1,message:\"此活动有错误，请稍后再试！\"}");
+	return;
+}
+String id = request.getParameter("id");
+if(Tools.isNull(id)){
+	out.print("{\"code\":1,message:\"很抱歉，您输入的信息不正确，请确认后重试。\"}");
+	return;
+}
+
+ArrayList<PromotionProduct> promotionList = PromotionProductHelper.getPromotionProductByCode(code);
+if(promotionList == null || promotionList.isEmpty()){
+	out.print("{\"code\":1,message:\"找不到活动物品！\"}");
+	return;
+}
+String[] ids = id.split(",");
+if(ids == null || ids.length != maxcount){
+	out.print("{\"code\":1,message:\"很抱歉，您输入的信息不正确，请确认后重试。\"}");
+	return;
+}
+List<Product> list = new ArrayList<Product>();
+for(String gdsid : ids){
+	for(PromotionProduct pp : promotionList){
+		if(gdsid.equals(pp.getSpgdsrcm_gdsid())){
+			Product product = ProductHelper.getById(gdsid);
+			if(ProductHelper.isShow(product)) list.add(product);
+		}
+	}
+}
+int size = list.size();
+if(list == null || size != maxcount){
+	out.print("{\"code\":1,message:\"您选择的商品中有下架和缺货，请刷新页面重新选择！\"}");
+	return;
+}
+
+//判断是否有SKU，如果有SKU则弹出SKU的选择层。
+//存在SKU
+String skuId = request.getParameter("skuId");
+if(Tools.isNull(skuId)){//用户没有传递sku过来。则判断物品是否需要sku，如果不需要，则直接加入购物车，如果需要，则需要弹出sku选择框
+	int isHaveSku = 0;
+	float oldPrice = 0;//总会员价格
+	List<Map<String,Object>> gdsList = new ArrayList<Map<String,Object>>();
+	List<Map<String,Object>> gdsList2 = new ArrayList<Map<String,Object>>();
+	HashMap<String,String> goodsMap = new HashMap<String,String>();
+	for(int i=0;i<size;i++){
+		Product product = list.get(i);
+		oldPrice += Tools.floatValue(product.getGdsmst_memberprice());
+		Map<String,Object> gdsMap = new HashMap<String,Object>();
+		gdsMap.put("id",product.getId());
+		gdsMap.put("title",Tools.clearHTML(product.getGdsmst_gdsname()));
+		gdsMap.put("pic",ProductHelper.getImageTo80(product));
+		gdsMap.put("url",ProductHelper.getProductUrl(product));
+		if(ProductHelper.hasSku(product)){
+			isHaveSku++;
+			gdsMap.put("skuname",product.getGdsmst_skuname1());
+			String message = "";
+			List<Sku> skuList = SkuHelper.getSkuListViaProductId(product.getId());
+			if(skuList != null && !skuList.isEmpty()){
+				for(Sku sku : skuList){
+					message += sku.getId()+"_"+sku.getSkumst_sku1()+"#";
+				}
+			}
+			if(message.endsWith("#")) message = message.substring(0,message.length()-1);
+			gdsMap.put("skulist",message);
+			gdsList.add(gdsMap);
+		}else{
+			gdsList2.add(gdsMap);
+		}
+		goodsMap.put(product.getId(),null);
+	}
+	if(isHaveSku == 0){//则直接加入购物车。
+		int error = CartHelper.addXsYProductToCart(request,response,code,goodsMap);
+		out.print(getErrorJSON(error,maxcount,request,response));
+		return;
+	}else{
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("code",new Integer(4));
+		map.put("list",gdsList);
+		map.put("otherList",gdsList2);
+		map.put("oldPrice",Tools.getFormatMoney(oldPrice));
+		map.put("price" , Tools.getFormatMoney(pxy.getGdsmstxsy_allmoney()));
+		map.put("title","请选择套餐商品属性：");
+		out.print(JSONObject.fromObject(map));
+		return;
+	}
+}else{//用户传递了sku过来了。则需要判断多个条件。
+	String[] skuArray = skuId.split(",");
+	if(skuArray == null || skuArray.length != size){
+		out.print("{\"code\":1,message:\"传入参数错误，请重新再试！\"}");
+		return;
+	}
+	int isHaveSku = 0;
+	HashMap<String,String> goodsMap = new HashMap<String,String>();
+	for(int i=0;i<size;i++){
+		Product product = list.get(i);
+		String s = skuArray[i];
+		if(Tools.isNull(s) || "#".equals(s)) s = null;
+		if(ProductHelper.hasSku(product)){
+			if(!SkuHelper.hasInSkuList(product , s)){
+				out.print("{\"code\":1,message:\"很抱歉，您输入的信息不正确，请确认后重试。\"}");
+				return;
+			}
+		}
+		goodsMap.put(product.getId(),s);
+		
+		//量少提醒和卖完就下的商品检查一下虚拟库存够不够
+		if(product.getGdsmst_stocklinkty()!=null&&(product.getGdsmst_stocklinkty().longValue()==1||product.getGdsmst_stocklinkty().longValue()==2)){
+			int countInCart_1239 = CartHelper.getCartProductCount(request, response, product, s);//购物车里已经订购的数量
+			if(1+countInCart_1239+CartItemHelper.getProductOccupyStock(product.getId(), s)>ProductHelper.getVirtualStock(product.getId(), s)){
+				int i_239489 = ProductHelper.getVirtualStock(product.getId(), s)-CartItemHelper.getProductOccupyStock(product.getId(), s)-countInCart_1239;
+				if(i_239489<=0){
+					out.print("{\"code\":1,\"message\":\"您好！商品【"+product.getGdsmst_gdsname()+"】已售完！\"}");
+				}else{
+					out.print("{\"code\":1,\"message\":\"您好！商品【"+product.getGdsmst_gdsname()+"】只剩"+i_239489+"个！\"}");
+				}
+				return;
+			}
+		}
+	}
+	int error = CartHelper.addXsYProductToCart(request,response,code,goodsMap);
+	out.print(getErrorJSON(error,maxcount,request,response));
+	return;
+}
+%>

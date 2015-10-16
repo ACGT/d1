@@ -1,0 +1,5 @@
+insert into spgdsrcm
+select  '4114',gdsmst_gdsid,gdsmst_rackcode,55,'2010-05-25 00:00:00.000','2010-05-25 00:00:00.000',''
+,'2010-05-25 16:16:44.937','2010-05-25 16:16:44.937',gdsmst_gdsname,gdsmst_briefintrduce,'','','',0,'' from gdsmst
+where gdsmst_gdsname like '%feel mind%' and gdsmst_brand='001346'
+and gdsmst_gdsid not in (select spgdsrcm_gdsid from spgdsrcm where spgdsrcm_code='4114')

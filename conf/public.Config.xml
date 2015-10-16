@@ -1,0 +1,196 @@
+﻿<?xml version="1.0"?>
+<configuration>
+	<appSettings>
+		<add key="CryptRoot" value="http://www.d1.com.cn/"/>
+		<add key="HomePage" value="http://www.d1.com.cn/index.htm"/>
+		
+		<!-- 支付系统配置开始 -->
+		
+		<!-- 邮局汇款地址 -->
+		<add key="PAY_POST_ADDRESS" value="北京市海淀区花园东路31号牡丹宾馆3号楼2层北京启蒙好业公司 收" />
+		<add key="PAY_POST_ZIP" value="100191" />
+		
+		<!-- 电汇地址 -->
+		<add key="PAY_BANK_ACCOUNTNAME" value="北京启蒙好业科技发展有限责任公司" />
+		<add key="PAY_BANK_BANKNAME" value="工商银行紫竹院分理处" />
+		<add key="PAY_BANK_ACCOUNTNO" value="0200007609047407811" />
+		
+		<!-- 支付系统配置结束 -->
+		
+    	<!--Start：手机支付接口配置-->
+		<!--回调url--><add key="MobilePayCallBackUrl" value="http://www.d1.com.cn/interface/pay/mobile/mobileReturn.jsp"/>
+		<!--后台通知url--><add key="MobilePayNotifyUrl" value="http://www.d1.com.cn/interface/pay/mobile/mobileNotify.jsp"/>
+		<!--后台通知Email--><add key="MobilePayNotifyEmail" value="woairenyunli@tom.com"/>
+		<!--后台通知手机--><add key="MobilePayNotifyMobile" value="13683211004"/>
+		<!-- 商户编号 --><add key="MobileMerchanetId" value="888009953110478" />
+		<!-- 商户密钥 --><add key="MobileKey" value="zaLCarr017H5ZbIvxr4aq8rAKZRNLRxE6oChbHj5XozZVkKq0LaiWR9ZUd6oIhpy" />
+		<!--支付接口转向url--><add key="MobilePayTokenRedirectUrl" value="http://ipos.10086.cn/ips/cmpayService"></add>
+		<!--订单提交有效期(单位：天)--><add key="MobilePayPeriod" value="5"/>
+		<!-- 编码 --><add key="MobileCharset" value="UTF-8" />
+		<!--End：手机支付接口配置-->
+		
+    	<!-- Start：财付通支付接口配置 -->
+		<!--财付通支付接口运行环境,1：正式，0：测试-->
+		<add key="TenPayRunMode" value="1"/>
+		<!--跳至财付通支付接口URL-->
+		<add key="TenPayGateUrl" value="https://gw.tenpay.com/gateway/pay.htm"/>
+		<add key="TenPayGateUrl_T" value="https://gw.tenpay.com/gateway/pay.htm"/>
+		<!-- 商户号 -->
+		<add key="TenPayPartner" value="1201552701"/>
+		<add key="TenPayPartner_T" value="1900000109"/>
+		<!-- 商户密钥 -->
+		<add key="TenPaySPKey" value="dfb9984622769667ea9c5b8f7caea6dc"/>
+		<add key="TenPaySPKey_T" value="8934e7d15453e97507ef794cf7b0519d"/>
+		<!-- 财付通回调url -->
+		<add key="TenPayReturnUrl" value="http://www.d1.com.cn/interface/pay/tenpay/TenPayReturnUrl.jsp"/>
+		<add key="TenPayReturnUrl_T" value="http://www.d1.com.cn/interface/pay/tenpay/TenPayReturnUrl.jsp"/>
+		<!-- 财付通后台通知url -->
+		<add key="TenPayNotifyUrl" value="http://www.d1.com.cn/interface/pay/tenpay/TenPayNotifyUrl.jsp"/>
+		<add key="TenPayNotifyUrl_T" value="http://www.d1.com.cn/interface/pay/tenpay/TenPayNotifyUrl.jsp"/>
+		<!--商户确认支付成功通知url -->
+		<add key="TenPayVerifyNotifyUrl" value="https://gw.tenpay.com/gateway/verifynotifyid.xml"/>
+		<add key="TenPayVerifyNotifyUrl_T" value="https://gw.tenpay.com/gateway/verifynotifyid.xml"/>
+		<!--财付通共享登录url -->
+		<add key="TenPayLoginUrl" value="https://www.tenpay.com/cgi-bin/v1.0/service_gate.cgi"/>
+		<!--财付通共享登录回调url -->
+		<add key="TenPayLoginRedirectUrl" value="http://www.d1.com.cn/interface/login/tenpayback.jsp" />
+		<add key="TenPayLoginRedirectUrl_T" value="http://www.d1.com.cn/interface/login/tenpayback.jsp"/>
+		<!--End：财付通支付接口配置-->
+		<!--Start：手机财付通支付接口配置-->
+			<!-- 商户号 -->
+			<!--跳至财付通支付接口URL-->
+		<add key="WapTenPayRunMode" value="1"/>
+		<add key="WapTenPayGateUrl" value="https://gw.tenpay.com/gateway/pay.htm"/>
+		<add key="WapTenPayGateUrl_T" value="https://gw.tenpay.com/gateway/pay.htm"/>
+		
+		<add key="WapTenPayPartner" value="1221085601"/>
+		<add key="WapTenPayPartner_T" value="1900000109"/>
+		<!-- 商户密钥 -->
+		<add key="WapTenPaySPKey" value="85df13c46c011e7c273fa9642dd6f864"/>
+		<add key="WapTenPaySPKey_T" value="8934e7d15453e97507ef794cf7b0519d"/>
+		<!-- 财付通回调url -->
+		<add key="WapTenPayReturnUrl" value="http://www.d1.com.cn/interface/pay/waptenpay/payReturnUrl.jsp"/>
+		<add key="WapTenPayReturnUrl_T" value="http://www.d1.com.cn/interface/pay/waptenpay/payReturnUrl.jsp"/>
+		<!-- 财付通后台通知url -->
+		<add key="WapTenPayNotifyUrl" value="http://www.d1.com.cn/interface/pay/waptenpay/payNotifyUrl.jsp"/>
+		<add key="WapTenPayNotifyUrl_T" value="http://www.d1.com.cn/interface/pay/waptenpay/payNotifyUrl.jsp"/>
+		
+		<!--商户确认支付成功通知url -->
+		<add key="WapTenPayVerifyNotifyUrl" value="https://gw.tenpay.com/gateway/verifynotifyid.xml"/>
+		<add key="WapTenPayVerifyNotifyUrl_T" value="https://gw.tenpay.com/gateway/verifynotifyid.xml"/>
+		<!--商户确认支付成功通知url -->
+		<add key="WapTenPayNormalRefundQueryUrl" value="https://gw.tenpay.com/gateway/normalrefundquery.xml"/>
+		<add key="WapTenPayNormalRefundQueryUrl_T" value="https://gw.tenpay.com/gateway/normalrefundquery.xml"/>
+		
+		<!--End：手机财付通支付接口配置-->
+		
+		<!-- Start：支付宝支付接口配置 -->
+		<add key="WeiXinPayUrl" value="https://api.mch.weixin.qq.com/pay/unifiedorder"/>
+		<add key="WeiXinTokenUrl" value="https://api.weixin.qq.com/sns/userinfo"/>
+		<add key="WeiXinLoginUrl" value="https://api.weixin.qq.com/sns/userinfo"/>
+		<add key="WeiXinNotifyUrl" value="http://m.d1.cn/interface/pay/weixinpay/notify_Url.jsp"/>
+		<add key="WeiXinAppId" value="wxf4e9b021c59f5bcd"/>
+		<add key="WeiXinAppSecret" value="e854ccbf71c2c7be620dbd088fc345d9" />
+		<add key="WeiXinMchId" value="1242941302" />
+		<add key="WeiXinPayKey" value="lvsqaxsshhjtjkckkxdcphmsmzsnljuv" />
+		<!--End：手机财付通支付接口配置-->
+		
+		<!-- Start：支付宝支付接口配置 -->
+		<add key="AlipayPartner" value="2088002032908275"/>
+		<add key="AlipayKey" value="6okyrk1nsnhzb05df5n1e8pdvb0ux0na"/>
+		<add key="AlipaySellerEmail" value="ymzou@d1.com.cn" />
+		
+		<!-- 老接口参数 -->
+		<add key="AlipayGateWay" value="https://www.alipay.com/cooperate/gateway.do?" />
+		<add key="AlipayNotifyQuery" value="http://notify.alipay.com/trade/notify_query.do" />
+		<add key="AlipayNotifyUrl" value="http://www.d1.com.cn/interface/pay/alipay/AlipayPayNotify.jsp" />
+		<add key="AlipayRedirectUrl" value="http://www.d1.com.cn/interface/pay/alipay/AlipayPayReturn.jsp" />
+		
+		<!-- 支付宝双接口参数 -->
+		<add key="AlipaySGateWay" value="https://mapi.alipay.com/gateway.do?" />
+		<add key="AlipaySNotifyUrl" value="http://www.d1.com.cn/interface/pay/alipay/AlipaySPayNotify.jsp" />
+		<add key="AlipaySRedirectUrl" value="http://www.d1.com.cn/interface/pay/alipay/AlipaySPayReturn.jsp" />
+		<add key="AlipayS_Debug" value="false" />
+		
+		<!-- 联合登录 START -->
+		<add key="alipay_login_returnUrl" value="http://www.d1.com.cn/interface/login/alipayback.jsp" />
+		<add key="alipay_login_log" value="D:/alipay_login.log" /><!-- 此为调式时的输出日志路径 -->
+		<add key="alipay_login_debug" value="false" />
+		<!-- 联合登录 END -->
+		<!-- End：支付宝支付接口配置 -->
+		
+		<!-- Start：易宝支付接口配置 -->
+		<add key="YeepayKey" value="dsajifpewafsdaDFASGHRTEAFAFAADFfdsaFDAfeDFaPIQWExcvMNmHJdfgGREjL" /><!-- 密钥 -->
+		<add key="YeepayPartner" value="1050000759" /><!-- 商户编号 -->
+		<add key="YeepayGateWay" value="https://www.yeepay.com/app-merchant-proxy/node" /><!-- 请求地址 -->
+		<add key="YeepayReturnUrl" value="http://www.d1.com.cn/interface/pay/yeepay/YeepayReceive.jsp" /><!-- 返回地址 -->
+		<!-- End：易宝支付接口配置 -->
+		
+		<!-- Start：块钱支付接口配置 -->
+		<add key="99billGateWay" value="https://www.99bill.com/gateway/recvMerchantInfoAction.htm" /><!-- 交易请求地址 -->
+		<add key="99billPartner" value="1001832132901" /><!-- 商户编号 -->
+		<add key="99billKey" value="5C9XEDKZC6XRHWHI" /><!-- 密钥 -->
+		<add key="99billReturnUrl" value="http://www.d1.com.cn/interface/pay/99bill/99billReceive.jsp" />
+		<!-- End：块钱支付接口配置 -->
+		
+		<!-- 联合登录Start -->
+		
+		<!-- sina weibo start -->
+		<add key="sina_client_ID" value="2833634960" />
+		<add key="sina_client_SERCRET" value="9da26092e89856e05970aabba7882e9d" />
+		<add key="sina_redirect_URI" value="http://www.d1.com.cn/interface/login/sinaback.jsp" />
+		<add key="sina_debug" value="false" />
+		<!-- sina end -->
+		
+		<!-- sohu weibo start -->
+		<add key="sohu_consumerKey" value="zNVVbm42df6X37uowt3A" />
+		<add key="sohu_consumerSecret" value="$BtLdu7poN2UFkIBCdWgZg9#8m3T2^7zi*Rq76Yd" />
+		<add key="sohu_redirect_URI" value="http://www.d1.com.cn/interface/login/sohuback.jsp" />
+		<!-- sohu end -->
+		
+		<!-- QQ weibo start -->
+		<add key="qq_weibo_consumerKey" value="801065042" />
+		<add key="qq_weibo_consumerSecret" value="db84127d782c855a5ed4831c4e3435ab" />
+		<add key="qq_weibo_redirect_URI" value="http://www.d1.com.cn/interface/login/qqweiboback.jsp" />
+		<!-- QQ end -->
+		
+		<!-- QQ QZONE start -->
+		<add key="qq_qzone_key" value="222906" />
+		<add key="qq_qzone_secret" value="c2fe79badc9972b2c5caf3846101944b" />
+		<add key="qq_qzone_backurl" value="http://www.d1.com.cn/interface/login/qqback.jsp" />
+		<!-- QQ QZONE end -->
+		
+		<!-- 139 mail start -->
+		<add key="139mail_key" value="D1YSDMD5z-20017dyeMxA20Ii271081ip|z20K" />
+		<add key="139mail_partner" value="20" /><!-- 合作商ID -->
+		<!-- add key="139mail_backurl" value="http://localhost:9090/test/chengang/139mailback.jsp" /-->
+		<!-- 139 mail end -->
+		
+		<!-- 联合登录End -->
+    
+		<!-- 联盟回传运行模式1正式，0：测试-->
+		<add key="LmhcMode" value="0"/>
+    
+		<!--发短信接口配置参数-->
+		<add key="HostName" value="sms.todaynic.com"/><!-- 在这里填入SCP服务器端的地址 -->
+		<add key="HostPort" value="20002"/><!-- SCP服务器端的端口，端口默认为20002 -->
+		<add key="SMSUser" value="ms12689"/><!-- 您的SCP帐号 -->
+		<add key="SMSPassword" value="mjy0mz"/><!-- 您的SCP的帐号密码 -->
+		<add key="unioDebug" value="false" /><!-- 联合登录是否打印信息 -->
+		
+		<!-- 迅雷联合登录 start -->
+		<add key="xunlei_consumerKey" value="DP9hFz9yJR33lkiAhPaaSY8TAwJgoLPVqtTRjZaM" />
+		<add key="xunlei_consumerSecret" value="0xUost7GdW6z8XagSBRKqvYG0PoxMx8jjL1N4eMZ" />
+		<add key="xunlei_request_token" value="http://api.i.xunlei.com/oauth/request_token" />
+		<add key="xunlei_authorize" value="http://api.i.xunlei.com/oauth/authorize" />
+		<add key="xunlei_access_token" value="http://api.i.xunlei.com/oauth/access_token" />
+		<add key="xunlei_userinfo" value="http://api.i.xunlei.com/oauth/user_info" />
+		<add key="xunlei_oauth_callback" value="http://www.d1.com.cn/interface/login/xunleiback.jsp" />
+		<!-- 迅雷联合登录 end -->
+		<!-- cps360 start -->
+		<add key="cps360_bid" value="2000402" />
+		<add key="cps360_cpkey" value="A7MMNM7EFUEM347Q3ME3D2MDYSB2KYW5" />
+		
+		<!-- cps360 end -->
+	</appSettings>
+</configuration>

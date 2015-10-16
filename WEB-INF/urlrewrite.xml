@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+<urlrewrite>
+
+	<!-- 商品详情页跳转 -->
+	<rule>
+		<from>^/product/([0-9]+)$</from>
+		<to>/product.jsp?id=$1</to>
+	</rule>
+	<rule>
+		<from>^/shop/([A-Za-z0-9]+)/(\d+)$</from>
+		<to>/shopindex.jsp?sc=$1&amp;index_flag=$2</to>
+	</rule>
+	<rule>
+		<from>^/shop/([A-Za-z0-9]+)$</from>
+		<to>/shopindex.jsp?sc=$1</to>
+	</rule>
+	<!-- 商品301定向跳转 -->
+	<rule>
+		<from>^/gdsinfo/([0-9]+)\.asp$</from>
+		<to>/product301.jsp?id=$1</to>
+	</rule>
+
+	<rule>
+		<from>^/html/([0-9]+)\.html$</from>
+		<to>/product301.jsp?id=$1</to>
+	</rule>
+
+	<rule>
+		<from>^/html/([0-9]+)\.htm$</from>
+		<to>/product301.jsp?id=$1</to>
+	</rule>
+
+
+	<!--原来系统商品详情页跳转到新系统，包括三种方式 -->
+	<!--<rule> <from>^/gdsinfo/([0-9]+)\.asp$</from> <to>/product.jsp?id=$1</to> 
+		</rule> <rule> <from>^/html/([0-9]+)\.html$</from> <to>/product.jsp?id=$1</to> 
+		</rule> <rule> <from>^/html/([0-9]+)\.htm$</from> <to>/product.jsp?id=$1</to> 
+		</rule> <rule> <from>^/html/gdsshow\.asp$</from> <to>/product.jsp</to> </rule> -->
+
+	<!-- result页面跳转 -->
+	<!--<rule> <from>^/html/result\.asp$</from> <to>/result.jsp</to> </rule> -->
+
+	<rule>
+		<from>^/html/result_b\.asp$</from>
+		<to>/result.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/html/brand/brand([0-9]+)\.htm$</from>
+		<to>/html/brand/index.jsp?id=$1</to>
+	</rule>
+
+	<rule>
+		<from>^/html/mini/mininew([0-9]+)\.htm$</from>
+		<to>/html/mini/index.jsp?id=$1</to>
+	</rule>
+	<!-- <rule> <from>^/html/brand/brandlist\.asp$</from> <to>/html/brand/index.jsp</to> 
+		</rule> -->
+
+	<rule>
+		<from>^/html/resulttj\.asp$</from>
+		<to>/result.jsp?tj=true</to>
+	</rule>
+
+	<rule>
+		<from>^/html/brand/brand\.asp$</from>
+		<to>/html/brand/index.jsp</to>
+	</rule>
+
+
+	<rule>
+		<from>^/hp([^\.]+)\.htm$</from>
+		<to>/help/$1.jsp</to>
+	</rule>
+	<rule>
+		<from>^/fm([^\.]+)\.htm$</from>
+		<to>/brand/feelmind/$1.jsp</to>
+	</rule>
+	<rule>
+		<from>^/as([^\.]+)\.htm$</from>
+		<to>/brand/aleeishe/$1.jsp</to>
+	</rule>
+	<rule>
+		<from>^/srm([^\.]+)\.htm$</from>
+		<to>/brand/sheromo/$1.jsp</to>
+	</rule>
+	<rule>
+		<from>^/gdscene/([^\.]+)\.htm$</from>
+		<to>/gdscene/$1.jsp</to>
+	</rule>
+	<rule>
+		<from>^/ys([^\.]+)\.htm$</from>
+		<to>/brand/YOUSOO/$1.jsp</to>
+	</rule>
+
+
+	<rule>
+		<from>^/intf/logrec\.aspx$</from>
+		<to>/interface/login/139mailback.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/market/cooperate/bademail\.asp$</from>
+		<to>/html/bademail.jsp</to>
+	</rule>
+	<!-- 各种接口跳转，TODO -->
+
+	<!--把所有asp都转向jsp -->
+	<rule>
+		<from>^/([^\.]+)\.asp$</from>
+		<to>/$1.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/([^\.]+)\.aspx$</from>
+		<to>/$1.jsp</to>
+	</rule>
+	<!--wap跳转jsp -->
+	<rule>
+		<from>^/wap/goods/([0-9]+)$</from>
+		<to>/wap/goods.jsp?productid=$1</to>
+	</rule>
+
+	<rule>
+		<from>^/wap/goodsdetail/([0-9]+)$</from>
+		<to>/wap/goodsdetail.jsp?productid=$1</to>
+	</rule>
+	<!-- seo channel -->
+	<rule>
+		<from>^/channel/([0-9]+)$</from>
+		<to>/channel/index.jsp?headsearchkey=$1</to>
+	</rule>
+
+
+
+	<rule>
+		<from>^/channel/list.html</from>
+		<to>/channel/list.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/channel/list/([A-Z])$</from>
+		<to>/channel/list.jsp?l=$1</to>
+	</rule>
+
+
+
+
+</urlrewrite>

@@ -1,0 +1,44 @@
+select * from pauplog --where-- transnum ='1005110028341'
+ --like '100511[0,8,9]02834'
+
+
+where status=-1 and transdate>'2010-05-1' 
+
+
+--查询补换货数据
+select odrmst_odrid,odrmst_ordermoney-odrmst_tktvalue-OdrMst_shipfee,basepoints from odrmst join pauplog on transnum=odrmst_odrid where  
+basepoints<>odrmst_ordermoney-odrmst_tktvalue-OdrMst_shipfee and 
+transdate>'2010-07-20' and
+  status>0 and datediff(d,odrmst_shipdate,getdate())>=7 and transnum 
+ --not --用in或 not in查询部分退换货订单
+ not in
+(select (left(odrmst_odrid,6)+'0'+right(odrmst_odrid,5)) 
+from odrmst where odrmst_odrid like (left(odrmst_odrid,6)+'[8,9]'+right(odrmst_odrid,5)) )
+
+ and
+odrmst_odrid not in (select orderid from pauplog where status=-2)
+
+
+select * from 
+
+--在平安上载表中查是否有补上传订单
+select * from pauplog where orderid='100623002396'
+
+--查补换货上载的数据 ，进行核对
+select * from pauplog where left(orderid,6)+'0'+right(orderid,5)='100810000064'
+
+
+--退现金数据操作 ，然后运行http://www.d1.com.cn/pingan/pat.aspx 退货接口 
+--http://www.d1.com.cn/pingan/uploadodr.aspx 上传数据
+update pauplog set status=-1,tuihuodate=getdate()  where status=2
+and transnum='100810000064'
+
+部分退货，先用上面的sql全退，然后再生成一个新的订单
+insert into pauplog(transnum,membercode,memcodetype,basepoints,partnercode,productnum,transdate,orderid,attchamount,status,ifchk)
+select odrmst_odrid+'1',mbrmstpingan_memberid,3,--99.5
+odrmst_ordermoney-odrmst_tktvalue
+,'79_0','0902034',odrmst_shipdate,odrmst_odrid,odrmst_shipfee,0,0
+from odrmst,mbrmstpingan where (odrmst_orderstatus in(5,51,6,61) or (odrmst_orderstatus in(3,31) and datediff(d,odrmst_shipdate,getdate())>=7))
+and odrmst_mbrid=mbrmstpingan_mbrid and odrmst_payid<>29 and odrmst_ordermoney>5 
+and odrmst_odrid='100810000064'
+

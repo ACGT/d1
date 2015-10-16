@@ -1,0 +1,10 @@
+
+
+select mbrmst_id,mbrmst_uid,mbrmst_name,mbrmst_usephone,(prvmst_name+ctymst_name+mbrmst_haddr) mbrmst_haddr,mbrmst_postcode,mbrmst_birthday
+ from mbrmst 
+--join bjvip on mbrmst_id=bjvip_mbrid
+inner join prvmst on prvmst_provinceid=mbrmst_provinceid
+inner join ctymst on ctymst_cityid=mbrmst_cityid
+where mbrmst_vipenddate>'2199-1-1' and
+ 
+month(mbrmst_birthday)=4

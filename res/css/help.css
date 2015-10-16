@@ -1,0 +1,33 @@
+body{font-size: 12px;}
+a{ text-decoration:none;}
+td {font-family: Arial, Helvetica, sans-serif;}
+.rightnew {width: 756px;margin-right:0px;float: right;clear: right;}
+th {font-family: Arial, Helvetica, sans-serif;}
+.left1 {border: thin solid #999999;width:220px;float: left; overflow:hidden;}
+.center1 .a {color: #000000;}
+.a1 {text-decoration: none;	color: #14618b;}
+.a2{color:#666666;}
+.right1 {background-image: url(http://images.d1.com.cn/images2014/help/2.jpg);background-repeat: no-repeat;height: 325px;width: 753px;	float: right;background-position: right;}
+.right3 {width: 752px;}
+.right2 {width: 752px;float: right;border: 1px solid #CCCCCC;}
+.right2_li {list-style-type: none;text-align: left;font-size: 12px;color: #666666;font-family: "ÐÂËÎÌå";font-weight: normal;display: block;}
+.right2_ul {margin-top: 0px;padding-top: 38px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}
+.right2_head {text-align: center;height: 40px;width: 700px;font-size: 16px;padding-top: 15px;border-left-color: #999999;border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #666666;}
+.neirong1 {width: 700px;text-align:left;}
+.neirong1_head {width: 698px;padding-left:52px;padding-top:15px;height: 39px;font-size:14px;background-image:url(http://images.d1.com.cn/images2012/New/help/GWTY.jpg);margin-bottom: 8px;font-weight: bold;background-repeat:no-repeat;}
+.neirong1_neirong {line-height: 21px;width: 700px;font-size:14px;}
+.right2_top {background-color: #f2f2f2;height: 26px;height:32px !important;width: 752px;line-height: 26px;line-height:32px !important;font-size: 16px;text-align:left;border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #999999;}
+.neirong{background-repeat: no-repeat;float:left;height:94px !important;width:121px !important;height: 130px;width: 243px;padding-top: 36px;padding-left: 122px;}
+.rneirong1 {background-image: url(http://images.d1.com.cn/images2012/New/help/3.jpg);}
+.rneirong2 {background-image: url(http://images.d1.com.cn/images2012/New/help/4.jpg);margin-left: 12px;}
+.rneirong3 {background-image: url(http://images.d1.com.cn/images2012/New/help/5.jpg);margin-left: 11px;}
+.rneirong4 {background-image: url(http://images.d1.com.cn/images2012/New/help/6.jpg);}
+.rneirong5 {background-image: url(http://images.d1.com.cn/images2012/New/help/7_1.jpg);margin-left: 12px;}
+.rneirong6 {background-image: url(http://images.d1.com.cn/images2012/New/help/8.jpg);margin-left: 11px;}
+.lefthead1 {background-image: url(http://images.d1.com.cn/images2012/New/help/1.gif);height: 34px;width: 219px;}
+.list1 {height: 20px;width: 191px;font-weight:bold;line-height: 16px;margin-left: 0px;padding-top: 8px;padding-right: 0px;padding-bottom: 0px;padding-left: 28px;color: #14618b;font-size: 16px;margin-top: 0px;text-align:left;}
+.center1 {width: 980px;clear:both;overflow:hidden;_zoom:1;padding-top:10px;}
+.fenge {clear: both;height:0px;width: 215px;border-bottom-style: dashed;border-top-width: 1px;border-right-width: thin;border-bottom-width: 1px;border-left-width: thin;border-top-style: none;border-right-style: none;border-left-style: none;border-top-color: #333333;border-right-color: #333333;border-bottom-color: #333333;border-left-color: #333333;}
+.leftneirong {height: 16px;width: 159px;font-size: 14px;font-family: "ËÎÌå";font-weight: lighter;padding-top: 4px;text-align: left;color: #666666;margin-left: 60px;}
+.leftneirong1 {margin-top:5px;height: 16px;width: 161px !important;	width:214px;font-size: 14px;padding-left: 58px !important;padding-left:58px;border-top-width: 1px;border-top-style: dashed;clear: both;}
+.center1 a:hover{color:#CC0066;}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>D1优尚网触屏版</title>
+    	<meta name="author" content="m.d1.cn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css" charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/login.css?1.1" charset="utf-8"/>
+        <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="/res/wap/js/com.js"></script>
+        
+	</head>
+		  <body>
+		        <header class="p_header">
+		              <div class="h_txt">
+					  <div class="pageback"><a href="javascript:window.history.back(-1);" >返回</a></div>
+					    <div class="h_h2"><h2><i></i>登录</h2></div><div class="home"><a href="/wap/index.html"></a></div>
+			            <div class="myuser"><a href="/wap/user/index.html"></a></div>
+						<div class="carth"><a href="/wap/flow.html"></a></div>
+					    
+			          </div>
+			    </header>
+				<div class="main">
+					<div class="login">
+					    <div class="login_err"></div>
+						<div class="login_user">
+							<span class="htxt">帐号：</span><span class="l_input"><input name="user" id="user" type="text" placeholder="手机号/邮箱/用户名"></span>
+						</div>
+						<div class="login_pwd">
+							<span class="htxt">密码：</span><span class="l_input"><input name="pwd" id="pwd" type="password"></span>
+						</div>
+						<div class="login_but"><a href="javascript:void(0);" id="loginbut" class="loginbut">登录</a>
+						<div class="regfind">
+						<span><a href="/wap/reg.html"><i class="i1"></i><br>手机注册</a></span>
+						<span><a  href="/wap/regmail.html"><i class="i2"></i><br>邮箱注册</a></span>
+						<span><a  href="/wap/forgetpwd.jsp"><i class="i3"></i><br>找回密码</a></span>
+						<span><a  href="/wap/wxtt.jsp" id="wxhb">.</a></span>
+						</div>
+						</div>
+
+					</div>
+				</div>
+				
+				<div class="login_other" >
+				<div class="txt">微信快捷登录</div>
+				<div class="otherlogo">
+			 
+				<a href="/wap/wxloginto.jsp" id="weixinlogin"><span  class="weixin"><font style="font-size:16px;color:red">微信号：d1beauty<br>
+(微信中添加朋友即可)</font></span></a>
+				 
+				    <!--  <a href="/interface/login/alipaywap.jsp"><span  class="alipay"></span></a>
+					 <a href="/interface/login/qq.jsp" id="qqlogin" ><span class="qq"></span></a>
+					  -->
+				</div>
+				</div>
+				<script src="/res/wap/js/jweixin-1.0.0.js" type="text/javascript"></script>
+		  <script type="text/javascript" src="/res/wap/js/logincheck.js?1.5"></script>
+		 <script type="text/javascript">  
+		  var url = document.referrer;
+		  if(url!="")    
+          {    
+             // $("#qqlogin").attr("href","/interface/login/qq.jsp?referurl="+url);
+          } 
+		  if(url!="")    
+          {    
+              $("#weixinlogin").attr("href","/wap/wxloginto.jsp?backurl="+url);
+          } 
+			</script>
+				<div style="display:none;">
+			<script language="javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+			</script>
+			</div>
+		 </body>
+</html>

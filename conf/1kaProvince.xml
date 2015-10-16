@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GB2312"?>
+<config>
+	<CityCodes>
+		<CityCode areaCode="8611" id="1" name="北京"/>
+		<CityCode areaCode="8631" id="2" name="上海"/>
+		<CityCode areaCode="8612" id="3" name="天津"/>
+		<CityCode areaCode="8650" id="4" name="重庆"/>
+		<CityCode areaCode="8615" id="5" name="内蒙古"/>
+		<CityCode areaCode="8614" id="6" name="山西"/>
+		<CityCode areaCode="8613" id="7" name="河北"/>
+		<CityCode areaCode="8621" id="8" name="辽宁"/>
+		<CityCode areaCode="8622" id="9" name="吉林"/>
+		<CityCode areaCode="8623" id="10" name="黑龙江"/>
+		<CityCode areaCode="8632" id="11" name="江苏"/>
+		<CityCode areaCode="8634" id="12" name="安徽"/>
+		<CityCode areaCode="8637" id="13" name="山东"/>
+		<CityCode areaCode="8633" id="14" name="浙江"/>
+		<CityCode areaCode="8636" id="15" name="江西"/>
+		<CityCode areaCode="8635" id="16" name="福建"/>
+		<CityCode areaCode="8643" id="17" name="湖南"/>
+		<CityCode areaCode="8642" id="18" name="湖北"/>
+		<CityCode areaCode="8641" id="19" name="河南"/>
+		<CityCode areaCode="8644" id="20" name="广东"/>
+		<CityCode areaCode="8646" id="21" name="海南"/>
+		<CityCode areaCode="8645" id="22" name="广西"/>
+		<CityCode areaCode="8652" id="23" name="贵州"/>
+		<CityCode areaCode="8651" id="24" name="四川"/>
+		<CityCode areaCode="8653" id="25" name="云南"/>
+		<CityCode areaCode="8661" id="26" name="陕西"/>
+		<CityCode areaCode="8662" id="27" name="甘肃"/>
+		<CityCode areaCode="8664" id="28" name="宁夏"/>
+		<CityCode areaCode="8663" id="29" name="青海"/>
+		<CityCode areaCode="8665" id="30" name="新疆"/>
+		<CityCode areaCode="8654" id="31" name="西藏"/>
+		<CityCode areaCode="8681" id="32" name="香港"/>
+		<CityCode areaCode="8682" id="33" name="澳门"/>
+		<CityCode areaCode="8671" id="34" name="台湾"/>
+	</CityCodes>
+</config>

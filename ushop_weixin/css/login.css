@@ -1,0 +1,161 @@
+@charset "utf-8";
+
+.main {
+	background-color: #fff;
+	font-family: 微软雅黑;
+	min-width: 320px;
+	margin: 0 auto;
+}
+
+.main .login_err {
+	color: #c61621;
+	font-size: .12rem;
+}
+
+.main .login {
+	padding: .20rem .20rem 0 .20rem;
+}
+
+.main .login .login_user, .main .login .login_pwd {
+	vertical-align: middle;
+	height: .40rem;
+	margin: .15rem;
+	line-height: .40rem;
+	display: -webkit-box;
+	font-size: .18rem;
+	border: 1px solid #9f9f9f
+}
+
+.main .login .htxt {
+	display: block;
+	padding: 0 .2px 0 10px;
+	font-size: 0.14rem;
+}
+
+.main .login .l_input {
+	display: block;
+	-webkit-box-flex: 1;
+	padding-right: .20rem;
+}
+
+.main .login .l_input>input {
+	border: none;
+	font-size: .18rem;
+	height: .35rem;
+	width: 100%;
+	outline: none;
+	color: #666;
+}
+
+.main .login .login_but {
+	padding: .10rem;
+}
+
+.main .login .login_but .loginbut {
+	display: block;
+	width: 100%;
+	height: .36rem;
+	background: #f1424f;
+	color: #fff;
+	font-size: .16rem;
+	border-radius: 4px;
+	text-align: center;
+	line-height: .36rem;
+}
+
+.main.main .login .login_but .regfind {
+	display: table;
+	height: .70rem;
+	width: 100%;
+	line-height: .16rem;
+	margin-top: .10rem;
+}
+
+.main .login .login_but .regfind>span {
+	display: table-cell;
+	font-size: .14rem;
+	text-align: center;
+}
+
+.main .login .login_but .regfind  a {
+	color: #c61621;
+	text-decoration: underline;
+	display: inline-block;
+	width: 100%;
+	heigth: 100%
+}
+
+.main .login .login_but .regfind>span .i1 {
+	background: url(http://images.d1.com.cn/wap/2014/b1.png) no-repeat;
+	width: .60rem;
+	height: .50rem;
+	display: inline-block;
+	background-size: auto .40rem;
+}
+
+.main .login .login_but .regfind>span .i2 {
+	background: url(http://images.d1.com.cn/wap/2014/b2.png) no-repeat;
+	width: .60rem;
+	height: .50rem;
+	display: inline-block;
+	background-size: auto .40rem;
+}
+
+.main .login .login_but .regfind>span .i3 {
+	background: url(http://images.d1.com.cn/wap/2014/b3.png) no-repeat;
+	width: .60rem;
+	height: .50rem;
+	display: inline-block;
+	background-size: auto .40rem;
+}
+
+.login_other {
+	height: .85rem;
+	background: #ededed;
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: .35rem;
+}
+
+.login_other .txt {
+	font-size: .16rem;
+	width: 100%;
+	padding-top: .10rem;
+	padding-left: .15rem;
+}
+
+.login_other .otherlogo {
+	display: table;
+	width: 100%;
+}
+
+.login_other a {
+	display: inline-block;
+	text-align: center;
+	width: 50%;
+	vertical-align: top;
+}
+
+.login_other .alipay {
+	display: block;
+	background: url(http://images.d1.com.cn/wap/2014/tenpay.png) center
+		no-repeat;
+	height: .58rem;
+	background-size: auto .35rem;
+}
+
+.login_other .qq {
+	display: block;
+	background: url(http://images.d1.com.cn/wap/2014/qqlogin.png) center
+		no-repeat;
+	height: .58rem;
+	background-size: auto .40rem;
+}
+
+.login_other .weixin {
+	display: block;
+	background: url(http:///images.d1.com.cn/wap/weixin.png) center
+		no-repeat;
+	height: .58rem;
+	background-size: auto .35rem;
+}

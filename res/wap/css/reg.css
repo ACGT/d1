@@ -1,0 +1,24 @@
+@charset "utf-8";
+.main{background-color: #fff;font-family:微软雅黑;min-width:320px;margin:0 auto;font-size:.14rem;}
+.main  .pd{padding:.10rem .25rem;}
+.main .phonecode{color:#e80017;}
+.main  input{font-size:.14rem;padding-left:.08rem;}
+.main .phonecode .msg a,.main .phonecode .getcode a,.main .phonereg  .regtxt a{height:.38rem;line-height:.38rem;background:#f1424f;color:#fff;font-size:.16rem;text-align:center;border-radius:.05rem;}
+.main .phonecode .msg .gologin{display:inline-block;width:.95rem;margin-top:.05rem;}
+.main .phonecode .getcode .butcode{display:block;width:45%;margin-top:.15rem;}
+.main .phonecode .getcode{margin-top:.15rem;}
+.main .phonecode .getcode .phonec,.main .phonereg  .regtxt .regin{width:90%;height:.40rem;border:1px solid #b2b2b2;line-height:.40rem;}
+.main .phonereg,.main .memo{color:#575757;}
+.main .phonereg .msg{line-height:.23rem;}
+.main .phonereg  .regtxt{margin-top:.10rem;}
+
+.main .mgt10{margin-top:.10rem;}
+.main .phonereg  .regtxt .regbut{display:block;width:100%;margin-top:.15rem;}
+.main .phonereg  .regtxt p{color:#e80017;line-height:.30rem;}
+.main .memo{padding-bottom:.15rem;line-height:.30rem;}
+.main .reg_err,.ph_err{color:#e80017;line-height:.30rem;}
+
+.main .yztxt{}
+.main .yztxt  .yzcode{width:50%;height:.40rem;border:1px solid #b2b2b2;line-height:.40rem;display:inline-block;}
+.main .yztxt  .vPic{display:inline-block;}
+.main .yztxt  .ref{display:inline-block;width:22%;margin-top:.05rem;}

@@ -1,0 +1,193 @@
+/* CSS Document */
+body{ margin:0px auto; margin:0px; padding:0px; background-color:#fff; font-size:12px;}
+div{ border:0; margin:0px; padding:0px;}
+a{ margin:0px; padding:0px; text-decoration:none }
+ul{margin:0px; padding:0px; list-style:none}
+li{margin:0px; padding:0px;}
+a img{ border:none;}
+.clear{ float:none; }
+.center{ width:980px; margin:0px auto; padding-top:10px;}
+.mbr_left{ width:200px; float:left; }
+.mbr_left_sub{ border:solid 1px #dfdfdf; width:200px;}
+/*公共左侧标题类*/
+.ltitle{ background-color:#ebebeb; color:#8a2b3f; padding-left:15px; font-size:15px; height:28px; width:185px; font-weight:bold;
+         line-height:32px; _padding-top:7px; _height:22px; +height:30px; _height:22px;
+        }
+.ltitle img{ vertical-align:sub; _vertical-align:top; +vertical-align:top;}
+.ltitle a { color:#8a2b3f;}
+
+
+.mbr_left_sub ul{ list-style:url(http://images.d1.com.cn/images2012/New/user/ul_img.jpg); padding-left:60px; padding-top:4px; padding-bottom:4px;}
+.mbr_left_sub ul li{ font-size:13px; line-height:25px;}
+.mbr_left_sub ul li a{  color:#333; text-decoration:none;}
+
+.left_bottom{ padding-top:15px; padding-bottom:15px; color:#8a2b3f; font-size:15px; font-weight:bold; line-height:22px; padding-left:5px;}
+
+.mbr_right{ width:770px; _width:768px; margin-left:10px; _margin-left:10px; float:left; overflow:hidden; }
+.mbr_right_first{ height:160px; width:778px;}
+.mbr_info{ width:526px; border:solid 1px #c2c2c2; height:180px; background:#f6f6f6; float:left; margin-right:10px; _margin-right:7px; padding-top:22px;
+           padding-left:12px;}
+.ysad{ float:left; width:219px; margin:0px;}
+.adinfo{ width:217px; height:130px; border:solid 1px #c2c2c2; _margin-top:-4px; +margin-top:-4px;}
+
+.mbr_info img{ border:solid 1px #c2c2c2; vertical-align:middle; float:left;}
+.mbr_info_detail{  float:left; padding-left:20px; color:#333;  line-height:25px;}
+.mbr_info_detail span{ color:#ec5658; font-size:13px;}
+.mbr_info_detail a { color:#3051ae; text-decoration:underline; font-size:12px;}
+.mbr_info_detail a img{ float:none; border:none;}
+.adinfo ul{ padding-left:5px; padding-top:10px; }
+.adinfo ul li{ color:#6b6b6b; line-height:22px;}
+.inorder{ margin-top:10px; border:solid 1px #c2c2c2; width:700px;  height:300px;}
+
+.t{text-align:center; color:#333; background-color:#c2c2c2; _width:768px; border-collapse: separate;}
+.t td{ background:#fff;}
+.t td.d1{ background:#f7edee;padding:0px;}
+.sptitle{  width:270px;  text-align:left; float:left; padding-left:5px;}
+.sptitle a { color:#333; text-decoration:none; line-height:18px;}
+.sptitle a:hover{ color:#a22d48; text-decoration:none;}
+.t span{color:#ec5658; font-size:13px;}
+.t .a{ color:#0014a7; text-decoration:underline; display:block; padding-top:4px;}
+
+.newul{ padding-left:18px; list-style:none; padding-top:18px; text-align:left; line-height:18px;}
+.newul li{ width:160px; margin-right:30px; overflow:hidden; float:left;  padding-bottom:20px;}
+.newul li a{ text-decoration:none; color:#333;}
+.newul li a:hover{ color:#a22d48; text-decoration:none;}
+.newul li span{ font-size:12px; color:#333; font-family:'微软雅黑'}
+
+/*收藏夹*/
+.mylike{ width:769px; _width:768px; border-bottom:#c2c2c2 solid 1px; background-image:url(http://images.d1.com.cn/images2012/New/user/scjbg.jpg); height:35px; line-height:35px; font-size:12px; color:#3E3E3E; }
+.mylike span{ font-size:15px; font-weight:bold; color:#8b2d3d}
+.t_title{ text-align:center;color:#a25663; height:35px; font-weight:bold; border:solid 1px #c2c2c2; border-bottom:#b33b57 solid 1px;}
+.t_title td{ background:url(http://images.d1.com.cn/images2012/New/user/inorderbg.jpg); }
+.sptitle1{ width:230px; text-align:left; float:left; padding-left:5px;}
+.sptitle1 a { color:#333; text-decoration:none; line-height:18px;}
+.sptitle1 a:hover{ color:#a22d48; text-decoration:none;}
+
+
+/*修改密码*/
+.updatepwd{ width:768px; height:350px; background-color:#f6f6f6; border:solid 1px #c2c2c2;}
+.t_update td{ background-color:#f6f6f6; height:35px;}
+.t_update input{ height:25px; width:200px; background:#ebebeb; border:solid 1px #c2c2c2; font-size:14px;}
+.t_update td span{ color:#dd0101}
+
+/*我的优惠券*/
+.myyhq{ width:768px; border:#c2c2c2 solid 1px; background-color:#f6f6f6;  height:45px; line-height:45px; color:#3E3E3E;}
+.myyhq span{ font-size:15px; font-weight:bold; color:#8b2d3d}
+.yhqlist{ }
+.yhqlist .yh_tag{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab1.jpg) no-repeat; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:17px; overflow:hidden}
+.yhqlist #yh_tags a{ float:left; width:100px; line-height:30px; color:#828282; font-weight:bold;}
+.yhqlist #yh_tags a.active {color:#fff;font-weight:bold}
+.yhqlist .tags1{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab1.jpg) no-repeat; width:210px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:20px; overflow:hidden;}
+.yhqlist .tags2{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab2.jpg) no-repeat; width:210px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:20px;overflow:hidden; }
+.jhtable{  border:solid 1px #c2c2c2; font-size:15px; font-weight:bold; text-align:left;}
+.jhtable input{ width:250px; height:25px; font-size:16px; border:solid 1px #c2c2c2; background-color:#f2f2f2;}
+
+/*收货地址*/
+.myaddress{ width:768px; border:#c2c2c2 solid 1px; background-color:#f6f6f6;  height:45px; line-height:45px; color:#3E3E3E;}
+.myaddress span{ font-size:15px; font-weight:bold; color:#8b2d3d}
+.addresslist table td a{ color:#0014a7; text-decoration:underline;}
+.updateaddress table { font-size:14px;}
+.updateaddress table span{ font-size:12px; vertical-align:middle;}
+.updateaddress table td input { border:solid 1px #c2c2c2; background-color:#f4f4f4; height:22px; font-size:13px;}
+.updateaddress table td{ height:35px;}
+.updateaddress table td a{ color:#0014a7; text-decoration:underline; font-size:12px;}
+
+/*付款记录*/
+.mypayrecord1{ width:768px; border:#c2c2c2 solid 1px; background-color:#f6f6f6;  height:45px; line-height:45px; color:#3E3E3E;}
+.mypayrecord1 span{ font-size:15px; font-weight:bold; color:#a25663; }
+.paymethodlist  td{ background:url(http://images.d1.com.cn/images2012/New/user/inorderbg.jpg); font-size:14px; font-weight:bold; text-align:center; }
+.paylist table td a{ color:#333; text-decoration:none; }
+.paylist table td a:hover{ color:#a25663; text-decoration:none;}
+.mypayrecord2{ width:768px; border:#c2c2c2 solid 1px; background-color:#f6f6f6;  height:150px; line-height:45px; font-size:14px; color:#3E3E3E;}
+.mypayrecord2 span{ font-size:15px; font-weight:bold; color:#a25663; }
+
+/*个人资料*/
+.myinfo{width:768px;  background-color:#f6f6f6; border:solid 1px #c2c2c2;}
+.t_info td{ background-color:#f6f6f6; height:35px;}
+.t_info input{ height:18px; background:#ebebeb; border:solid 1px #c2c2c2; font-size:14px;}
+.t_info td span{ color:#dd0101}
+
+/*购买咨询*/
+.zxlist{ padding-top:15px;}
+.zxlist table{ text-align:left; background-color:#c2c2c2;}
+.zxlist table td{ background-color:#fff;}
+.zxlist table td a{ color:#333;}
+.zxlist table td a:hover{ color:#a25663;}
+
+/*积分*/
+.myjf{ width:768px; border:#c2c2c2 solid 1px; background-color:#f6f6f6;  height:90px;padding-top:15px;
+       font-size:13px;  color:#333; font-weight:bold;}
+.myjf span{ font-size:15px; font-weight:bold; color:#8b2d3d}
+.jfa{color:#333;}
+.jfa:hover{ color:#a25663;}
+.yh_tag1{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab1.jpg) no-repeat; width:241px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:14px; overflow:hidden;}
+.yhqlist .yh_tags1 a{ float:left; width:60px; line-height:30px; color:#828282; font-weight:bold;}
+.yhqlist .tags3{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab1.jpg) no-repeat; width:168px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:14px;  overflow:hidden;}
+.yhqlist .tags4{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab2.jpg) no-repeat; width:168px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:14px; overflow:hidden;}
+
+
+/*预存款*/
+.myyck1{width:768px; border:#c2c2c2 solid 1px; background-color:#f6f6f6;  height:80px; padding-top:15px;  color:#3E3E3E;}
+.myyck1 span{ font-size:15px; font-weight:bold; color:#8b2d3d}
+.myyck2{width:768px; border:#c2c2c2 solid 1px; background-color:#f6f6f6;  height:150px; padding-top:15px;  color:#3E3E3E;}
+.myyck2 span{ font-size:15px; font-weight:bold; color:#8b2d3d}
+.myyck2 a{ color:#024fb7; text-decoration:underline;}
+.ycklist table td .ycka{ color:#333; text-decoration:none;}
+.ycklist table td .ycka:hover{ color:#a25663; text-decoration:none;}
+.oa{color:#024fb7; text-decoration:underline;}
+
+
+/*评价*/
+
+.com_content_list div table td a{ color:#333; text-decoration:none;}
+.com_content_list div table td  a:hover{ color:#a25663; text-decoration:none;}
+
+
+/*分页样式*/
+.Pager{overflow:hidden;_zoom:1;color: #4B4B4B;text-align:center;}
+.Pager .span{margin-right:30px;}
+.Pager .rd{color:#CC0000;}
+.Pager a{font-size:12px;text-decoration: none;color: #8B8B8B;line-height: 28px;padding: 3px 8px 3px 8px;border: 1px solid #A4A4A4;background-image: url(http://images.d1.com.cn/images2010/pgbg.gif);margin:0 5px;}
+.Pager a:hover{color:#AA2E44;}
+.Pager .curr{font-size: 12px;text-decoration: none;color: #8B8B8B;line-height: 28px;padding: 3px 8px 3px 8px;border: 1px solid #A4A4A4;background-color: #CDCDCD;}
+
+/*订单历史*/
+.ohlist{ }
+.ohlist .tags{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab1.jpg) no-repeat; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:30px; overflow:hidden}
+.ohlist #tags a{ float:left; width:100px; line-height:30px; color:#828282; font-weight:bold;}
+.ohlist #tags a.active {color:#fff;font-weight:bold}
+.ohlist .tags2{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab1.jpg) no-repeat; width:210px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:30px; overflow:hidden;}
+.ohlist .tags1{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/jifentab2.jpg) no-repeat; width:210px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:30px;overflow:hidden; }
+.choorder{ width:760px; background:#f6f6f6; border:solid 1px #c2c2c2; height:100px; padding-top:4px; padding-left:8px;}
+.choorder span{ font-size:15px; font-weight:bold;  color:#b46674; }
+
+
+.fieldset .color-label, .fieldset .close-label{vertical-align: top;}
+.fieldset ul{color: black;width: 300px;overflow: hidden;}
+.fieldset li{float: left;margin-right: 30px;padding-bottom: 10px;white-space: nowrap;}
+.fieldset ul li input{width: 13px;height: 13px;}
+.fieldset input.sex{margin-right: 2px;}
+.fieldset input#addr{width: 468px;}
+.fieldset input.contact{height: 21px;line-height: 21px;float:left;}
+.fieldset li input.color{border: 1px solid #000000;margin-left: 5px;height: 10px;width: 10px;}
+.color1{background-color: #000000;}
+.color2{background-color: #FFFFFF;}
+.color3{background-color: #808080;}
+.color4{background-color: #C0C0C0;}
+.color5{background-color: #FFFFF0;}
+.color6{background-color: #CBDCEE;}
+.color7{background-color: #5575A4;}
+.color8{background-color: #16163A;}
+.color9{background-color: #00FFFF;}
+.color10{background-color: #F0CAD5;}
+.color11{background-color: #FF0000;}
+.color12{background-color: #A40B39;}
+.color13{background-color: #91E0CD;}
+.color14{background-color: #17ABAB;}
+.color15{background-color: #003300;}
+.color16{background-color: #E7E183;}
+.color17{background-color: #FFFF99;}
+.color18{background-color: #FF8C00;}
+.color19{background-color: #FFD700;}
+.color20{background-color: #993300;}
+.color21{background-color: #800080;}

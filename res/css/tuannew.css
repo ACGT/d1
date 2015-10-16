@@ -1,0 +1,52 @@
+body{overflow-x:hidden;}
+.center{ margin:0px auto; padding-top:10px; width:980px;overflow:hidden;zoom:1;}
+.clear{ float:none;}
+.center .left{ width:700px; overflow:hidden; float:left; }
+.center .right{  width:258px; margin-left:15px; float:left; padding-bottom:30px;}
+.left h2{ font-size:30px; line-height:35px; padding-left:10px; padding-right:5px; font-weight:bold; color:#000; padding-top:8px; }
+.left h2 a{ color:#000; }
+.left h2 a:hover{ color:#000;}
+.left_sub1 { width:698px; overflow:hidden; border:solid 1px #c2c2c2; padding-bottom:10px; zoom:1;}
+.left_content{ width:214px; margin-left:5px; float:left; margin-top:20px;  }
+.left_content1{ width:212px; height:110px; border:solid 1px #ffdda6; background-color:#fffde6;}
+.left_content2{ width:212px; height:104px; border:solid 1px #e4e4e4; border-top:none; background-color:#f9f9f9;}
+.left_content3{ width:212px; height:125px; border:solid 1px #e4e4e4; border-top:none; background-color:#f9f9f9;}
+.left_content1 a{ text-decoration:none; cursor:hand; margin-top:-30px; margin-left:-11px; _margin-left:-16px; position:absolute;}
+.left_content1 a span{}
+.left_content1 table tr td{ font-size:12px; font-weight:bold; text-align:center; color:#030200;}
+.left_content2 table{ font-size:13px; color:#000; padding-left:10px;}
+.left_content2 table font{ font-size:19px; font-weight:bold; padding-left:2px; padding-right:2px; }
+.left_content3 table{ font-size:13px; color:#000; padding-left:10px; }
+.right a{ margin-bottom:10px; display:block;}
+#ques{ border:solid 1px #c2c2c2; padding-bottom:15px;}
+#ques_title{ width:256px; height:30px; background-color:#ebebeb; line-height:30px; color:#892d46; font-size:13px; font-weight:bold;}
+#ques a{ text-decoration:none; color:#04569f; font-size:12px; cursor:hand;}
+#ques ul{ list-style:none; padding-left:10px; +padding-left:0px; +margin-left:10px; }
+#ques ul li{ border-bottom:dashed 1px #ccc; width:210px; height:18px; padding-top:5px;}
+#work{ border:solid 1px #c2c2c2; padding-bottom:15px; margin-top:10px; font-size:12px; overflow:hidden; line-height:20px;}
+img{ border:none;}
+.left_sub2{  width:700px; overflow:hidden; font-size:12px;}
+.ls_1{ width:700px;  height:204px; overflow:hidden; zoom:1; margin-top:10px;}
+
+ .left_sub2  table td a span{ font-size:30px; color:#fff; font-family:'微软雅黑'; position:absolute; margin-left:-230px; margin-top:10px;font-weight:normal;}
+
+.left_sub2 div table td a{ position:absolute; margin-left:-4px; text-decoration:none; z-index:1;}
+ .left_sub2 div table td .newa { position:relative; overflow:hidden; width:450px;  font-size:20px; font-weight:bold; color:#000; line-height:25px;}
+
+ .look_border{ height:57px; border:solid 1px #c52f5d; width:285px; position:absolute;  margin-left:180px; _height:50px; z-index:0;  }
+ .look_border table{ font-size:13px; font-weight:bold;}
+.left_sub2 div table td .font{ font-size:19px; font-weight:bold; padding-left:2px; padding-right:2px; color:#b51014; }
+
+
+
+.left_subdetail{ width:678px; overflow:hidden; border:solid 1px #c2c2c2; padding-bottom:50px; margin-top:10px; padding-left:10px; padding-right:10px; padding-top:10px; line-height:20px; overflow:hidden;}
+.left_subdetail span{ font-weight:bold; color:#c52f5d; }
+.right div a span{ font-size:30px; color:#fff; font-family:'微软雅黑'; position:absolute; margin-left:-230px; margin-top:10px; }
+
+#comment .users{position:absolute;top:10px;left:0;width:120px;  text-align:center;color:#999;}
+
+#newspan em{ font-size:15px; color:#e00001;}
+
+.oldstyle{ position:fixed; _position: absolute;  right:0px; bottom:0px; background:#fff; width: 350px;height:230px;over-flow:hidden;border:1px solid #b0465a;font-size:12px; _top:expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);}
+.newstyle{ position:fixed; _position: absolute;  right:0px; bottom:0px; background:#fff; width: 350px;height:42px;over-flow:hidden;border:1px solid #b0465a;font-size:12px; _top:expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);}
+

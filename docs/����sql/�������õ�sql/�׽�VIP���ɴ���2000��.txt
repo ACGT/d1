@@ -1,0 +1,4 @@
+insert into bjvip(bjvip_allmoney,bjvip_mbrid,bjvip_endtime)
+select sum(OdrMst_gdsmoney-Odrmst_tktvalue),odrmst_mbrid,'2012-1-1'   from (select * from odrmst union select * from odrmst_history) a
+where a.odrmst_orderstatus in (3,31,5,51,6,61) 
+and a.OdrMst_orderdate>'2010-1-1' and a.odrmst_mbrid not in (select bjvip_mbrid from bjvip) group by a.odrmst_mbrid having sum(a.odrmst_realgetmoney)>=2000

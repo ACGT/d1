@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>D1优尚网购物车触屏版</title>
+    	<meta name="author" content="m.d1.cn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css" charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/res/wap/css/flow.css" charset="utf-8"/>
+        <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="/res/wap/js/com.js"></script>
+		<script type="text/javascript" src="/res/wap/js/waplistcart.js"></script>
+		
+	</head>
+		  <body>
+		        <header class="p_header">
+		             <a name="top"></a>				  
+					   <div class="h_txt">
+					  <div class="pageback"><a href="javascript:window.history.back(-1);" >返回</a></div>
+					    <div class="h_h2"><h2><i></i>购物车</h2></div>
+					    <div class="home"><a href="/wap/index.html"></a></div>
+			          <div class="myuser"><a href="/wap/user/index.html"></a></div>
+						<div class="carth"><a href="/wap/flow.html"></a></div>
+			          </div>
+			    </header>
+				<div class="main">
+				    <div class="m_cartlist">
+
+					</div>
+					
+				<div class="zp">
+				
+				</div>
+				<div style="font-size:12px;"><a  href="/wap/indextt.html" id="wxhb">.</a> </div>
+					<div class="choose_sku" id="choose_sku" style="display:none;" >
+					</div>
+					
+				 <div class="cart_msg" id="cartmsg" style="display:none;" >
+					         <div class="txt">
+					            <i>加入购物车成功!</i>
+					          <div class="but"><a href="javascript:void(0)" onclick="$('#cartmsg').hide();" id="stroll">继续购物</a><a href="flow.html">去购物车</a></div>
+
+					        </div>
+					        </div>
+					 <div class="m_totleprice" style="position:fixed;bottom:0;z-index:10;width:100%">
+						     <div class="price">
+							</div>
+							<div class="but">
+								<span>去结算</span>
+							</div>
+						</div>
+			
+				
+				</div>
+				<div id="footer" class="footer">
+					<script  language="javascript">
+					getwapFoot();
+				   </script>
+				</div>
+<script language="javascript">
+	function add(i){
+	       var pnum=$('#cpnum'+i);
+	       var num=parseInt($(pnum).val())+1;
+	        $(pnum).val(num);
+	        pnum.attr('objNum',num);
+	        pnum.focus();
+	        pnum.blur();
+	}
+	function minus(i){
+	var pnum=$('#cpnum'+i);
+	if($(pnum).val()>1){
+		 var num=parseInt($(pnum).val())-1;
+	$(pnum).val(num);
+	  pnum.attr('objNum',num);
+      pnum.focus();
+      pnum.blur();
+	}
+	}
+function choosesku(skuid,obj){
+	   $("#skuname"+skuid +" a" ).each(function(){
+	   $(this).removeClass("sku1current")});
+	   $(obj).addClass("sku1current")
+}
+
+function updatecart(car_id,rec_key){
+	var obj =$('#cpnum' + car_id);
+	var num = obj.val();
+
+		num = parseInt(num);
+		if(num=='' || num == '0' ||num <= 0){
+			$('.numerr'+car_id).html('购物车数量更新错误！');
+		    return false;
+		}
+
+	$.post("/ajax/flow/updateCart.jsp", {"car_id":car_id,"goods_number":num,"rec_key":rec_key,"m":new Date().getTime()},function(json){
+		if(parseInt(json.error)<0){
+			$('.numerr'+car_id).html(json.message);
+		}else{
+			loaddata();
+		}
+	},"json");
+}
+function removeCart(rec_key,isGift){
+	$.post("/ajax/flow/removeCart.jsp",{"rec_key":rec_key,"m":new Date().getTime()},function(json){
+		if(json.error>=0){
+			loaddata();
+		}else{
+			alert(json.message);
+		}
+	},"json");
+}
+function clickRemove(obj,type,rec_key,is_child){
+	var _this = $(obj);
+    isblur = 1;
+    if(type == '0'){
+    		removeCart(rec_key,1);
+    }else{
+    	//需要判断要不要涉及到删除赠品的需求上。
+    	if(is_child == "1"){//主商品包含子类或者购物车中包含有赠品
+    		$.post("/ajax/flow/checkDropGoods.jsp",{"rec_key":rec_key,"m":new Date().getTime()},function(json){
+    			//参数错误
+    			if(json.error == -1){
+    				window.location.reload();
+    				return;
+    			}
+    			//导致关联的子类被删除
+    			if(json.error == 1){
+    					removeCart(rec_key,0);
+    			}else{//子类活赠品不被删除
+    					removeCart(rec_key,0);
+    			}
+    		},"json");
+    	}else{
+    			removeCart(rec_key,0);
+    	}
+    }
+}
+$(".but>span").click(function(){
+	if(loginflag==1){
+	window.location.href="flowcheck.html";
+	}else{
+	window.location.href="/wap/login.html";
+	}
+});
+function addGiftCart(obj){
+	 $.inCart(obj,{ajaxUrl:'/ajax/flow/listGiftInCart.jsp'});
+		loaddata();
+}
+function loaddata(){  
+	   $.ajax({
+			type: "get",
+			dataType: "json",
+			url: '/ajax/wap/getflow.jsp',
+			cache: false,
+			error: function(XmlHttpRequest){
+				$.alert("内容错误！");
+			},success: function(json){
+					if(json.status=="1"){
+						$(".m_cartlist").html('');
+						$(".m_totleprice .price").html('');
+						showlist(json);
+					}else{
+						$(".m_cartlist").html('<div class="cartnone"><div class="msg"><i></i>你的购物车还没有任何商品，赶快去购物吧。	<a href="/wap/index.html">立即去购物》</a></div></div>');
+						$(".m_totleprice").hide();
+					}
+			 },beforeSend: function(){
+			    	$(".m_cartlist").html("<div class=\"load\"><img src=\"http://images.d1.com.cn/wap/2014/loading.gif\"></div>")
+			    }
+		});
+}
+	function showlist(json){
+    var cartlist=eval(json.cartlist);
+    var citemhtml="";
+	if(cartlist.length>0){
+		for (var j=0;j<cartlist.length;j++){
+		    var shopactlist=eval(cartlist[j].shopactlist);
+		    var shopcartlist=eval(cartlist[j].shopcartlist);
+	       citemhtml='<div class="mc_shop">';
+	       citemhtml=citemhtml+'<div class="mcs_title"> '+cartlist[j].shopname+'</div>';
+	       var showact=0;
+	       var oldactid=0;
+	       for(var i=0;i<shopcartlist.length;i++){
+	    	   actid=shopcartlist[i].cart_actid;
+	    	   if(oldactid!=actid&&showact==1)showact=0;
+	    	   if(actid!=0&&showact==0){
+	    	   for(var l=0;l<shopactlist.length;l++){
+	    		   if(actid==shopactlist[l].actid){
+	    			   showact=1;
+	    	       citemhtml=citemhtml+'<div class="mcs_act">';
+	    	       citemhtml=citemhtml+'<p class="acttitle"><a href="'+shopactlist[l].goshopurl+'">'+shopactlist[l].acttxt+'</p>';
+	    	       citemhtml=citemhtml+'<p class="acttxt">'+shopactlist[l].showactt+'</p>';
+	    	       citemhtml=citemhtml+'</div>';
+	    	       break;
+	    		   }
+	    	   }
+	    	   }
+               if(i==0||oldactid!=actid){
+	    		   citemhtml=citemhtml+'<div class="mcs_list">';
+	    	   }else if(i!=0&&oldactid!=actid){
+	    		   citemhtml=citemhtml+'</div><div class="mcs_list">';
+	    	   }
+	    	   citemhtml=citemhtml+'<div class="item">';
+	    	   citemhtml=citemhtml+'<div class="img"><a href="product.html?id='+shopcartlist[i].cart_gdsid+'"><img src="'+shopcartlist[i].cart_img+'" border="0"/></a></div>';
+	    	   citemhtml=citemhtml+'<div class="dtl">';
+	    	   citemhtml=citemhtml+'    <p class="title">'+shopcartlist[i].cart_title+'</p>';
+	    	   citemhtml=citemhtml+'	<p class="price">￥<s>'+shopcartlist[i].cart_oldPrice+'</s>&nbsp;&nbsp;&nbsp;成交价：<span class="fp">￥'+shopcartlist[i].cart_price+'</span></p>';
+	    	   if(shopcartlist[i].cart_plimit){
+	    		   citemhtml=citemhtml+'<p class="num">数量：'+shopcartlist[i].cart_gdscount+'';
+	    	   }else{
+	    	   citemhtml=citemhtml+'	<p class="num">数量：<a onclick="minus('+shopcartlist[i].cart_id+')" >-</a>';
+	    	   citemhtml=citemhtml+'	<input type="text" class="cpnum" objnum="'+shopcartlist[i].cart_gdscount+'" value="'+shopcartlist[i].cart_gdscount+'" id="cpnum'+shopcartlist[i].cart_id+'" name="cpnum'+shopcartlist[i].cart_id+'" onblur="updatecart('+shopcartlist[i].cart_id +',\''+shopcartlist[i].cart_reckey+'\');" onkeypress="if((arguments[0] || window.event).keyCode==13){updatecart('+shopcartlist[i].cart_id+',\''+shopcartlist[i].cart_reckey+'\');}" ><a onclick="add('+shopcartlist[i].cart_id+')" >+</a>';
+	    	   }
+	    	   citemhtml=citemhtml+'    <span class="numerr'+shopcartlist[i].cart_id+'"></span> </p>';
+	    	   citemhtml=citemhtml+'	<p class="sku">';
+	    	  if(shopcartlist[i].cart_sku!=''){
+	    	   citemhtml=citemhtml+'尺码：'+shopcartlist[i].cart_sku+'';
+	    	   
+	    	  }
+	    	  citemhtml=citemhtml+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="###" onclick="clickRemove(this,'+shopcartlist[i].cart_type+',\''+shopcartlist[i].cart_reckey +'\',\''+shopcartlist[i].cart_haschild +'\');">删除</a></p>';
+	    	   citemhtml=citemhtml+'</div></div>';
+	    	   
+	    	   if(i==(shopcartlist.length-1)){
+	    		   citemhtml=citemhtml+'</div>';
+	    	   }
+	    	   oldactid=actid;
+	        }
+	     citemhtml=citemhtml+'<div class="mcs_totle">';
+	     citemhtml=citemhtml+'   <div class="price">';
+	     citemhtml=citemhtml+'	    <p>商品件数小计：<span class="red">'+cartlist[j].shopgdscount+'</span>&nbsp;&nbsp;&nbsp;&nbsp;小计：<span class="red">￥'+cartlist[j].shopmoney+'</span></p>';
+	     if(parseFloat(cartlist[j].shopactmoney)>0){
+	     citemhtml=citemhtml+'		<p>节省：<span class="red">￥'+cartlist[j].shopactmoney+'</span></p>';
+	     }
+	     citemhtml=citemhtml+'	</div></div>';
+	     citemhtml=citemhtml+'</div>';
+	    
+	     $(".m_cartlist").append(citemhtml);
+		}
+		 $(".m_totleprice .price").append(' <p>总商品件数：<span class="red">'+json.allgdscount+'</span><br>总金额：<span class="red">￥'+json.allmoney+'</span></p>');
+		 if(parseFloat(json.allactmoney)>0){
+		 $(".m_totleprice .price").append('<p>节省：<span class="red">￥'+json.allactmoney+'</span></p>');
+		 }
+		 $(".zp").html("");
+		 var zpallzplist=eval(json.zpallzplist);
+		    var zpallitemhtml="";
+			if(zpallzplist.length>0){
+				for (var j=0;j<zpallzplist.length;j++){
+				    var zplist=eval(zpallzplist[j].zplist);
+				    zpallitemhtml=zpallitemhtml+'<div class="zptxt">';
+				    zpallitemhtml=zpallitemhtml+'<h2>赠品换购区</h2>';
+				    zpallitemhtml=zpallitemhtml+'<div class="zplist">';
+				    zpallitemhtml=zpallitemhtml+'<h3>'+zpallzplist[j].itemlisttitle+'</h3>';
+				    zpallitemhtml=zpallitemhtml+'<ul>';
+
+				       var showzp=0;
+				       for(var i=0;i<zplist.length;i++){
+				    	   zpallitemhtml=zpallitemhtml+'<li>';
+				    	   zpallitemhtml=zpallitemhtml+'<div class="item">';
+				    	   zpallitemhtml=zpallitemhtml+'<div class="t"><a href="product.html?id='+zplist[i].zpitemgdsid+'">'+zplist[i].zpitemtitle+'</a><br>';
+				    	   zpallitemhtml=zpallitemhtml+'<span style=\"color:#3E3E3E\">'+zplist[i].zpitemtxt+'</span><br>';
+				    	   zpallitemhtml=zpallitemhtml+'<span>'+zplist[i].zpitemgiftvalue+'</span>';
+				    	   zpallitemhtml=zpallitemhtml+'</div>';
+				    	   zpallitemhtml=zpallitemhtml+'<div  class="b">';
+				    	   zpallitemhtml=zpallitemhtml+'<div class="l">';
+				    	   zpallitemhtml=zpallitemhtml+'<a href="product.html?id='+zplist[i].zpitemgdsid+'"><img src="'+zplist[i].zpitemimg+'" border="0"/></a>';
+				    	   zpallitemhtml=zpallitemhtml+'</div>';
+				    	   zpallitemhtml=zpallitemhtml+'<div class="r">';
+				    	   zpallitemhtml=zpallitemhtml+'市场价：'+zplist[i].zpitemsaleprice+'元&nbsp;&nbsp;<span>兑换价：'+zplist[i].zpitemdhprice+'元</span><br>';
+				    	   if(zplist[i].zpitemflag>0){
+					    	   if(zplist[i].zpitemdhprice==0){
+					    		   zpallitemhtml=zpallitemhtml+'<a href="###" class="buy" attr="'+zplist[i].zpitemid+'_0" onclick="addGiftCart(this);">免费领取</a>';
+					    	   }else{
+					    		   zpallitemhtml=zpallitemhtml+'<a href="###" class="buy" attr="'+zplist[i].zpitemid+'_0" onclick="addGiftCart(this);">立即换购</a>';
+					    	   }
+					    	   }else{
+					    		   if(zplist[i].zpitemdhprice==0){
+					    			   zpallitemhtml=zpallitemhtml+'<a href="###" class="nobuy" >免费领取</a>';
+							    	   }else{
+							    		   zpallitemhtml=zpallitemhtml+'<a href="###" class="nobuy" >立即换购</a>';
+							    	   } 
+					    	   }
+				    	   zpallitemhtml=zpallitemhtml+'</div>';
+				    	   zpallitemhtml=zpallitemhtml+'</div>';
+				    	   zpallitemhtml=zpallitemhtml+'</div>';
+				    	   zpallitemhtml=zpallitemhtml+'</li>';
+				       }
+				       zpallitemhtml=zpallitemhtml+'</ul></div><div>';
+				}
+			}
+			 $(".zp").append(zpallitemhtml);
+	
+	var zprckzplist=eval(json.zprckzplist);
+    var zprckitemhtml="";
+	if(zprckzplist.length>0){
+		 zprckitemhtml="";
+		for (var j=0;j<zprckzplist.length;j++){
+		    var zplist=eval(zprckzplist[j].zplist);
+		    zprckitemhtml=zprckitemhtml+'<div class="zptxt">';
+		    zprckitemhtml=zprckitemhtml+'<div class="zplist">';
+		    zprckitemhtml=zprckitemhtml+'<h3>'+zprckzplist[j].itemlisttitle+'</h3>';
+		    zprckitemhtml=zprckitemhtml+'<ul>';
+
+		       var showzp=0;
+		       for(var i=0;i<zplist.length;i++){
+		    	   zprckitemhtml=zprckitemhtml+'<li>';
+		    	   zprckitemhtml=zprckitemhtml+'<div class="item">';
+		    	   zprckitemhtml=zprckitemhtml+'<div class="t"><a href="product.html?id='+zplist[i].zpitemgdsid+'">'+zplist[i].zpitemtitle+'</a><br>';
+		    	   zprckitemhtml=zprckitemhtml+'<span style=\"color:#3E3E3E\">'+zplist[i].zpitemtxt+'</span><br>';
+		    	   zprckitemhtml=zprckitemhtml+'<span>'+zplist[i].zpitemgiftvalue+'</span>';
+		    	   zprckitemhtml=zprckitemhtml+'</div>';
+		    	   zprckitemhtml=zprckitemhtml+'<div  class="b">';
+		    	   zprckitemhtml=zprckitemhtml+'<div class="l">';
+		    	   zprckitemhtml=zprckitemhtml+'<a href="product.html?id='+zplist[i].zpitemgdsid+'"><img src="'+zplist[i].zpitemimg+'" border="0"/></a>';
+		    	   zprckitemhtml=zprckitemhtml+'</div>';
+		    	   zprckitemhtml=zprckitemhtml+'<div class="r">';
+		    	   zprckitemhtml=zprckitemhtml+'市场价：'+zplist[i].zpitemsaleprice+'元&nbsp;&nbsp;<span>兑换价：'+zplist[i].zpitemdhprice+'元</span><br>';
+		    	   if(zplist[i].zpitemflag>0){
+			    	   if(zplist[i].zpitemdhprice==0){
+			    		   zprckitemhtml=zprckitemhtml+'<a href="###" class="buy" attr="'+zplist[i].zpitemid+'_0" onclick="addGiftCart(this);">免费领取</a>';
+			    	   }else{
+			    		   zprckitemhtml=zprckitemhtml+'<a href="###" class="buy" attr="'+zplist[i].zpitemid+'_0" onclick="addGiftCart(this);">立即换购</a>';
+			    	   }
+			    	   }else{
+			    		   if(zplist[i].zpitemdhprice==0){
+			    			   zprckitemhtml=zprckitemhtml+'<a href="###" class="nobuy" >免费领取</a>';
+					    	   }else{
+					    		   zprckitemhtml=zprckitemhtml+'<a href="###" class="nobuy" >立即换购</a>';
+					    	   } 
+			    	   }
+		    	   zprckitemhtml=zprckitemhtml+'</div>';
+		    	   zprckitemhtml=zprckitemhtml+'</div>';
+		    	   zprckitemhtml=zprckitemhtml+'</div>';
+		    	   zprckitemhtml=zprckitemhtml+'</li>';
+		       }
+		       zprckitemhtml=zprckitemhtml+'</ul></div><div>';
+		}
+	}
+	 $(".zp").append(zprckitemhtml);
+
+	var zpbrandzplist=eval(json.zpbrandzplist);
+    var zpbranditemhtml="";
+	if(zpbrandzplist.length>0){
+		for (var j=0;j<zpbrandzplist.length;j++){
+		    var zplist=eval(zpbrandzplist[j].zplist);
+		    zpbranditemhtml=zpbranditemhtml+'<div class="zptxt">';
+		    zpbranditemhtml=zpbranditemhtml+'<div class="zplist">';
+		    zpbranditemhtml=zpbranditemhtml+'<h3>'+zpbrandzplist[j].itemlisttitle+'</h3>';
+		    zpbranditemhtml=zpbranditemhtml+'<ul>';
+
+		       var showzp=0;
+		       for(var i=0;i<zplist.length;i++){
+		    	   zpbranditemhtml=zpbranditemhtml+'<li>';
+		    	   zpbranditemhtml=zpbranditemhtml+'<div class="item">';
+		    	   zpbranditemhtml=zpbranditemhtml+'<div class="t"><a href="product.html?id='+zplist[i].zpitemgdsid+'">'+zplist[i].zpitemtitle+'</a><br>';
+		    	   zpbranditemhtml=zpbranditemhtml+'<span style=\"color:#3E3E3E\">'+zplist[i].zpitemtxt+'</span><br>';
+		    	   zpbranditemhtml=zpbranditemhtml+'<span>'+zplist[i].zpitemgiftvalue+'</span>';
+		    	   zpbranditemhtml=zpbranditemhtml+'</div>';
+		    	   zpbranditemhtml=zpbranditemhtml+'<div  class="b">';
+		    	   zpbranditemhtml=zpbranditemhtml+'<div class="l">';
+		    	   zpbranditemhtml=zpbranditemhtml+'<a href="product.html?id='+zplist[i].zpitemgdsid+'"><img src="'+zplist[i].zpitemimg+'" border="0"/></a>';
+		    	   zpbranditemhtml=zpbranditemhtml+'</div>';
+		    	   zpbranditemhtml=zpbranditemhtml+'<div class="r">';
+		    	   zpbranditemhtml=zpbranditemhtml+'市场价：'+zplist[i].zpitemsaleprice+'元&nbsp;&nbsp;<span>兑换价：'+zplist[i].zpitemdhprice+'元</span><br>';
+		    	    if(zplist[i].zpitemflag>0){
+		    	   if(zplist[i].zpitemdhprice==0){
+		    	   zpbranditemhtml=zpbranditemhtml+'<a href="###" class="buy" attr="'+zplist[i].zpitemid+'_0" onclick="addGiftCart(this);">免费领取</a>';
+		    	   }else{
+		    		zpbranditemhtml=zpbranditemhtml+'<a href="###" class="buy" attr="'+zplist[i].zpitemid+'_0" onclick="addGiftCart(this);">立即换购</a>';
+		    	   }
+		    	   }else{
+		    		   if(zplist[i].zpitemdhprice==0){
+				    	   zpbranditemhtml=zpbranditemhtml+'<a href="###" class="nobuy" >免费领取</a>';
+				    	   }else{
+				    		zpbranditemhtml=zpbranditemhtml+'<a href="###" class="nobuy" >立即换购</a>';
+				    	   } 
+		    	   }
+		    	   zpbranditemhtml=zpbranditemhtml+'</div>';
+		    	   zpbranditemhtml=zpbranditemhtml+'</div>';
+		    	   zpbranditemhtml=zpbranditemhtml+'</div>';
+		    	   zpbranditemhtml=zpbranditemhtml+'</li>';
+		       }
+		       zpbranditemhtml=zpbranditemhtml+'</ul></div><div>';
+		}
+	}
+	 $(".zp").append(zpbranditemhtml);
+}
+
+  }
+	loaddata();
+
+	</script>
+	<div style="display:none;">
+	<script language="javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+	</script>
+	</div>
+          </body>
+</html>

@@ -1,0 +1,540 @@
+@charset "utf-8";
+
+.main {
+	margin: 0 auto;
+	min-width: 3.20rem;
+	max-width: 6.40rem;
+	font-size: 30px;
+	background: #f6f6f6;
+}
+
+.main .mcate {
+	overflow: hidden;
+	display: -webkit-box;
+	width: 100%;
+	height: .40rem;
+	background: #f1424f;
+	margin-top: .08rem;
+}
+
+.main .mcate  a {
+	display: block;
+	width: 20%;
+	height: .40rem;
+	font-size: .16rem;
+	color: #fff;
+	line-height: .40rem;
+	text-align: center;
+}
+
+.main .mcate a:last-child {
+	border-right: 0
+}
+
+.main .mcate a.cur {
+	background: #da2f3b;
+}
+
+.main .m_agimg {
+	margin: 8px auto;
+	width: 320px
+}
+
+.scroll {
+	width: 320px;
+	position: relative;
+	overflow: hidden;
+	max-height: 200px;
+}
+
+.mod_01 {
+	float: left;
+	width: 320px;
+}
+
+.mod_01 img {
+	display: block;
+	width: 320px;
+	height: 200px;
+}
+
+.mp_list {
+	margin: .08rem;
+	max-width: 6.40rem;
+	overflow: hidden;
+}
+
+.mp_list .tmtit {
+	width: 100%;
+	height: .36rem;
+	background: #fff;
+	color: #878787;
+	position: relative;
+	display: block;
+	font-family: 微软雅黑;
+	line-height: .36rem;
+	margin-bottom: .08rem;
+	border-left: 4px solid #f14050;
+	overflow: hidden;
+}
+
+.mp_list h2 {
+	padding-left: .12rem;
+	font-size: .15rem;
+	font-weight: normal;
+}
+
+.tm li {
+	margin: 0.5%;
+	background: #fff;
+	width: 49%;
+	float: left;
+}
+
+.tm li .tmitem .pic {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	height: auto
+}
+
+.tm li  .tmitem .pic img {
+	width: 100%;
+}
+
+.tm li  .tmitem .pic .time {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: .60rem;
+	font-size: .16rem;
+	line-height: .35rem;
+	text-align: center;
+	height: .35rem;
+	display: block;
+	background: rgba(0, 0, 0, .5);
+	color: #d0d0d0;
+}
+
+.tm li  .tmitem .pic .txt {
+	position: absolute;
+	bottom: 6px;
+	color: #666;
+	width: 100%;
+	height: .40rem;
+	line-height: .40rem;
+	font-size: .40em;
+}
+
+.tm li  .tmitem .pic .txt span {
+	text-align: center;
+	width: 100%;
+	display: block;
+}
+
+.tm li  .tmitem .pic .txt2 {
+	position: relative;
+	bottom: 6px;
+	color: #666;
+	width: 100%;
+	height: .60rem;
+	line-height: .30rem;
+	font-size: .50em;
+}
+
+.tm li  .tmitem .pic .txt2 span {
+	width: 100%;
+	display: block;
+}
+
+.tm li  .tmitem .pic .txt2 b {
+	position: absolute;
+	text-align: center;
+	top: .10rem;
+	right: .03rem;
+	height: .21rem;
+	width: .60rem;
+	line-height: .21rem;
+	background: #f1424f;
+	color: #fff;
+	font-size: .14rem;
+}
+
+.tm li  .tmitem .pic .txt2 b a {
+	color: #fff;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+.menu2015 {
+	width: 100%;
+	max-height: 1.34rem;
+	display: -webkit-box;
+}
+
+.menu2015 .imgdiv {
+	width: 25%;
+	overflow: hidden;
+	position: relative;
+	height: auto;
+	font-size: 0px;
+}
+
+.menu2015 .imgdiv img {
+	width: 100%;
+}
+
+.headtxt, .ms2015 {
+	margin-top: .08rem;
+}
+
+.sg {
+	padding-bottom: .08rem;
+}
+
+.sg li {
+	width: 100%;
+	margin-top: .10rem;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.sg li.soldout {
+	filter: alpha(opacity = 50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+
+.sg li .sgitem {
+	background: #fff;
+	padding: 5px;
+}
+
+.sg li .sgitem .pic {
+	text-align: center;
+	position: relative;
+}
+
+.sg li .sgitem .pic .isend {
+	position: absolute;
+	bottom: 70px;
+	right: 65px;
+	background-image:
+		url(http://images.d1.com.cn/zt2014/0220qc/end_sale.png);
+	filter: alpha(opacity = 100);
+	-moz-opacity: 10;
+	opacity: 10;
+	background-position: 0px 0px;
+	width: 150px;
+	height: 135px;
+	color: #fff;
+	text-align: left;
+}
+
+.sg li .sgitem .pic img {
+	width: 2.90rem;
+	height: 2.90rem
+}
+
+.sg li .sgitem .txt {
+	height: 1.10rem;
+}
+
+.sg li .sgitem .txt .title {
+	font-size: .12rem;
+	font-family: 微软雅黑;
+	height: .30rem;
+	line-height: .30rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+}
+
+.sg li .sgitem  .price {
+	height: .80rem;
+	position: relative;
+}
+
+.sg li .sgitem  .price .m {
+	color: #f1424f;
+	font-size: .22rem;
+}
+
+.sg li .sgitem  .price .s {
+	color: #a4a4a4;
+	font-size: .14rem;
+	text-decoration: line-through;
+}
+
+.sg li .sgitem  .price .zk {
+	color: #a4a4a4;
+	font-size: .14rem;
+}
+
+.sg li .sgitem  .price .buytxt {
+	font-size: .14rem;
+}
+
+.sg li .sgitem  .price  .but {
+	position: absolute;
+	right: .10rem;
+	top: .15rem;
+	width: .50rem;
+	height: .50rem;
+}
+
+.sg li .sgitem  .price  .but a {
+	width: .50rem;
+	height: .50rem;
+	vertical-align: middle;
+	text-align: center;
+	display: block;
+	border-radius: .50rem;
+	background: #f1424f;
+	font-size: .12rem;
+}
+
+.sg li .sgitem  .price  .but a i {
+	background: url(http://images.d1.com.cn/wap/2014/cartb.png) no-repeat;
+	margin-top: .10rem;
+	background-size: .30rem .30rem;
+	display: inline-block;
+	width: .30rem;
+	height: .30rem;
+}
+
+.main  .mplist  li {
+	display: -webkit-box;
+	border-bottom: 1px solid #cccccc;
+	padding: 10px 0 0 0px;
+	height: 4em;
+	position: relative;
+}
+
+.main  .mplist  li.pt40 {
+	padding-top: .50rem;
+	overflow: hidden;
+}
+
+.main  .mplist .itemtitle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-left: .15rem;
+	width: 100%;
+	height: .40rem;
+	font-size: .14rem;
+	line-height: .40rem;
+	border-top: 2px solid #ff3a3d;
+	border-bottom: 2px solid #ff3a3d;
+}
+
+.maist .mplist  .iteml {
+	width: 4em;
+	height: 100%
+}
+
+.main  .mplist  .itemr {
+	display: block;
+	overflow: hidden;
+	-webkit-box-flex: 1;
+	flex: 1;
+}
+
+.main  .mplist  .iteml img {
+	border: 1px solid #f0eff5;
+	padding: 2px;
+	width: 3.5em;
+	height: 3.5em;
+}
+
+.main  .mplist  .itemr .title {
+	overflow: hidden;
+	max-height: 0.45rem;
+	font-size: 0.14rem;
+	display: block;
+	margin: 5px 0 5px;
+	line-height: .22rem;
+}
+
+.main  .mplist  .itemr .ptxt {
+	height: 0.80em;
+	display: table;
+}
+
+.main  .mplist  .itemr .ptxt span {
+	max-height: 0.80em;
+	display: table-cell;
+	width: 50%;
+	overflow: hidden;
+}
+
+.main  .mplist  .itemr .ptxt span.pm {
+	color: #ff3a3d;
+	font-size: 0.16rem;
+	width: 1rem;
+}
+
+.main  .mplist  .itemr .ptxt span.pdx {
+	color: #ffffff;
+	background: #ff3a3d;
+	font-size: 0.14rem;
+	text-align: center;
+	line-height: 0.80em;
+}
+
+.main  .mplist  .itemr .ptxt span.phot {
+	color: #9d9d9d;
+	font-size: 0.16rem;
+}
+
+.main  .mplist  .itemr .ptxt span.ps {
+	color: #9d9d9d;
+	font-size: 0.14rem;
+	width: 1rem;
+}
+
+.main  .mplist  .itemr .ptxt span.pc {
+	color: #9d9d9d;
+	font-size: 0.16rem;
+}
+
+.sg  .adimg {
+	padding-top: .05rem;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	height: auto;
+}
+
+.sg  .adimg img {
+	width: 100%;
+}
+
+.sg .rckitem {
+	font-size: 12px;
+}
+
+.sg .rckitem a {
+	line-height: 30px;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding: 0 12px;
+	font-size: 12px;
+	background-color: #fff;
+	box-shadow: 0 1px 1px #e8e8e8;
+	display: -webkit-inline-box;
+	color: #373737;
+} /*
+.sg .rckitem a{
+display: inline-block;
+height: .36rem;
+margin: .05rem;
+padding:0 .08rem;
+line-height: .36rem;
+border: 1px solid #e5e5e5;
+text-align: center;
+color: #666;
+font-size:.16rem;
+background: #fff;
+}*/
+.rcklist {
+	margin-bottom: .08rem;
+}
+
+.rcklist ul {
+	width: 100%;
+}
+
+.rcklist li {
+	width: 33.3333333%;
+	float: left;
+	margin-top: .10rem;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.rcklist li .listitem {
+	background: #fff;
+	padding: 5px;
+}
+
+.rcklist li .listitem .pic {
+	text-align: center;
+	position: relative;
+}
+
+.rcklist li .listitem .pic img {
+	width: 3.33333em;
+	height: 3.33333em
+}
+
+.ms2015 .rcklist li .listitem .txt {
+	height: .90rem;
+}
+
+.rcklist li .listitem .txt {
+	height: .70rem;
+}
+
+.rcklist li .listitem .txt .title {
+	width: 99%;
+	padding-right: 1%;
+	font-size: .12rem;
+	font-family: 微软雅黑;
+	max-height: .36rem;
+	line-height: .18rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+}
+
+.rcklist li .listitem .txt .title a {
+	max-height: .36rem;
+	line-height: .18rem;
+}
+
+.rcklist li .listitem .txt .mdtitle {
+	font-size: .12rem;
+	font-family: 微软雅黑;
+	color: red;
+	line-height: .18rem;
+}
+
+.rcklist li .listitem  .price {
+	height: .30rem;
+	position: relative;
+	line-height: .18rem;
+}
+
+.rcklist li .listitem  .price .m {
+	color: #f1424f;
+	font-size: .14rem;
+}
+
+.rcklist li .listitem  .price .s {
+	color: #a4a4a4;
+	font-size: .12rem;
+	text-decoration: line-through;
+}
+
+.rcklist li .listitem  .price .zk {
+	color: #a4a4a4;
+	font-size: .14rem;
+	display: none;
+}
+
+@media only screen and (min-width:480px) {
+	.main {
+		font-size: 40px;
+	}
+	.shoplist li .listitem .txt .title {
+		height: .30rem;
+	}
+	.shoplist li .listitem  .price .m {
+		color: #f1424f;
+		font-size: .22rem;
+	}
+	.shoplist li .listitem .txt .title {
+		font-size: .16rem;
+	}
+}

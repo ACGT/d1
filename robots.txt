@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login.jsp
+Disallow: /register.jsp
+Disallow: /help/
+Disallow: /enterprise/
+Disallow: /user/
+Disallow: /search.jsp?headsearchkey=*
+Disallow: /search.jsp?key_wds=*
+Disallow: /buy/
+Disallow: /channel/index.jsp?*key_wds*
+Disallow: /product/*?st=com
+Disallow: /gdscoll/freegdscoll.jsp?id=*

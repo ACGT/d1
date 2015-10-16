@@ -1,0 +1,17 @@
+ <OPTION value="">请选择</OPTION>
+
+  <OPTION value="0">+付款时多汇</OPTION>
+
+  <OPTION value="1">+缺货退款</OPTION>
+
+  <OPTION value="2">-购物消费</OPTION>
+
+  <OPTION value="3">-用户要求退回</OPTION>
+
+  <OPTION value="4">+用户取消订单</OPTION>
+
+  <OPTION value="5">+补偿客户</OPTION>
+
+  <OPTION value="6">+礼品卡</OPTION>
+
+  <OPTION value="7">订单定金</OPTION>

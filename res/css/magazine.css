@@ -1,0 +1,9 @@
+.center{ width:980px; margin:0px auto; margin-top:10px;}
+.left{ width:201px; float:left;}
+.ys_list{ width:199px; border:solid 1px #c2c2c2; text-align:center; padding-top:10px; margin:0px; border-top:none;}
+.ys_list dt{ }
+.ys_list dd{ margin-bottom:20px; margin-left:15px; width:170px; font-size:15px; font-weight:bold; color:#000; line-height:22px; padding-top:5px;
+font-family:'ºÚÌå'; over-flow:hidden;}
+.right{ width:769px; over-flow:hidden; margin-left:10px; float:left; }
+.right .nselect{ width:180px; border:solid 1px #797979; background:#f4f4f4; color:#313131;}
+.Content{ width:769px; margin-top:10px;}

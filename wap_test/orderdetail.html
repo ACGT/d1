@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/flowcheck.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/com.js?1.21"></script>
+<script src="/res/wap/js/jweixin-1.0.0.js" type="text/javascript"></script>
+
+<style>
+.main .m_cart .uc_list li {
+	height: .75rem;
+	border-bottom: 1px solid #ededed;
+	padding-top: .08rem;
+	width: 100%;
+	overflow: hidden;
+}
+
+.main .m_cart .uc_list li:last-child {
+	border: 0px
+}
+
+.main .m_cart .uc_list li .oitem {
+	display: -webkit-box;
+	height: .75rem;
+	font-size: .14rem;
+}
+
+.main .m_cart .uc_list li .oitem a {
+	font-size: .14rem;
+}
+
+.main .m_cart .uc_list li .oitem .l {
+	display: block;
+	width: .60rem;
+	height: 75rem;
+}
+
+.main .m_cart .uc_list li .oitem .l img {
+	width: .60rem;
+	height: .60rem;
+}
+
+.main .m_cart .uc_list li .oitem .r {
+	-webkit-box-flex: 1;
+	flax: 1;
+	line-height: .24rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	font-size: .14rem;
+	display: block;
+}
+</style>
+</head>
+<body>
+	<header class="p_header">
+		<a name="top"></a>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>
+					<i></i>订单详情
+				</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<div class="pub order">
+			<div class="title"></div>
+		</div>
+		<div class="pub m_address">
+			<div class="title">收货人信息</div>
+			<div class="item"></div>
+		</div>
+		<div class="pub m_pay">
+			<div class="title">支付方式</div>
+			<div class="item"></div>
+		</div>
+		<!-- <div class="pub m_ship">
+						<div class="title">配送时间</div>
+						<div class="item">
+							<span>送货时间不限</span>
+						</div>
+					</div>
+					 -->
+		<div class="pub m_ship">
+			<div class="title">快递跟踪</div>
+			<div class="item"></div>
+		</div>
+		<div class="pub m_memo">
+			<div class="title">用户留言</div>
+			<div class="item"></div>
+		</div>
+		<div class="pub m_cart">
+			<div class="title">商品清单</div>
+			<div class="uc_list">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		<div class="m_next">
+			<div class="totlenum"></div>
+			<div class="paysnd"></div>
+		</div>
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				</script>
+	</div>
+</body>
+</html>
+<script language="javascript">
+
+function weixinpay(OdrID){
+	   $.ajax({
+			type: "get",
+			data:{OdrID:OdrID},
+			dataType: "json",
+			url: '/interface/pay/weixinpay/payRequest.jsp',
+			cache: false,
+			error: function(XmlHttpRequest){
+				alert("内容错误！");
+			},success: function(json){
+		 
+    if(json.SUCCESS){
+		   WeixinJSBridge.invoke(
+		       'getBrandWCPayRequest', {
+		           "appId" : ""+json.appid+"",     //公众号名称，由商户传入     
+		           "timeStamp":""+json.timeStamp+"",         //时间戳，自1970年以来的秒数     
+		           "nonceStr" : ""+json.nonceStr+"", //随机串     
+		           "package" : "prepay_id="+json.prepay_id+"",     
+		           "signType" : "MD5",         //微信签名方式:     
+		           "paySign" : ""+json.sign+"" //微信签名 
+		       },
+		       function(res){    
+		    	   alert(res.err_msg);
+		           if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+		        	   location.href='/wap/user/orderdetail.jsp?orderid='+OdrID;
+		        	   
+		           }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+		       }
+		   ); 
+ 
+    }
+			 },beforeSend: function(){
+			    }
+		});
+  }
+var orderid="";
+ function loaddata(){
+	  var url=document.URL;
+	  var para="";
+	  var odrid="";
+	   if(url.lastIndexOf("?")>0)
+	   {
+	        para=url.substring(url.lastIndexOf("?")+1,url.length);
+			var arr=para.split("&");
+			para="";
+			for(var i=0;i<arr.length;i++)
+			{
+			   if(arr[i].split("=")[0]=="odrid"){
+				   odrid=arr[i].split("=")[1];
+				   orderid=odrid;
+			   }
+			}
+	   }
+	   $.ajax({
+			type: "get",
+			dataType: "json",
+			url: '/ajax/wap/getorderitem.jsp',
+			data:{odrid:odrid},
+			error: function(XmlHttpRequest){
+				alert("内容错误！");
+			},success: function(json){
+					if(json.status=="1"){
+					showitem(json);
+					}
+	        }
+		});
+		}
+ function showshipitem(json){
+		var datas=eval(json.data);
+		if(datas.length>0){
+		var pli="";
+		   for(var i=0;i<datas.length;i++){
+			pli+='<span>'+datas[i].time+'&nbsp;&nbsp;&nbsp;'+datas[i].context+'</span>';
+		   }
+		   }
+		   $(".m_ship .item").html(pli);
+		}
+ function showitem(json){
+	 $(".order .title").html("订单号："+json.order_odrid);
+	 if(json.order_shipcom!=""){
+	 var shipkeyid="103771";
+	  var shipkey="eae96b9aac0097cd94eda25af53f6b6e";
+	  $.ajax({
+		type: 'get', 
+       url: 'http://api.ickd.cn',
+       data:{id:shipkeyid,secret:shipkey,com:json.order_shipcom,nu:json.order_shipcode,type:'json',encode:'utf8'},
+		dataType:'jsonp',
+		success: function(data){
+		     if(data.status>0){
+				showshipitem(data);
+				}else{
+				  $(".m_ship .item").html("<li>目前还没有快递信息</li>");
+				}
+       }
+	});
+	 }else{
+		 $(".m_ship").hide(); 
+	 }
+	 $(".m_address .item").html('收货人:'+json.order_name+'&nbsp;&nbsp;'+json.order_phone+'<br>'+json.order_address);
+	 $(".m_pay .item").html(json.order_paymethod);
+	 $(".m_memo .item").html(json.order_memo);
+	
+	 
+		$(".uc_list ul").html('');
+		
+		var items=eval(json.order_items);
+		if(items.length>0){
+			var pli="";
+		   for(var i=0;i<items.length;i++){
+			   pli='<li>';
+				pli+='<div class="oitem">';
+				pli+='	<span class="l"><a href="/wap/product.html?id='+items[i].orderitem_gdsid+'"><img src="'+items[i].orderitem_img+'" border="0"></a></span>';
+				pli+='	<span class="r">';
+				pli+='		<a href="/wap/product.html?id='+items[i].orderitem_gdsid+'">'+items[i].orderitem_gdsname+'</a><br>';
+				pli+='		价格￥'+items[i].orderitem_price+'&nbsp;&nbsp;共'+items[i].orderitem_count+'件';
+				if(items[i].orderitem_status==1){
+				pli+='	<br><font style="color:#f1424f">已发货</font>';
+				}else if(items[i].orderitem_status==0){
+					pli+='	<br><font style="color:#f1424f">待发货</font>';
+				}else{
+					pli+='	<br><font style="color:#f1424f">已取消</font>';
+				}
+				pli+='	</span>';
+				pli+='</div>';
+				pli+='  </li>';
+			   
+		   $(".uc_list ul").append(pli);
+		   }
+
+		}
+		var totletxt='<p><span class="r">商品金额：</span><span>'+json.order_allmoney+'元</span></p>';
+		if(json.order_tktmoney>0){
+		totletxt+='<p><span class="r">-优惠券：</span><span>'+json.order_tktmoney+'元</span></p>';
+		}
+		if(json.order_actmoney>0){
+		totletxt+='<p><span class="r">-优惠金额：</span><span>'+json.order_actmoney+'元</span></p>';
+		}
+		totletxt+='<p><span class="r">+运费：</span><span>'+json.order_shipfee+'元</span></p>';
+		totletxt+='<p class="tot"><span class="r">应付金额：</span><span>'+json.order_allmoney+'元</span></p>';
+		$(".totlenum").html(totletxt);
+		if(json.order_payid!=0&&json.order_payid!=60&&json.orderstatus==0){
+			$(".paysnd").html('<a  href="/wap/flow/zhifu.jsp?payId='+json.order_payid+'&OdrID='+json.order_odrid+'" class="pays" >去支付</a>');
+			}else if(json.order_payid==60&&json.orderstatus==0){
+			  $(".paysnd").html("<a  href=\"javascript:weixinpay('"+json.order_odrid+"');\" class=\"pays\" >微信支付</a>");
+			}
+		
+ }
+ loaddata();
+
+		</script>

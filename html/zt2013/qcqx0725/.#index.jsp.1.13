@@ -1,0 +1,414 @@
+﻿<%@ page contentType="text/html; charset=UTF-8"%><%@include file="/inc/header.jsp" %><%!
+//判断该用户今天是否发表过祝福
+static ArrayList<ZhuFu> zhufulist(){
+	ArrayList<ZhuFu> list=new ArrayList<ZhuFu>();
+	List<Order> olist = new ArrayList<Order>();
+	olist.add(Order.desc("znzhufu_createdate"));
+	List<BaseEntity> b_list=Tools.getManager(ZhuFu.class).getList(null, olist, 0, 100);
+	if(b_list==null||b_list.size()==0)return null;
+	for(BaseEntity be:b_list){
+		list.add((ZhuFu)be);
+	}
+	return list ;
+}
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>浪漫七夕 好礼鉴证！全场满就赠-D1优尚网</title>
+<link href="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/css/global.css")%>" rel="stylesheet" type="text/css"/>
+<link href="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/css/module_box.css")%>" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/d1.js")%>"></script>
+<script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/product/listCart.js")%>"></script>
+<style type="text/css">
+.allhd{ position:fixed; _position: absolute;  right:0px; bottom:150px;  width: 114px;font-size:12px; _top:expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);
+             overflow:hidden; z-index:200000; display:block; background: url("http://images.d1.com.cn/zt2012/0730ay/float.png") no-repeat; 
+            }
+.scrollDiv{padding-left:20px; padding-bottom:5px; padding-right:10px;width:450px;height:160px;line-height:20px;overflow:hidden}
+ul li{ list-style-type:none;color:#4A4934; text-align:left;}
+</style>
+<script type="text/javascript">
+function AutoScroll(obj){
+	$(obj).find("ul:first").animate({
+	marginTop:"-20px"
+	},200,function(){
+	$(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+	});
+	}
+	$(document).ready(function(){
+		setInterval('AutoScroll("#scrollDiv")',3000)
+	});
+	
+	function checklen(text1){
+	        if (text1.length > 140)//textarea控件不能用maxlength属性，就通过这样显示输入字符数了
+	        {
+	            $.alert("超过字数限制，请您精简部分文字!");
+	            $("#zfcontent").text(text1.substr(0, 140));
+	        }
+	}
+	function addzf1(){
+		$.alert("该活动已结束");
+	}
+	function addzf(){
+		var zfcontent=$.trim($("#zfcontent").val())
+		
+		if(zfcontent.length==0){
+			$.alert("请填写内容!");
+			return;
+		}
+		else if(zfcontent.length>140){
+			$.alert("超过字数限制，请您精简部分文字!");
+			return;
+		}else{
+					$.ajax({
+					 type: "POST",
+					 dataType: "json",
+					 data:{zfcontent:zfcontent},
+					 url: "addc.jsp",
+					 success: function(json) {
+						 $.alert(json.message);
+						// setInterval("settime()",1000);
+					 }
+					
+					});	
+			
+
+		}
+	}
+
+</script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<!-- 头部开始 -->
+<%@include file="/inc/head.jsp"%>
+<!-- 头部结束 -->
+<center>
+<table id="__01" width="981" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="12">
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_01.jpg" width="980" height="316" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="316" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="12">
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_02.jpg" width="980" height="232" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="232" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="5"><a id="00"></a>
+			<a href="http://www.d1.com.cn/product/01205288" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_03.jpg" alt="" width="490" height="350" border="0"></a></td>
+		<td colspan="7">
+			<a href="http://www.d1.com.cn/product/01517639" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_04.jpg" alt="" width="490" height="350" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="350" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="11" background="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_05.jpg"><table width="100%" height="53" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="2%" height="9"></td>
+            <td width="98%"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><textarea name="zfcontent" id="zfcontent" style="width:758px" rows="2" onkeydown='if (this.value.length>=140){event.returnValue=false}' onkeyup="checklen(this.value)"></textarea></td>
+          </tr>
+        </table></td>
+		<td>
+			<a href="javascript:addzf();"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_06.jpg" width="153" height="53" alt="" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="53" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="12">
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_07.jpg" width="980" height="41" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="41" alt=""></td>
+	</tr>
+	<tr>
+		<td height="181" colspan="12" background="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_08.jpg"><table width="100%" height="181" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="2%" height="8"></td>
+            <td width="47%"></td>
+            <td width="2%"></td>
+            <td width="47%"></td>
+            <td width="2%"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td valign="top"><div id="scrollDiv" class="scrollDiv">
+			<%
+			
+			ArrayList<ZhuFu> list= zhufulist();
+			if(list!=null && list.size()>0){
+				%>  <ul>
+			<%
+			for(ZhuFu zf:list){
+				String mbruid=zf.getZnzhufu_mbruid();
+				if(mbruid.length()>4){
+					mbruid=mbruid.substring(0,4)+"***";
+				}
+				
+				String zfcontent=mbruid+":"+zf.getZnzhufu_content();
+				if(StringUtils.getCnLength(zfcontent)>120){
+					//zfcontent=StringUtils. getCnSubstring(zfcontent,0, 120)+"...";
+				}
+				%> 	
+				<li><%=zfcontent %></li>
+			<%}%>
+			 </ul>
+			<%}
+			%>
+			</div></td>
+            <td></td>
+            <td valign="top"><%
+			
+			if(list!=null && list.size()>0){
+				%>  
+			<%int i=0;
+			for(ZhuFu zf:list){
+				if(i==8)break;
+				String mbruid=zf.getZnzhufu_mbruid();
+				if(mbruid.length()>4){
+					mbruid=mbruid.substring(0,4)+"***";
+				}
+				
+				String zfcontent=mbruid+":"+zf.getZnzhufu_content();
+				%> 	
+				<%=zfcontent %><br>
+			<%i=i+1;
+			}%>
+			<%}
+			%></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="181" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="12">
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_09.jpg" width="980" height="81" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="81" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://www.d1.com.cn/html/gdsmstxsylist.jsp?code=8747" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_10.jpg" alt="" width="202" height="373" border="0"></a></td>
+		<td colspan="3">
+			<a href="http://www.d1.com.cn/html/gdsmstxsylist.jsp?code=8747" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_11.jpg" alt="" width="193" height="373" border="0"></a></td>
+		<td colspan="2">
+			<a href="http://www.d1.com.cn/html/gdsmstxsylist.jsp?code=8747" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_12.jpg" alt="" width="192" height="373" border="0"></a></td>
+		<td colspan="4">
+			<a href="http://www.d1.com.cn/html/gdsmstxsylist.jsp?code=8747" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_13.jpg" alt="" width="193" height="373" border="0"></a></td>
+		<td colspan="2">
+			<a href="http://www.d1.com.cn/html/gdsmstxsylist.jsp?code=8747" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_14.jpg" alt="" width="200" height="373" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="373" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3"><a id="01"></a>
+			<a href="http://www.d1.com.cn/html/women/" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_15.jpg" alt="" width="330" height="78" border="0"></a></td>
+		<td colspan="6" rowspan="2">
+			<a href="http://www.d1.com.cn/product/02001868" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_16.jpg" alt="" width="322" height="296" border="0"></a></td>
+		<td colspan="3" rowspan="2">
+			<a href="http://www.d1.com.cn/product/02001884" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_17.jpg" alt="" width="328" height="296" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="78" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="2"><a href="http://www.d1.com.cn/product/02001745" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_18.jpg" alt="" width="330" height="497" border="0" /></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="218" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="6">
+			<a href="http://www.d1.com.cn/product/02001683" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_19.jpg" alt="" width="322" height="279" border="0"></a></td>
+		<td colspan="3"><a href="http://www.d1.com.cn/product/02001890" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_20.jpg" alt="" width="328" height="279" border="0" /></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="279" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<a href="http://www.d1.com.cn/product/02001896" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_21.jpg" alt="" width="330" height="296" border="0"></a></td>
+		<td colspan="6">
+			<a href="http://www.d1.com.cn/product/02001693" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_22.jpg" alt="" width="322" height="296" border="0"></a></td>
+		<td colspan="3">
+			<a href="http://www.d1.com.cn/product/02001627" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_23.jpg" alt="" width="328" height="296" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="296" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2"><a id="02"></a>
+			<a href="http://www.d1.com.cn/product/03000028" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_24.jpg" alt="" width="329" height="302" border="0"></a></td>
+		<td colspan="5" rowspan="2">
+			<a href="http://www.d1.com.cn/product/03000441" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_25.jpg" alt="" width="321" height="302" border="0"></a></td>
+		<td colspan="5">
+			<a href="http://www.d1.com.cn//html/men/" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_26.jpg" alt="" width="330" height="86" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="86" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="5" rowspan="2">
+			<a href="http://www.d1.com.cn/product/03000513" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_27.jpg" alt="" width="330" height="495" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="216" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2">
+			<a href="http://www.d1.com.cn/product/03000398" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_28.jpg" alt="" width="329" height="280" border="0"></a></td>
+		<td colspan="5" rowspan="2">
+			<a href="http://www.d1.com.cn/product/03000019" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_29.jpg" alt="" width="321" height="280" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="279" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="5">
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_30.jpg" width="330" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<a href="http://www.d1.com.cn/product/03000459" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_31.jpg" alt="" width="329" height="304" border="0"></a></td>
+		<td colspan="5">
+			<a href="http://www.d1.com.cn/product/03000473" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_32.jpg" alt="" width="321" height="304" border="0"></a></td>
+		<td colspan="5">
+			<a href="http://www.d1.com.cn/product/03000536" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_33.jpg" alt="" width="330" height="304" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="304" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3"><a id="03"></a>
+			<a href="http://www.d1.com.cn/result.jsp?productsortflag=0&amp;productsort=015009" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_34.jpg" alt="" width="330" height="84" border="0"></a></td>
+		<td colspan="6" rowspan="2">
+			<a href="http://www.d1.com.cn/product/01517019" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_35-1.jpg" alt="" width="322" height="298" border="0"></a></td>
+		<td colspan="3" rowspan="2">
+			<a href="http://www.d1.com.cn/product/01517528" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_36.jpg" alt="" width="328" height="298" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="84" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="2">
+			<a href="http://www.d1.com.cn/product/01517527" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_37.jpg" alt="" width="330" height="521" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="214" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="6">
+			<a href="http://www.d1.com.cn/product/01517586" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_38.jpg" alt="" width="322" height="307" border="0"></a></td>
+		<td colspan="3">
+			<a href="http://www.d1.com.cn/product/01517547" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_39.jpg" alt="" width="328" height="307" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="307" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2"><a id="04"></a>
+			<a href="http://www.d1.com.cn/product/01515225" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_40.jpg" alt="" width="329" height="292" border="0"></a></td>
+		<td colspan="6" rowspan="2">
+			<a href="http://www.d1.com.cn/product/01505453" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_41.jpg" alt="" width="322" height="292" border="0"></a></td>
+		<td colspan="4">
+			<a href="http://www.d1.com.cn/result.jsp?productsort=015002004,015002001,015002003" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_42.jpg" alt="" width="329" height="76" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="76" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="4" rowspan="2">
+			<a href="http://www.d1.com.cn/product/01510048" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_43.jpg" alt="" width="329" height="535" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="216" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<a href="http://www.d1.com.cn/product/01517613" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_44.jpg" alt="" width="329" height="319" border="0"></a></td>
+		<td colspan="6">
+			<a href="http://www.d1.com.cn/product/01517587" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_45.jpg" alt="" width="322" height="319" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="319" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="12"><a id="05"></a>
+			<a href="http://cosmetic.d1.com.cn" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_46.jpg" alt="" width="980" height="67" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="67" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<a href="http://www.d1.com.cn/product/01407685" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_47.jpg" alt="" width="329" height="374" border="0"></a></td>
+		<td colspan="6">		  <a href="http://www.d1.com.cn/product/01409520" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_48.jpg" alt="" width="322" height="374" border="0"></a></td>
+		<td colspan="4">
+			<a href="http://www.d1.com.cn/product/01406126" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_49.jpg" alt="" width="329" height="374" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="374" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<a href="http://www.d1.com.cn/product/01403446" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_50.jpg" alt="" width="329" height="379" border="0"></a></td>
+		<td colspan="6">
+			<a href="http://www.d1.com.cn/product/01408466" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_51.jpg" alt="" width="322" height="379" border="0"></a></td>
+		<td colspan="4">
+			<a href="http://www.d1.com.cn/product/01417418" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_52.jpg" alt="" width="329" height="379" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="379" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<a href="http://www.d1.com.cn/product/01417187" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_53.jpg" alt="" width="329" height="400" border="0"></a></td>
+		<td colspan="6">
+			<a href="http://www.d1.com.cn/product/01417450" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_54.jpg" alt="" width="322" height="400" border="0"></a></td>
+		<td colspan="4">
+			<a href="http://www.d1.com.cn/product/01401836" target="_blank"><img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_55.jpg" alt="" width="329" height="400" border="0"></a></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="400" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="12">
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_56.jpg" width="980" height="19" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="19" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="202" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="127" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="65" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="95" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="97" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="63" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="1" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="128" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="47" height="1" alt=""></td>
+		<td>
+			<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/分隔符.gif" width="153" height="1" alt=""></td>
+		<td></td>
+	</tr>
+</table>
+ <div class="allhd" id="allhd" >
+<img src="http://images.d1.com.cn/zt2013/20130725qcqrj/qcqx_right.png" border="0" usemap="#Mapqcqx" />
+<map name="Mapqcqx" id="Mapqcqx"><area shape="rect" coords="2,91,89,131" href="01" /><area shape="rect" coords="3,133,87,170" href="02" /><area shape="rect" coords="2,171,88,211" href="03" /><area shape="rect" coords="0,212,90,253" href="04" /><area shape="rect" coords="1,255,97,294" href="05" /><area shape="rect" coords="3,295,90,349" href="00" /></map>
+ </div>
+</center>
+<%@include file="/inc/foot.jsp"%>
+</body>
+</html>

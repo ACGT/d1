@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LPMS_Pionts>	 
+	<Request>
+	<PropertySet>
+	<SiebelMessage>
+        <ProcessName>PA Accrual Process</ProcessName>
+		<TerminalID/>
+		<param/>
+		<FirmID/>
+		<StoreID/>
+		<Operation>Accrual</Operation>
+        <Method>QueryTxn</Method>
+		<TTNumber>198342004556</TTNumber>
+		<TTTime/>
+		<CardNumber/>
+		<TransactionType/>
+		<Amount/>
+		<Partner>79_0</Partner>
+		<CTNumber/>
+		<MemberType/>
+		<MemberID/>
+		<UserName/>
+		<PartyNo/>
+        <ReconcileTime/>
+		<TxnType>REDEMPTION</TxnType>
+		<Channel/>
+		<MemberName/>
+		<IDType/>
+		<IDNo/>
+		<Sex/>
+		<BirthDate/>
+		<Email/>
+		<PhoneNo/>
+		<StartTime/>
+		<EndTime/>
+		<QueryYear/>
+		<QueryMonth/>
+		<pagesize/> 
+    	<startrownum/> 
+    	<recordcountneeded/> 
+        <Sortorder/>
+    	<searchspec/>
+	</SiebelMessage>
+	</PropertySet>
+	</Request>	
+</LPMS_Pionts>

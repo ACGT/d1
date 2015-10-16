@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+.main {
+	background-color: #fff;
+	font-family: 微软雅黑;
+	min-width: 320px;
+	margin: 0 auto;
+}
+
+.main .orderpay {
+	margin: .30rem 0;
+	font-size: .14rem;
+}
+
+.main .orderpay .ordertxt {
+	padding-left: 35%;
+	line-height: .32rem;
+}
+
+.main .orderpay .ordertxt>span {
+	display: block;
+	width: 100%;
+}
+
+.main .orderpay .ordermsg {
+	background: #ededed;
+	text-align: center;
+	max-height: .90rem;
+	line-height: .24rem;
+	margin: .10rem 0;
+	padding: .10rem 0;
+	font-size: .14rem;
+	border-top: 1px solid #c6c6c6;
+	border-bottom: 1px solid #c6c6c6
+}
+
+.main .paysnd {
+	margin: .20rem 0;
+}
+
+.main .paysnd a {
+	display: block;
+	height: .35rem;
+	margin: 0 .30rem;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 0.05rem;
+	border-radius: 0.05rem;
+	line-height: .35rem;
+	font-size: .14rem;
+	color: #ffffff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.main .paysnd .pays {
+	background: #f1424f;
+}
+
+.main .paysnd .orders {
+	background: #575757;
+	margin-top: .30rem;
+}

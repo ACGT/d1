@@ -1,0 +1,42 @@
+/* CSS Document */
+body{ margin:0px auto; margin:0px; padding:0px; background-color:#fff; font-size:12px;}
+div{ border:0; margin:0px; padding:0px;}
+a{ margin:0px; padding:0px; text-decoration:none }
+ul{margin:0px; padding:0px; list-style:none}
+li{margin:0px; padding:0px;}
+a img{ border:none;}
+.clear{ float:none; }
+.center{ width:980px; margin:0px auto; padding-top:10px;}
+.mbr_left{ width:200px; float:left; }
+.mbr_left_sub{ border:solid 1px #dfdfdf; width:200px;}
+/*鍏叡宸︿晶鏍囬绫��*/
+.ltitle{ background-color:#ebebeb; color:#8a2b3f; padding-left:15px; font-size:15px; height:28px; width:185px; font-weight:bold;
+         line-height:32px; _padding-top:7px; _height:22px; +height:30px; _height:22px;
+        }
+.ltitle img{ vertical-align:sub; _vertical-align:top; +vertical-align:top;}
+.ltitle a { color:#8a2b3f;}
+
+
+.mbr_left_sub ul{ list-style:url(http://images.d1.com.cn/images2012/New/user/ul_img.jpg); padding-left:60px; padding-top:4px; padding-bottom:4px;}
+.mbr_left_sub ul li{ font-size:13px; line-height:25px;}
+.mbr_left_sub ul li a{  color:#333; text-decoration:none;}
+
+.left_bottom{ padding-top:15px; padding-bottom:15px; color:#8a2b3f; font-size:15px; font-weight:bold; line-height:22px; padding-left:5px;}
+
+.mbr_right{ width:770px; _width:768px; margin-left:10px; _margin-left:10px; float:left; overflow:hidden; }
+.choorder{ width:760px; background:#f6f6f6; border:solid 1px #c2c2c2; height:100px; padding-top:4px; padding-left:8px;}
+.choorder span{ font-size:15px; font-weight:bold;  color:#b46674; }
+
+.orderlist .tags{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/hyzx_03_5.jpg) no-repeat; width:316px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:20px;overflow:hidden; }
+
+.orderlist #tags a{ float:left; width:60px; line-height:30px; color:#828282; font-weight:bold;}
+
+.t{text-align:center; color:#333; background-color:#c2c2c2; _width:768px; border-collapse: separate;}
+.t td{ background:#fff;}
+.t td.d1{ background:url(http://images.d1.com.cn/images2012/New/user/ordert_bg.jpg); border:none; padding:0px;}
+.t span{font-size:13px;}
+.t .a{ color:#0014a7; text-decoration:underline; display:block; padding-top:4px;}
+
+.orderlist .tags1{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/hyzx_06_3.jpg) no-repeat; width:241px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:20px; overflow:hidden;}
+.orderlist .tags2{ list-style:none; background:url(http://images.d1.com.cn/images2012/New/user/hyzx_08_2.jpg) no-repeat; width:241px; height:28px; width:980px; border-bottom:solid 1px #b43b58; padding-left:20px; overflow:hidden;}
+#tags a.active {color:#fff;font-weight:bold}

@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/* CSS Document */
+div,dd,dt,dl,p,ul,li,h2{ padding:0px; margin:0px;}
+li{ list-style-type:none;}
+.bfd_sSale{border:1px #C2C2C2 solid; width:238px;}
+/* 主体区域样式 */
+.bfd_box{width:238px; overflow:hidden; margin-bottom:5px; text-align:center;}
+/*.bfd_title{ background-color:#2C2C2C; color:#FFFFFF; font-size:14px;height:24px;*height:24px;_height:24px;/*IE6*/ /*height:24px\0; padding-top:8px; padding-left:8px; width:192px;*width:192px;_width:192px;/*IE6*//*width:192px\0;}*/
+.bfd_title{ background-color:#2C2C2C; color:#FFFFFF; font-size:14px;height:24px;padding-top:8px; padding-left:8px;width:230px;}
+
+/*产品展示容器*/
+.bfd_box .bfd_contentbox{
+	float:left;
+	width:100%;
+}
+/*产品展示内容容器*/
+.bfd_box .bfd_content{float:left;margin:0px;padding:0px; width:238px; display:block;margin-top:5px;}
+/*单个产品展示容器*/
+.bfd_contentbox dl {
+	width: 238px;
+	margin-top: 8px;
+	height: 68px;
+}
+.bfd_contentbox dt {
+	float: left;
+	height: 82px;
+	width: 82px;
+	padding-left: 5px;
+}
+.bfd_contentbox dd {
+	float: right;
+	width: 140px;
+}
+.bfd_contentbox p {
+	float: left;
+	width: 140px;
+}
+.bfd_contentbox .bfd_name{ height:35px; line-height:16px; font-size:12px; text-align:left;}
+.bfd_contentbox .bfd_price{
+	color:#F00;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Tahoma, Geneva, sans-serif;
+	text-align:center;
+	line-height:16px;
+	height:16px;
+	vertical-align:top;
+	padding-top:5px;
+	width:50px;
+	float:left;
+}
+.bfd_contentbox .bfd_but{width:80px; text-align:left;
+	float:right;}
+.bfd_thumb {
+	border: 1px solid #CCCCCC;
+}

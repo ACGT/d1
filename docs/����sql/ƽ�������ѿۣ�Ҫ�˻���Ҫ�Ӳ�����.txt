@@ -1,0 +1,14 @@
+insert into pinganodr(pinganodr_operation,pinganodr_partner,pinganodr_memberId,pinganodr_amount,pinganodr_ttNumber,pinganodr_ttTime,pinganodr_param,pinganodr_odrID,pinganodr_status) 
+values ('Redemption','79_0','010000003842199',119,'100205001623','2010-02-05 13:56:17','0902079','100205001623',0)
+
+
+select 'Redemption','79_0',mbrmstpingan_memberid,Odrmst_acturepaymoney,odrmst_odrid,OdrMst_orderdate,'0902079',odrmst_odrid,0 from odrmst join mbrmstpingan on mbrmstpingan_mbrid=odrmst_mbrid where odrmst_odrid in ('100501001377','100501001009','100429000174')
+
+
+--ÍËÅäËÍ·Ñ²Ù×÷
+select * from pinganodr where pinganodr_odrid='100307000256'10033000809
+
+select odrmst_odrid,odrmst_ordermoney from odrmst where odrmst_odrid='100308002587'
+
+
+update odrmst set odrmst_ordermoney=0,odrmst_acturepaymoney=0   where odrmst_odrid='100308002587'

@@ -1,0 +1,18 @@
+<%@ page contentType="text/html; charset=UTF-8"%><%@include file="/html/header.jsp" %>
+<%
+SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+Date dStartDate=null;
+Date endDate=null;
+try{
+	 dStartDate =fmt.parse("2013-05-01");
+	 }
+catch(Exception ex){
+	ex.printStackTrace();
+}
+if(Tools.dateValue(dStartDate)<System.currentTimeMillis())
+{
+response.sendRedirect("http://www.d1.com.cn/zhuanti/201304/5ytl0427/");
+}else{
+response.sendRedirect("http://www.d1.com.cn/zhuanti/201303/xjqc0329/");
+}
+%>

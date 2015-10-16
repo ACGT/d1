@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="GB2312"?>
+<PA_Upload>
+	<version>1.0</version>
+	<payloadID>1</payloadID>
+	<timestamp>2008-10-28</timestamp>
+	<signatureVersion>1.0</signatureVersion>
+	<Header>
+		<From>
+			<Credential>
+				<domain>paicdom</domain>
+				<type>1</type>
+				<Identity>
+					<Id>11-26-0013</Id>
+					<name>D1</name>
+					<lastChangedTimestamp>2008-10-28</lastChangedTimestamp>
+				</Identity>
+				<ShareSecret/>
+				<DigitalSignature>
+					<type>1</type>
+					<encoding>GB2312</encoding>
+				</DigitalSignature>
+				<CredentialMac>
+					<body>body</body>
+					<type>1</type>
+					<algorithm>1</algorithm>
+					<creationDate>2009-05-19</creationDate>
+					<expirationDate>2012-05-19</expirationDate>
+				</CredentialMac>
+			</Credential>
+		</From>
+		<To>
+			<Credential>
+				<domain>paicdom</domain>
+				<type>1</type>
+				<Identity>
+					<Id>11-11-1111</Id>
+					<name>D1</name>
+					<lastChangedTimestamp>2008-10-28</lastChangedTimestamp>
+				</Identity>
+				<ShareSecret/>
+				<DigitalSignature>
+					<type>1</type>
+					<encoding>GB2312</encoding>
+				</DigitalSignature>
+				<CredentialMac>
+					<body>body</body>
+					<type>1</type>
+					<algorithm>1</algorithm>
+					<creationDate>2009-05-19</creationDate>
+					<expirationDate>2012-05-19</expirationDate>
+				</CredentialMac>
+			</Credential>
+		</To>
+		<Sender>
+			<Credential>
+				<domain>paicdom</domain>
+				<type>1</type>
+				<Identity>
+					<Id>11-26-0013</Id>
+					<name>D1</name>
+					<lastChangedTimestamp>2008-10-28</lastChangedTimestamp>					
+				</Identity>
+				<ShareSecret/>
+				<DigitalSignature>
+					<type>1</type>
+					<encoding>GB2312</encoding>
+				</DigitalSignature>
+				<CredentialMac>
+					<body>body</body>
+					<type>1</type>
+					<algorithm>1</algorithm>
+					<creationDate>2009-05-19</creationDate>
+					<expirationDate>2012-05-19</expirationDate>
+				</CredentialMac>
+			</Credential>
+			<UserAgent>11-26-0013</UserAgent>
+		</Sender>
+		<Path>
+			<Node>
+				<type>1</type>
+				<itemDetailsRequired>Y</itemDetailsRequired>
+			</Node>
+			<Credential>
+				<domain>paicdom</domain>
+				<type>1</type>
+				<Identity>
+					<Id>11-26-0013</Id>
+					<name>D1</name>
+					<lastChangedTimestamp>2008-10-28</lastChangedTimestamp>					
+				</Identity>
+				<ShareSecret/>
+				<DigitalSignature>
+					<type>1</type>
+					<encoding>GB2312</encoding>
+				</DigitalSignature>
+				<CredentialMac>
+					<body>body</body>
+					<type>1</type>
+					<algorithm>1</algorithm>
+					<creationDate>2009-05-19</creationDate>
+					<expirationDate>2012-05-19</expirationDate>
+				</CredentialMac>
+			</Credential>
+		</Path>
+		<OriginalDocument>
+			<payloadID>1</payloadID>			
+		</OriginalDocument>
+	</Header>
+	<Message>
+		<ErrorCode></ErrorCode>
+		<ErrorMessage></ErrorMessage>
+	</Message>
+<Request>
+<PropertySet>
+<SiebelMessage>
+<ListOfPoints>
+</ListOfPoints>
+<ListOfPoints>
+</ListOfPoints>
+</SiebelMessage>
+</PropertySet>
+</Request>
+</PA_Upload>

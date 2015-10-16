@@ -1,0 +1,3 @@
+select   rtrim(gdsmst_imgurl),gdsmst_gdsname,'http://www.d1.com.cn/buy/lianmeng.asp?id=d1_1101&subad=yoka&url=http://www.d1.com.cn/html/'+gdsmst_gdsid+'.htm',gdsmst_memberprice from gdsmst where
+ ( gdsmst_brand='001248' or gdsmst_brand='001127' or gdsmst_brand='001081') and gdsmst_validflag='1' and gdsmst_rackcode like '017001%'
+and gdsmst_updatedate>'2010-05-10'

@@ -1,0 +1,19 @@
+1271857 ( d1¾©¶« )
+
+1041696 ( d1taobaoshangcheng 
+1271857 ·²¿Í
+
+454942   ¡¡ ( d1market )
+
+select sum(odrdtl_finalprice*odrdtl_sendcount),left(odrmst_odrid,4) from dba.odrdtl_history join dba.odrmst_history on odrmst_odrid=odrdtl_odrid
+ where odrdtl_purtype in (2,3,4) and odrmst_mbrid not in (454942,1271857,1041696) 
+and odrdtl_gdsname like '%feel mind%' and odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_orderdate>'2010-6-1'
+group by left(odrmst_odrid,4)
+
+select sum(odrdtl_finalprice*odrdtl_sendcount),left(odrmst_odrid,4) from 
+odrdtl_recent join odrmst_recent on odrmst_odrid=odrdtl_odrid
+ where odrdtl_purtype in (2,3,4) and odrmst_mbrid not in (454942,1271857,1041696) 
+and odrdtl_gdsname like '%feel mind%' and odrmst_orderstatus in (3,31,5,51,6,61) 
+and odrmst_orderdate>'2010-6-1'
+group by left(odrmst_odrid,4)

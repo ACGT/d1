@@ -1,0 +1,77 @@
+
+select * into d1marketing..odrcom1108 from (
+select 0 mbrid,' ' mbrmst_uid,odrdtl_odrid,odrdtl_gdsid,odrdtl_gdsname,odrsurvey_option5,odrsurvey_createtime
+ from odrsurvey join odrdtl_recent on odrsurvey_odrid=odrdtl_odrid
+where odrdtl_creatdate>'2010-1-1' and odrdtl_creatdate<'2011-8-1' and odrsurvey_option5<>'')a
+
+insert into  d1marketing..odrcom1108 
+select 0 mbrid,' ' mbrmst_uid,odrdtl_odrid,odrdtl_gdsid,odrdtl_gdsname,odrsurvey_option5,odrsurvey_createtime
+ from odrsurvey join dba.odrdtl_history on odrsurvey_odrid=odrdtl_odrid
+where odrdtl_creatdate<'2010-1-1' and odrsurvey_option5<>''
+
+select top 10 * from odrsurvey where odrsurvey_option5<>''
+
+select * into d1marketing..bbsask1108 from (
+select  bbsmst_gdsid,bbsmst_mbrid,bbsmst_title,bbsmst_content,bbsmst_time,bbsmst_d1apply from dba.bbsmst 
+ where bbsmst_gdsid<>'' and bbsmst_title  like '%?%')a
+
+select * into d1marketing..bbscom1108 from (
+select  bbsmst_gdsid,bbsmst_mbrid,bbsmst_title,bbsmst_content,bbsmst_time,bbsmst_d1apply from dba.bbsmst 
+ where bbsmst_gdsid<>'' and bbsmst_title not like '%?%')a
+
+select top 10 * from d1marketing..odrcom1108
+
+select * from d1marketing..bbscom1108 join gdsmst on gdsmst_gdsid=bbsmst_gdsid
+
+update d1marketing..bbsask1108 set d1marketing..bbsask1108.gdsmst_gdsname=gdsmst.gdsmst_gdsname 
+from   d1marketing..bbsask1108 join gdsmst on gdsmst_gdsid=bbsmst_gdsid
+
+
+
+select * from d1marketing..odrcom1108 where  exists (select top 1 1 from gdsmst where gdsmst_validflag<>1 and gdsmst_gdsid=odrdtl_gdsid)
+
+---------------------会员消费导出
+
+
+
+select * into d1marketing..mbrsummoney1108_1 from (
+select sum(OdrMst_acturepaymoney) summoney,odrmst_mbrid from
+ dba.odrmst_history where odrmst_orderstatus in (3,31,5,51,6,61) group by odrmst_mbrid)a
+
+
+select * into d1marketing..mbrsummoney1108_2 from (
+select sum(OdrMst_acturepaymoney) summoney,odrmst_mbrid from
+ odrmst_recent where odrmst_orderstatus in (3,31,5,51,6,61) group by odrmst_mbrid)a
+
+drop table d1marketing..mbrsummoney1108
+insert into d1marketing..mbrsummoney1108_1
+select * from d1marketing..mbrsummoney1108_2
+
+select sum(OdrMst_acturepaymoney) summoney,odrmst_mbrid from
+ odrmst_recent group by odrmst_mbrid
+
+select * into d1marketing..mbrsummoney1108 from (
+select  sum(summoney) summoney,odrmst_mbrid from  d1marketing..mbrsummoney1108_1
+group by odrmst_mbrid)a
+
+
+select newflag,count(*) from d1marketing..mbrsummoney1108 
+where --summoney>=5000 
+--summoney>=1  and summoney<200
+summoney>=2000  and summoney<5000
+group by newflag 
+select count(*) from d1marketing..mbrsummoney1108 where summoney>=2000  and summoney<5000
+select count(*) from d1marketing..mbrsummoney1108 where summoney>=500  and summoney<2000
+select count(*) from d1marketing..mbrsummoney1108 where summoney>=200  and summoney<500
+select count(*) from d1marketing..mbrsummoney1108 where summoney>=1  and summoney<200
+
+
+select * from d1marketing..mbrsummoney1108 where newflag=1
+
+
+
+select * 
+update d1marketing..mbrsummoney1108 set newflag=1
+from d1marketing..mbrsummoney1108 a join dba.odrmst_history b on a.odrmst_mbrid=b.odrmst_mbrid
+where odrmst_orderstatus>0 and odrmst_orderdate>'2010-8-1'
+
