@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="GB2312"?>
+<managers>
+	<!--default-hibernate-file是默认的hibernate配置文件，manager如果不配置hibernate-file就用这个hibernate； 
+		default-manager-class是默认manager类，manager如果不配置manager-class就用这个manager来管理数据库。 -->
+	<default-hibernate-file>/hibernate.cfg.xml</default-hibernate-file>
+	<default-manager-class>com.d1.dbcache.core.BaseManager</default-manager-class>
+
+	<!--manager下的bean-class是必须配置的项，cache-hash-fields表示列表缓存散列字段（bean中的fields）列表，多个用分号隔开 -->
+	<!-- manager> <bean-class>com.d1.bean.Message</bean-class> <cache-hash-fields>userId</cache-hash-fields> 
+		</manager -->
+
+	<!-- 以下是d1的配置项 -->
+	<manager>
+		<bean-class>com.d1.bean.BirthdayGift</bean-class>
+		<cache-hash-fields>btspsdtl_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.AwardUseLog</bean-class>
+		<cache-hash-fields>scrchgawd_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.TuanDraw</bean-class>
+		<cache-hash-fields>userId</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.CartItem</bean-class>
+		<cache-hash-fields>productId</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductSearchBox</bean-class>
+		<cache-hash-fields>gdsmst_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductSearchBoxUpdate</bean-class>
+		<cache-hash-fields>gdsmst_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.PromotionImagePos</bean-class>
+		<cache-hash-fields>promotionId</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductResult</bean-class>
+		<cache-hash-fields>gdsmst_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.BuyLimit</bean-class>
+		<cache-hash-fields>gdsbuyonemst_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.BuyLimitDtl</bean-class>
+		<cache-hash-fields>gdsbuyonedtl_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Variable</bean-class>
+		<cache-hash-fields>name</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.YhNews</bean-class>
+		<cache-hash-fields>yhnews_rackcode;yhnews_brand;yhnews_giftgdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Notice</bean-class>
+		<cache-hash-fields>dirId</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.NoticeDir</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OosDtl</bean-class>
+		<cache-hash-fields>oosdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.SecKill</bean-class>
+		<cache-hash-fields>mstjgds_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Resource</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.FindPassword</bean-class>
+		<cache-hash-fields>self_mbruid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Email</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Tuandh</bean-class>
+		<cache-hash-fields>tuandh_cardno;tuandh_mid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderScore</bean-class>
+		<cache-hash-fields>gdscomscore_mbrid;gdscomscore_orderid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.D1Comment</bean-class>
+		<cache-hash-fields>gdscom_odrid;gdscom_mbrid;gdscom_uid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.D1tgts</bean-class>
+		<cache-hash-fields>d1tgts_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.KeySearch</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Edm</bean-class>
+		<cache-hash-fields>edmmst_email</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.FeedbackMail</bean-class>
+		<cache-hash-fields>feedbackemail_from</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.UserSum</bean-class>
+		<cache-hash-fields>mbrsum_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.QQUser</bean-class>
+		<cache-hash-fields>qqmbr_mbrid;qqmbr_qq</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductRelated</bean-class>
+		<cache-hash-fields>relatedgoods_relatedgdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.LmMbrspe</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.TicketFlag</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Counter</bean-class>
+		<cache-hash-fields>counter_rackcode;counter_brandname</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.LmUser</bean-class>
+		<cache-hash-fields>lmusr_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.CounterItem</bean-class>
+		<cache-hash-fields>counterdtl_mstid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.WeiboUser</bean-class>
+		<cache-hash-fields>weibombr_mbrid;weibombr_uid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Feedback</bean-class>
+		<cache-hash-fields>feedback_uid;feedback_orderid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GoodsAsk</bean-class>
+		<cache-hash-fields>gdsask_gdsid;gdsask_mbrid;gdsask_uid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GoodsAskCache</bean-class>
+		<cache-hash-fields>gdsask_gdsid;gdsask_mbrid;gdsask_uid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.User163</bean-class>
+		<cache-hash-fields>wangyi_mbrid;wangyi_unionid;wangyi_userid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.LoginLog</bean-class>
+		<cache-hash-fields>mbrlog_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.UserQQ</bean-class>
+		<cache-hash-fields>mbrlktqq_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.QQLogin</bean-class>
+		<cache-hash-fields>qqloginmbr_name;qqloginmbr_mbrid;qqloginmbr_uid;</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.TicketInfo</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Lmclk</bean-class>
+		<cache-hash-fields>lmclk_subad</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GoodsGroup</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Mini</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.MiniItem</bean-class>
+		<cache-hash-fields>minidtl_minimstid;minidtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GoodsGroupDetail</bean-class>
+		<cache-hash-fields>gdsgrpdtl_mstid;gdsgrpdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.BbsTopic</bean-class>
+		<cache-hash-fields>bbsmst_rid;bbsmst_mbrid;bbsmst_gdsid;bbsmst_rackcode;bbsmst_brandname</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.RackcodeTop</bean-class>
+		<cache-hash-fields>rcktop_rackcode;rcktop_gdsid</cache-hash-fields>
+	</manager>
+
+
+	<manager>
+		<bean-class>com.d1.bean.Award</bean-class>
+		<cache-hash-fields>award_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Standard</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductSaleCount</bean-class>
+		<manager-class>com.d1.manager.ProductSaleCountManager</manager-class>
+		<cache-hash-fields>gdssale_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Brand</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.HelpCode</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.HelpContent</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.SearchListItem</bean-class>
+		<cache-hash-fields>searchdtl_rackcode</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderShopCache</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderShopMain</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.BrandPromotion</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.BrandPromotionItem</bean-class>
+		<cache-hash-fields>brdtktdtl_mstid;brdtktdtl_brand</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Prepay</bean-class>
+		<cache-hash-fields>prepay_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Cart</bean-class>
+		<cache-hash-fields>userId;cookie;parentId;shopcode</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderTaobao</bean-class>
+		<cache-hash-fields>taobaoOrderId;d1OrderId</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderTenpay</bean-class>
+		<cache-hash-fields>tenpayOrderId;d1OrderId</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Province</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductGroup</bean-class>
+		<cache-hash-fields>tgrpmst_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductSale</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.SearchList</bean-class>
+		<cache-hash-fields>searchlist_rackcode</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductXsY</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductXzY</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductXdY</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.CityShipFee</bean-class>
+		<cache-hash-fields>cityid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.City</bean-class>
+		<cache-hash-fields>ctymst_provinceid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Comment</bean-class>
+		<cache-hash-fields>gdscom_gdsid;gdscom_odrid;gdscom_mbrid;gdscom_uid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.CommentCache</bean-class>
+		<cache-hash-fields>gdscom_gdsid;gdscom_odrid;gdscom_mbrid;gdscom_uid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Directory</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Favorite</bean-class>
+		<cache-hash-fields>gdswil_mbrid;gdswil_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Floor</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Gift</bean-class>
+		<cache-hash-fields>giftrckmst_rackcode;giftrckmst_brandname</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GiftGroup</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.PayMethod</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GiftGroupItem</bean-class>
+		<cache-hash-fields>giftgrpdtl_mstid;giftgrpdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GiftItem</bean-class>
+		<cache-hash-fields>giftrckdtl_mstid;giftrckdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.GiftProduct</bean-class>
+		<cache-hash-fields>giftgds_mastergdsid;giftgds_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Mail139User</bean-class>
+		<cache-hash-fields>mbr139_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderMain</bean-class>
+		<cache-hash-fields>odrmst_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderCache</bean-class>
+		<cache-hash-fields>odrmst_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderHistory</bean-class>
+		<cache-hash-fields>odrmst_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderRecent</bean-class>
+		<cache-hash-fields>odrmst_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderCancel</bean-class>
+		<cache-hash-fields>odrlog_odrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderItemCache</bean-class>
+		<cache-hash-fields>odrdtl_odrid;odrdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderItemMain</bean-class>
+		<cache-hash-fields>odrdtl_odrid;odrdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderItemRecent</bean-class>
+		<cache-hash-fields>odrdtl_odrid;odrdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.OrderItemHistory</bean-class>
+		<cache-hash-fields>odrdtl_odrid;odrdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.PingAnScoreLog</bean-class>
+		<cache-hash-fields>orderid;membercode</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.PingAnScorePay</bean-class>
+		<cache-hash-fields>pinganodr_odrid;pinganodr_memberid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.PingAnUser</bean-class>
+		<cache-hash-fields>mbrmstpingan_memberid;mbrmstpingan_mbrid;mbrmstpingan_mbrmstuid;mbrmstpingan_username</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Product</bean-class>
+		<manager-class>com.d1.manager.ProductManager</manager-class>
+		<cache-hash-fields>gdsmst_rackcode;gdsmst_brand</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductExpPrice</bean-class>
+		<cache-hash-fields>rcmdusr_rcmid;rcmdusr_mbrid;rcmdusr_uid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductExpPriceItem</bean-class>
+		<cache-hash-fields>rcmdgds_rcmid;rcmdgds_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductPackage</bean-class>
+		<cache-hash-fields>gdspkt_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductPackageItem</bean-class>
+		<cache-hash-fields>gdspktdtl_pktid;gdspktdtl_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.ProductStandard</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Promotion</bean-class>
+		<cache-hash-fields>splmst_rackcode;splmst_code;splmst_subid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.PromotionProduct</bean-class>
+		<cache-hash-fields>spgdsrcm_code;spgdsrcm_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Provider</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Sku</bean-class>
+		<cache-hash-fields>skumst_gdsid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.Ticket</bean-class>
+		<cache-hash-fields>tktmst_mbrid;tktmst_cardno;tktmst_sodrid;tktmst_uodrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.TicketCrd</bean-class>
+		<cache-hash-fields>tktcrd_cardno;tktcrd_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.TicketGroup</bean-class>
+		<cache-hash-fields>tktgroup_title</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.TicketPwd</bean-class>
+		<cache-hash-fields>tktpwd_mbrid;tktpwd_cardno</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.User</bean-class>
+		<manager-class>com.d1.manager.UserManager</manager-class>
+		<cache-hash-fields>mbrmst_email;mbrmst_uid;mbrmst_usephone;mbrmst_cookie</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.UserAddress</bean-class>
+		<cache-hash-fields>mbrcst_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.UserScore</bean-class>
+		<cache-hash-fields>usrscore_mbrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.UserVip</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.UserFanLi</bean-class>
+		<cache-hash-fields>mbrmstfanli_mbrid;mbrmstfanli_uid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ChanetUser</bean-class>
+		<cache-hash-fields>cgmbr_mbrid;cgmbr_auser</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.SpecialProduct</bean-class>
+		<cache-hash-fields>sprckmst_rackcode</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.LotAct</bean-class>
+		<cache-hash-fields>lot8zn_mbrid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.LotCon</bean-class>
+		<cache-hash-fields>lotcon_flag</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.LotWinAct</bean-class>
+		<cache-hash-fields>lotwin8zn_mbrid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.TaiLi2012</bean-class>
+		<cache-hash-fields>taili2012_cardno</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.WeekAct</bean-class>
+		<cache-hash-fields>weekact_flag</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.PhoneCode</bean-class>
+		<cache-hash-fields>phonecode_tele;phonecode_status;phonecode_code</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ZhuFu</bean-class>
+		<cache-hash-fields>znzhufu_mbrid;znzhufu_createdate</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.GdsAtt</bean-class>
+		<cache-hash-fields>gdsatt_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.FriendLink</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Tag</bean-class>
+		<cache-hash-fields>tag_key;tag_letters</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.XunleiUser</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.HitLog</bean-class>
+		<cache-hash-fields>logdate</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Order360buy</bean-class>
+		<cache-hash-fields>odr360buy_360odrid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.MyShow</bean-class>
+		<cache-hash-fields>myshow_mbrid;myshow_gdsid;myshow_status;myshow_show</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.MyShowCom</bean-class>
+		<cache-hash-fields>myshowcom_odrid;myshowcom_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Gdscoll</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Gdscolldetail</bean-class>
+		<cache-hash-fields>gdscolldetail_gdsid;gdscolldetail_gdscrollid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Gdsscene</bean-class>
+		<cache-hash-fields>gdsscene_serid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Gdsser</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.GdsCutImg</bean-class>
+		<cache-hash-fields>gdsmst_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.BrandRck</bean-class>
+		<cache-hash-fields>brandrck_brand;brandrck_rackcode</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.User360</bean-class>
+		<cache-hash-fields>mbr360_mbrid;mbr360_qid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.DhGdsM</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Userlove</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Gdssalesabout</bean-class>
+
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Size</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Bademail</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.AYQuestion</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.AYPrize</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.AYAnswer</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.TenpayFee</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Searchrecord</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Gdscoll_rackcode</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Gdscoll_Order</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.AdminPower</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OrderDangD</bean-class>
+		<cache-hash-fields>odrdangd_dangdodrid</cache-hash-fields>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.CommentGroup</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.CommentGroupSub</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Hitlogindex</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Hitindex</bean-class>
+	</manager>
+
+	<manager>
+		<bean-class>com.d1.bean.TuandhGroup</bean-class>
+		<cache-hash-fields>tuandhgroup_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.MakEmail</bean-class>
+		<cache-hash-fields>makemail_std1;makemail_std2;makemail_std3;makemail_std4</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.HWeightWomanDtl</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.HWeightWoman</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.HWeightMan</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.HWeightManDtl</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Odrmst_Yxfx</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Odrdtl_Yxfx</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.TenpayNumFee</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OdrdtlJZYX</bean-class>
+		<cache-hash-fields>odrmst_mbrid;gdsmst_brand;gdsmst_brandname;gdsmst_gdscoll</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Odrdtl_User</bean-class>
+		<cache-hash-fields>odrmst_mbrid;gdsmst_brand;gdsmst_brandname;gdsmst_gdscoll</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OdrdtlRck</bean-class>
+		<cache-hash-fields>odrmst_mbrid;gdsmst_brand;gdsmst_brandname;gdsmst_gdscoll</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Wyhfcj</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Profileinfo</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.TenpayGds</bean-class>
+		<cache-hash-fields>tenpaygds_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.BirthGds</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.GdsVancl</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OdrVancl</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ShpMst</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ShopBrand</bean-class>
+		<cache-hash-fields>shopbrand_shopcode</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ShopReg</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.GdsImgDtl</bean-class>
+		<cache-hash-fields>gdsimgdtl_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.SplRck</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ShopRck</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OdrShopTh</bean-class>
+		<cache-hash-fields>odrshopth_mbrid;odrshopth_shopcode;odrshopth_odrid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ShopInfo</bean-class>
+		<cache-hash-fields>shopinfo_shopcode</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ShopModel</bean-class>
+		<cache-hash-fields>shopmodel_shopcode</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.D1ActTb</bean-class>
+		<cache-hash-fields>d1acttb_shopcode</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.ActIndex</bean-class>
+		<cache-hash-fields>actindex_shopcode</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.LotOdrWin</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.LotCode</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.GdsBaiDu</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OdrBaiDu</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.SgGdsDtl</bean-class>
+		<cache-hash-fields>sggdsdtl_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.SgLog</bean-class>
+		<cache-hash-fields>sglog_gdsid</cache-hash-fields>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.SeoQusInfo</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Jsmst</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Jsdtl</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Jsth</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.UsrPoint</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.Rck2345</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.BrandMst</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.TmallGrp</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.GdsDf</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OdrTmTxt</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.OdrTmLog</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.UserWeiXin</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.WeixinShopUser</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.WeixinShopToken</bean-class>
+	</manager>
+	<manager>
+		<bean-class>com.d1.bean.WeixinOpenIdMbrIdPair</bean-class>
+	</manager>
+</managers>
