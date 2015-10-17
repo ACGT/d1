@@ -1,4 +1,0 @@
-AuthName "My Authorization Directory"
-AuthType Basic
-AuthUserFile /usr/local/apache/conf/passwords
-Require valid-user

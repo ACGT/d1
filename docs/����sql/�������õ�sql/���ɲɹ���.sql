@@ -1,1 +1,0 @@
-declare @ret int execute sp_validodrNew '091014000931',@ret output

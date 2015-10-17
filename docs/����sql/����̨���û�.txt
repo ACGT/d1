@@ -1,4 +1,0 @@
-select odrmst_mbrid from dba.odrmst_history where odrmst_orderstatus in(3,31,5,51,6,61)
-and
-exists (select  distinct odrdtl_odrid from dba.odrdtl_history  
- where odrdtl_gdsid='01204680' and odrmst_odrid=odrdtl_odrid) group by odrmst_mbrid

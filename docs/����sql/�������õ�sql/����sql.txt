@@ -1,2 +1,0 @@
-select sum(odrmst_gdsmoney-odrmst_tktvalue) from dba.odrmst_history where odrmst_mbrid=314680 and odrmst_orderdate>'2009-1-1' 
-and odrmst_orderdate<'2010-1-1' and odrmst_orderstatus in (3,31,5,51,6,61) ---查会员在全年的消费

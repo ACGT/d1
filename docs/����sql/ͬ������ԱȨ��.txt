@@ -1,5 +1,0 @@
-那你帮我开两个用户，clhuang  zjqi   和jwang一样
-select top 10  * from rgtusr where rgtusr_usrid='jlgao'
-
-insert into rgtusr(rgtusr_usrid,rgtusr_rgtname)
-select 'zjqi ',rgtusr_rgtname from rgtusr where rgtusr_usrid='jwang'

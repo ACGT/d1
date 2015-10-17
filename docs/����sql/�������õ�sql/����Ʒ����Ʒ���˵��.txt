@@ -1,6 +1,0 @@
-
-select top 10 gdsmst_gdsid,gdsmst_stdothervalues from gdsmst where  gdsmst_validflag=1  and   gdsmst_brand in (select brand_code from brand where brand_name='L’oreal 欧莱雅') 
-
-update gdsmst set gdsmst_stdothervalues=gdsmst_stdothervalues+'欧莱雅批号与日期表示方法如下：由两个字母和三个数字组成。第一个字母代表产地(F法国,f印尼)，第二个字母是代表年份（A代表2004年，B代表2005年，C代表2006年，但没有Z，因为Z和2易相混。），后面的数字代表第几天。例如：FF263 代表产地是法国，生产时间是2009年的第263天。备注：个别产品由于产地不同，或其公司更换批号表示方法等原因，不排除与此方法不一致的批号。仅供参考。'  where  gdsmst_gdsid='01401497' and   gdsmst_brand in (select brand_code from brand where brand_name='L’oreal 欧莱雅') 
-
-update gdsmst set gdsmst_stdothervalues=''  where  gdsmst_gdsid='01401495' and   gdsmst_brand in (select brand_code from brand where brand_name='L’oreal 欧莱雅') 
