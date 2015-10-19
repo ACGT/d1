@@ -3,7 +3,7 @@
 <%
 if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getParameter("OdrID"))){
 	int payId=Integer.parseInt(request.getParameter("payId"));
-	
+	/*
 	int p=0;
 	switch (payId){
 	case 4:
@@ -39,8 +39,8 @@ if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getPara
 		p=6;
 		break;
 }
-	
-	switch(p){
+	*/
+	switch(payId){
 	case 1:
 		response.sendRedirect("/interface/pay/mobile/mobileRequest.jsp?OdrID="+request.getParameter("OdrID"));
 		
