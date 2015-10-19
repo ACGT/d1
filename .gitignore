@@ -5,3 +5,5 @@ src/com/d1/dbcache/core/MyHibernateUtil.java
 WEB-INF/classes
 
 WEB-INF/work/_jsp/
+
+output/
