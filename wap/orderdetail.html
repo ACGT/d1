@@ -277,7 +277,7 @@ var orderid="";
 		$(".totlenum").html(totletxt);
 		if(json.order_payid!=0&&json.order_payid!=6&&json.orderstatus==0){
 			$(".paysnd").html('<a  href="/wap/flow/zhifu.jsp?payId='+json.order_payid+'&OdrID='+json.order_odrid+'" class="pays" >去支付</a>');
-			}else if(json.order_payid==60&&json.orderstatus==0){
+			}else if(json.order_payid==6&&json.orderstatus==0){
 			  $(".paysnd").html("<a  href=\"javascript:weixinpay('"+json.order_odrid+"');\" class=\"pays\" >微信支付</a>");
 			}
 		
