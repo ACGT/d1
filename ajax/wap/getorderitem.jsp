@@ -85,8 +85,8 @@ List<OrderItemBase> oitems=OrderItemHelper.getOdrdtlListByOrderId(odrid);
 	 json.put("order_actmoney", ob.getOdrmst_d1actmoney());
 	 json.put("order_tktmoney", ob.getOdrmst_tktvalue().doubleValue()-ob.getOdrmst_d1actmoney().doubleValue());
 
-	 int payId=Integer.parseInt(ob.getOdrmst_payid());
-	 int p=0;
+	 int payId=ob.getOdrmst_payid().intValue();
+	 int pid=0;
 		switch (payId){
 		case 4:
 		case 6:
@@ -103,26 +103,26 @@ List<OrderItemBase> oitems=OrderItemHelper.getOdrdtlListByOrderId(odrid);
 		case 41:
 		case 42:
 		case 43:
-			p=2;
+			pid=2;
 			break;
 		case 20:
-			p=4;
+			pid=4;
 			break;
 		case 21:
-			p=3;
+			pid=3;
 			break;
 		case 14:
 		case 31:
-			p=5;
+			pid=5;
 			break;
 		case 33:
-			p=1;
+			pid=1;
 		case 60:
-			p=6;
+			pid=6;
 			break;
 	}
 	 
-	 json.put("order_payid", p);
+	 json.put("order_payid", pid);
 	 json.put("order_paymethod", ob.getOdrmst_paymethod());
 	 json.put("order_memo", ob.getOdrmst_customerword());
 	 json.put("order_shipfee", ob.getOdrmst_shipfee());
