@@ -275,9 +275,9 @@ var orderid="";
 		totletxt+='<p><span class="r">+运费：</span><span>'+json.order_shipfee+'元</span></p>';
 		totletxt+='<p class="tot"><span class="r">应付金额：</span><span>'+json.order_allmoney+'元</span></p>';
 		$(".totlenum").html(totletxt);
-		if(json.order_payid!=0&&json.order_payid!=60&&json.orderstatus==0){
+		if(json.order_payid!=0&&json.order_payid!=6&&json.orderstatus==0){
 			$(".paysnd").html('<a  href="/wap/flow/zhifu.jsp?payId='+json.order_payid+'&OdrID='+json.order_odrid+'" class="pays" >去支付</a>');
-			}else if(json.order_payid==60&&json.orderstatus==0){
+			}else if(json.order_payid==6&&json.orderstatus==0){
 			  $(".paysnd").html("<a  href=\"javascript:weixinpay('"+json.order_odrid+"');\" class=\"pays\" >微信支付</a>");
 			}
 		
