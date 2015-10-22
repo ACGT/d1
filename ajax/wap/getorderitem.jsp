@@ -85,7 +85,7 @@ List<OrderItemBase> oitems=OrderItemHelper.getOdrdtlListByOrderId(odrid);
 	 json.put("order_actmoney", ob.getOdrmst_d1actmoney());
 	 json.put("order_tktmoney", ob.getOdrmst_tktvalue().doubleValue()-ob.getOdrmst_d1actmoney().doubleValue());
 
-	 int payId=Integer.parseInt(ob.getOdrmst_payid());
+	 int payId=ob.getOdrmst_payid().intValue();
 	 int p=0;
 		switch (payId){
 		case 4:
