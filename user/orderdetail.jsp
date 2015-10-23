@@ -1351,7 +1351,39 @@ public int getPsid(String shipname){
 		               }
 		            	   %>=订单总金额(￥<%=OrderHelper.getOrderTotalMoney(orderid) %>)</b></span></td></tr>
 					   <tr><td><span><b><font color="#e2403e;" style=" font-size:14px;">订单总金额合计：<%=OrderHelper.getOrderTotalMoney(orderid)%>元</font></b></span></td></tr>
-					   <tr><td height="20"></td></tr>
+					  <%if(payId == 60&&strOrderStatus == 0){ %>
+					   <tr><td height="20">
+					    <br/><br/>
+				 <div id="paywximg"></div>
+				  <br/>
+				 <font color="red"> 请打开微信，用微信里的“扫一扫”支付
+				  
+                  </font><br/>
+				  <img src="http://images.d1.com.cn/images2012/New/user/sologo.jpg" style=" vertical-align:bottom;" /><font color="#e60000" style=" font-size:16px; font-weight:normal;font-family:'宋体';">特别提示：<a href="http://www.d1.com.cn/help/helpnew.jsp?code=0603" target="_blank"  style="font-family:'宋体';">D1优尚购物安全提醒</a></font>
+			 
+	   <script language="javascript">
+	   weixinpayimg();
+	   function weixinpayimg(){
+				   $.ajax({
+						type: "get",
+						dataType: "json",
+						url: '/interface/pay/weixinpay/webwxpay.jsp',
+						data:{OdrID:<%=orderid%>},
+						error: function(XmlHttpRequest){
+							alert("内容错误！");
+						},success: function(json){
+								if(json.SUCCESS){
+								$("#paywximg").html("<img src=\"/weixin/paywx_img.gif\">");
+								}else{
+									$("#paywximg").html("<font style=\"color:red;\">获取支付信息失败</font>");
+								}
+						}
+					});
+					}
+	   </script>
+					   
+					   </td></tr>
+					   <%} %>
 					   <tr><td style=" text-align:left;"><span style=" font-size:14px;"><b><%
 							   if (Tools.isNull(chePingAn)){
 								   if(points > 0){
