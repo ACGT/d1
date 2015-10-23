@@ -1695,9 +1695,10 @@ div.slider-nav span.left { left:0px;background:url(http://images.d1.com.cn/zt201
 																</dl>
 																
 		                        	    	        		<%}else if(sm.getShopmodel_size()==14 || sm.getShopmodel_size()==15 || sm.getShopmodel_size()==16){%>
-		                        	    	        			<% long memprice=p.getGdsmst_memberprice().longValue();
+		                        	    	        			<% float memprice=p.getGdsmst_memberprice();
 														    	if(CartHelper.getmsflag(p)){
-														    		memprice=p.getGdsmst_msprice().longValue();
+														    		//memprice=p.getGdsmst_msprice().longValue();
+														    		memprice = p.getGdsmst_msprice();
 														    	}
 														    	boolean booldx=false;
 														    	float dxprice=0f;
@@ -1864,6 +1865,8 @@ div.slider-nav span.left { left:0px;background:url(http://images.d1.com.cn/zt201
 		                        	    	        			   <%//if (msflag==1){ %>
 		                        	    	        			   <%//="???"%>
 		                        	    	        			   <%//}else{ %>
+		                        	    	        			   <!-- display price -->
+		                        	    	        			   
 		                        	    	        			   <%=booldx?dxprice:memprice%>
 		                        	    	        			   <%//} %>
 		                        	    	        			   </span></span>
