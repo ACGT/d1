@@ -63,45 +63,22 @@ table {
 </style>
 
 <script type="text/javascript">
-$(document).ready(function () {
-	$(".main_visual").hover(function(){
-		$("#btn_prev,#btn_next").fadeIn()
-		},function(){
-		$("#btn_prev,#btn_next").fadeOut()
-		})
-	$dragBln = false;
-	$(".main_image").touchSlider({
-		flexible : true,
-		speed : 200,
-		btn_prev : $("#btn_prev"),
-		btn_next : $("#btn_next"),
-		paging : $(".flicking_con a"),
-		counter : function (e) {
-			$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
-		}
-	});
-	$(".main_image").bind("mousedown", function() {
-		$dragBln = false;
-	})
-	$(".main_image").bind("dragstart", function() {
-		$dragBln = true;
-	})
-	$(".main_image a").click(function() {
-		if($dragBln) {
-			return false;
-		}
-	})
-	timer = setInterval(function() { $("#btn_next").click();}, 5000);
-	$(".main_visual").hover(function() {
-		clearInterval(timer);
-	}, function() {
-		timer = setInterval(function() { $("#btn_next").click();}, 5000);
-	})
-	$(".main_image").bind("touchstart", function() {
-		clearInterval(timer);
-	}).bind("touchend", function() {
-		timer = setInterval(function() { $("#btn_next").click();}, 5000);
-	})
+jQuery(function($) {
+    $(".main_visual").touchSlider({
+        container: this,
+        duration: 350, // 动画速度
+        delay: 3000, // 动画时间间隔
+        margin: 5,
+        mouseTouch: true,
+        namespace: "touchslider",
+        next: ".touchslider-next", // next 样式指定
+        pagination: ".touchslider-nav-item",
+        currentClass: "touchslider-nav-item-current", // current 样式指定
+        prev: ".touchslider-prev", // prev 样式指定
+        scroller: viewport.children(),
+        autoplay: false, // 自动播放
+        viewport: ".touchslider-viewport"
+    });
 });
 </script>
 </head>
