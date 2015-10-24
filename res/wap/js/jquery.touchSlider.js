@@ -103,12 +103,13 @@
 		init : function () {
 			var _this = this;
 			
-			$(this).children().css({
-				"width":this._width + "px",
-				"overflow":"visible"
-			});
+			
 			
 			if(this.opts.flexible) this._item_w = this._width / this._view;
+			$(this).children().css({
+				"width":this._item_w + "px",
+				"overflow":"visible"
+			});
 			if(this.opts.roll) this._len = Math.ceil(this._len / this._view) * this._view;
 			
 			var page_gap = (this.opts.page > 1 && this.opts.page <= this._len) ? (this.opts.page - 1) * this._item_w : 0;
