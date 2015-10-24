@@ -2,19 +2,19 @@
  * @name	jQuery.touchSlider
  * @version	201209_2
  * @since	201106
- * @param Object	settings	환경변수 오브젝트
- *		roll			-	순환 (default true)
- *		flexible		-	유동 레이아웃 (default false)
- *		view			-	다중 컬럼 (default 1)
- *		speed			-	애니메이션 속도 (default 75)
- *		range			-	넘김 판정 범위 (default 0.15)
- *		page			-	초기 페이지 (default 1)
- *		transition		-	CSS3 transition 사용 (default false)
- *		btn_prev		-	prev 버튼 (jQuery Object, default null)
- *		btn_next		-	next 버튼 (jQuery Object, default null)
- *		paging			-	page 버튼 (jQuery Object, default null)
- *		initComplete	-	초기화 콜백
- *		counter			-	슬라이드 콜백, 카운터
+ * @param Object	settings	頇橁步氤�垬 鞓る笇鞝濏姼
+ *		roll			-	靾滍櫂 (default true)
+ *		flexible		-	鞙犽彊 霠堨澊鞎勳泝 (default false)
+ *		view			-	雼れ 旎熂 (default 1)
+ *		speed			-	鞎犽媹氅旍澊靺�靻嶋弰 (default 75)
+ *		range			-	雱橁箑 韺愳爼 氩旍渼 (default 0.15)
+ *		page			-	齑堦赴 韼橃澊歆�(default 1)
+ *		transition		-	CSS3 transition 靷毄 (default false)
+ *		btn_prev		-	prev 氩勴娂 (jQuery Object, default null)
+ *		btn_next		-	next 氩勴娂 (jQuery Object, default null)
+ *		paging			-	page 氩勴娂 (jQuery Object, default null)
+ *		initComplete	-	齑堦赴頇�旖滊氨
+ *		counter			-	鞀澕鞚措摐 旖滊氨, 旃挫毚韯�
  *
  * @example
 	$("#target").touchSlider({
