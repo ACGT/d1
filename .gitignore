@@ -7,3 +7,5 @@ WEB-INF/classes
 WEB-INF/work/_jsp/
 
 output/
+
+.settings/
