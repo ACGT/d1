@@ -9,23 +9,8 @@ function loaddata(){
 				},success: function(json){
 						if(json.status=="1"){
 							showpm(json);
-							meitem.getInViewportList();
-						    	if(document.getElementById("slide_01")){
-						    slide_01.scrollContId   = "slide_01"; //内容容器ID
-						    slide_01.dotListId      = "slide_01_dot";//点列表ID
-						    slide_01.dotOnClassName = "selected";
-						    slide_01.arrLeftId      = "sl_left"; //左箭头ID
-						    slide_01.arrRightId     = "sl_right";//右箭头ID
-						    slide_01.frameWidth     = 320;
-						    slide_01.pageWidth      = 320;
-						    slide_01.upright        = false;
-						    slide_01.speed          = 10;
-						    slide_01.space          = 30; 
-						    slide_01.pagelength=$('#slide_01').children().length;
-						    slide_01.initialize(); //初始化
-						   
-						    }
-						    	//resetwidth();
+							jQuery(".slideBox").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,trigger:"click"});
+						    
 						}else{
 							$(".tm").hide();
 						}
@@ -40,13 +25,16 @@ function loaddata(){
     	if(typeof lblists!="undefined"){
     	if(lblists.length>0){
     		var lblistsli="";
+    		var lbli="";
     	   for(var i=0;i<lblists.length;i++){
-    		   lblistsli+='<div class="mod_01" ><a href="'+lblists[i].pmurl+'" title=\"'+lblists[i].pmtitle+'\"><img src="'+lblists[i].pmpic+'" ></a></div>';    	
-    		   }
-    	   $(".slide_01").html(lblistsli);
+    		   lblistsli+='<li><a href="'+lblists[i].pmurl+'" title=\"'+lblists[i].pmtitle+'\"><img src="'+lblists[i].pmpic+'" ></a></li>';    	
+    		   lbli+='<li></li>';
+    	   }
+    	   $(".slideBox .bd ul").html(lblistsli);
+    	   $(".slideBox .hd ul").html(lbli);
     	}
     	}else{
-    		$(".slide_01").parent().parent().hide();
+    		$("#slideBox").parent().parent().hide();
     	}
     	var actpplists=eval(json.actpplist);
     	if(typeof actpplists!="undefined"){

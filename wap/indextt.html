@@ -18,6 +18,7 @@
 <script type="text/javascript" src="/res/wap/js/index.js"></script>
 <script language="javascript" type="text/javascript" src="/res/wap/js/public.js"></script>
 <script type="text/javascript" src="/res/wap/js/jquery.SuperSlide.js"></script>
+<script type="text/javascript" src="/res/wap/js/indexload2015.js?1.92"></script>  
 <style>
 .shoplist li .listitem .txt {
 	height: 1.20rem;
@@ -75,50 +76,6 @@ table {
 
 </style>
 
-<script type="text/javascript">
-$(document).ready(function () {
-	$(".main_visual").hover(function(){
-		$("#btn_prev,#btn_next").fadeIn()
-		},function(){
-		$("#btn_prev,#btn_next").fadeOut()
-		})
-	$dragBln = false;
-	$(".main_image").touchSlider({
-		flexible : true,
-		fixWidth:false,
-		speed : 200,
-		btn_prev : $("#btn_prev"),
-		btn_next : $("#btn_next"),
-		paging : $(".flicking_con a"),
-		counter : function (e) {
-			$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
-		}
-	});
-	$(".main_image").bind("mousedown", function() {
-		$dragBln = false;
-	})
-	$(".main_image").bind("dragstart", function() {
-		$dragBln = true;
-	})
-	$(".main_image a").click(function() {
-		if($dragBln) {
-			return false;
-		}
-	})
-	timer = setInterval(function() { $("#btn_next").click();}, 5000);
-	$(".main_visual").hover(function() {
-		clearInterval(timer);
-	}, function() {
-		timer = setInterval(function() { $("#btn_next").click();}, 5000);
-	})
-	$(".main_image").bind("touchstart", function() {
-		clearInterval(timer);
-	}).bind("touchend", function() {
-		timer = setInterval(function() { $("#btn_next").click();}, 5000);
-	})
-});
-
-</script>
 </head>
 <body>
 	<header class="p_header">
@@ -139,7 +96,7 @@ $(document).ready(function () {
 				<a href="/wap/flow.html"></a>
 			</div>
 		</div>
-	</header>模压顶戴顶戴
+	</header>
 	<div class="main" background="#ffffff">
 
 	
@@ -152,22 +109,16 @@ $(document).ready(function () {
 				<div class="adimg"><div class="mBan2">
 <div id="slideBox" class="slideBox">
     <div class="hd">
-        <ul><li></li><li></li><li></li><li></li><li></li></ul>
+        <ul></ul>
     </div>
     <div class="bd">
         <ul>
-            <li><a href="#" target="_blank"><img src="images/nimg1.jpg" /></a></li>
-            <li><a href="#" target="_blank"><img src="images/nimg2.jpg" /></a></li>
-            <li><a href="#" target="_blank"><img src="images/nimg3.jpg" /></a></li>
-            <li><a href="#" target="_blank"><img src="images/nimg4.jpg" /></a></li>
-            <li><a href="#" target="_blank"><img src="images/nimg5.jpg" /></a></li>
+            
         </ul>
     </div>
 </div>
 </div>
-<script language="javascript">
-jQuery(".slideBox").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,trigger:"click"});
-</script>
+
 				</div>
 			</div>
 
@@ -185,13 +136,10 @@ jQuery(".slideBox").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,trigger
 				客服热线：400-680-8666（工作日9：00-18：00）<br> Copyright ©2015 京030072
 			</div>
 		</div>
-<<<<<<< HEAD
 		<script type="text/javascript"
 			src="/res/wap/js/jquery.mobile.custom.js"></script>
 		<script type="text/javascript" src="/res/wap/js/loadimg.js"></script>
-=======
->>>>>>> develop
-		
+
 		<div style="display: none;">
 			<script language="javascript">
 	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
