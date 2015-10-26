@@ -1,102 +1,225 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>D1优尚网触屏版</title>
-<meta name="author" content="m.d1.cn">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
-	charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="/res/wap/css/login.css?1.1"
-	charset="utf-8" />
-<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="/res/wap/js/com.js"></script>
+    <meta charset="UTF-8">
+    <title>基于jQuery的移动轮播图（支持触屏）</title>
+    <style type="text/css">
+    .WSCSlideWrapper{
+        width: 420px;
+        height: 180px;
+        position: relative;
 
+        overflow: hidden;
+    }
+    .WSCSlide{
+        width: 1680px;
+        height: 100%;
+        font-size: 0;
+
+        position: absolute;
+        
+        -webkit-transform:translate3d(0,0,0);
+    }
+    .WSCSlideTransition{
+        -webkit-transition: all 0.5s 0s ease-in-out;
+    }
+    .WSCSlide_img{
+        width: 420px;
+        height: 180px;
+    }
+
+    </style>
 </head>
 <body>
-	<header class="p_header">
-		<div class="h_txt">
-			<div class="pageback">
-				<a href="javascript:window.history.back(-1);">返回</a>
-			</div>
-			<div class="h_h2">
-				<h2>
-					<i></i>登录
-				</h2>
-			</div>
-			<div class="home">
-				<a href="/wap/index.html"></a>
-			</div>
-			<div class="myuser">
-				<a href="/wap/user/index.html"></a>
-			</div>
-			<div class="carth">
-				<a href="/wap/flow.html"></a>
-			</div>
+    <div class="WSCSlideWrapper">
+        <div class="WSCSlide WSCSlideTransition">
+            <img class="WSCSlide_img" src="http://images.d1.com.cn/shopadmin/splimg/201509/jinqigdian.jpg" />
+            <img class="WSCSlide_img" src="http://images.d1.com.cn/shopadmin/splimg/201510/sjds111023.jpg" />
+            <img class="WSCSlide_img" src="http://images.d1.com.cn/shopadmin/splimg/201509/jinqigdian.jpg" />
+        </div>
+        <div class="WSCSlideStatus"></div>
+    </div>
 
-		</div>
-	</header>
-	<div class="main">
-		<div class="login">
-			<div class="login_err"></div>
-			<div class="login_user">
-				<span class="htxt">帐号：</span><span class="l_input"><input
-					name="user" id="user" type="text" placeholder="手机号/邮箱/用户名"></span>
-			</div>
-			<div class="login_pwd">
-				<span class="htxt">密码：</span><span class="l_input"><input
-					name="pwd" id="pwd" type="password"></span>
-			</div>
-			<div class="login_but">
-				<a href="javascript:void(0);" id="loginbut" class="loginbut">登录</a>
-				<div class="regfind">
-					<span><a href="/wap/reg.html"><i class="i1"></i><br>手机注册</a></span>
-					<span><a href="/wap/regmail.html"><i class="i2"></i><br>邮箱注册</a></span>
-					<span><a href="/wap/forgetpwd.jsp"><i class="i3"></i><br>找回密码</a></span>
-					<span><a href="/wap/wxtt.jsp" id="wxhb">.</a></span>
-				</div>
-			</div>
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript">
+// 基于jQuery的移动端轮播插件，用zepto会有with问题
+// 返回值  轮播对象
+// 参数：
+// WSCSlideTransition    Transition的class名
+// WSCSlideWrapper    轮播的jQuery对象
+// WSCSlide     包裹轮播图片jQuery对象
+// WSCSlide_img   轮播图片列表jQuery对象
+// timerNum     循环时间
+function WSCMobileSlide(arg_obj) {
+    /*
+    参数:
+    el是jQuery选择器
 
-		</div>
-	</div>
+    返回值:
+    matrix.m41是x值 number
+    matrix.m42是y值 number
+    参考链接 http://stackoverflow.com/questions/5968227/get-the-value-of-webkit-transform-of-an-element-with-jquery
+    参考链接 https://developer.apple.com/library/safari/documentation/AudioVideo/Reference/WebKitCSSMatrixClassReference/WebKitCSSMatrix/WebKitCSSMatrix.html#//apple_ref/javascript/instp/WebKitCSSMatrix/m41
+    */
+    function getTransform(el) {
+        var style = window.getComputedStyle($(el).get(0));
+        var matrix = new WebKitCSSMatrix(style.webkitTransform);
+        return matrix;
+    }
 
-	<div class="login_other">
-		<div class="txt">微信快捷登录</div>
-		<div class="otherlogo">
+    function slideAnimate(x, y) {
+        if (Math.abs(x) >= y) {
+            // $(".WSCSlide").removeClass("WSCSlideTransition");
+            $(".WSCSlide").css("-webkit-transform", "translate3d(0,0,0)");
+        } else {
+            // $(".WSCSlide").addClass("WSCSlideTransition");
+            $(".WSCSlide").css("-webkit-transform", "translate3d(" + x + "px,0,0)");
+        }
+    }
 
-			<a href="/wap/wxloginto.jsp" id="weixinlogin"><span
-				class="weixin"><font style="font-size: 16px; color: red">微信号：d1beauty<br>
-						(微信中添加朋友即可)
-				</font></span></a>
+    function getSlideTimer(timeNum) {
+        if(typeof(timeNum) == "undefined"){
+            timeNum = 3000;
+        }
+        var slideTimer = setInterval(function() {
+            var x = getTransform(".WSCSlide").m41;
+            x = x - ImgWidth;
+            slideAnimate(x, endPosition);
 
-			<!--  <a href="/interface/login/alipaywap.jsp"><span  class="alipay"></span></a>
-					 <a href="/interface/login/qq.jsp" id="qqlogin" ><span class="qq"></span></a>
-					  -->
-		</div>
-	</div>
-	<script src="/res/wap/js/jweixin-1.0.0.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/res/wap/js/logincheck.js?1.5"></script>
-	<script type="text/javascript">  
-		  var url = document.referrer;
-		  if(url!="")    
-          {    
-             // $("#qqlogin").attr("href","/interface/login/qq.jsp?referurl="+url);
-          } 
-		  if(url!="")    
-          {    
-              $("#weixinlogin").attr("href","/wap/wxloginto.jsp?backurl="+url);
-          } 
-			</script>
-	<div style="display: none;">
-		<script language="javascript">
-			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+        }, timeNum);
+        return slideTimer;
+    }
 
-			</script>
-	</div>
+
+    function touchDragMe($element) {
+        var gundongX = 0;
+        var gundongY = 0;
+        var d = document;
+        var g = 'getElementById';
+        var moveEle = $element;
+        var stx = sty = etx = ety = curX = curY = 0;
+
+        moveEle.on("touchstart", function(event) { //touchstart
+            $element.removeClass(transitionName);
+            clearInterval(slideTimer);
+            var event = event.originalEvent;
+            gundongX = 0;
+            gundongY = 0;
+
+
+            // 元素当前位置
+            etx = parseInt(getT3d(moveEle, "x"));
+            ety = parseInt(getT3d(moveEle, "y"));
+
+            // 手指位置
+            stx = event.touches[0].pageX;
+            sty = event.touches[0].pageY;
+        });
+
+        moveEle.on("touchmove", function(event) {
+            var event = event.originalEvent;
+            // 防止拖动页面
+            event.preventDefault();
+
+            // 手指位置 减去 元素当前位置 就是 要移动的距离
+            gundongX = event.touches[0].pageX - stx;
+            gundongY = event.touches[0].pageY - sty;
+
+            // 目标位置 就是 要移动的距离 加上 元素当前位置
+            curX = gundongX + etx;
+            curY = gundongY + ety;
+
+            // 自由移动
+            // moveEle.style.webkitTransform = 'translate3d(' + (curX) + 'px, ' + (curY) + 'px,0px)';
+            // 只能移动Y轴方向
+            // var realMoveEle = moveEle[0];
+            moveEle[0].style.webkitTransform = 'translate3d(' + (curX) + 'px, ' + 0 + 'px,0px)';
+
+
+        });
+        moveEle.on("touchend", function(event) {
+            // 手指接触屏幕的位置
+            var oriX = etx;
+            var oriY = ety;
+
+            // 手指离开屏幕的位置
+            etx = curX;
+            ety = curY;
+
+            var slidePosition = 0;
+            for (var i = 0; i < ImgWidth_arr_length - 1; i++) {
+                if (Math.abs(etx) > ImgWidth_arr[i]) {
+
+                    if (oriX > etx) {
+                        // 左滑
+                        slidePosition = -ImgWidth_arr[i + 1];
+                    } else {
+                        // 右滑
+                        slidePosition = -ImgWidth_arr[i];
+                    }
+                }
+
+            }
+            $element.addClass(transitionName);
+            slideAnimate(slidePosition, endPosition);
+            slideTimer = getSlideTimer(timerNum);
+        });
+
+        function getT3d(elem, ename) {
+            var elem = elem[0];
+            var str1 = elem.style.webkitTransform;
+            if (str1 == "") return "0";
+            str1 = str1.replace("translate3d(", "");
+            str1 = str1.replace(")", "");
+            var carr = str1.split(",");
+
+            if (ename == "x") return carr[0];
+            else if (ename == "y") return carr[1];
+            else if (ename == "z") return carr[2];
+            else return "";
+        }
+    }
+
+
+    var transitionName = arg_obj["WSCSlideTransition"] || "WSCSlideTransition";
+    var $WSCSlideWrapper = arg_obj["WSCSlideWrapper"] || $(".WSCSlideWrapper");
+    var $WSCSlide = arg_obj["WSCSlide"] || $(".WSCSlide");
+    var $WSCSlide_img = arg_obj["WSCSlide_img"] || $(".WSCSlide_img");
+    var timerNum = arg_obj["timerNum"] || 3000;
+
+    $WSCSlide_img.width($WSCSlideWrapper.width());
+    $WSCSlide_img.height($WSCSlideWrapper.height());
+
+    var ImgWidth_arr_length = $WSCSlide_img.length;
+    var ImgWidth = $WSCSlide_img.width();
+
+
+    $WSCSlide.width(ImgWidth * ImgWidth_arr_length);
+
+    var WSCSlideWidth = $WSCSlide.width();
+    // 轮播图终止位置
+    var endPosition = WSCSlideWidth - ImgWidth;
+
+    var ImgWidth_arr = [];
+    for (var i = 0; i < ImgWidth_arr_length; i++) {
+        ImgWidth_arr.push(i * ImgWidth);
+    }
+    // console.log(ImgWidth_arr);
+
+    var slideTimer = getSlideTimer(timerNum);
+
+    touchDragMe($WSCSlide, slideTimer);
+
+    return slideTimer;
+}
+WSCMobileSlide({
+    "WSCSlideTransition": "WSCSlideTransition",
+    "WSCSlideWrapper": $(".WSCSlideWrapper"),
+    "WSCSlide": $(".WSCSlide"),
+    "WSCSlide_img": $(".WSCSlide_img"),
+    "timerNum": 3000
+});
+
+</script>
 </body>
 </html>
