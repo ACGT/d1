@@ -16,8 +16,8 @@
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="/res/wap/js/com.js"></script>
 <script type="text/javascript" src="/res/wap/js/index.js"></script>
-<script type="text/javascript" src="/res/wap/js/jquery.touchSlider.js"></script>
-<link href="/res/wap/css/touchSlider.css" rel="stylesheet"/>
+<script language="javascript" type="text/javascript" src="/res/wap/js/public.js"></script>
+<script type="text/javascript" src="/res/wap/js/jquery.SuperSlide.js"></script>
 <style>
 .shoplist li .listitem .txt {
 	height: 1.20rem;
@@ -60,6 +60,19 @@ table {
 	background: url(http://images.d1.com.cn/wap/chuhe2.png) no-repeat;
 	background-size: cover;
 }
+
+/* 效果CSS开始 */
+.mBan2 { overflow: hidden; }
+.mBan2 .slideBox{ width:100%; height:auto; position:relative; }
+.mBan2 .slideBox .hd{ height: 10px; overflow: hidden; position: absolute; bottom: 4px; z-index: 1; width: 81px; background: url(../images/btnBg.png) no-repeat; margin-left: -46px; left: 50%; padding: 4px 0px 0px 11px; }
+.mBan2 .slideBox .hd ul{ zoom: 1; }
+.mBan2 .slideBox .hd ul li{ float: left; width: 6px; height: 6px; background: url(../images/btn1.png) no-repeat; cursor: pointer; margin-right: 10px; }
+.mBan2 .slideBox .hd ul li.on{ background: url(../images/btn2.png) no-repeat; }
+.mBan2 .slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.mBan2 .slideBox .bd ul,.slideBox .bd ul li{width:100%!important}
+.mBan2 .slideBox .bd img{ width:100%; height:auto; display:block;  }
+/* 效果CSS结束 */
+
 </style>
 
 <script type="text/javascript">
@@ -131,48 +144,30 @@ $(document).ready(function () {
 
 	
 	
-		<div class="shop">测试测试
-<div class="main_visual">
-                <div class="flicking_con">
-                	<div class="flicking_inner">
-                    <a href="http://www.xmcms.net">1</a>
-                    <a href="http://www.xmcms.net">2</a>
-                    <a href="http://www.xmcms.net">3</a>
-                    <a href="http://www.xmcms.net">4</a>
-                    <a href="http://www.xmcms.net">5</a>
-               	 </div>
-            </div>
-			<div class="main_image">
-				<ul>					
-					<li><span class="img_3"></span></li>
-					<li><span class="img_4"></span></li>
-					<li><span class="img_1"></span></li>
-					<li><span class="img_2"></span></li>
-					<li><span class="img_5"></span></li>
-				</ul>
-				<a href="javascript:;" id="btn_prev"></a>
-				<a href="javascript:;" id="btn_next"></a>
-			</div>
+		<div class="shop"> 
+		 
 			</div>
 			<div class="shopbanner"></div>
 			<div class="shoplist mp_list">
-				<div class="adimg">
-					<table width="0" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td><a href="#a1"><img
-									src="http://images1.d1.com.cn/shopimg/gdsimg/201504/image/1a723ac7-433c-4013-aa6e-12a50a5154b1.jpg"
-									alt=""></a></td>
-							<td><a href="#a2"><img
-									src="http://images1.d1.com.cn/shopimg/gdsimg/201504/image/f0987a94-7956-4890-b432-5055df1427f4.jpg"
-									alt=""></a></td>
-							<td><a href="#a3"><img
-									src="http://images1.d1.com.cn/shopimg/gdsimg/201504/image/897588a5-e5ee-4a62-a966-84f9c2ce2e1a.jpg"
-									alt=""></a></td>
-							<td><a href="#a4"><img
-									src="http://images1.d1.com.cn/shopimg/gdsimg/201504/image/d0729fa6-6384-4a1d-8c77-1f6ab81d7f1a.jpg"
-									alt=""></a></td>
-						</tr>
-					</table>
+				<div class="adimg"><div class="mBan2">
+<div id="slideBox" class="slideBox">
+    <div class="hd">
+        <ul><li></li><li></li><li></li><li></li><li></li></ul>
+    </div>
+    <div class="bd">
+        <ul>
+            <li><a href="#" target="_blank"><img src="images/nimg1.jpg" /></a></li>
+            <li><a href="#" target="_blank"><img src="images/nimg2.jpg" /></a></li>
+            <li><a href="#" target="_blank"><img src="images/nimg3.jpg" /></a></li>
+            <li><a href="#" target="_blank"><img src="images/nimg4.jpg" /></a></li>
+            <li><a href="#" target="_blank"><img src="images/nimg5.jpg" /></a></li>
+        </ul>
+    </div>
+</div>
+</div>
+<script language="javascript">
+jQuery(".slideBox").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,trigger:"click"});
+</script>
 				</div>
 			</div>
 
