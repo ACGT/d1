@@ -24,7 +24,7 @@ if (!Tools.isNull(httpurl)){
     //	return;
    // }
     if(strwebsite_id.startsWith("739491|")||strwebsite_id.startsWith("427571|")||strwebsite_id.startsWith("736988|")||
-    		strwebsite_id.startsWith("104566|")||strwebsite_id.startsWith("741915|")){
+    		strwebsite_id.startsWith("741915|")){
     	return;
     }
     
