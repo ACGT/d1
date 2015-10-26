@@ -1354,6 +1354,7 @@ public int getPsid(String shipname){
 					  <%if(payId == 60&&strOrderStatus == 0){ %>
 					   <tr><td height="20">
 					    <br/><br/>
+					    <a name="wxPay"></a>
 				 <div id="paywximg"></div>
 				  <br/>
 				 <font color="red"> 请打开微信，用微信里的“扫一扫”支付
@@ -1373,7 +1374,7 @@ public int getPsid(String shipname){
 							alert("内容错误！");
 						},success: function(json){
 								if(json.SUCCESS){
-								$("#paywximg").html("<img src=\"/weixin/paywx_img.gif\">");
+								$("#paywximg").html("<img src=\"/weixin/paywx_img.gif<%=System.currentTimeMillis()%>\">");
 								}else{
 									$("#paywximg").html("<font style=\"color:red;\">获取支付信息失败</font>");
 								}

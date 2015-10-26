@@ -128,7 +128,7 @@ function loaddata(status1){
 
 	function gourl(parr){
 		c=parr.split(",");
-		var gourl="orderlist.html?pageno="+c[0]+"&status="+c[1]+"";
+		var gourl="user_orderlist.html?pageno="+c[0]+"&status="+c[1]+"";
 		window.location.href=gourl;
 	}
 	function showlist(p,psize,pageno,status){
@@ -182,6 +182,9 @@ function loaddata(status1){
 		var status=""
 	   for(var i=0;i<odrlen;i++){
 		   status=orders[i].order_status;
+		   payid=orders[i].order_payid;
+		   paytxt="";
+		   if(payid==6)paytxt="微信支付";
 		pli='<li>';
 		pli+='<div class="mo_item">';
 		pli+='<div class="order">';
@@ -223,7 +226,7 @@ function loaddata(status1){
 				pli+='	    <p class="title">'+items[j].orderitem_gdsname+'</p>';
 				pli+='		<p class="price">商品单价：<font color="#f1424f">￥'+items[j].orderitem_price+'</font>&nbsp;&nbsp;&nbsp;&nbsp;商品数量：<font color="#f1424f">'+items[j].orderitem_count+'</font></p>';
 				pli+='		<p class="dtlstatus">'+itemstatustxt+'';
-				pli+='&nbsp;&nbsp;'+thtxt;
+				pli+='&nbsp;&nbsp;'+paytxt+'&nbsp;&nbsp;'+thtxt;
 				pli+='	</p></div>';
 				pli+='  </div>';
 				pli+='</li>';

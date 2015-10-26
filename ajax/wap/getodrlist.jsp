@@ -191,6 +191,9 @@ if(list!=null&&odrcount>0)
 			case 33:
 				pid=1;
 				break;
+			case 60:
+				pid=6;
+				break;
 		}
 		 jsonorder.put("order_payid", pid);
 		 jsonorder.put("order_comflag", ob.getOdrmst_comvalue().intValue());
