@@ -227,7 +227,6 @@ function loaddata(status1){
 				pli+='	    <p class="title">'+items[j].orderitem_gdsname+'</p>';
 				pli+='		<p class="price">商品单价：<font color="#f1424f">￥'+items[j].orderitem_price+'</font>&nbsp;&nbsp;&nbsp;&nbsp;商品数量：<font color="#f1424f">'+items[j].orderitem_count+'</font></p>';
 				pli+='		<p class="dtlstatus">'+itemstatustxt+'';
-				pli+='&nbsp;&nbsp;'+paytxt;
 				if(orders[i].order_payid!=0&&orders[i].order_payid!=6&&orders[i].order_status==0){
 					pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" style="color:#36c" class="pays" >去支付</a>';
 					}else if(orders[i].order_payid==6&&orders[i].order_status==0){
