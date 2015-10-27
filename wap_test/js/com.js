@@ -20,7 +20,7 @@ function checkLogin() {
 	//alert(window.location.href+":checkLogin():token:"+window.localStorage.getItem("token"));
 	
 	var is_token_available = 1; 
-	
+	alert("token is "+token);
 	if (token==undefined || token == "" || token==null) {	
 		is_token_available = 0;
 		alert("token is unavailable");
