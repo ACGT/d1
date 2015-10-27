@@ -193,7 +193,7 @@ function loaddata(status1){
 		pli+='</span><span>金额：'+orders[i].order_allmoney+'&nbsp;&nbsp;';
 		if(orders[i].order_payid!=0&&orders[i].order_payid!=6&&orders[i].order_status==0){
 			pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" class="pays" >去支付</a>';
-			}else if(orders[i].order_payid==6&&orders[i].order_status==0){{
+			}else if(orders[i].order_payid==6&&orders[i].order_status==0){
 				pli+='&nbsp;&nbsp;<a  href="/wap/orderdetail.html?odrid='+orders[i].order_odrid+'" class="pays" >微信支付</a>';
 
 			}
