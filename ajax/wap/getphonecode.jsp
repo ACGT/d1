@@ -7,55 +7,13 @@ java.io.IOException,
 javax.xml.namespace.QName,
 org.apache.axis.client.Call,
 org.apache.axis.client.Service,
-org.apache.axis.encoding.XMLType"%><%@include file="/html/header.jsp" %><%!
+org.apache.axis.encoding.XMLType"%><%@include file="/html/header.jsp" %>
+<%@include file="/inc/sendsms.jsp" %><%!
 public static boolean sendmsg(String phone,String msg){
-String url="http://h.1069106.com:1210/Services/MsgSend.asmx";  
-//.net webService 命名空间
-String namespace = "http://tempuri.org/";  
-//.net webService 需调用的方法
-String methodName = "SendMsg";  
-String soapActionURI = "http://tempuri.org/SendMsg";  
-String ret2 ="";
-try{
-Service service = new Service();
-
-Call call = (Call) service.createCall();
-
-call.setTargetEndpointAddress(new java.net.URL(url));  
-call.setUseSOAPAction(true);  
-//这个地方没设对就会出现Server was unable to read request的错误  
-call.setSOAPActionURI(soapActionURI);  
-//设置要调用的.net webService方法
-call.setOperationName(new QName(namespace, methodName));  
-//设置该方法的参数，temp为.net webService中的参数名称
-call.addParameter( new QName(namespace,"userCode"),  
-org.apache.axis.encoding.XMLType.XSD_STRING,   
-javax.xml.rpc.ParameterMode.IN);  
-call.addParameter( new QName(namespace,"userPass"),  
-org.apache.axis.encoding.XMLType.XSD_STRING,   
-javax.xml.rpc.ParameterMode.IN); 
-call.addParameter( new QName(namespace,"DesNo"),  
-org.apache.axis.encoding.XMLType.XSD_STRING,   
-javax.xml.rpc.ParameterMode.IN); 
-call.addParameter( new QName(namespace,"Msg"),  
-org.apache.axis.encoding.XMLType.XSD_STRING,   
-javax.xml.rpc.ParameterMode.IN); 
-call.addParameter( new QName(namespace,"Channel"),  
-org.apache.axis.encoding.XMLType.XSD_STRING,   
-javax.xml.rpc.ParameterMode.IN); 
-//设置该方法的返回值
-call.setReturnType(XMLType.XSD_STRING);
-//call.invoke(new Object[] { "kusix" });  中"kusix"为传入参数值
-ret2 = (String) call.invoke(new Object[] { "bjqm","bjqm5858",phone,msg+"【D1优尚】", ""});  
-System.out.println(phone+":"+msg+"【D1优尚】"+"返回结果---> " + ret2);  
-} catch (Exception e) {
-	e.printStackTrace();
-}
-if (ret2.indexOf("-")>=0){
-	return false;
-}else{
-return true;
-}
+ 
+boolean ret=SendSms(phone,msg);
+ return ret;
+ 
 }
 %>
 <%
