@@ -226,7 +226,7 @@ table tr td div{ margin:0px auto;}
 							alert("内容错误！");
 						},success: function(json){
 								if(json.SUCCESS){
-								$("#paywximg").html("<img src=\"/weixin/paywx_img.gif\">");
+								$("#paywximg").html("<img src=\"/weixin/paywx_img.gif<%=System.currentTimeMillis()%>\">");
 								}else{
 									$("#paywximg").html("<font style=\"color:red;\">获取支付信息失败</font>");
 								}
