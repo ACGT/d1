@@ -1,6 +1,7 @@
 
 var is_login = 0;
 var user_agent = window.navigator.userAgent.toLowerCase();
+alert(user_agent);
 if(user_agent.match(/MicroMessenger/i) == 'micromessenger'){
 	checkLogin();
 }
