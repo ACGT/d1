@@ -134,7 +134,19 @@
 </body>
 </html>
 <script language="javascript">
-
+var ua = window.navigator.userAgent.toLowerCase(); 
+if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+	$.ajax({
+		type: 'get', 
+		url: '/ajax/wap/wxcheck.jsp',
+		dataType:'json',
+		success: function(json){
+			if(!json.success){
+		       window.location.href="/wap/wxtt.jsp?backurl=/wap/flowcheck.html";
+			}
+		}
+	});
+}
 function weixinpay(OdrID){
 	   $.ajax({
 			type: "get",
