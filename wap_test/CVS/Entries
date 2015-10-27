@@ -23,7 +23,6 @@
 /goodsdetail.jsp/1.1/Wed Sep 23 06:33:23 2015//
 /goodsend.jsp/1.1/Wed Sep 23 06:33:22 2015//
 /imglist.jsp/1.1/Wed Sep 23 06:33:24 2015//
-/indextt.html/1.1/Wed Sep 23 06:33:23 2015//
 /login.jsp/1.1/Wed Sep 23 06:33:23 2015//
 /rec.html/1.1/Wed Sep 23 06:33:24 2015//
 /regist.jsp/1.1/Wed Sep 23 06:33:22 2015//
@@ -42,7 +41,6 @@
 /sg.html/1.1/Wed Sep 23 06:33:24 2015//
 /shop.html/1.1/Wed Sep 23 06:33:21 2015//
 /shopbrand.html/1.1/Wed Sep 23 06:33:22 2015//
-/t.html/1.1/Wed Sep 23 06:33:23 2015//
 /test.jsp/1.1/Wed Sep 23 06:33:23 2015//
 /updateflow.jsp/1.1/Wed Sep 23 06:33:24 2015//
 /waptkt.html/1.1/Wed Sep 23 06:33:22 2015//
@@ -64,6 +62,12 @@ D/new////
 D/nyeartkt////
 D/user////
 D/ztpage////
+/user_mytkts.html/1.1/Wed Sep 23 08:43:19 2015//
+/user_orderlist.html/1.1/Wed Sep 23 08:43:19 2015//
+/user_index.html/1.2/Wed Sep 23 08:49:14 2015//
+/user_mpwd.html/1.2/Wed Sep 23 08:51:15 2015//
+/user_myfav.html/1.2/Wed Sep 23 08:51:15 2015//
+/user_myscore.html/1.2/Wed Sep 23 08:51:15 2015//
 /shopview.html/1.2/Wed Sep 23 09:00:37 2015//
 D/css////
 /wxweblogin.jsp/1.2/Thu Sep 24 08:51:44 2015//
@@ -73,14 +77,10 @@ D/css////
 /flowcheck.html/1.7/Fri Sep 25 06:54:21 2015//
 /reg.html/1.2/Fri Sep 25 07:20:23 2015//
 /kill.jsp/1.8/Fri Sep 25 07:28:26 2015//
+/login.html/1.7/Mon Sep 28 05:46:12 2015//
+/flow.html/1.11/Mon Sep 28 06:00:39 2015//
 /index.html/1.2/Mon Sep 28 06:08:50 2015//
 /orderdetail.html/1.2/Mon Sep 28 06:16:03 2015//
-/login.html/1.8/Mon Sep 28 09:54:12 2015//
-/flow.html/1.12/Tue Sep 29 06:34:31 2015//
-/user_orderlist.html/1.14/Tue Sep 29 07:05:15 2015//
-/user_index.html/1.4/Tue Sep 29 07:09:14 2015//
-/user_mpwd.html/1.4/Tue Sep 29 07:09:14 2015//
-/user_myfav.html/1.4/Tue Sep 29 07:09:14 2015//
-/user_myscore.html/1.4/Tue Sep 29 07:09:14 2015//
-/user_mytkts.html/1.2/Tue Sep 29 07:09:14 2015//
-/login_test.html/1.2/Mon Oct 12 03:15:27 2015//
+/t.html/1.1/Mon Sep 28 06:16:31 2015//
+/login_test.html/1.2/Mon Oct 12 08:32:19 2015//
+/indextt.html/1.1/Wed Oct 14 09:16:59 2015//
