@@ -37,6 +37,7 @@ function checkLogin() {
 				if (ret.status=="0") {
 					if (ret.token_available=="1") {
 						is_token_available = 1;
+						alert("token is available");
 					}
 					else {
 						is_token_available = 1;
