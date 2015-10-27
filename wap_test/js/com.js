@@ -21,7 +21,7 @@ function checkLogin() {
 	
 	var is_token_available = 1; 
 	
-	if (token==undefined || token == "" ) {	
+	if (token==undefined || token == "" || token==null) {	
 		is_token_available = 0;
 		alert("token is unavailable");
 	}else{
