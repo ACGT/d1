@@ -189,10 +189,16 @@ function loaddata(status1){
 		pli+='<div class="mo_item">';
 		pli+='<div class="order">';
 		pli+='    <span>订单号：<a href="/wap/orderdetail.html?odrid='+orders[i].order_odrid+'" style="color:#36c;">'+orders[i].order_odrid+' </a>';
-		if(orders[i].order_payid!=0&&orders[i].order_status==0){
+		
+		pli+='</span><span>金额：'+orders[i].order_allmoney+'&nbsp;&nbsp;';
+		if(orders[i].order_payid!=0&&orders[i].order_payid!=6&&orders[i].order_status==0){
 			pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" class="pays" >去支付</a>';
+			}else if(orders[i].order_payid==6&&orders[i].order_status==0){{
+				pli+='&nbsp;&nbsp;<a  href="/wap/orderdetail.html?odrid='+orders[i].order_odrid+'" class="pays" >微信支付</a>';
+
 			}
 		pli+='</span><span>金额：'+orders[i].order_allmoney+'&nbsp;&nbsp;'+orders[i].order_statustxt+'</span></div>';
+
 		pli+='<ul>';
 		var items=eval(orders[i].order_items);
 		var itemlen= items.length;
