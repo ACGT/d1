@@ -23,6 +23,7 @@ function checkLogin() {
 	
 	if (token==undefined || token == "" ) {	
 		is_token_available = 0;
+		alert("token is unavailable");
 	}else{
 		
 		$.ajax({
