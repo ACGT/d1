@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%><%@include file="/inc/header.jsp"%>
+<%@ page contentType="text/html; charset=UTF-8" import="cn.b2m.eucp.sdkhttp.*"%><%@include file="/inc/header.jsp"%>
 <%@include file="/admin/chkshop.jsp"%>
 <%@include file="/admin/public.jsp"%>
 <%
@@ -697,7 +697,7 @@ function excel_export(){
 </script>
 
 <body style="overflow-x: hidden">
-
+<div>sms:<%=SendSms.GetBalance() %></div>
 <table width="806" border="0" cellspacing="0" cellpadding="0" align="center">
 <form id="search1" name="search1" method="post" action="odrlist.jsp" >
 <input type="hidden" name="act" value="list" />
