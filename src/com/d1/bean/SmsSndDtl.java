@@ -33,7 +33,7 @@ public class SmsSndDtl extends BaseEntity implements java.io.Serializable {
 	private Long ifsend=new Long(0);
 	private String temp1;
 	private Date senddate ;
-	private Date ceatedate=new Date();
+	private Date createdate=new Date();
 	public String getId() {
 		return id;
 	}
@@ -76,11 +76,11 @@ public class SmsSndDtl extends BaseEntity implements java.io.Serializable {
 	public void setSenddate(Date senddate) {
 		this.senddate = senddate;
 	}
-	public Date getCeatedate() {
-		return ceatedate;
+	public Date getCreatedate() {
+		return createdate;
 	}
-	public void setCeatedate(Date ceatedate) {
-		this.ceatedate = ceatedate;
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
 	}
 	
 }
