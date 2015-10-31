@@ -697,7 +697,7 @@ function excel_export(){
 </script>
 
 <body style="overflow-x: hidden">
-<div>sms:<%=SendSms.GetBalance() %></div>
+<div>sms:<%=SingletonClient.getClient().getBalance() %></div>
 <table width="806" border="0" cellspacing="0" cellpadding="0" align="center">
 <form id="search1" name="search1" method="post" action="odrlist.jsp" >
 <input type="hidden" name="act" value="list" />
