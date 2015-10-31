@@ -678,8 +678,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 							c.add(Calendar.DATE, 15);
 							if(new Date().before(c.getTime()))
 							{
+								if(ps==6){
+									result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+								}else{
 								result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-								
+								}
 							}
 							else
 							{
@@ -733,8 +737,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 								c.add(Calendar.DATE, 15);
 								if(new Date().before(c.getTime()))
 								{
+									if(ps==6){
+										result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+									}else{
 									result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-									
+									}
 								}
 								else
 								{
@@ -827,6 +835,9 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     				case 35:
     				case 39:
     					ps=1;
+    					break;
+    				case 60:
+    					ps=6;
     					break;
     				default:{
     						ps=1;
@@ -1020,8 +1031,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 							c.add(Calendar.DATE, 15);
 							if(new Date().before(c.getTime()))
 							{
+								if(ps==6){
+									result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+								}else{
 								result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-								
+								}
 							}
 							else
 							{
@@ -1076,8 +1091,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 								c.add(Calendar.DATE, 15);
 								if(new Date().before(c.getTime()))
 								{
+									if(ps==6){
+										result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+									}else{
 									result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-									
+									}
 								}
 								else
 								{
@@ -1170,6 +1189,9 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     				case 35:
     				case 39:
     					ps=1;
+    					break;
+    				case 60:
+    					ps=6;
     					break;
     				default:{
     						ps=1;
@@ -1436,8 +1458,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 							c.add(Calendar.DATE, 15);
 							if(new Date().before(c.getTime()))
 							{
+								if(ps==6){
+									result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+								}else{
 								result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-								
+								}
 							}
 							else
 							{
@@ -1518,8 +1544,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 								c.add(Calendar.DATE, 15);
 								if(new Date().before(c.getTime()))
 								{
+									if(ps==6){
+										result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+									}else{
 									result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-									
+									}
 								}
 								else
 								{
@@ -1614,6 +1644,9 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     				case 35:
     				case 39:
     					ps=1;
+    					break;
+    				case 60:
+    					ps=6;
     					break;
     				default:{
     						ps=1;
@@ -1881,8 +1914,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 							c.add(Calendar.DATE, 15);
 							if(new Date().before(c.getTime()))
 							{
+								if(ps==6){
+									result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+								}else{
 								result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-								
+								}
 							}
 							else
 							{
@@ -1963,8 +2000,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 								c.add(Calendar.DATE, 15);
 								if(new Date().before(c.getTime()))
 								{
+									if(ps==6){
+										result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
+
+									}else{
 									result="<input type=\"image\" id=\"send_button\" onclick=\"payOrder2("+ps+",'"+orderid+"',this);\" src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" />"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-									
+									}
 								}
 								else
 								{

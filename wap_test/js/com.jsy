@@ -1,7 +1,6 @@
 
 var is_login = 0;
 var user_agent = window.navigator.userAgent.toLowerCase();
-alert(user_agent);
 if(user_agent.match(/MicroMessenger/i) == 'micromessenger'){
 	checkLogin();
 }
@@ -21,10 +20,9 @@ function checkLogin() {
 	//alert(window.location.href+":checkLogin():token:"+window.localStorage.getItem("token"));
 	
 	var is_token_available = 1; 
-	alert("token is "+token);
-	if (token==undefined || token == "" || token==null) {	
+	
+	if (token==undefined || token == "" ) {	
 		is_token_available = 0;
-		alert("token is unavailable");
 	}else{
 		
 		$.ajax({
@@ -37,7 +35,6 @@ function checkLogin() {
 				if (ret.status=="0") {
 					if (ret.token_available=="1") {
 						is_token_available = 1;
-						alert("token is available");
 					}
 					else {
 						is_token_available = 1;

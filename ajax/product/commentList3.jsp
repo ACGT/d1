@@ -14,7 +14,7 @@ commentLength=clist.size();
 int currentPage = 1 ;
 String pg = request.getParameter("pg");
 if(StringUtils.isDigits(pg))currentPage = Integer.parseInt(pg);
-
+SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 int PAGE_SIZE = 10 ;
 PageBean pBean = new PageBean(commentLength,PAGE_SIZE,currentPage);
 List<Comment> commentlist = getCommentListPage(clist,pBean.getStart(),PAGE_SIZE);
@@ -68,7 +68,7 @@ if(commentlist != null && commentlist.size()>0){
                             </div>
                             
                             <div style="float:right"><span class="date-comment">
-                           <%=Tools.stockFormatDate(comment.getGdscom_createdate()) %>
+                           <%=df.format(comment.getGdscom_createdate()) %>
                             </span></div>
                             
                         </div>

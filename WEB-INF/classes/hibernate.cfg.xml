@@ -226,5 +226,6 @@
 		<mapping class="com.d1.bean.WeixinShopUser" />
 		<mapping class="com.d1.bean.WeixinShopToken" />
 		<mapping class="com.d1.bean.WeixinOpenIdMbrIdPair" />
+		<mapping class="com.d1.bean.SmsSndDtl" />
 	</session-factory>
 </hibernate-configuration>
