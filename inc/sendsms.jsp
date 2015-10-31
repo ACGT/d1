@@ -1,10 +1,22 @@
-<%@ page contentType="text/html; charset=UTF-8" import="com.d1.util.*,cn.b2m.eucp.sdkhttp.*"%><%!
+<%@ page contentType="text/html; charset=UTF-8" import="com.d1.util.*,cn.b2m.eucp.sdkhttp.*"%><%@include file="/html/header.jsp"%><%!
 public static boolean SendSms(String phone,String smstxt){
 	String[]  phones=phone.split("@@@@");
-	int ret=SendSms.SendSMS(phones, "【d1优尚】"+smstxt);
+	smstxt="【d1优尚】"+smstxt;
+	int ret=SendSms.SendSMS(phones, smstxt);
+	SmsSndDtl  sms=new SmsSndDtl();
 	if(ret==0){
+		sms.setPhone(phone);
+		sms.setSmstxt(smstxt);
+		sms.setIfsend(new Long(1));
+		sms.setSenddate(new Date());
+		Tools.getManager(SmsSndDtl.class).create(sms);
 		return true;
 	}else{
+		sms.setPhone(phone);
+		sms.setSmstxt(smstxt);
+		sms.setIfsend(new Long(-1));
+		sms.setSenddate(new Date());
+		Tools.getManager(SmsSndDtl.class).create(sms);
 		return false;
 	}
 }

@@ -884,4 +884,7 @@
 	<manager>
 		<bean-class>com.d1.bean.WeixinOpenIdMbrIdPair</bean-class>
 	</manager>
+	<manager>
+		<bean-class>com.d1.bean.SmsSndDtl</bean-class>
+	</manager>
 </managers>
