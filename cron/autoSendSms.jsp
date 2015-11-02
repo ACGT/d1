@@ -36,21 +36,25 @@ public static boolean SendSms(String phone,String smstxt){
 %>
 <%
 //if("127.0.0.1".equals(request.getRemoteHost())||"localhost".equals(request.getRemoteHost())){
+	Date dd=new Date();
+	if (dd.getHours()>=8&&dd.getHours()<22){
 	List<SmsSndDtl> list =getSendSmsList();
 	if(list != null && !list.isEmpty()){
     	for(SmsSndDtl sms : list){
     		boolean ret=SendSms(sms.getPhone().trim(),sms.getSmstxt());
     		if(ret){
+    		sms.setTemp1("营销短信");
     		sms.setIfsend(new Long(1));
     		sms.setSenddate(new Date());
     		Tools.getManager(SmsSndDtl.class).update(sms, true);
     		}else{
+    			sms.setTemp1("营销短信");
     			sms.setIfsend(new Long(-1));
         		sms.setSenddate(new Date());
         		Tools.getManager(SmsSndDtl.class).update(sms, true);
     		}
     	}
 	}
-	
+	}
 	//}
 %>
