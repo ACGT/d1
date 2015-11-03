@@ -423,12 +423,14 @@ if(!Tools.isNull(skuname1)){
    				if(CartItemHelper.getProductOccupyStock(p.getId(), sku.getId())<ProductHelper.getVirtualStock(p.getId(), sku.getId())){
 	    				jgrpd.put("skuname",skuname);
 	    				jgrpd.put("skuid",sku.getId());
+	    				jsonsku.add(jgrpd);
    				}
    				else
    				{
    					if(sku.getSkumst_vstock().longValue()>0){
    						jgrpd.put("skuname",skuname);
 	    				jgrpd.put("skuid",sku.getId());
+	    				jsonsku.add(jgrpd);
    					}
    				}
    			}else{
@@ -436,9 +438,10 @@ if(!Tools.isNull(skuname1)){
    	           {
    	        	jgrpd.put("skuname",skuname);
 				jgrpd.put("skuid",sku.getId());
+				jsonsku.add(jgrpd);
    	           }
    			}
-   	 		jsonsku.add(jgrpd);
+   	 		
    		}
   
 
