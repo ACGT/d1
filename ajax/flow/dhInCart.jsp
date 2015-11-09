@@ -167,7 +167,14 @@ if(ProductHelper.hasSku(product)){
 		List<Sku> skuList = SkuHelper.getSkuListViaProductId(product.getId());
 		if(skuList != null && !skuList.isEmpty()){
 			for(Sku sku : skuList){
+				if((product.getGdsmst_stocklinkty().longValue()==2
+						||product.getGdsmst_stocklinkty().longValue()==1)){
+				if(sku.getSkumst_vstock().longValue()>0){
 				message += sku.getId()+"_"+sku.getSkumst_sku1()+"#";
+				}
+				}else{
+					message += sku.getId()+"_"+sku.getSkumst_sku1()+"#";
+				}
 			}
 		}
 		if(message.endsWith("#")) message = message.substring(0,message.length()-1);
