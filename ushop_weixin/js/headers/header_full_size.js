@@ -4,7 +4,7 @@ document.write("			<div class='logo2'>");
 document.write("				<a href='chuhe.html?id=677'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>");
 document.write("			</div>");
 document.write("			<div class='title' style='margin-top:-.08em'>");
-document.write("				<a href='chuhe.html?id=693' ><font size='4' color='#5c5c5e' > 中秋礼盒 </font></a><a href='chuhe.html?id=702' ><font size='4' color='#5c5c5e' > 早餐精选</font></a>");
+document.write("				<a href='chuhe.html?id=693' ><font size='4' color='#5c5c5e' > 营养礼盒 </font></a><a href='chuhe.html?id=702' ><font size='4' color='#5c5c5e' > 早餐精选</font></a>");
 document.write("			</div>");
 document.write("			<div class='myuser'>");
 document.write("				<a href='user_index.html'></a>");
