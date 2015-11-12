@@ -165,7 +165,7 @@ iTable.addCell(icell);
 icell = new PdfPCell();
 icell.setFixedHeight(25);
 icell=celltype(icell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,2);
-icell.setPhrase(getpar("汽运",f18));
+icell.setPhrase(getpar("汽运",f20));
 iTable.addCell(icell);
 icell = new PdfPCell();
 icell.setFixedHeight(60);
