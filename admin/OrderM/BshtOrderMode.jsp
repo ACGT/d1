@@ -13,10 +13,17 @@ public static String postShipXml(String strxml,String apiUrl,String parternId,St
 		connection.setRequestMethod("POST");
 		OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
 		//加密
-		MessageDigest messagedigest = MessageDigest.getInstance("MD5");
+		/*MessageDigest messagedigest = MessageDigest.getInstance("MD5");
 		messagedigest.update((strxml + partnerKey).getBytes("UTF-8"));
 		byte[] abyte0 = messagedigest.digest();
 		String data_digest = new String(Base64.encodeBase64(abyte0));
+		*/
+		String digestString=strxml + partnerKey;
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		md.update(digestString.getBytes("UTF-8"));
+		byte[] b = md.digest();
+		
+		String data_digest =(new sun.misc.BASE64Encoder()).encode(b);
 		
 		//开始时间
 	
