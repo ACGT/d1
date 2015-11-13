@@ -1,4 +1,4 @@
-<%@ page  language="java"   import="com.lowagie.text.Table,java.io.*,java.awt.Color,com.lowagie.text.*,com.lowagie.text.pdf.*"%><%@page 
+<%@ page  language="java"   %><%@page 
 import="com.d1.*,
 com.d1.bean.*,
 com.d1.manager.*,
@@ -17,6 +17,8 @@ java.text.*,
 java.util.HashMap,
 java.util.Map,
 net.sf.json.JSONArray,
+com.itextpdf.text.*,
+com.itextpdf.text.pdf.*,
 java.io.*"%>
 <%!public static Paragraph getpar(String str,Font fn){
 	if(str.length()==0)return null;
@@ -55,32 +57,8 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
 	 cell.setPadding(padd);
 	return cell;
 }
-/**
- * 生成二维码图片
- * @param toEncryptStr 要加密的信息
- * @return Image
- * @throws Exception 
- */
- /*
-public static Image generateQR(JSONArray toEncryptStr) throws Exception
-{
-  //设置QR二维码参数 
-  Map<EncodeHintType,Object> hints=new HashMap<EncodeHintType,Object>();
-  hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H); 
-  hints.put(EncodeHintType.CHARACTER_SET, "GBK"); 
-  Encrypt encoder=new Encrypt();
-  //加密
-  String ming=toEncryptStr.toString();//明文
-//		System.out.println("ming="+ming);
-  String mi=encoder.encrypt(ming);//密文
-//		System.out.println("mi="+mi);
-//		System.out.println("解密："+encoder.decrypt(mi));
-  //生成二位图
-  BarcodeQRCode qr=new BarcodeQRCode(mi,150,150,hints);//此处是用密文生成的二维码，因此扫描出来的信息也是密文
-  Image image = qr.getImage();
-  return image;//返回二维码
-}
-*/
+ 
+  
 %>
 <%/*
 if(session.getAttribute("admin_mng")!=null){
@@ -116,20 +94,27 @@ String rcity=odrm.getOdrmst_rcity();
 String raddr=odrm.getOdrmst_raddress();
 
 rphone=rphone.length()>11?rphone.substring(0, 11):rphone;
-PdfContentByte cb = writer.getDirectContent();
+ 
 
-Barcode128 code128 = new Barcode128(); 
-code128.setCode(shipcode);   
+//=========添加条形码begin===================
+PdfContentByte cd = writer.getDirectContent();
+
+Barcode128 code128 = new Barcode128();
+
+code128.setCode(shipcode);
 String fullCode = code128.getRawText(shipcode,false);
 int len = fullCode.length();
 code128.setX(130/((len+2)*11 + 2f));
-Image image128 = code128.createImageWithBarcode(cb, null, null);   
+Image image128 = code128.createImageWithBarcode(cd, null, null);
+
+//=========添加条形码end===================
+ 
 //document.add(new Phrase(new Chunk(image128, 20, -50)));
 
-Font f9 = new Font(bfChinese, 9, Font.BOLD, Color.BLACK);
-Font f12 = new Font(bfChinese, 10, Font.BOLD, Color.BLACK);
-Font f26 = new Font(bfChinese, 26, Font.BOLD, Color.BLACK);
-Font f20 = new Font(bfChinese, 20, Font.BOLD, Color.BLACK);
+Font f9 = new Font(bfChinese, 9, Font.BOLD);
+Font f12 = new Font(bfChinese, 10, Font.BOLD);
+Font f26 = new Font(bfChinese, 26, Font.BOLD);
+Font f20 = new Font(bfChinese, 20, Font.BOLD);
 // 添加table实例
 PdfPTable tables = new PdfPTable(1);
 tables.setWidthPercentage(100);
@@ -160,23 +145,21 @@ cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
 iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
 icell = new PdfPCell();
-icell.setBorderColor(new Color(255, 255, 255));
 icell.setFixedHeight(15);
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setPhrase(getpar(rname,f12));
+icell.setPhrase(getpar2(rname,f12));
 iTable.addCell(icell);
 icell = new PdfPCell();
 icell.setFixedHeight(15);
 icell = new PdfPCell(getpar("电话："+rphone,f12));
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setBorderColor(new Color(255, 255, 255));
 iTable.addCell(icell);
 
 icell = new PdfPCell();
 icell.setFixedHeight(27);
-icell.setBorderColor(new Color(255, 255, 255));
+
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
-icell.setPhrase(getpar(rprv+rcity+raddr,f12));
+icell.setPhrase(getpar2(rprv+rcity+raddr,f12));
 iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
@@ -195,14 +178,14 @@ iTable= new PdfPTable(2);
 iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.65f,0.35f});
 icell = new PdfPCell();
-icell.setBorderColor(new Color(255, 255, 255));
+
 icell.setFixedHeight(43);
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
 icell.setPhrase(getpar("D1优尚\n电话：400-680-8666\n地址：广州市 白云区",f9));
 iTable.addCell(icell);
 icell = new PdfPCell();
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setBorderColor(new Color(255, 255, 255));
+
 icell.setPhrase(getpar("代收/到付：\n保价金额\n保价费用\n其它说明",f9));
 iTable.addCell(icell);
 cell.addElement(iTable);
@@ -218,11 +201,16 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,0);
 cell.setPhrase(getpar2(bigPen,f26));
 table.addCell(cell);
 
-cell = new PdfPCell();
+com.itextpdf.text.Image qrCodeImage=createQrcode.generateQR(shipcode);
+qrCodeImage.scaleToFit(43,43);  
+ 
+cell = new PdfPCell(qrCodeImage);
 cell.setFixedHeight(57);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
-cell.setPhrase(getpar("收件人签收",f20));
 table.addCell(cell);
+
+
+
 //上联结束
 cells.addElement(table);
 tables.addCell(cells);
@@ -252,7 +240,7 @@ cell.setPhrase(getpar("收货人",f12));
 table.addCell(cell);
 cell = new PdfPCell();
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-cell.setPhrase(getpar(rname+"\n"+rprv+rcity+raddr,f12));
+cell.setPhrase(getpar2(rname+"\n"+rprv+rcity+raddr,f12));
 table.addCell(cell);
 cell = new PdfPCell();
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
@@ -272,31 +260,29 @@ iTable= new PdfPTable(2);
 iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.65f,0.35f});
 icell = new PdfPCell();
-icell.setBorderColor(new Color(255, 255, 255));
 icell.setFixedHeight(43);
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setPhrase(getpar("D1优尚/n电话：400-680-8666/n地址：广州市 白云区",f9));
+icell.setPhrase(getpar("D1优尚\n电话：400-680-8666\n地址：广州市 白云区",f9));
 iTable.addCell(icell);
 icell = new PdfPCell();
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setBorderColor(new Color(255, 255, 255));
 icell.setPhrase(getpar("代收/到付：\n保价金额\n保价费用\n其它说明",f9));
 iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
 //寄件人结束
 cell = new PdfPCell();
-icell.setFixedHeight(25);
+cell.setFixedHeight(25);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 cell.setPhrase(getpar("目的地",f12));
 table.addCell(cell);
 cell = new PdfPCell();
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,0);
-cell.setPhrase(getpar2(bigPen,f26));
+cell.setPhrase(getpar2(bigPen,f20));
 table.addCell(cell);
 
 cell = new PdfPCell();
-icell.setFixedHeight(99);
+cell.setFixedHeight(99);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
 cell.setPhrase(getpar("自定义",f20));
 table.addCell(cell);
