@@ -23,8 +23,8 @@ public static String postShipXml(String strxml,String apiUrl,String parternId,St
 		md.update(digestString.getBytes("UTF-8"));
 		byte[] b = md.digest();
 		
-		String data_digest =(new sun.misc.BASE64Encoder()).encode(b);
-		
+		//String data_digest =(new sun.misc.BASE64Encoder()).encode(b);
+		String data_digest = new String(Base64.encodeBase64(b));
 		//开始时间
 	
 		
@@ -280,8 +280,8 @@ if(session.getAttribute("admin_mng")!=null){
 	   }
 } 
 else {return;}*/
-String parternId = "1000190676";
-String partnerKey= "GFBETPGSMP";
+String parternId = "TESTXML";
+String partnerKey= "12345";
 String odrid=request.getParameter("odrid");
 String type=request.getParameter("type");//n创建新订单   c取消订单
 
