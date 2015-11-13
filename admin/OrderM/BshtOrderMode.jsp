@@ -102,7 +102,7 @@ String apiUrl = "http://183.129.172.49/ems/api/process";
 	StringBuilder xmlBuilder = new StringBuilder();
 xmlBuilder.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
 xmlBuilder.append("<PrintRequest xmlns:ems=\"http://express.800best.com\">");  
-xmlBuilder.append("<deliveryConfirm>true</deliveryConfirm>");  
+xmlBuilder.append("<deliveryConfirm>false</deliveryConfirm>");  
 xmlBuilder.append("<EDIPrintDetailList>"); 
 xmlBuilder.append("<sendMan><![CDATA[D1优尚网]]></sendMan>");  
 xmlBuilder.append("<sendManPhone><![CDATA[400-680-8666]]></sendManPhone>");  
@@ -135,7 +135,7 @@ xmlBuilder.append("<remark><![CDATA[备注]]></remark>");
 xmlBuilder.append("</EDIPrintDetailList>");  
 xmlBuilder.append("</PrintRequest>");
 
-	
+	System.out.println("请求的信息："+xmlBuilder.toString());
 	long a = System.currentTimeMillis();
 	System.out.println(xmlBuilder.toString());
 	String responseString=postShipXml(xmlBuilder.toString(), apiUrl,parternId,"BillPrintRequest",odrid,partnerKey);
