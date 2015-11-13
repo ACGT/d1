@@ -33,7 +33,7 @@ public static String gettoutf8(String str){
 	if(str.length()==0)return null;
 	try{
 	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
-    String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
+    String newStr=new String(temp,"GDK");//这里写转换后的编码方式
     return newStr;
 	}catch(Exception ex){
 		return null;
@@ -224,16 +224,24 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
 cell.setPhrase(getpar("收件人签收",f20));
 table.addCell(cell);
 //上联结束
+
+
+//**********************************************************
+cells = new PdfPCell();
+cells.setFixedHeight(227);
+cells.setBorderWidth(0);
+cells.setPadding(0);
+iTable= new PdfPTable(1); 
+ table = new PdfPTable(3);
+table.setWidthPercentage(100);
+table.setHorizontalAlignment(PdfPTable.ALIGN_LEFT);
+table.setWidths(new float[]{0.07f,0.53f,0.40f});
+
 //下联开始
 cell = new PdfPCell();
 cell.setFixedHeight(43);
 cell = new PdfPCell(image128);
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,3,2);
-table.addCell(cell);
-cell = new PdfPCell();
-cell.setFixedHeight(57);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
-cell.setPhrase(getpar("收件人签收",f20));
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
