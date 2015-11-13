@@ -29,7 +29,7 @@ Paragraph par = new Paragraph(newStr,fn);
 		return null;
 	}
 }
-public static String gettoutf8(String str){
+public static String gettogbk(String str){
 	if(str.length()==0)return null;
 	try{
 	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
@@ -163,7 +163,7 @@ icell = new PdfPCell();
 icell.setBorderColor(new Color(255, 255, 255));
 icell.setFixedHeight(15);
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setPhrase(getpar2(rname,f12));
+icell.setPhrase(getpar(gettogbk(rname),f12));
 iTable.addCell(icell);
 icell = new PdfPCell();
 icell.setFixedHeight(15);
@@ -176,7 +176,7 @@ icell = new PdfPCell();
 icell.setFixedHeight(27);
 icell.setBorderColor(new Color(255, 255, 255));
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
-icell.setPhrase(getpar(gettoutf8("地址：")+rprv+rcity+raddr,f12));
+icell.setPhrase(getpar(gettogbk("地址：")+gettogbk(rprv+rcity+raddr),f12));
 iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
@@ -224,7 +224,11 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
 cell.setPhrase(getpar("收件人签收",f20));
 table.addCell(cell);
 //上联结束
-
+cells.addElement(table);
+tables.addCell(cells);
+icell = new PdfPCell();
+icell.setFixedHeight(10);
+tables.addCell(icell);
 
 //**********************************************************
 cells = new PdfPCell();
@@ -251,7 +255,7 @@ cell.setPhrase(getpar("收货人",f12));
 table.addCell(cell);
 cell = new PdfPCell();
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-cell.setPhrase(getpar(rname+"/n地址："+rprv+rcity+raddr,f12));
+cell.setPhrase(getpar(rname+gettogbk("/n地址：")+rprv+rcity+raddr,f12));
 table.addCell(cell);
 cell = new PdfPCell();
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
