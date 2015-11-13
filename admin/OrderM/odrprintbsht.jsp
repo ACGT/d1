@@ -19,7 +19,6 @@ java.util.Map,
 net.sf.json.JSONArray,
 com.itextpdf.text.*,
 com.itextpdf.text.pdf.*,
-com.itextpdf.text.pdf.BaseFont,
 java.io.*"%>
 <%!public static Paragraph getpar(String str,Font fn){
 	if(str.length()==0)return null;
@@ -79,7 +78,7 @@ ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 PdfWriter writer=PdfWriter.getInstance( document, buffer );
 document.open();
 //设置中文字体
-BaseFont bfChinese =BaseFont.createFont("STSong-Light",BaseFont.IDENTITY_H,BaseFont.NOT_EMBEDDED);
+com.lowagie.text.pdf.BaseFont bfChinese =com.lowagie.text.pdf.BaseFont.createFont("STSong-Light",BaseFont.IDENTITY_H,BaseFont.NOT_EMBEDDED);
  
 String odrid=request.getParameter("odrid");
 String bigPen=request.getParameter("bigPen");//大头笔
