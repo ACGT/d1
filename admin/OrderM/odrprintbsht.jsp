@@ -166,17 +166,11 @@ icell = new PdfPCell();
 icell.setFixedHeight(27);
 icell.setBorderColor(new Color(255, 255, 255));
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
-icell.setPhrase(getpar2(rprv+rcity+raddr,f12));
+icell.setPhrase(getpar2("地址："+rprv+rcity+raddr,f12));
 iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
-cell = new PdfPCell();
-cell.setFixedHeight(57);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
-cell.setPhrase(getpar("收货人",f12));
-table.addCell(cell);
-cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
+
 //收件人结束
 //寄件人开始
 cell = new PdfPCell();
@@ -205,7 +199,7 @@ cell.addElement(iTable);
 table.addCell(cell);
 //寄件人结束
 cell = new PdfPCell();
-icell.setFixedHeight(43);
+cell.setFixedHeight(43);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 cell.setPhrase(getpar("目的地",f12));
 table.addCell(cell);
@@ -217,7 +211,7 @@ table.addCell(cell);
 cell = new PdfPCell();
 icell.setFixedHeight(57);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
-cell.setPhrase(getpar("收件人答收",f20));
+cell.setPhrase(getpar("收件人签收",f20));
 table.addCell(cell);
 //上联结束
 //下联开始
