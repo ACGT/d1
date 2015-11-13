@@ -29,6 +29,16 @@ Paragraph par = new Paragraph(newStr,fn);
 		return null;
 	}
 }
+public static String gettoutf8(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
+    String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
+    return newStr;
+	}catch(Exception ex){
+		return null;
+	}
+}
 public static Paragraph getpar2(String str,Font fn){
 	if(str.length()==0)return null;
 	try{
@@ -166,7 +176,7 @@ icell = new PdfPCell();
 icell.setFixedHeight(27);
 icell.setBorderColor(new Color(255, 255, 255));
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
-icell.setPhrase(getpar2("地址："+rprv+rcity+raddr,f12));
+icell.setPhrase(getpar(gettoutf8("地址：")+rprv+rcity+raddr,f12));
 iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
@@ -209,7 +219,7 @@ cell.setPhrase(getpar2(bigPen,f26));
 table.addCell(cell);
 
 cell = new PdfPCell();
-icell.setFixedHeight(57);
+cell.setFixedHeight(57);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
 cell.setPhrase(getpar("收件人签收",f20));
 table.addCell(cell);
@@ -219,6 +229,11 @@ cell = new PdfPCell();
 cell.setFixedHeight(43);
 cell = new PdfPCell(image128);
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,3,2);
+table.addCell(cell);
+cell = new PdfPCell();
+cell.setFixedHeight(57);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
+cell.setPhrase(getpar("收件人签收",f20));
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
