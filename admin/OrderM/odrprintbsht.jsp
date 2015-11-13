@@ -19,6 +19,7 @@ java.util.Map,
 net.sf.json.JSONArray,
 com.itextpdf.text.*,
 com.itextpdf.text.pdf.*,
+com.itextpdf.text.pdf.BaseFont,
 java.io.*"%>
 <%!public static Paragraph getpar(String str,Font fn){
 	if(str.length()==0)return null;
