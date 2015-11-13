@@ -226,9 +226,6 @@ table.addCell(cell);
 //上联结束
 cells.addElement(table);
 tables.addCell(cells);
-icell = new PdfPCell();
-icell.setFixedHeight(10);
-tables.addCell(icell);
 
 //**********************************************************
 cells = new PdfPCell();
@@ -261,13 +258,6 @@ cell = new PdfPCell();
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
 cell.setPhrase(getpar("电话："+rphone,f12));
 table.addCell(cell);
-cell = new PdfPCell();
-cell.setFixedHeight(57);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
-cell.setPhrase(getpar("收货人",f12));
-table.addCell(cell);
-cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
 //收件人结束
 //寄件人开始
 cell = new PdfPCell();
