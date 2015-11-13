@@ -163,7 +163,7 @@ icell = new PdfPCell();
 icell.setBorderColor(new Color(255, 255, 255));
 icell.setFixedHeight(15);
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setPhrase(getpar(gettogbk(rname),f12));
+icell.setPhrase(getpar(rname,f12));
 iTable.addCell(icell);
 icell = new PdfPCell();
 icell.setFixedHeight(15);
