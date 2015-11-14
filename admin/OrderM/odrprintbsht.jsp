@@ -78,7 +78,7 @@ ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 PdfWriter writer=PdfWriter.getInstance( document, buffer );
 document.open();
 //设置中文字体
-BaseFont bfChinese =BaseFont.createFont("STSongStd-Lightt","UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
+BaseFont bfChinese =BaseFont.createFont( "STSong-Light","UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
 
 String odrid=request.getParameter("odrid");
 String bigPen=request.getParameter("bigPen");//大头笔
