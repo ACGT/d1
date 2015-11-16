@@ -34,7 +34,7 @@ public static String postShipXml(String strxml,String apiUrl,String parternId,St
 				+ "&digest="+ URLEncoder.encode(data_digest,"UTF-8")
 				+ "&msgId="+ URLEncoder.encode(msgId,"UTF-8")
 				+ "&parternID=" + URLEncoder.encode(parternId, "UTF-8");
-		//System.out.println(queryString);
+		System.out.println(queryString);
 		out.write(queryString);
 		out.flush();
 		out.close();
