@@ -228,7 +228,7 @@ OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
 		xmlBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
 		xmlBuilder.append("<BillCodeFeedbackRequest xmlns:ems=\"http://express.800best.com\">");
 	xmlBuilder.append("<removePrintFeedbackList>");
-	xmlBuilder.append("<mailNo><![CDATA["+shipcode+"]></mailNo>");
+	xmlBuilder.append("<mailNo><![CDATA["+shipcode.trim()+"]]></mailNo>");
 	xmlBuilder.append("</removePrintFeedbackList>");
 	xmlBuilder.append("</BillCodeFeedbackRequest>");
  
