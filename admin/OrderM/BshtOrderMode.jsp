@@ -228,12 +228,12 @@ OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
 		xmlBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
 		xmlBuilder.append("<BillCodeFeedbackRequest xmlns:ems=\"http://express.800best.com\">");
 	xmlBuilder.append("<removePrintFeedbackList>");
-	xmlBuilder.append("<mailNo><![CDATA["+mailNo+"]></mailNo>");
+	xmlBuilder.append("<mailNo><![CDATA["+shipcode+"]></mailNo>");
 	xmlBuilder.append("</removePrintFeedbackList>");
 	xmlBuilder.append("</BillCodeFeedbackRequest>");
  
 		long a = System.currentTimeMillis();
-		System.err.print(xmlBuilder.toString());
+		System.err.print("请求的取消信息："+xmlBuilder.toString());
 		String responseString=postShipXml(xmlBuilder.toString(), apiUrl,parternId,"BillPrintDeliveryCancel",odrid,partnerKey);
 		//结束时间
 		long b = System.currentTimeMillis();
@@ -284,9 +284,9 @@ String parternId = "TESTXML";
 String partnerKey= "12345";
 String odrid=request.getParameter("odrid");
 String type=request.getParameter("type");//n创建新订单   c取消订单
-
+String mailno=request.getParameter("mailno");//n创建新订单   c取消订单
 if("c".equals(type)){
-	boolean t=cancelshipcode(odrid,parternId,partnerKey,"");
+	boolean t=cancelshipcode(odrid,parternId,partnerKey,mailno);
 	if(t){
 	out.print("取消成功！！！");
 	}else{
