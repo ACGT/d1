@@ -203,10 +203,10 @@ public static boolean saveShipCode(String id, String odrmst_d1shipmethod, String
 		order.setOdrmst_d1shipmethod(odrmst_d1shipmethod);
 		 System.err.print("更新百世汇通电子面单快递单号");
 		if(ordertbl.equals("main")) {
-			//Tools.getManager(OrderMain.class).update(order, true);
+			Tools.getManager(OrderMain.class).update(order, true);
 		}
 		else if (ordertbl.equals("recent")) {
-			//Tools.getManager(OrderRecent.class).update(order, true);
+			Tools.getManager(OrderRecent.class).update(order, true);
 		}
 		return true;
 	} catch (Exception e) {
@@ -259,7 +259,7 @@ OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
 						odrm.setOdrmst_ads1("");
 						odrm.setOdrmst_goodsodrid("");
 						odrm.setOdrmst_d1shipmethod("");
-						//Tools.getManager(OrderMain.class).update(odrm, true);
+						Tools.getManager(OrderMain.class).update(odrm, true);
 						 System.err.print("更新百世汇通电子面单取消");
 					 
 					 return true;
