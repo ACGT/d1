@@ -220,7 +220,7 @@ tables.addCell(cells);
 
 //**********************************************************
 cells = new PdfPCell();
-cells.setFixedHeight(227);
+cells.setFixedHeight(212);
 cells.setBorderWidth(0);
 cells.setPadding(0);
 iTable= new PdfPTable(1); 
@@ -285,7 +285,7 @@ cell.setPhrase(getpar2(bigPen,f20));
 table.addCell(cell);
 
 cell = new PdfPCell(qrCodeImage);
-cell.setFixedHeight(99);
+cell.setFixedHeight(84);
 cell=celltype(cell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,3,0);
 table.addCell(cell);
 
