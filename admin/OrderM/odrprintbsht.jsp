@@ -55,6 +55,7 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
 	 cell.setVerticalAlignment(verali);
 	 cell.setColspan(cols);
 	 cell.setPadding(padd);
+	 cell.setBorderColor(new BaseColor(255, 255, 255));
 	return cell;
 }
  
@@ -133,6 +134,7 @@ PdfPCell icell = new PdfPCell();
 cell.setFixedHeight(43);
 cell = new PdfPCell(image128);
 cell=celltype(cell,Element.ALIGN_RIGHT,Element.ALIGN_RIGHT,3,2);
+
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
@@ -203,7 +205,7 @@ cell.setPhrase(getpar2(bigPen,f26));
 table.addCell(cell);
 
 com.itextpdf.text.Image qrCodeImage=createQrcode.generateQR(shipcode);
-qrCodeImage.scaleToFit(43,43);  
+qrCodeImage.scaleToFit(55,55);  
  
 cell = new PdfPCell(qrCodeImage);
 cell.setFixedHeight(57);
