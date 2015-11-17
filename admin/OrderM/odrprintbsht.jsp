@@ -282,10 +282,9 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,0);
 cell.setPhrase(getpar2(bigPen,f20));
 table.addCell(cell);
 
-cell = new PdfPCell();
+cell = new PdfPCell(qrCodeImage);
 cell.setFixedHeight(99);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
-cell.setPhrase(getpar("自定义",f20));
+cell=celltype(cell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,3,0);
 table.addCell(cell);
 
 
