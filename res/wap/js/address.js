@@ -43,7 +43,7 @@ function loaddata(){
 					success: function(json){
 					if(json.success){
 						FillUpdateMbrcst(json);
-						}
+					}
 					}
 					});
 				}
@@ -57,6 +57,13 @@ function FillUpdateMbrcst(modMbrcst){
     $('#raddr').val(modMbrcst.RAddress);
     $('#rphone').val(modMbrcst.RPhone);
     $('#rtel').val(modMbrcst.RTelephone);
+    if (modMbrcst.is_default==1) {
+    	document.getElementById("rflag").checked = true;
+    }
+    else {
+    	document.getElementById("rflag").checked = false;
+    }
+    	
 
 }
 function BindProvince(id){
@@ -146,12 +153,15 @@ function AddMbrcst(){
     var raddr = $.trim($('#raddr').val());
     var rphone = $.trim($('#rphone').val());
     var rtel = $.trim($('#rtel').val());
-    var rflag = $.trim($('#rflag').val());
+    var rflag = "0";
+    if (document.getElementById("rflag").checked) {
+    	rflag = "1";
+    }
     var strMbrcstID = $.trim($('#hdnMbrcstID').val());
-	 var MbrcstAction = $.trim($('#MbrcstAction').val());
+	var MbrcstAction = $.trim($('#MbrcstAction').val());
     var isAdd = (MbrcstAction=="new_save_consignee"?true:false);
     var blnOK = CheckMbrcst(rname,raddr,rphone);
-
+    //alert(MbrcstAction);
     if (blnOK){
     	$.ajax({
             type: "post",
@@ -170,11 +180,13 @@ function AddMbrcst(){
 		        TelePhone: rtel,
 		        REmail: "",
 		        RZipcode: "",
+		        RFlag: rflag,
 		        Action: MbrcstAction
 		    },error: function(XmlHttpRequest, textStatus, errorThrown){
 		    	 $('.msgerr .txt i').html("添加失败！");
 		         $('.msgerr').show();
             },success: function(strRet){
+            	
                 var iRet;
                 var iMbrcstID;
                 eval(strRet);

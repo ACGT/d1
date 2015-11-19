@@ -69,6 +69,17 @@ if(!Tools.isMobile(strRPhone)){
 
 String strTelePhone = request.getParameter("TelePhone");//固话
 
+String isDefault = request.getParameter("RFlag");
+
+if (Integer.parseInt(isDefault)==1) {
+	ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId());
+	for(UserAddress ua:list){
+		ua.setMbrcst_isDefault(0);
+		ua.setUpdatedate(new Date());
+		UserAddressHelper.manager.update(ua,true);
+	}
+}
+
 String strREmail = request.getParameter("REmail");//email
 /*if(!Tools.isEmail(strREmail)){
 	out.print("iRet=-211;iMbrcstID=-1;");
@@ -87,7 +98,7 @@ if(UserAddressHelper.isSameAddress(lUser.getId(),isAdd?"0":address.getId(),strNa
 	return;
 }
 
-boolean isClearCache = false;
+boolean isClearCache = true;
 
 if(isAdd){
 	address = new UserAddress();
@@ -113,6 +124,13 @@ address.setMbrcst_rtelephone(strTelePhone);
 address.setMbrcst_rtelephoneext("");
 address.setMbrcst_memo("");
 address.setMbrcst_rthird(new Long(0));
+if (Integer.parseInt(isDefault)==1) {
+	address.setMbrcst_isDefault(1);
+}
+else{
+	address.setMbrcst_isDefault(0);
+}
+	
 address.setUpdatedate(new Date());
 if(isAdd){
 	address = (UserAddress)UserAddressHelper.manager.create(address);

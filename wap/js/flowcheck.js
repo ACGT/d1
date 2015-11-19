@@ -122,14 +122,16 @@ function chooseitem(json){
 	 // alert(addresss.length);
 	if(addresss.length>0){
 	   for(var i=0;i<addresss.length;i++){
-	     if(i==0||addresss[i].rflag==0){
+		
+	     if(i==0||addresss[i].is_default==1){
 		    addrhtml='<a href="javascript:void(0);" id="addr">';
 			addrhtml+='<span id="addr1">收货人:'+addresss[i].rname+'&nbsp;&nbsp;'+addresss[i].rphone+'</span>';
 			addrhtml+='<span id="addr2">'+addresss[i].rprov+addresss[i].rcity+addresss[i].raddress+'</span>';
 			addrhtml+='<i class="go  top1"></i>';
 			addrhtml+='</a>';
 			addrid=addresss[i].rid;
-			 if(addresss[i].rflag==0)break;
+			 if(addresss[i].is_defalut==1)
+				 break;
 		 }
 	     
 	   }

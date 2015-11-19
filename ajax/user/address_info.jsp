@@ -20,6 +20,6 @@ map.put("RPhone",address.getMbrcst_rphone());
 map.put("RTelephone",address.getMbrcst_rtelephone());
 map.put("REmail",address.getMbrcst_remail());
 map.put("RZipCode",address.getMbrcst_rzipcode());
-
+map.put("is_default",address.getMbrcst_isDefault());
 out.print(JSONObject.fromObject(map));
 %>
