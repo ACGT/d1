@@ -73,10 +73,12 @@ String isDefault = request.getParameter("RFlag");
 
 if (Integer.parseInt(isDefault)==1) {
 	ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId());
-	for(UserAddress ua:list){
-		ua.setMbrcst_isDefault(0);
-		ua.setUpdatedate(new Date());
-		UserAddressHelper.manager.update(ua,true);
+	if (list!=null) {
+		for(UserAddress ua:list){
+			ua.setMbrcst_isDefault(0);
+			ua.setUpdatedate(new Date());
+			UserAddressHelper.manager.update(ua,true);
+		}
 	}
 }
 
