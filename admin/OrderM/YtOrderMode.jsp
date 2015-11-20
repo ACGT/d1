@@ -145,8 +145,10 @@ String apiUrl = "http://service.yto56.net.cn/CommonOrderModeBServlet.action";
 	List<BaseEntity> list2 = Tools.getManager(OrderItemMain.class).getList(listRes, null, 0, 20);
 	for(BaseEntity be:list2){
 		OrderItemBase oi= (OrderItemBase)be;
+		String gdsname=oi.getOdrdtl_gdsname();
+		gdsname=gdsname.replace("%", "");
 	xmlBuilder.append("<item>");
-	xmlBuilder.append("<itemName>"+oi.getOdrdtl_gdsname()+"</itemName>");//商品名称
+	xmlBuilder.append("<itemName>"+gdsname+"</itemName>");//商品名称
 	xmlBuilder.append("<number>"+oi.getOdrdtl_gdscount()+"</number>");//商品数量
 	xmlBuilder.append("<itemValue>"+Tools.getDouble(oi.getOdrdtl_finalprice().doubleValue(),2)+"</itemValue>");//商品单价（两位小数）
 	xmlBuilder.append("</item>");

@@ -1728,7 +1728,7 @@ if(!issgflag&&!isdx&&!ismiaosha) {
 					    <%}
 						
 						BrandMst brandmst=getbrandmst(product.getGdsmst_brand(),product.getGdsmst_rackcode().substring(0,3));
-						if(brandmst!=null&&!Tools.isNull(brandmst.getBrandmst_authorization()))out.print("<img src=\""+brandmst.getBrandmst_authorization()+"\" width=\"750\">");
+						if(brandmst!=null&&!Tools.isNull(brandmst.getBrandmst_authorization()))out.print("<a href=\""+brandmst.getBrandmst_page()+"\" target=\"_blank\"><img src=\""+brandmst.getBrandmst_authorization()+"\" width=\"750\"></a>");
 						if ("001564".equals(product.getGdsmst_brand())){
 						String strxls=Getp2013img("3386");
 						out.print(strxls);

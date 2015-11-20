@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import com.d1.dbcache.core.BaseEntity;
 
 /**
- * ÓÃ»§ÊÕ»õµØÖ·±í
+ * ï¿½Ã»ï¿½ï¿½Õ»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½
  * @author kk
  *
  */
@@ -43,11 +43,12 @@ public class UserAddress extends BaseEntity implements java.io.Serializable {
 	private String mbrcst_remail;
 	private String mbrcst_rphone;
 	private String mbrcst_memo;
+	private int mbrcst_isdefault;
 	private Date createdate;
 	private Date updatedate;
 	
 	/**
-	 * 0 ±¾ÈËµØÖ· 1ËûÈËµØÖ·
+	 * 0 ï¿½ï¿½ï¿½Ëµï¿½Ö· 1ï¿½ï¿½ï¿½Ëµï¿½Ö·
 	 */
 	private Long mbrcst_rthird;
 	private String mbrcst_rtelephonecode;
@@ -173,5 +174,11 @@ public class UserAddress extends BaseEntity implements java.io.Serializable {
 	}
 	public void setMbrcst_rtelephoneext(String mbrcst_rtelephoneext) {
 		this.mbrcst_rtelephoneext = mbrcst_rtelephoneext;
+	}
+	public int getMbrcst_isDefault() {
+		return mbrcst_isdefault;
+	}
+	public void setMbrcst_isDefault(int isDefault) {
+		this.mbrcst_isdefault = isDefault;
 	}
 }

@@ -22,6 +22,7 @@ ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId()
 			jsonitem.put("rphone",ua.getMbrcst_rphone());
 			jsonitem.put("rtel",ua.getMbrcst_rtelephone());
 			jsonitem.put("rflag",ua.getMbrcst_id());
+			jsonitem.put("is_default",ua.getMbrcst_isDefault());
 			jsonitemarr.add(jsonitem);
 		}
 		json.put("addresss",jsonitemarr);
