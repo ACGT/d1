@@ -69,18 +69,26 @@ if(!Tools.isMobile(strRPhone)){
 
 String strTelePhone = request.getParameter("TelePhone");//固话
 
-String isDefault = request.getParameter("RFlag");
+String isDefault = "0";
 
-if (Integer.parseInt(isDefault)==1) {
-	ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId());
-	if (list!=null) {
-		for(UserAddress ua:list){
-			ua.setMbrcst_isDefault(0);
-			ua.setUpdatedate(new Date());
-			UserAddressHelper.manager.update(ua,true);
+try {
+	isDefault = request.getParameter("RFlag");
+
+	if (Integer.parseInt(isDefault)==1) {
+		ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId());
+		if (list!=null) {
+			for(UserAddress ua:list){
+				ua.setMbrcst_isDefault(0);
+				ua.setUpdatedate(new Date());
+				UserAddressHelper.manager.update(ua,true);
+			}
 		}
 	}
 }
+catch(e) {
+	
+}
+
 
 String strREmail = request.getParameter("REmail");//email
 /*if(!Tools.isEmail(strREmail)){
