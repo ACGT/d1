@@ -71,6 +71,7 @@ String strTelePhone = request.getParameter("TelePhone");//固话
 
 String isDefault = "0";
 
+/*
 try {
 	isDefault = request.getParameter("RFlag");
 
@@ -83,10 +84,21 @@ try {
 				UserAddressHelper.manager.update(ua,true);
 			}
 		}
-	}
-}
+
+
 catch() {
 	
+}
+
+*/
+
+if (Integer.parseInt(isDefault)==1) {
+	ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId());
+	for(UserAddress ua:list){
+		ua.setMbrcst_isDefault(0);
+		ua.setUpdatedate(new Date());
+		UserAddressHelper.manager.update(ua,true);
+	}
 }
 
 
