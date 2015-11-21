@@ -85,7 +85,7 @@ try {
 		}
 	}
 }
-catch(e) {
+catch() {
 	
 }
 
