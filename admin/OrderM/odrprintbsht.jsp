@@ -133,10 +133,13 @@ table.setHorizontalAlignment(PdfPTable.ALIGN_LEFT);
 table.setWidths(new float[]{0.08f,0.46f,0.46f});
 PdfPCell cell = new PdfPCell();
 PdfPCell icell = new PdfPCell();
-
 cell = new PdfPCell();
-cell.setFixedHeight(43);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,0);
+cell.setFixedHeight(42);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
+table.addCell(cell);
+cell = new PdfPCell();
+cell.setFixedHeight(42);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,0);
 cell.setPhrase(getpar("标准快递\n成就商业   精彩生活  ",f12));
 /*iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
@@ -155,8 +158,8 @@ table.addCell(cell);
 */
 table.addCell(cell);
 cell = new PdfPCell(image128);
-cell.setFixedHeight(43);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_RIGHT,0,2);
+cell.setFixedHeight(42);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,2);
 
 table.addCell(cell);
 //收件人开始
@@ -166,7 +169,7 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("收件人",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,2,0);
 
 iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
@@ -223,7 +226,7 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("目的地",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,2,0);
 cell.setPhrase(getpar2(bigPen,f26));
 table.addCell(cell);
 
@@ -267,7 +270,7 @@ table.setWidths(new float[]{0.07f,0.53f,0.40f});
 cell = new PdfPCell();
 cell.setFixedHeight(43);
 cell = new PdfPCell(image128);
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,3,2);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,2);
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
@@ -276,7 +279,7 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("收货人",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
 cell.setPhrase(getpar2("   "+rname+"\n"+rprv+rcity+raddr,f12));
 table.addCell(cell);
 cell = new PdfPCell();
