@@ -71,7 +71,7 @@ String strTelePhone = request.getParameter("TelePhone");//固话
 
 String isDefault = "0";
 
-/*
+
 try {
 	isDefault = request.getParameter("RFlag");
 
@@ -84,13 +84,14 @@ try {
 				UserAddressHelper.manager.update(ua,true);
 			}
 		}
+	}
 
-
-catch() {
+}
+catch(Exception err) {
 	
 }
 
-*/
+
 
 if (Integer.parseInt(isDefault)==1) {
 	ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId());
