@@ -138,7 +138,7 @@ cell.setFixedHeight(39);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 table.addCell(cell);
 cell = new PdfPCell();
-cell.setFixedHeight(36);
+cell.setFixedHeight(35);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,2);
 cell.setPhrase(getpar("标准快递\n成就商业   精彩生活  ",f12));
 /*iTable= new PdfPTable(1); 
@@ -158,12 +158,13 @@ table.addCell(cell);
 */
 table.addCell(cell);
 cell = new PdfPCell(image128);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,0);
+cell.setFixedHeight(40);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
-cell.setFixedHeight(55);
+cell.setFixedHeight(53);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("收件人",f12));
 table.addCell(cell);
@@ -184,7 +185,7 @@ icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
 iTable.addCell(icell);
 
 icell = new PdfPCell();
-icell.setFixedHeight(27);
+icell.setFixedHeight(23);
 
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
 icell.setPhrase(getpar2(rprv+rcity+raddr,f12));
@@ -195,7 +196,7 @@ table.addCell(cell);
 //收件人结束
 //寄件人开始
 cell = new PdfPCell();
-cell.setFixedHeight(48);
+cell.setFixedHeight(46);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("寄件人",f12));
 table.addCell(cell);
