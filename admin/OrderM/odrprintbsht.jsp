@@ -153,9 +153,9 @@ iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
 */
-cell = new PdfPCell();
-cell.setFixedHeight(43);
+table.addCell(cell);
 cell = new PdfPCell(image128);
+cell.setFixedHeight(43);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_RIGHT,0,2);
 
 table.addCell(cell);
