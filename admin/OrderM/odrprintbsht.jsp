@@ -134,12 +134,12 @@ table.setWidths(new float[]{0.08f,0.46f,0.46f});
 PdfPCell cell = new PdfPCell();
 PdfPCell icell = new PdfPCell();
 cell = new PdfPCell();
-cell.setFixedHeight(42);
+cell.setFixedHeight(39);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 table.addCell(cell);
 cell = new PdfPCell();
 cell.setFixedHeight(36);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,3);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,2);
 cell.setPhrase(getpar("标准快递\n成就商业   精彩生活  ",f12));
 /*iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
@@ -158,13 +158,12 @@ table.addCell(cell);
 */
 table.addCell(cell);
 cell = new PdfPCell(image128);
-cell.setFixedHeight(43);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,0);
 
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
-cell.setFixedHeight(57);
+cell.setFixedHeight(55);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("收件人",f12));
 table.addCell(cell);
@@ -196,7 +195,7 @@ table.addCell(cell);
 //收件人结束
 //寄件人开始
 cell = new PdfPCell();
-cell.setFixedHeight(43);
+cell.setFixedHeight(48);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("寄件人",f12));
 table.addCell(cell);
@@ -208,7 +207,7 @@ iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.65f,0.35f});
 icell = new PdfPCell();
 
-icell.setFixedHeight(43);
+icell.setFixedHeight(48);
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
 icell.setPhrase(getpar("D1优尚\n电话：400-680-8666\n地址：广州市 白云区",f9));
 iTable.addCell(icell);
@@ -240,7 +239,7 @@ iTable= new PdfPTable(2);
 iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.30f,0.70f});
 icell = new PdfPCell(qrCodeImage);
-icell.setFixedHeight(57);
+icell.setFixedHeight(55);
 icell=celltype(icell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,0);
 iTable.addCell(icell);
 icell = new PdfPCell();
