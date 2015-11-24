@@ -147,11 +147,17 @@ address.setMbrcst_rtelephone(strTelePhone);
 address.setMbrcst_rtelephoneext("");
 address.setMbrcst_memo("");
 address.setMbrcst_rthird(new Long(0));
-if (Integer.parseInt(isDefault)==1) {
-	address.setMbrcst_isDefault(1);
+try
+{
+	if (Integer.parseInt(isDefault)==1) {
+		address.setMbrcst_isDefault(1);
+	}
+	else{
+		address.setMbrcst_isDefault(0);
+	}
 }
-else{
-	address.setMbrcst_isDefault(0);
+catch(Exception err){
+
 }
 	
 address.setUpdatedate(new Date());
