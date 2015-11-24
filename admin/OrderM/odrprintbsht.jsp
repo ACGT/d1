@@ -136,6 +136,7 @@ PdfPCell icell = new PdfPCell();
 
 cell = new PdfPCell();
 cell.setFixedHeight(43);
+cell.setColspan(2);
 iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
 icell = new PdfPCell();
