@@ -92,7 +92,7 @@ catch(Exception err) {
 }
 
 
-
+/*
 if (Integer.parseInt(isDefault)==1) {
 	ArrayList<UserAddress> list = UserAddressHelper.getUserAddressList(lUser.getId());
 	for(UserAddress ua:list){
@@ -101,7 +101,7 @@ if (Integer.parseInt(isDefault)==1) {
 		UserAddressHelper.manager.update(ua,true);
 	}
 }
-
+*/
 
 String strREmail = request.getParameter("REmail");//email
 /*if(!Tools.isEmail(strREmail)){
