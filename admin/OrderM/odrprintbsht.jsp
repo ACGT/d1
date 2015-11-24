@@ -138,8 +138,8 @@ cell.setFixedHeight(42);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 table.addCell(cell);
 cell = new PdfPCell();
-cell.setFixedHeight(42);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,0);
+cell.setFixedHeight(36);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,3);
 cell.setPhrase(getpar("标准快递\n成就商业   精彩生活  ",f12));
 /*iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
@@ -158,7 +158,7 @@ table.addCell(cell);
 */
 table.addCell(cell);
 cell = new PdfPCell(image128);
-cell.setFixedHeight(42);
+cell.setFixedHeight(38);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,2);
 
 table.addCell(cell);
@@ -268,7 +268,7 @@ table.setWidths(new float[]{0.07f,0.53f,0.40f});
 
 //下联开始
 cell = new PdfPCell();
-cell.setFixedHeight(43);
+cell.setFixedHeight(39);
 cell = new PdfPCell(image128);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,2);
 table.addCell(cell);
@@ -279,7 +279,7 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("收货人",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
 cell.setPhrase(getpar2("   "+rname+"\n"+rprv+rcity+raddr,f12));
 table.addCell(cell);
 cell = new PdfPCell();
