@@ -137,7 +137,8 @@ PdfPCell icell = new PdfPCell();
 cell = new PdfPCell();
 cell.setFixedHeight(43);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,0);
-iTable= new PdfPTable(1); 
+cell.setPhrase(getpar("标准快递\n成就商业   精彩生活  ",f12));
+/*iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
 icell = new PdfPCell();
 icell.setFixedHeight(18);
@@ -151,7 +152,7 @@ icell.setPhrase(getpar("成就商业   精彩生活                       ",f12)
 iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
-
+*/
 cell = new PdfPCell();
 cell.setFixedHeight(43);
 cell = new PdfPCell(image128);
