@@ -158,8 +158,8 @@ table.addCell(cell);
 */
 table.addCell(cell);
 cell = new PdfPCell(image128);
-cell.setFixedHeight(38);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,2);
+cell.setFixedHeight(43);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 
 table.addCell(cell);
 //收件人开始
