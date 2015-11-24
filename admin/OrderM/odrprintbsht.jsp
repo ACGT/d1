@@ -117,6 +117,8 @@ Font f9 = new Font(bfChinese, 9, Font.BOLD);
 Font f12 = new Font(bfChinese, 10, Font.BOLD);
 Font f26 = new Font(bfChinese, 26, Font.BOLD);
 Font f20 = new Font(bfChinese, 20, Font.BOLD);
+Font f18 = new Font(bfChinese, 18, Font.BOLD);
+Font f14 = new Font(bfChinese, 14, Font.BOLD);
 // 添加table实例
 PdfPTable tables = new PdfPTable(1);
 tables.setWidthPercentage(100);
@@ -131,9 +133,28 @@ table.setHorizontalAlignment(PdfPTable.ALIGN_LEFT);
 table.setWidths(new float[]{0.08f,0.46f,0.46f});
 PdfPCell cell = new PdfPCell();
 PdfPCell icell = new PdfPCell();
+
+cell = new PdfPCell();
+cell.setFixedHeight(43);
+iTable= new PdfPTable(1); 
+iTable.setWidthPercentage(100);
+icell = new PdfPCell();
+icell.setFixedHeight(28);
+icell=celltype(icell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
+icell.setPhrase(getpar("标准快递",f18));
+iTable.addCell(icell);
+icell = new PdfPCell();
+icell=celltype(icell,Element.ALIGN_RIGHT,Element.ALIGN_MIDDLE,0,0);
+icell.setFixedHeight(15);
+icell.setPhrase(getpar("成就商业   精彩生活",f14));
+iTable.addCell(icell);
+cell.addElement(iTable);
+table.addCell(cell);
+
+cell = new PdfPCell();
 cell.setFixedHeight(43);
 cell = new PdfPCell(image128);
-cell=celltype(cell,Element.ALIGN_RIGHT,Element.ALIGN_RIGHT,3,2);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_RIGHT,0,2);
 
 table.addCell(cell);
 //收件人开始
@@ -200,19 +221,29 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("目的地",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,0);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
 cell.setPhrase(getpar2(bigPen,f26));
 table.addCell(cell);
 
+
 com.itextpdf.text.Image qrCodeImage=createQrcode.generateQR(shipcode);
 qrCodeImage.scaleToFit(55,55);  
- 
-cell = new PdfPCell(qrCodeImage);
-cell.setFixedHeight(57);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
+SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
+cell = new PdfPCell();
+iTable= new PdfPTable(3); 
+iTable.setWidthPercentage(100);
+iTable.setWidths(new float[]{0.30f,0.45f,0.25f});
+icell = new PdfPCell(qrCodeImage);
+icell.setFixedHeight(57);
+icell=celltype(icell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
+iTable.addCell(icell);
+icell = new PdfPCell();
+icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
+icell.setPhrase(getpar("收件人签收\n\n\n运单编号"+shipcode+"\n打印日期"+format.format(new Date()),f9));
+iTable.addCell(icell);
+cell.addElement(iTable);
 table.addCell(cell);
-
-
+ 
 
 //上联结束
 cells.addElement(table);
