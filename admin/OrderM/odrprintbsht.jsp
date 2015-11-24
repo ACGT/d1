@@ -270,7 +270,7 @@ table.setWidths(new float[]{0.07f,0.53f,0.40f});
 cell = new PdfPCell();
 cell.setFixedHeight(39);
 cell = new PdfPCell(image128);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,2);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,3,2);
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
