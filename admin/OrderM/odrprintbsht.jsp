@@ -61,7 +61,7 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
  
   
 %>
-<%/*
+<%
 if(session.getAttribute("admin_mng")!=null){
 	   String userid=session.getAttribute("admin_mng").toString();
 	   ArrayList<AdminPower> aplist=   AdminPowerHelper.getAwardByGdsid(userid, "odr_printyt");
@@ -70,7 +70,7 @@ if(session.getAttribute("admin_mng")!=null){
 		   return;
 	   }
 } 
-else {return;}*/
+else {return;}
 
 response.setContentType("application/pdf;");
 Rectangle pageSize = new Rectangle(283,482);
