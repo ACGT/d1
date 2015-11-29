@@ -473,7 +473,8 @@ public static String postLKT(OrderBase order ,String orderId,double fdtltktra,St
 			}else if(is139){
 				strOdrmstTemp="139ticket";
 			}else{
-				strOdrmstTemp = "qq_login";
+				return "";
+				//strOdrmstTemp = "qq_login";
 			}
 		 
 	 }
