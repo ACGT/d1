@@ -199,7 +199,7 @@ JSONArray jsonarr=new JSONArray();
  				}
  				 				
  						  Product product = ProductHelper.getById(gi_1.getGiftrckdtl_gdsid());
- 		
+ 		                if(product==null)continue;
  						  String title =product.getGdsmst_gdsname();
  						  if (title.length()>20){
  							  title=title.substring(0,20);
