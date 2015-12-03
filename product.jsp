@@ -1400,7 +1400,7 @@ if(!issgflag&&!isdx&&!ismiaosha) {
 										    				}
 										    				else
 										    				{
-										    					if(sku.getSkumst_vstock().longValue()==0){ %>
+										    					if(sku.getSkumst_vstock().longValue()<=0){ %>
 										    						<li><a href="javascript:void(0);" title="售罄"   hidefocus="true"  style="height:21px;line-height:21px;padding:0 9px;border:1px solid #dcdddd;background:#fff;color:#dcdddd;text-decoration:none;"><span><%=skuname %></span></a><i>&nbsp;&nbsp;</i></li>
 										    					<%}
 										    					else
