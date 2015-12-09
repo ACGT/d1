@@ -49,7 +49,7 @@ if(list.size()>0){
 for(BaseEntity be:list){
 	if(((Ticket)be).getTktmst_cardno().startsWith("2015-1212")){
 			out.print("对不起您已经领过了优惠券！");
-
+             return;
 	}
 }
 }
