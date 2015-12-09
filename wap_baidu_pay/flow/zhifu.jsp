@@ -66,6 +66,9 @@ if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getPara
 	case 6:
 		response.sendRedirect("/pingan/pay.jsp?OdrID="+request.getParameter("OdrID"));
 		break;
+	case 7:
+		response.sendRedirect("http://www.baidu.com/?"+request.getParameter("OdrID"));
+		break;
 	default:
 		out.print("在线支付方式错误，请联系客服处理！");
 		//obj.disabled = false;
