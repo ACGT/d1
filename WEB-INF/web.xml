@@ -136,7 +136,7 @@
   <context-param><!--环境参数,设置常量,取得常量  this.getInitParameter("context");-->
     <!-- 商户号 -->
     <param-name>SP_NO</param-name> 
-    <param-value>9000100005</param-value>
+    <param-value>1000323833</param-value>
   </context-param>
 
   
@@ -258,7 +258,7 @@
   
   <servlet-mapping>    
      <servlet-name>PayWapServlet</servlet-name>   
-     <url-pattern>/PayWapServlet</url-pattern> 
+     <url-pattern>PayWapServlet</url-pattern> 
  </servlet-mapping>
  
   <servlet>  
