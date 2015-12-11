@@ -106,7 +106,7 @@ public class BfbSdkComm {
 		Logger logger = Logger. getLogger(strName);
 		FileHandler fileHandler = null;
 		try {
-		       fileHandler = new FileHandler("e:/BaifubaoLog.txt", 0, 1, true);//
+		       fileHandler = new FileHandler("/opt/BaifubaoLog.txt", 0, 1, true);//
 		       //参数1：指定日志输出文件路径 参数2：表示文件最大字节数 0表示不限制
 		       // 参数3：日志文件数可以多个 参数4：是否在原来日志后追加日志,true表示追加日志文件而不是重新修改
 		} catch (Exception ex) {
