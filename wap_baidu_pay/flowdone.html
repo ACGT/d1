@@ -79,7 +79,7 @@ function loaddata(){
 			$(".ordertxt").html(orderhtml);
 			
 			if(json.odrpayid!=0&&json.odrpayid!=6&&json.odrstatus==0){
-			$(".paysnd").html('<a  href="/wap/flow/zhifu.jsp?payId='+json.odrpayid+'&OdrID='+json.odrid+'" class="pays" >在线支付</a>');
+			$(".paysnd").html('<a  href="flow/zhifu.jsp?payId='+json.odrpayid+'&OdrID='+json.odrid+'" class="pays" >在线支付</a>');
 			}else if(json.odrpayid==6&&json.odrstatus==0){
 			  $(".paysnd").html("<a  href=\"javascript:checkweixinpay('"+json.odrid+"');\" class=\"pays\" >微信支付</a>");
 			}
