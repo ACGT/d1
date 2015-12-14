@@ -106,7 +106,7 @@ function Bindpay(){
 			 window.location.href='/wap/login.html';
 		 }else{
 			 var payhtml='<span><input class="pay" type="radio"  id="payid1" name="payid" onclick="loadprice();" value="20">支付宝支付</span>';
-			 payhtml += '<span><input class="pay" type="radio" checked id="payid3" name="payid" onclick="loadprice();" value="61"></span><img src="http://baidupaymentgateway.d1.cn/images/baidu_pay.png" />';
+			 payhtml += '<span><input class="pay" type="radio" checked id="payid3" name="payid" onclick="loadprice();" value="61"><img src="http://baidupaymentgateway.d1.cn/images/baidu_pay.png" /></span>';
 			 if(json.ifCanHF){
 				 payhtml+='<span><input class="pay" type="radio" id="payid2" name="payid" onclick="loadprice();" value="0">货到付款</span>';
 			 }
