@@ -392,25 +392,25 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 		$(".vselect").html(pageno+'/'+pagenum+'&nbsp;<i></i>');
 		 var pgnext=parseInt(pageno)+1;
 		 var pgup=parseInt(pageno)-1;
-		$(".m_page .mp_cell.s").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+',1,'+shopd1+',''" href="javascript:void(0)">首页</a>');
+		$(".m_page .mp_cell.s").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+',1,'+shopd1+'," href="javascript:void(0)">首页</a>');
 		if(parseInt(pgup)>=1){
-		$(".m_page .mp_cell.l").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+ pgup+','+shopd1+',''" href="javascript:void(0)">上一页</a>');
+		$(".m_page .mp_cell.l").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+ pgup+','+shopd1+'," href="javascript:void(0)">上一页</a>');
 		}else{
 			$(".m_page .mp_cell.l").hide();
 		}
 		 if(parseInt(pgnext)<=parseInt(pagenum)){
-		$(".m_page .mp_cell.r").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pgnext+','+shopd1+',''" href="javascript:void(0)">下一页</a>');
+		$(".m_page .mp_cell.r").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pgnext+','+shopd1+'," href="javascript:void(0)">下一页</a>');
 		 }else{
 				$(".m_page .mp_cell.r").hide();
 			}
-		$(".m_page .mp_cell.e").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pagenum+','+shopd1+',''" href="javascript:void(0)">尾页</a>');
+		$(".m_page .mp_cell.e").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pagenum+','+shopd1+'," href="javascript:void(0)">尾页</a>');
 		
 		pageselect="";
 		for(var i=1;i<=pagenum;i++){
 			if(i==pageno){
-			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+',''" selected>第'+i+'页</option>';
+			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+'," selected>第'+i+'页</option>';
 			}else{
-			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+',''">第'+i+'页</option>';	
+			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+',">第'+i+'页</option>';	
 			}
 		}
 		$(".go_select").html(pageselect);
