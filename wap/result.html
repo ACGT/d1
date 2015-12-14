@@ -292,7 +292,7 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 		if(c[3].length>0&&c[3]!=0)gourl+="&order="+c[3];
 		if(c[4].length>0&&c[4]!=1)gourl+="&pageno="+c[4];
 		if(c[5].length>0)gourl+="&shopd1="+c[5];
-		if(c[6].length>0)gourl+="&iftkt="+c[6];
+		if(c.length>6)gourl+="&iftkt="+c[6];
 		window.location.href=gourl;
 	}
 	function showlist(p,psize,pageno,rackcode,order,pprice,brand,shopd1,iftkt){
