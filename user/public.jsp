@@ -1593,7 +1593,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
         		ps = 6;
         	}
         	
-        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58))){
+        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || payId==60 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58))){
         		isShowPayButton = true;
     			switch ((int)payId){
     				case 4:
@@ -1906,7 +1906,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 		    		case 0:
 					{
 					    //result="<a href=\"\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\"  /></a><br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
-					    System.out.println("d1gjl=============001");
+					  //  System.out.println("d1gjl=============001");
 					    if(ob.getOdrmst_orderdate()!=null)
 					    {
 					    	Calendar c=Calendar.getInstance();
@@ -1914,7 +1914,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 							c.add(Calendar.DATE, 15);
 							if(new Date().before(c.getTime()))
 							{
-								System.out.println("d1gjl====002=========ps=="+ps);
+								//System.out.println("d1gjl====002=========ps=="+ps);
 								if(ps==6){
 									result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
 
@@ -1993,7 +1993,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					}
 					default:
 					{
-						System.out.println("d1gjl=============002");
+						//System.out.println("d1gjl=============002");
 						if(isShowPayButton){
 							if(ob.getOdrmst_orderdate()!=null)
 						    {
@@ -2002,7 +2002,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 								c.add(Calendar.DATE, 15);
 								if(new Date().before(c.getTime()))
 								{
-									System.out.println("d1gjl=============ps=="+ps);
+								//	System.out.println("d1gjl=============ps=="+ps);
 									if(ps==6){
 										result="<a href=\"/user/orderdetail.jsp?orderid='"+orderid+"#wxPay'\" target=\"_blank\"><img src=\"http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg\" /></a>"+"<br/><a href=\"javascript:void(0)\" onclick=\"CancleOrderbtn("+orderid+","+flag+")\"  class=\"a\">取消订单</a>";
 
