@@ -142,7 +142,7 @@ public static String getpricestrmap(Map<String,String> priceMap){
 }
 //搜索物品。
 //返回一个Object数组，第一个是物品的List，第二个是品牌Set，第三个是该品牌下的所有分类
-private static Object[] getResultProductList(String productprice,String rackcode, String brandcode, String order, int start, int pagesize,HttpServletRequest request,String shopd1){
+private static Object[] getResultProductList(String productprice,String rackcode, String brandcode, String order, int start, int pagesize,HttpServletRequest request,String shopd1,String iftkt){
 	
 	if(!Tools.isNull(productprice)){
 		try{
@@ -195,6 +195,10 @@ private static Object[] getResultProductList(String productprice,String rackcode
 		if(!Tools.isNull(shopd1)){
 	    	   if(!product.getGdsmst_shopcode().equals("00000000"))continue;
 			}
+		if(!Tools.isNull(iftkt)){
+	    	   if(product.getGdsmst_specialflag().longValue()==1)continue;
+			}
+		
 		if(!rckflag)continue;
 		if(Tools.longValue(product.getGdsmst_validflag()) != 1||Tools.longValue(product.getGdsmst_ifhavegds())!=0) continue;
 		boolean isms=CartHelper.getmsflag(product);
@@ -374,6 +378,7 @@ json.put("pstatus", "1");
 String brand = request.getParameter("brand");
 
 String shopd1 = request.getParameter("shopd1");
+String iftkt=request.getParameter("iftkt");
 String orderContent = request.getParameter("order");
 if(Tools.isNull(orderContent)){
 	orderContent = "0";
@@ -390,7 +395,7 @@ if(Tools.isNull(productprice))productprice="";
 String ggURL = Tools.addOrUpdateParameter(request,null,null);
 if(ggURL != null) ggURL.replaceAll("pageno=[0-9]*","");
 //////////////
-Object[] obj = getResultProductList(productprice,productsort,brand,orderContent,0,10,request,shopd1);
+Object[] obj = getResultProductList(productprice,productsort,brand,orderContent,0,10,request,shopd1,iftkt);
 
 List<Directory> dirList1 = new ArrayList<Directory>();		
 HashMap<String,Integer> rckmap = (HashMap<String,Integer>)obj[2];
