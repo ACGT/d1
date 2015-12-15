@@ -302,6 +302,9 @@ if(lUser==null){
 			case 60:
 				p=6;
 				break;
+			case 61:
+				p=7;
+				break;
 		}
 			System.out.println(p+"============odrpayid");
 			json.put("odrpayid",p);

@@ -66,8 +66,9 @@ public static void shipprintOrder(HttpServletResponse response,String odrid,Stri
 	
 	
 //String apiUrl = "http://112.64.239.247:7800/web/CommonOrderModeBServlet.action";
-String apiUrl = "http://183.129.172.49/ems/api/process";
+//String apiUrl = "http://183.129.172.49/ems/api/process";
 
+	String apiUrl = "http://ebill.ns.800best.com/ems/api/process";
 //String parternId = "123456";
 //	String clientId = "K10101010";
 //	String customerId = "K10101010";
@@ -85,7 +86,7 @@ String apiUrl = "http://183.129.172.49/ems/api/process";
 
 	OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
 	if(odrm==null)return;
-	/*try{
+	try{
 	if(!Tools.isNull(odrm.getOdrmst_goodsodrid())){
 		String bigpens=odrm.getOdrmst_ads1();
          if(!Tools.isNull(bigpens))bigpens=bigpens.trim();
@@ -96,7 +97,7 @@ String apiUrl = "http://183.129.172.49/ems/api/process";
 	}
 	}catch(Exception ex){
 		ex.printStackTrace();
-	}*/
+	}
 	SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	//数据
 	StringBuilder xmlBuilder = new StringBuilder();
@@ -128,8 +129,8 @@ xmlBuilder.append("<receiveProvince><![CDATA["+odrm.getOdrmst_rprovince()+"]]></
 xmlBuilder.append("<receiveCity><![CDATA["+city+"]]></receiveCity>");  
 xmlBuilder.append("<receiveCounty><![CDATA["+Countytxt+"]]></receiveCounty>");  
 xmlBuilder.append("<txLogisticID><![CDATA["+odrid+"]]></txLogisticID>");  
-xmlBuilder.append("<itemName><![CDATA[书]]></itemName>");  
-xmlBuilder.append("<itemWeight><![CDATA[10.0]]></itemWeight>");  
+xmlBuilder.append("<itemName><![CDATA[]]></itemName>");  
+xmlBuilder.append("<itemWeight><![CDATA[0]]></itemWeight>");  
 xmlBuilder.append("<itemCount><![CDATA[1]]></itemCount>");  
 xmlBuilder.append("<remark><![CDATA[备注]]></remark>"); 
 xmlBuilder.append("</EDIPrintDetailList>");  
@@ -215,8 +216,8 @@ public static boolean saveShipCode(String id, String odrmst_d1shipmethod, String
 	}
 }
 public static boolean cancelshipcode(String odrid,String parternId,String partnerKey,String mailNo){
- String apiUrl = "http://183.129.172.49/ems/api/process";
-
+// String apiUrl = "http://183.129.172.49/ems/api/process";
+ String apiUrl = "http://ebill.ns.800best.com/ems/api/process";
 	//测试环境：http://112.64.239.247:7800/web/CommonOrderModeBServlet.action
 	//	生产环境：http://service.yto56.net.cn/CommonOrderModeBServlet.action
 OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
@@ -270,7 +271,7 @@ OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
 		return false;
 }
 %>
-<%/*
+<%
 if(session.getAttribute("admin_mng")!=null){
 	   String userid=session.getAttribute("admin_mng").toString();
 	   ArrayList<AdminPower> aplist=   AdminPowerHelper.getAwardByGdsid(userid, "odr_printyt");
@@ -279,9 +280,9 @@ if(session.getAttribute("admin_mng")!=null){
 		   return;
 	   }
 } 
-else {return;}*/
-String parternId = "TESTXML";
-String partnerKey= "12345";
+else {return;}
+String parternId = "510266_0002";
+String partnerKey= "YWdODPZ0SBAm";
 String odrid=request.getParameter("odrid");
 String type=request.getParameter("type");//n创建新订单   c取消订单
 String mailno=request.getParameter("mailno");//n创建新订单   c取消订单

@@ -54,7 +54,7 @@ try {
 }
 ArrayList<OrderBase> listlkt=OrderHelper.getOrderList("linktech",dStartDate, dEndDate);
 ArrayList<OrderBase> listlktdh=OrderHelper.getOrderList("lktdh",dStartDate, dEndDate);
-ArrayList<OrderBase> listqqlogin=OrderHelper.getOrderList("qq_login",dStartDate, dEndDate);
+//ArrayList<OrderBase> listqqlogin=OrderHelper.getOrderList("qq_login",dStartDate, dEndDate);
 ArrayList<OrderBase> listcaibei1=OrderHelper.getOrderList("caibei_qqlogin",dStartDate, dEndDate);
 ArrayList<OrderBase> listcaibei2=OrderHelper.getOrderList("qq_caibei",dStartDate, dEndDate);
 ArrayList<OrderBase> listTdx=OrderHelper.getOrderList("dxticket",dStartDate, dEndDate);
@@ -71,11 +71,11 @@ if(listlktdh!=null){
 		listall.add(base2);
 	}
 }
-if(listqqlogin!=null){
-	for(OrderBase base3:listqqlogin){
-		listall.add(base3);
-	}
-}
+//if(listqqlogin!=null){
+//	for(OrderBase base3:listqqlogin){
+	//	listall.add(base3);
+	//}
+//}
 if(listcaibei1!=null){
 	for(OrderBase base4:listcaibei1){
 		listall.add(base4);
@@ -122,9 +122,9 @@ if(listall==null)return;
 				linktech_widarr=odrtemp.substring(8,odrtemp.length());
 				}
 				//User user=(User)UserHelper.getById(base.getOdrmst_mbrid().toString());
-				
-					if (odrtemp.startsWith("qq_caibei")|| odrtemp.startsWith("caibei_qqlogin")
-						|| odrtemp.startsWith("qq_login")){
+				if(odrtemp.startsWith("qq_login"))continue;
+					if (odrtemp.startsWith("qq_caibei")|| odrtemp.startsWith("caibei_qqlogin")){
+						//|| odrtemp.startsWith("qq_login")){
 				
 					User user=(User)UserHelper.getById(base.getOdrmst_mbrid().toString());
 					mbruid="";
