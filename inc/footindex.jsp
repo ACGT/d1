@@ -23,31 +23,14 @@
     <p>全国服务及订购热线：400-680-8666（9：00-21:00） 北京服务热线：010-51292956 团购：010-51665136转8008 </p>
     <p><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202003031700010" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/homeimg07/wei_349.gif" width="45" height="50" border="0" /></a><a id='___szfw_logo___' href='https://search.szfw.org/cert/l/CX20130321002326002808' target='_blank'><img src='http://images.d1.com.cn/images2013/index/cx.png?l=CX20130321002326002808'></a>
 <script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script><a href="http://images.d1.com.cn/images2010/2010ec100.jpg" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/images2010/ceca.gif" width="117" height="42" border="0" /></a><a href="http://images.d1.com.cn/images2010/dzxh91602_mwang.jpg" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/images2010/beca.gif" width="79" height="42" /></a><a href="http://www.315online.com.cn/member/315090101.html" target=_blank rel="nofollow"><img src="http://images.d1.com.cn/homeimg07/315new.gif"  border=0></a><a href="http://images.d1.com.cn/images2012/foot/2007_top100.jpg" target=_blank rel="nofollow"><img src="http://images.d1.com.cn/homeimg07/top100_logo.gif"  border=0></a><a href="http://www.ectrustprc.org.cn/seal/splash/1000016.htm" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/homeimg07/redlogo.gif" border=0></a><span> 京ICP证030072号<br />京公网安备：110108905029 <br />www.D1.com.cn Copyright 2002-2011 D1优尚网 版权所有</span></p>
-<script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-25292063-1']);
-_gaq.push(['_addOrganic', 'soso', 'w']);
-_gaq.push(['_addOrganic', 'sogou', 'query']);
-_gaq.push(['_addOrganic', 'youdao', 'q']);
-_gaq.push(['_addOrganic', 'baidu', 'word']);
-_gaq.push(['_addOrganic', 'baidu', 'q1']);
-_gaq.push(['_addOrganic', 'ucweb', 'keyword']);
-_gaq.push(['_addOrganic', 'ucweb', 'word']);
-_gaq.push(['_addOrganic', '114so', 'kw']);
-_gaq.push(['_addIgnoredOrganic', 'd1']);
-_gaq.push(['_addIgnoredOrganic', '优尚']);
-_gaq.push(['_addIgnoredOrganic', '便利']);
-_gaq.push(['_addIgnoredOrganic', '第一']);
-_gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
- var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5dfacc13f7a0db3139bbd6afe7dc3bef' type='text/javascript'%3E%3C/script%3E"));
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?47fc789d5e1f82a06ff14b894d90fc19";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 </div>
 <!-- end #footer -->

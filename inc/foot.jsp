@@ -34,34 +34,15 @@
       <p></p><div><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202003031700010" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/homeimg07/wei_349.gif" width="45" height="50" border="0"></a><a id="___szfw_logo___" href="https://search.szfw.org/cert/l/CX20130321002326002808" target="_blank"><img src="http://images.d1.com.cn/images2013/index/cx.png?l=CX20130321002326002808"></a>
       <script type="text/javascript">(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script><a href="http://images.d1.com.cn/images2010/2010ec100.jpg" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/images2010/ceca.gif" width="117" height="42" border="0"></a><a href="http://images.d1.com.cn/images2010/dzxh91602_mwang.jpg" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/images2010/beca.gif" width="79" height="42"></a><a href="http://images.d1.com.cn/images2012/foot/2007_top100.jpg" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/homeimg07/top100_logo.gif" border="0"></a><a href="http://www.ectrustprc.org.cn/seal/splash/1000016.htm" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/homeimg07/redlogo.gif" border="0"></a><a href="http://trust.baidu.com/vcard/?id=6920f785ea1fceb7d927ff0fe3bb385a262d" target="_blank" rel="nofollow"><img src="http://images.d1.com.cn/images2014/index/baidulogo.jpg" border="0"></a><a  key ="530fef56af60046ff31d11c2"  logo_size="124x47"  logo_type="realname"  href="http://www.anquan.org" ><script src="http://static.anquan.org/static/outer/js/aq_auth.js"></script></a></div><div> 京ICP证030072号&nbsp;&nbsp;京公网安备：110108905029 &nbsp;&nbsp;www.D1.com.cn Copyright 2002-2014 D1优尚网 版权所有</div><p></p>
 <!-- <script type="text/javascript" src="/res/js/product/scrolltopcontrol.js?1.11"></script> -->
-<script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-25292063-1']);
-_gaq.push(['_addOrganic', 'soso', 'w']);
-_gaq.push(['_addOrganic', 'sogou', 'query']);
-_gaq.push(['_addOrganic', 'youdao', 'q']);
-_gaq.push(['_addOrganic', 'baidu', 'word']);
-_gaq.push(['_addOrganic', 'baidu', 'q1']);
-_gaq.push(['_addOrganic', 'ucweb', 'keyword']);
-_gaq.push(['_addOrganic', 'ucweb', 'word']);
-_gaq.push(['_addOrganic', '114so', 'kw']);
-_gaq.push(['_addIgnoredOrganic', 'd1']);
-_gaq.push(['_addIgnoredOrganic', '优尚']);
-_gaq.push(['_addIgnoredOrganic', '便利']);
-_gaq.push(['_addIgnoredOrganic', '第一']);
-_gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-
-  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5dfacc13f7a0db3139bbd6afe7dc3bef' type='text/javascript'%3E%3C/script%3E"));
-
-</script><script src=" http://hm.baidu.com/h.js?5dfacc13f7a0db3139bbd6afe7dc3bef" type="text/javascript"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?47fc789d5e1f82a06ff14b894d90fc19";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
 <%
 String Dspeqifa=  Tools.getCookie(request,"EQIFA");
