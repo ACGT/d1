@@ -197,6 +197,9 @@ ArrayList<TicketHelper.TicketWrap> nolist=new ArrayList<TicketHelper.TicketWrap>
 									if(dir!=null&&!"000".equals(dir.getId())){
 										range = "<a href=\"http://www.d1.com.cn/result.jsp?productsort="+dir.getId()+"&shopd1=1\" style=\" text-decoration:underline;\" target=\"_blank\" >自营"+dir.getRakmst_rackname()+"</a>";
 									}
+									if("017".equals(dir.getId())){
+										range = "<a href=\"http://www.d1.com.cn/shop/780/2\" style=\" text-decoration:underline;\" target=\"_blank\" >自营服饰</a>";
+									}
 								}
 							}
 							else
