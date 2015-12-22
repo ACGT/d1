@@ -18,8 +18,8 @@ img{ border:none;}
 .reg_suc table{ text-align:center;}
 .reg_suc table td span{ font-size:16px; color:#d1436b; font-weight:bold; padding-bottom:30px;}
 .reg_suc table td .newspan{ color:#000; font-size:14px; line-height:22px;}
-.regsuc_top{width:739px;  height:70px; text-align:left; padding-top:6px;padding-left:20px;margin:0px ;}
-.regsuc_top span{color:#ffffff;font-weight:bold;font-size:36px;}
+.regsuc_top{width:739px;  height:50px; line-height:50px;text-align:left; padding-top:6px;padding-left:20px;margin:0px ;}
+.regsuc_top span{color:#ffffff;font-weight:bold;font-size:25px;}
 .regsuc_main{margin:0px auto; width:756px;  background:url(http://images.d1.com.cn/images2012/login/zc_06.jpg) ;padding-top:20px; }
 .regsuc_mainspan{ font-size:16px; color:#d1436b; font-weight:bold;}
 .regsuc_maindetail{padding-left:100px;}
@@ -75,43 +75,22 @@ if (!Tools.isNull(strLtinfo)){
 			<tr><td align="center">
 				<table cellpadding="0" cellspacing="0" border="0" >
 				<tr><td><img src="http://images.d1.com.cn/images2012/login/zc_31.jpg"/></td>
-				<td><span class="regsuc_mainspan">&nbsp;恭喜您已注册成功&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td><a href="/index.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_13.jpg" border="0"/></a></td>
+				<td><span class="regsuc_mainspan">&nbsp;恭喜您已注册成功&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td></td>
 				</tr>
 				</table>
 			</td></tr>
-			<tr><td align="center"><span style="font-size:14px;">您的登录用户名为：<b><%=lUser.getMbrmst_uid() %></b>，请绑定手机，以后也可凭手机号码登录</span></td></tr>
+			<tr><td align="center"><span style="font-size:14px;">您的登录用户名为：<b><%=lUser.getMbrmst_uid() %></b></span></td></tr>
 			<tr><td align="center">
-			 <table cellpadding="0" cellspacing="0" border="0" width="550px">
-			<tr><td align="center">
-				<table cellpadding="0" cellspacing="0" border="0" >
-				<tr><td><span style="font-size:14px;">手机号码：</span></td>
-				<td><input type="text" id="txtRPhone" maxlength="11" onblur="CheckPhone(this.value,0)" onkeyup="this.value=this.value.replace(/[^\d]/g,'');CheckPhone2(this.value);" onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "  />&nbsp;&nbsp;<span id="spanRPhone" style="color:red;display:none;">*请输入手机号码 </span><img  id="imgphone" src="http://images.d1.com.cn/images2012/New/user/infosucc.jpg" style=" vertical-align:middle;display:none;" /></td>
-				<td>&nbsp;&nbsp;<input type="button" value="获取验证码" style="border:1px #727272 solid;height:24px;" onclick="checktime(this)"/></td>
-				</tr>
-				<tr><td></td>
-				<td valign="top" ><span style="font-size:12px;color:#727272;" id="smsg"></span></td>
-				<td></td>
-				</tr>
-				<tr><td><span style="font-size:14px;">验证码：</span></td>
-				<td align="left"><input type="text" id="txtcode"  maxlength="6" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "  />&nbsp;&nbsp;<span id="errCode" style="color:red;display:none;">*请输入验证码 </span><img  id="imgphone" src="http://images.d1.com.cn/images2012/New/user/infosucc.jpg" style=" vertical-align:middle;display:none;" /></td>
-				<td></td>
-				</tr>
-				<tr><td colspan="3" height="30px">&nbsp;</td></tr>
-				<tr><td colspan="3" align="center"><a href="javascript:valitel();"><img src="http://images.d1.com.cn/images2012/login/zc_17.jpg" border="0"/></a></td></tr>
-				<tr><td colspan="3" height="40px">&nbsp;</td></tr>
-				</table>
-			</td></tr></table>
+			 <a href="/index.jsp" target="_blank" style="display: block;padding:10px 10px 10px 10px;background-color: #79AB37;font-size:15px;font-weight: bold;color: white;margin-bottom:30px;margin-top:30px;width: 160px;">立即去购物</a>
 			</td></tr>
 		</table>
 		
 		 </div>  
 		  
 		 <div style=" background:#f6f6f6; float:left;width:745px; height:140px;margin-top:20px;margin-left:3px;">
-	 <div style="padding-top:15px;padding-left:30px;">为了您的账户安全，请验证手机和邮箱。验证通过后可接收账户金额及订单状态的变动提醒，使用快速找回密码、发表评论等功能。</div>
+	 <div style="padding-top:15px;padding-left:30px;color:gray;">或者：</div>
 	<div style="padding-top:35px;padding-left:30px;">
 	<ul class="ulvalidate">
-	<li><a href="/newlogin/valiemail.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_21.jpg" border="0"/></a></li>
-	<li><a href="/newlogin/valitel.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_23.jpg" border="0"/></a></li>
 	<li><a href="/newlogin/profile.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_25.jpg" border="0"/></a><br/>
 	<span style="color:red;font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生日期间可收到生日礼物哦</span>
 	</li>

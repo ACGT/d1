@@ -255,9 +255,8 @@ function key_up(obj){
 }
 function key_down(e){
 	if(e.keyCode == '13'){
-		funValidateSuccess();
-		if($('#regist_submit').attr('disabled')==false){
-			document.form_Regist.submit();
+		if(funValidateSuccess()){
+			user_regist();
 		}
 	}
 }
@@ -276,7 +275,7 @@ function fnGetPhoneCode(){
            return;
         },
         success: function(json){
-        	$("#pass_Notice").html(json.message).removeClass('red');
+        	$("#code_Notice").html(json.message).removeClass('red');
         	
         }
     });

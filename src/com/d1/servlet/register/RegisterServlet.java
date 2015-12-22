@@ -486,7 +486,7 @@ public class RegisterServlet extends HttpServlet {
 				out.flush();
 			} else {
 				//response.sendRedirect("regsuccess.jsp");
-				out.print("{\"success\":true,\"message\":\"index.jsp\"}");
+				out.print("{\"success\":true,\"message\":\"/newlogin/regsuccess.jsp\"}");
 				out.flush();
 			}
 			LOGGER.info("##########×¢²á³É¹¦£¡");

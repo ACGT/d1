@@ -69,6 +69,7 @@ public class GetPhoneCodeServlet extends HttpServlet {
 		    telephone=request.getParameter("phone");	
 		}
 		HttpSession session=request.getSession();
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		String vImageCode = (String)session.getAttribute("USER_IMAGE_CHECK_CODE");
 		String yzcode=request.getParameter("yzcode");
