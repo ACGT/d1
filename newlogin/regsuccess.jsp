@@ -79,9 +79,9 @@ if (!Tools.isNull(strLtinfo)){
 				</tr>
 				</table>
 			</td></tr>
-			<tr><td align="center"><span style="font-size:14px;">您的登录用户名为：<b><%=lUser.getMbrmst_uid() %></b></span></td></tr>
+			<tr><td align="center"><span style="font-size:14px;color:#B64C60">您的登录用户名为：<b><%=lUser.getMbrmst_uid() %></b></span></td></tr>
 			<tr><td align="center">
-			 <a href="/index.jsp" target="_blank" style="display: block;padding:10px 10px 10px 10px;background-color: #79AB37;font-size:15px;font-weight: bold;color: white;margin-bottom:30px;margin-top:30px;width: 160px;">立即去购物</a>
+			 <a href="/index.jsp" target="_blank" style="display: block;padding:10px 10px 10px 10px;background-color: #79AB37;font-size:18px;font-weight: bold;color: white;margin-bottom:30px;margin-top:30px;width: 160px;">立即去购物</a>
 			</td></tr>
 		</table>
 		

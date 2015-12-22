@@ -57,13 +57,15 @@ var funValidateSuccess = function(){
 };
 
 //regist
-function user_regist(form,obj){
+function user_regist(){
 //	is_email($('#email').val());
 	is_mobilephone($('#mobilephone').val());
 	is_pass($('#password').val());
 	is_pass2($('#password2').val());
 	is_code($('#code').val());
 	is_sex();
+	$("#regist_submit").val("正在提交");
+	$("#regist_submit").attr("disabled",true);
 	if(funValidateSuccess()){
 		
 		$.ajax({
@@ -74,15 +76,18 @@ function user_regist(form,obj){
 	        data:$('#form_Regist').serialize(),
 	        error: function(json){
 	        	alert(json.message);
+	        	$("#regist_submit").val("立即注册");
+	        	$("#regist_submit").attr("disabled",false);
 	           return;
 	        },
 	        success: function(json){
 	        	if(json.success){
-	        		alert("注册成功！");
 	        		window.location.href=json.message;
 	        	}else{
 	        		alert(json.message);
 	        	}
+	        	$("#regist_submit").val("立即注册");
+	        	$("#regist_submit").attr("disabled",false);
 	        }
 	    });
 		//form.submit();
@@ -282,14 +287,13 @@ function fnGetPhoneCode(){
 }
 var wait=60;  
 function time(oid) {  
-	console.log("inTime");
         if (wait == 0) {  
             $(oid).attr("disabled",false);            
-            $(oid).text("获取验证码");  
+            $(oid).val("获取验证码");  
             wait = 60;  
         } else {  
         	$(oid).attr("disabled", true);  
-        	$(oid).html("<font color='red'>"+wait+"</font>秒后重新获取");  
+        	$(oid).val("("+wait+")秒后重新获取");  
             wait--;  
             setTimeout(function() {  
                 time(oid)  

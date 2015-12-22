@@ -215,7 +215,7 @@
 					
 				});
 	
-function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
+function loaddata(rackcode1,order1,pageno1,pprice1,brand1,iftkt1){
 	
   var url=document.URL;
   var para="";
@@ -225,6 +225,7 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
   var brand="";
   var order=0;
   var shopd1="";
+  var iftkt=0;
   if(rackcode1!=""){
 	  rackcode=rackcode1
 	  if(order1!=""){
@@ -238,6 +239,9 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 	  }
 	  if(brand1!=""){
 		  brand=brand1;
+	  }
+	  if(iftkt!=""){
+		  iftkt=iftkt1;
 	  }
 
   }else{
@@ -260,6 +264,8 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 			   brand=arr[i].split("=")[1];
 		   }else if(arr[i].split("=")[0]=="shopd1"){
 			   shopd1=arr[i].split("=")[1];
+		   }else if(arr[i].split("=")[0]=="iftkt"){
+			   iftkt=arr[i].split("=")[1];
 		   }
 		}
    }
@@ -270,7 +276,7 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 	  $.ajax({
 		type: 'get', 
         url: '/ajax/wap/getresult.jsp',
-        data:{pageno:pageno,productsort:rackcode,order:order,psize:psize,pprice:pprice,brand:brand,shopd1:shopd1},
+        data:{pageno:pageno,productsort:rackcode,order:order,psize:psize,pprice:pprice,brand:brand,shopd1:shopd1,iftkt:iftkt},
 		dataType:'json',
 		success: function(data){
 				/*处理数据*/
