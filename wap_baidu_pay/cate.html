@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版-商品分类</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/all.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="/res/wap/js/com.js"></script>
+
+</head>
+<body>
+	<header class="p_header">
+		<a name="top"></a>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>
+					<i></i>分类
+				</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<div class="cate_item">
+			<ul class="cate_item_list">
+
+			</ul>
+		</div>
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				</script>
+	</div>
+	<script language="javascript">
+	
+
+function loaddata(){
+	  $.ajax({
+		type: 'get', 
+        url: '/ajax/wap/getcate.jsp',
+		dataType:'json',
+		success: function(p){
+				/*处理数据*/
+				if(p.pstatus=="1"){
+				showitem(p);
+				}
+        }
+	});
+	}
+	function showitem(p){
+	var cateroot=eval(p.cateroot);
+	  var catehtml=""
+		  var catehtml2=""
+	if(cateroot.length>0){
+	   for(var i=0;i<cateroot.length;i++){
+		   catehtml=catehtml+'<li class=\"cate_item_li t\">'+cateroot[i].catename+'</li>';
+
+		  /* catehtml2=cateroot[i].item;
+		   var cateitem=eval(catehtml2);
+		   if(cateitem.length>0){
+			   $(".showdata").append(cateitem[0].catecode+"==="+cateitem[0].catename+"<br>");
+			   catehtml2=cateitem[0].item;
+			   var cateitem2=eval(catehtml2);
+			   if(cateitem2.length>0){
+				   $(".showdata").append("<span style=\"color:red\">"+cateitem2[0].catecode+"==="+cateitem2[0].catename+"<br>");
+			   }
+		   }*/
+		   catehtml2=cateroot[i].item;
+		 var cateitem=eval(catehtml2);
+		  
+			if(cateitem.length>0){
+			   for(var j=0;j<cateitem.length;j++){
+				   catehtml2=cateitem[j].item;
+				   var cateitem3=eval(catehtml2);
+					if(cateitem3.length>0){
+						   catehtml=catehtml+'<li class=\"cate_item_li\"> <a href="javascript:void(0)" class="cateili">'+cateitem[j].catename+'<span class="icon"></span></a>'
+						   catehtml=catehtml+'<ul class="cate_item2_list" style="display:none;">';
+					   for(var k=0;k<cateitem3.length;k++){
+						   if(k%3==0||k==0){
+						   catehtml=catehtml+'<li class=\"cate_item2_li\">'
+						   }
+						   catehtml=catehtml+' <a href="result.html?rackcode='+cateitem3[k].catecode+'">'+cateitem3[k].catename+'</a>';
+						   if((k+1)%3==0){
+						   catehtml=catehtml+'</li>';
+						   }
+					   }
+					   catehtml=catehtml+'</ul></li>';
+					}else{
+						catehtml=catehtml+'<li class=\"cate_item_li\"> <a href="result.html?rackcode='+cateitem[j].catecode+'" class="cateili">'+cateitem[j].catename+'<span class="icon"></span></a></li>'
+					}
+					
+			   }
+			}
+	   }
+	
+	}	  
+	  
+	   $(".cate_item_list").html(catehtml);
+	   $("li.cate_item_li>a").click(function(){
+   		var obj = $(this).parent().children().eq(1);
+   		if(obj.css('display')=='none'){
+   			$(".cate_item2_list").hide();
+   			obj.fadeIn();
+   			$("li.cate_item_li>a").removeClass("new-on");
+   			$(this).addClass("new-on");
+   		}else{
+   			obj.fadeOut();
+   			$("li.cate_item_li>a").removeClass("new-on");
+   			$(this).removeClass("new-on");
+   		}
+   	})
+	}
+	
+	loaddata();
+
+
+		</script>
+	<div style="display: none;">
+		<script language="javascript">
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+		</script>
+	</div>
+</body>
+</html>

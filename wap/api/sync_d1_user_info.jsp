@@ -12,8 +12,15 @@ String token = request.getParameter("token").replace("'", "");
 //String originalId = "gh_081aec5f45ab";
 String originalId = "weixin";
 
-String openId = WeixinShopTokenHelper.checkToken(token,originalId);
-
+String openId = "";
+try
+{
+	openId = WeixinShopTokenHelper.checkToken(token,originalId);
+}
+catch(Exception ex)
+{
+ex.printStackTrace();	
+}
 
 
 Map<String,Object> map = new HashMap<String,Object>();

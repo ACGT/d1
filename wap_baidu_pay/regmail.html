@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/reg.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="/res/wap/js/com.js"></script>
+
+</head>
+<body>
+	<header class="p_header">
+		<a name="top"></a>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>
+					<i></i>邮箱注册
+				</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<div class="phonecode  pd">
+			<div class="msg">
+				温馨提示：如您在电脑上已注册过D1优尚网账号可直接登陆，无需再次注册。<a href="/wap/login.html"
+					class="gologin">直接登陆</a>
+			</div>
+		</div>
+		<div class="phonereg  pd">
+			<div class="reg_err"></div>
+			<div class="regtxt">
+				<input name="email" id="email" class="regin mgt10" type="text"
+					placeholder="请输入邮箱地址"> <input name="pwd" id="pwd"
+					class="regin mgt10" type="password" placeholder="请输入密码"> <input
+					name="pwd2" id="pwd2" class="regin mgt10" type="password"
+					placeholder="请输入确认密码（密码长度6~14位）">
+				<p>支持数字、符号、字母、字母区分大小写</p>
+				<div class="yztxt">
+					<input name="yzcode" id="yzcode" placeholder="请输验证码"
+						class="yzcode mgt10" type="text"> <img id="vPic"
+						class="vPic"
+						style="vertical-align: bottom; cursor: pointer; margin-top: 3px;"
+						width="86" height="36" /> <a class="ref"
+						href="javascript:getyzcode();">刷新</a>
+				</div>
+				<a href="javascript:reg();" class="regbut">提交</a>
+			</div>
+		</div>
+		<div class="memo  pd">
+			==注册会员的好处==<br> 1、购买商品可享受D1优尚会员优惠资格。<br> 2、累计购物积分，兑换礼品。<br>
+			3、开启收藏夹功能。<br>
+		</div>
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				   </script>
+	</div>
+	<script language="javascript">
+var url = document.referrer;
+if(url!="")    
+{    
+    $("#backurl").val(url);
+} 
+//是否为合法电子邮件地址
+function isEmail(_str)
+{
+    return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(_str);
+}
+function getyzcode(){
+
+		$.ajax({
+	        type: "get",
+	        dataType: "json",
+	        url: "/ajax/wap/getyzcode.jsp",
+	        cache: false,
+	        error: function(json){
+	        	alert("内部错误");
+	        },
+	        success: function(json){
+	        	
+	        	$("#vPic").attr("src",json.code);
+	        }
+	    });
+	
+}
+function reg(){
+	var mail=$("#email").val();
+	var yzcode=$("#yzcode").val()
+	var pwd=$("#pwd").val();
+	var pwd2=$("#pwd2").val();
+	var backurl=$("#backurl").val();
+	if (mail == ''){
+    	$(".reg_err").html("邮箱不能为空，请输入");
+    	return;
+	}else if (!isEmail(mail)){
+		$(".reg_err").html("邮箱格式有误，请修改");
+		return;
+	}else if (yzcode == ''){
+	     $(".reg_err").html("验证码不能为空，请输入");
+	     return;
+	}else if (pwd == ''){
+	       $(".reg_err").html("密码不能为空，请输入");
+	      return;
+	}else if (pwd!= pwd2){
+	       $(".reg_err").html("重复密码输入错误，请输入");
+	      return;
+	}else{
+		$(".ph_err").html();
+		$(".reg_err").html();
+		$.ajax({
+	        type: "post",
+	        dataType: "json",
+	        url: "/ajax/wap/reguser.jsp",
+	        cache: false,
+	        data:{mail:mail,v:"mail",code:yzcode,password:pwd,password2:pwd2},
+	        error: function(json){
+	        	alert(json.message);
+	           return;
+	        },
+		        success: function(json){
+		        	if(json.success){
+	            		if(confirm('注册成功是否返回上一级?')){
+	            			if(backurl==""||typeof backurl=='undefined'){
+	            				backurl="/wap/index.html"
+	            			}
+	            			 window.location.href = backurl;
+	            		}
+	                }else{
+	                	alert(json.message);
+	                }
+		            	
+		        }
+		});
+}
+}
+getyzcode();
+</script>
+	<div style="display: none;">
+		<script language="javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F46dd49a8ff1d96b258ddf6588110099c' type='text/javascript'%3E%3C/script%3E"));
+
+	</script>
+	</div>
+</body>
+</html>

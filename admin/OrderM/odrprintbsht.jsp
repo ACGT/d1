@@ -61,7 +61,7 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
  
   
 %>
-<%/*
+<%
 if(session.getAttribute("admin_mng")!=null){
 	   String userid=session.getAttribute("admin_mng").toString();
 	   ArrayList<AdminPower> aplist=   AdminPowerHelper.getAwardByGdsid(userid, "odr_printyt");
@@ -70,7 +70,7 @@ if(session.getAttribute("admin_mng")!=null){
 		   return;
 	   }
 } 
-else {return;}*/
+else {return;}
 
 response.setContentType("application/pdf;");
 Rectangle pageSize = new Rectangle(283,482);
@@ -117,6 +117,8 @@ Font f9 = new Font(bfChinese, 9, Font.BOLD);
 Font f12 = new Font(bfChinese, 10, Font.BOLD);
 Font f26 = new Font(bfChinese, 26, Font.BOLD);
 Font f20 = new Font(bfChinese, 20, Font.BOLD);
+Font f18 = new Font(bfChinese, 18, Font.BOLD);
+Font f14 = new Font(bfChinese, 12, Font.BOLD);
 // 添加table实例
 PdfPTable tables = new PdfPTable(1);
 tables.setWidthPercentage(100);
@@ -131,19 +133,43 @@ table.setHorizontalAlignment(PdfPTable.ALIGN_LEFT);
 table.setWidths(new float[]{0.08f,0.46f,0.46f});
 PdfPCell cell = new PdfPCell();
 PdfPCell icell = new PdfPCell();
-cell.setFixedHeight(43);
+cell = new PdfPCell();
+cell.setFixedHeight(39);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
+table.addCell(cell);
+cell = new PdfPCell();
+cell.setFixedHeight(35);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,2);
+cell.setPhrase(getpar("标准快递\n成就商业   精彩生活  ",f12));
+/*iTable= new PdfPTable(1); 
+iTable.setWidthPercentage(100);
+icell = new PdfPCell();
+icell.setFixedHeight(18);
+icell=celltype(icell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
+icell.setPhrase(getpar("            标准快递",f14));
+iTable.addCell(icell);
+icell = new PdfPCell();
+icell=celltype(icell,Element.ALIGN_RIGHT,Element.ALIGN_MIDDLE,0,0);
+icell.setFixedHeight(15);
+icell.setPhrase(getpar("成就商业   精彩生活                       ",f12));
+iTable.addCell(icell);
+cell.addElement(iTable);
+table.addCell(cell);
+*/
+table.addCell(cell);
 cell = new PdfPCell(image128);
-cell=celltype(cell,Element.ALIGN_RIGHT,Element.ALIGN_RIGHT,3,2);
+cell.setFixedHeight(40);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 
 table.addCell(cell);
 //收件人开始
 cell = new PdfPCell();
-cell.setFixedHeight(57);
+cell.setFixedHeight(53);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("收件人",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,2,0);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,2,0);
 
 iTable= new PdfPTable(1); 
 iTable.setWidthPercentage(100);
@@ -159,7 +185,7 @@ icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
 iTable.addCell(icell);
 
 icell = new PdfPCell();
-icell.setFixedHeight(27);
+icell.setFixedHeight(23);
 
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
 icell.setPhrase(getpar2(rprv+rcity+raddr,f12));
@@ -170,7 +196,7 @@ table.addCell(cell);
 //收件人结束
 //寄件人开始
 cell = new PdfPCell();
-cell.setFixedHeight(43);
+cell.setFixedHeight(46);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("寄件人",f12));
 table.addCell(cell);
@@ -182,12 +208,12 @@ iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.65f,0.35f});
 icell = new PdfPCell();
 
-icell.setFixedHeight(43);
-icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
+icell.setFixedHeight(48);
+icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
 icell.setPhrase(getpar("D1优尚\n电话：400-680-8666\n地址：广州市 白云区",f9));
 iTable.addCell(icell);
 icell = new PdfPCell();
-icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
+icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
 
 icell.setPhrase(getpar("代收/到付：\n保价金额\n保价费用\n其它说明",f9));
 iTable.addCell(icell);
@@ -195,24 +221,35 @@ cell.addElement(iTable);
 table.addCell(cell);
 //寄件人结束
 cell = new PdfPCell();
-cell.setFixedHeight(43);
+cell.setFixedHeight(40);
 cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("目的地",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,0);
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,2,0);
 cell.setPhrase(getpar2(bigPen,f26));
 table.addCell(cell);
 
+
 com.itextpdf.text.Image qrCodeImage=createQrcode.generateQR(shipcode);
 qrCodeImage.scaleToFit(55,55);  
- 
-cell = new PdfPCell(qrCodeImage);
-cell.setFixedHeight(57);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,0);
+SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
+cell = new PdfPCell();
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,3,0);
+iTable= new PdfPTable(2); 
+iTable.setWidthPercentage(100);
+iTable.setWidths(new float[]{0.30f,0.70f});
+icell = new PdfPCell(qrCodeImage);
+icell.setFixedHeight(55);
+icell=celltype(icell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,0);
+iTable.addCell(icell);
+icell = new PdfPCell();
+icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
+icell.setPhrase(getpar("收件人签收\n\n\n运单编号"+shipcode+"\n打印日期"+format.format(new Date()),f9));
+iTable.addCell(icell);
+cell.addElement(iTable);
 table.addCell(cell);
-
-
+ 
 
 //上联结束
 cells.addElement(table);
@@ -220,7 +257,7 @@ tables.addCell(cells);
 
 //**********************************************************
 cells = new PdfPCell();
-cells.setFixedHeight(212);
+cells.setFixedHeight(227);
 cells.setBorderWidth(0);
 cells.setPadding(0);
 iTable= new PdfPTable(1); 
@@ -231,7 +268,8 @@ table.setWidths(new float[]{0.07f,0.53f,0.40f});
 
 //下联开始
 cell = new PdfPCell();
-cell.setFixedHeight(43);
+cell.setFixedHeight(39);
+cell.setPaddingLeft(6);
 cell = new PdfPCell(image128);
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,3,2);
 table.addCell(cell);
@@ -242,8 +280,8 @@ cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,0,0);
 //cell.setPhrase(getpar("收货人",f12));
 table.addCell(cell);
 cell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-cell.setPhrase(getpar2(rname+"\n"+rprv+rcity+raddr,f12));
+cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
+cell.setPhrase(getpar2("      "+rname+"\n"+rprv+rcity+raddr,f12));
 table.addCell(cell);
 cell = new PdfPCell();
 cell=celltype(cell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,0);
@@ -265,7 +303,7 @@ iTable.setWidths(new float[]{0.65f,0.35f});
 icell = new PdfPCell();
 icell.setFixedHeight(43);
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
-icell.setPhrase(getpar("D1优尚\n电话：400-680-8666\n地址：广州市 白云区",f9));
+icell.setPhrase(getpar("      D1优尚\n电话：400-680-8666\n地址：广州市 白云区",f9));
 iTable.addCell(icell);
 icell = new PdfPCell();
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_MIDDLE,0,0);
@@ -285,7 +323,7 @@ cell.setPhrase(getpar2(bigPen,f20));
 table.addCell(cell);
 
 cell = new PdfPCell(qrCodeImage);
-cell.setFixedHeight(84);
+cell.setFixedHeight(99);
 cell=celltype(cell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,3,0);
 table.addCell(cell);
 

@@ -314,6 +314,9 @@ public int getPsid(String shipname){
 					case 29:
 						ps=6;
 						break;
+					case 60:
+    					ps=7;
+    					break;
 					default:
 						{
 							ps=1;
@@ -360,10 +363,12 @@ public int getPsid(String shipname){
 													c.setTime(ob.getOdrmst_orderdate());
 													c.add(Calendar.DATE, 15);
 													if(new Date().before(c.getTime()))
-													{%>
+													{
+														 
+													%>
 														 <input type="image" id="send_button" onclick="payOrder2(<%= ps %>,'<%= ob.getId() %>',this);" src="http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg" />
 													<%}
-													
+													  
 											    }
 	    							         %>
 	    							        
@@ -1002,10 +1007,12 @@ public int getPsid(String shipname){
 													c.setTime(ob.getOdrmst_orderdate());
 													c.add(Calendar.DATE, 15);
 													if(new Date().before(c.getTime()))
-													{%>
+													{
+													 
+													%>
 														 <input type="image" id="send_button" onclick="payOrder2(<%= ps %>,'<%= ob.getId() %>',this);" src="http://images.d1.com.cn/images2012/New/user/hyzx_ljzf.jpg" />
 													<%}
-													
+													 
 											    }
 	    							         %>
 	    							         <a href="javascript:void(0)" onclick="CancleOrderbtn(<%= ob.getId() %>,<%= ob.getType() %>)" >取消订单</a>

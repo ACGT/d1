@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/uindex.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="/res/wap/js/com.js"></script>
+<style type="text/css">
+.service-type-list {
+	margin-top: 40px;
+	margin-left: 10px;
+}
+
+.service-type-list li {
+	width: 100px;
+	height: 100px;;
+}
+
+.service-type-list li a {
+	border-radius: 5px;
+	border: 1px solid rgb(255, 228, 189);
+	transition: background 0.5s, border 0.5s;
+	border-image: none;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	color: rgb(176, 77, 31);
+	line-height: 100px;
+	font-family: "Microsoft YaHei";
+	font-size: 20px;
+	font-weight: 400;
+	display: block;
+	background-color: rgb(255, 245, 229);
+	-webkit-border-radius: 5px;
+	-webkit-transition: background 0.5s, border 0.5s;
+	-moz-transition: background 0.5s, border 0.5s;
+	-o-transition: background 0.5s, border 0.5s;
+}
+
+.service-type-list li a:hover {
+	border: 1px solid rgb(255, 83, 22);
+	border-image: none;
+	color: rgb(255, 255, 255);
+	background-color: rgb(255, 133, 90);
+}
+
+.main-wrap {
+	padding: 0px 10px;
+}
+</style>
+</head>
+<body>
+	<header class="p_header">
+		<a name="top"></a>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>
+					<i></i>退换货申请
+				</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+
+		<DIV align="center" style="float: left; overflow: hidden">
+			<div style="font-size: 16px;">
+				<b>请选择您要申请的服务类型</b>
+			</div>
+			<div style="float: left;">
+				<UL class="clearfix service-type-list service-list=4"
+					style="list-style-type: none;">
+					<LI class="f-l" style="float: left;"><A
+						href="javascript:void(0)" id="thbut"> 退货 </A></LI>
+					<li class="f-l" style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<LI class="f-l" style="float: left;"><A
+						href="javascript:void(0)" id="hhbut"> 换货 </A></LI>
+				</UL>
+			</div>
+			<div style="float: left; text-align: left; margin-left: 20px;">
+				<br> <b>退换货需知：</b><br>
+				如果商品有质量问题，自您收到商品之日起30日内，可以申请退货或换货，卖家承担退回运费，退货后请保留物流底单，将快递单号填写在网页。<br>
+
+				在商品无任何问题情况下，自您实际收到商品之日起30日内，在商品返回运费由您承担的情况下，可享受无理由退货。<br> <br>
+				<b>以下情况不予办理退换货：</b><br> （1）任何非由D1优尚网出售的商品，不予办理退换货；<br>
+				（2）任何已使用商品，不予办理退换货，但有质量问题除外；<br> （3）密封产品原包装打开，非质量问题不予退换； <br>
+				（4）因人为疏忽或使用不当而导致的商品损坏不予退换；<br> （5）任何事先注明不在退换货范围的特殊商品，不予退换；<br>
+				<br> <b>退货退款流程：</b>1.您申请退货 >2.按提示地址，您将货品寄给卖家，并填写退货物流信息
+				>3.卖家确认收到货 >4.优尚网退款<br> <br> <b>换货流程：</b>1.您申请换货 >2.
+				按提示地址，您将货品寄给卖家，并填写退货物流信息 >3. 卖家确认收到货 >4.卖家将换货寄回<br>
+			</div>
+		</DIV>
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				</script>
+	</div>
+	<script language="javascript">
+$("#thbut").click(function(){	
+	
+  var url=document.URL;
+  var para="";
+  var odrid="";
+  var subodrid="";
+   if(url.lastIndexOf("?")>0)
+   {
+        para=url.substring(url.lastIndexOf("?")+1,url.length);
+		var arr=para.split("&");
+		para="";
+		for(var i=0;i<arr.length;i++)
+		{
+		   if(arr[i].split("=")[0]=="odrid"){
+			   odrid=arr[i].split("=")[1];
+		   }else if(arr[i].split("=")[0]=="subodrid"){
+			   subodrid=arr[i].split("=")[1];
+		   }
+		}
+   }
+   var gourl="thw.jsp?odrid="+odrid+"&subodrid="+subodrid+"&thtype=1";
+	window.location.href=gourl;
+ 
+	});
+$("#hhbut").click(function(){	
+	
+	  var url=document.URL;
+	  var para="";
+	  var odrid="";
+	  var subodrid="";
+	   if(url.lastIndexOf("?")>0)
+	   {
+	        para=url.substring(url.lastIndexOf("?")+1,url.length);
+			var arr=para.split("&");
+			para="";
+			for(var i=0;i<arr.length;i++)
+			{
+			   if(arr[i].split("=")[0]=="odrid"){
+				   odrid=arr[i].split("=")[1];
+			   }else if(arr[i].split("=")[0]=="subodrid"){
+				   subodrid=arr[i].split("=")[1];
+			   }
+			}
+	   }
+	   var gourl="thw.jsp?odrid="+odrid+"&subodrid="+subodrid+"&thtype=2";
+		window.location.href=gourl;
+	 
+		});
+
+		</script>
+</body>
+</html>

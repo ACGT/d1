@@ -521,7 +521,7 @@ private static String repbrandstr(String bkeywords){
 
 //搜索物品。
 //返回一个Object数组，第一个是物品的List，第二个是品牌Set，第三个是该品牌下的所有分类
-private static Object[] getResultProductList(String productprice,String productname,String rackcode, String brand_name, String fg1, String fg2, String fg3, String fg4, String fg5, String fg6, String fg7, String fg8, String fg9, String fg10, String fg11, String fg12, String order, int start, int pagesize,HttpServletRequest request,String brandcode,String msflag,String shopd1,String bkey){
+private static Object[] getResultProductList(String productprice,String productname,String rackcode, String brand_name, String fg1, String fg2, String fg3, String fg4, String fg5, String fg6, String fg7, String fg8, String fg9, String fg10, String fg11, String fg12, String order, int start, int pagesize,HttpServletRequest request,String brandcode,String msflag,String shopd1,String bkey,String iftkt){
 	if(!Tools.isNull(productprice))productprice=productprice.replace("以上","-50000");
 	Object[] obj = new Object[]{null,null,null,null,null,null};
 	
@@ -629,6 +629,9 @@ private static Object[] getResultProductList(String productprice,String productn
 		
        if(!Tools.isNull(shopd1)){
     	   if(!product.getGdsmst_shopcode().equals("00000000"))continue;
+		}
+       if(!Tools.isNull(iftkt)){
+    	   if(product.getGdsmst_specialflag().longValue()==1)continue;
 		}
 		String stdvalue1 = product.getGdsmst_stdvalue1();
 	
@@ -1162,6 +1165,7 @@ String msflag=request.getParameter("msflag");
 String shopd1=request.getParameter("shopd1");
 String po1 = request.getParameter("productother1");
 String bkey=request.getParameter("bkey");
+String iftkt=request.getParameter("iftkt");
 String stdtitle="";
 String postd1="";
 if(po1 == null) po1 = request.getParameter("Productother1");
@@ -1287,7 +1291,7 @@ String img123 = request.getParameter("img");
 String ggURL = Tools.addOrUpdateParameter(request,null,null);
 if(ggURL != null) ggURL.replaceAll("pageno=[0-9]*","");
 //////////////
-Object[] obj = getResultProductList(productprice,productname,productsort,productbrand,po1,po2,po3,po4,po5,po6,po7,po8,po9,po10,po11,po12,orderContent,0,10,request,brand,msflag,shopd1,bkey);
+Object[] obj = getResultProductList(productprice,productname,productsort,productbrand,po1,po2,po3,po4,po5,po6,po7,po8,po9,po10,po11,po12,orderContent,0,10,request,brand,msflag,shopd1,bkey,iftkt);
 
 boolean onlyShowBrand = false ;//左侧菜单只显示品牌相关的分类
 //if("1".equals(request.getParameter("bf"))&&!Tools.isNull(productbrand))onlyShowBrand = true ;
@@ -1857,7 +1861,7 @@ if(dirList1 != null && !dirList1.isEmpty()){
 			String rckcodeitem=dir2.getId();
 		if(((ProductManager)Tools.getManager(Product.class)).getRackcodeProductLength(rckcodeitem)>0){
 			if(!rckmap.containsKey(dir2.getId()))continue;
-			Object[] objitem = getResultProductList(productprice,productname,rckcodeitem,productbrand,po1,po2,po3,po4,po5,po6,po7,po8,po9,po10,po11,po12,orderContent,0,10,request,brand,msflag,shopd1,bkey);
+			Object[] objitem = getResultProductList(productprice,productname,rckcodeitem,productbrand,po1,po2,po3,po4,po5,po6,po7,po8,po9,po10,po11,po12,orderContent,0,10,request,brand,msflag,shopd1,bkey,iftkt);
 			
 			List<Directory>  dirList2=DirectoryHelper.getByParentcode(rckcodeitem);
 			 Directory diritem = DirectoryHelper.getById(rckcodeitem);

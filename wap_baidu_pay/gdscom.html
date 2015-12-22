@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>D1优尚网触屏版</title>
+<meta name="author" content="m.d1.cn">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css"
+	charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="/res/wap/css/myscore.css"
+	charset="utf-8" />
+<script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="/res/wap/js/com.js?1.21"></script>
+<style>
+.main .ulist .comslist {
+	
+}
+
+.main .ulist .comslist li {
+	max-height: .75rem;
+	border-bottom: 1px solid #ededed;
+	padding-top: .08rem;
+}
+
+.main .ulist .comslist li:last-child {
+	border: 0px
+}
+
+.main .ulist .comslist li .item {
+	max-height: .75rem;
+	font-size: .14rem
+}
+
+.main .ulist .comslist li .item .txt {
+	max-height: .50rem;
+	line-height: .25rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+}
+
+.main .ulist .comslist li .item .itop {
+	display: -webkit-box;
+	width: 100%;
+}
+
+.main .ulist .comslist li .item .itop .l {
+	display: block;
+	width: 2.30rem;
+	height: .25rem;
+	line-height: .24rem;
+}
+
+.main .ulist .comslist li .item .itop .r {
+	-webkit-box-flex: 1;
+	flax: 1;
+	line-height: .24rem;
+	text-align: right;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-text-overflow: ellipsis;
+	display: block;
+}
+</style>
+</head>
+<body>
+	<header class="p_header">
+		<a name="top"></a>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>
+					<i></i>商品评论
+				</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+
+		<div class="ulist">
+
+			<div class="comslist">
+				<ul>
+
+				</ul>
+				<div class="m_page">
+					<div class="mp_cell s">首页</div>
+					<div class="mp_cell l">上一页</div>
+					<div class="mp_cell m">
+						<span class="vselect">&nbsp;<i></i></span> <select
+							class="go_select" onchange="gourl(this.value);">
+						</select>
+					</div>
+					<div class="mp_cell r">下一页</div>
+					<div class="mp_cell e">尾页</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id="footer" class="footer">
+		<script language="javascript">
+					getwapFoot();
+				</script>
+	</div>
+	<script language="javascript">
+function loaddata(code1,pageno1){
+	
+  var url=document.URL;
+  var para="";
+  var pg=1;
+  var code="";
+  var id="";
+  if(code1!=""){
+	  code=code1;
+	  if(pg!=""){
+		  pg=pageno1;
+	  }
+  }else{
+   if(url.lastIndexOf("?")>0)
+   {
+        para=url.substring(url.lastIndexOf("?")+1,url.length);
+		var arr=para.split("&");
+		para="";
+		for(var i=0;i<arr.length;i++)
+		{
+		   if(arr[i].split("=")[0]=="pg"){
+			   pg=arr[i].split("=")[1];
+		   }
+		   if(arr[i].split("=")[0]=="id"){
+			   id=arr[i].split("=")[1];
+		   }
+		}
+   }
+}
+
+ 
+	var psize=12;
+	  $.ajax({
+		type: 'get', 
+        url: '/ajax/wap/getgdscom.jsp',
+        data:{id:id,pg:pg,psize:psize},
+		dataType:'json',
+		timeout: 1000,
+		success: function(data){
+				/*处理数据*/
+				//resp_list = getRespDataList(p);
+				if(data.status=="1"){
+				showlist(data,psize,pg,id);
+				}
+        }
+	});
+	}
+
+	function gourl(pid,parr){
+		c=parr.split(",");
+		var gourl="gdscom.html?id="+pid+"&pg="+c[0]+"";
+		window.location.href=gourl;
+	}
+	function showlist(json,psize,pageno,pid){
+
+		var pagenum=parseInt(json.page_total/psize);
+		if(json.page_total%psize>0) {
+			pagenum=pagenum+1;
+	     }
+		if(pagenum>1){
+		$(".vselect").html(pageno+'/'+pagenum+'&nbsp;<i></i>');
+		 var pgnext=parseInt(pageno)+1;
+		 var pgup=parseInt(pageno)-1;
+		$(".m_page .mp_cell.s").html('<a attr="1" href="javascript:void(0)">首页</a>');
+		if(parseInt(pgup)>=1){
+		$(".m_page .mp_cell.l").html('<a attr="'+ pgup+'" href="javascript:void(0)">上一页</a>');
+		}else{
+			$(".m_page .mp_cell.l").hide();
+		}
+		 if(parseInt(pgnext)<=parseInt(pagenum)){
+		$(".m_page .mp_cell.r").html('<a attr="'+pgnext+'" href="javascript:void(0)">下一页</a>');
+		 }else{
+				$(".m_page .mp_cell.r").hide();
+			}
+		$(".m_page .mp_cell.e").html('<a attr="'+pagenum+'" href="javascript:void(0)">尾页</a>');
+		
+		pageselect="";
+		for(var i=1;i<=pagenum;i++){
+			if(i==pageno){
+			pageselect+='<option value="'+i+'" selected>第'+i+'页</option>';
+			}else{
+			pageselect+='<option value="'+i+'">第'+i+'页</option>';	
+			}
+		}
+		$(".go_select").html(pageselect);
+		}else{
+			$(".m_page").hide();
+		}
+
+	var coms=eval(json.coms);
+	$(".comslist ul").html('');
+	if(coms.length>0){
+		var pli="";
+	   for(var i=0;i<coms.length;i++){
+
+		pli='<li>';
+		pli+='<div class="item">';
+		pli+='<div class="txt">'+coms[i].ctxt+'</div>';
+		pli+='	<div class="itop"><span class="l">';
+		 for(var l=0;l<(parseInt(coms[i].clevel));l++){
+			 pli+=' <img src="http://images.d1.com.cn/images2014/index/star.png" width="20" height="20" border="0"/>';
+			 }
+		 pli+='</span>';
+		pli+='	<span class="r">';
+		pli+=coms[i].crname+"&nbsp;&nbsp;"+coms[i].stime+"&nbsp;&nbsp;&nbsp;&nbsp;";
+		pli+='	</span></div>';
+		pli+='</div>';
+		pli+='  </li>';
+	   $(".comslist ul").append(pli);
+	   }
+
+	  
+	}
+
+	$(".m_page .mp_cell>a").click(function(){
+		var paras=$(this).attr('attr');
+		gourl(pid,paras)
+		
+	});
+
+	}
+	loaddata('','');
+		</script>
+</body>
+</html>

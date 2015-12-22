@@ -179,10 +179,10 @@ if(ProductHelper.hasSku(product)){
 				if((product.getGdsmst_stocklinkty().longValue()==2
 						||product.getGdsmst_stocklinkty().longValue()==1)){
 				if(sku.getSkumst_vstock().longValue()>0){
-				message += sku.getId()+"_"+sku.getSkumst_sku1()+"#";
+				message += sku.getId()+"_"+sku.getSkumst_sku1().trim()+"#";
 				}
 				}else{
-					message += sku.getId()+"_"+sku.getSkumst_sku1()+"#";
+					message += sku.getId()+"_"+sku.getSkumst_sku1().trim()+"#";
 				}
 			}
 		}

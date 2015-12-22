@@ -21,19 +21,24 @@ public class WeixinShopTokenHelper {
 		
 		WeixinShopToken weixinShopToken = getTokenEntity(token);
 		
+		
+		
 		String openId = "";
 		
-		long currentDateStamp = (new Date()).getTime();
+		if (weixinShopToken!=null)
+		{
 		
-		//currentDate = currentDate.getDate();
+			long currentDateStamp = (new Date()).getTime();
 		
-		if (weixinShopToken.getOriginal_id().equals(originalId)) {
-			if (weixinShopToken.getStatus()==1 && weixinShopToken.getExpire_date()>currentDateStamp) {
-				openId = weixinShopToken.getOpen_id();
+			//currentDate = currentDate.getDate();
+		
+			if (weixinShopToken.getOriginal_id().equals(originalId)) {
+				if (weixinShopToken.getStatus()==1 && weixinShopToken.getExpire_date()>currentDateStamp) {
+					openId = weixinShopToken.getOpen_id();
 
+				}
 			}
 		}
-		
 		
 		return openId;
 		
