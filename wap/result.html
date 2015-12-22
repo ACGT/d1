@@ -215,7 +215,7 @@
 					
 				});
 	
-function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
+function loaddata(rackcode1,order1,pageno1,pprice1,brand1,shopd11,iftkt1){
 	
   var url=document.URL;
   var para="";
@@ -239,6 +239,12 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 	  }
 	  if(brand1!=""){
 		  brand=brand1;
+	  }
+	  if(shopd1!=""){
+		  shopd1=shopd11;
+	  }
+	  if(iftkt!=""){
+		  iftkt=iftkt1;
 	  }
 
   }else{
@@ -490,7 +496,7 @@ $(".mpsc_txt>a").click(function(){
 			}
 			//gourl(rackcode+','+corder+','+pageno);
 			
-			loaddata(rackcode,corder,pageno,pprice,brand);
+			loaddata(rackcode,corder,pageno,pprice,brand,shopd1,iftkt);
 	});
 $(".chc_row>li").click(function(){
 	var url=document.URL;
