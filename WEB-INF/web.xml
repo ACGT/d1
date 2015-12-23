@@ -138,10 +138,7 @@
     <param-name>SP_NO</param-name> 
     <param-value>1000323833</param-value>
   </context-param>
-<context-param>
-	<param-name>SP_KEY</param-name>
-	<param-value>zk4K2taQUkqZTyjxrfQLuqMcYZBGzjW9</param-value>
-</context-param>
+
   
   <context-param>
      <!-- 百度钱包即时到账支付接口URL（不需要用户登录百度钱包）-->
@@ -242,7 +239,7 @@
      </servlet>
   <servlet-mapping>    
      <servlet-name>PayUnloginServlet</servlet-name>   
-     <url-pattern>/wap_baidu_pay/PayUnloginServlet</url-pattern> 
+     <url-pattern>PayUnloginServlet</url-pattern> 
  </servlet-mapping>
 
   <servlet>  
