@@ -38,6 +38,9 @@ img{ border:none;}
     line-height: 30px;
     padding: 0 10px;
 }
+#regist_submit{
+	width:120px;height:35px;height-line:35px;background-color: #791268;color:white;font-size:18px;font-weight: bold;padding:0 10px 0 10px;cursor: pointer;
+}
 </style>
 </head>
 
@@ -103,11 +106,11 @@ if(backurl!=null&&backurl.indexOf("/html/zt2013/etkt0708")>0){
 			  </td></tr>
 			  
 			  <tr><td colspan="3" height="10"></td></tr>
-			  <tr><td class="td1">*手机验证码：</td><td><input type="text" name="code" id="code" onfocus="code_focus();" onblur="is_code(this.value);" maxlength="4"  onkeypress="key_down(event);" class="inputstyle" style="width:118px;" />&nbsp;&nbsp;<input type="button" id="getPhoneCode" onclick="fnGetPhoneCode();" disabled value="获取验证码" /></td></tr>
+			  <tr><td class="td1">*手机验证码：</td><td><input type="text" name="code" id="code" onfocus="code_focus();" onblur="is_code(this.value);" maxlength="4" onkeyup="key_up(this)" onkeydown="key_down(event);" class="inputstyle" style="width:118px;" />&nbsp;&nbsp;<input type="button" id="getPhoneCode" onclick="fnGetPhoneCode();" disabled value="获取验证码" /></td></tr>
 			   <tr><td  class="td1">&nbsp;</td><td ><span id="code_Notice"></span><span>&nbsp;</span>
 			  </td></tr>
 			  <tr><td colspan="3" height="50"></td></tr>
-			  <tr><td colspan="3" style="text-align:center;"><input id="regist_submit" onclick="user_regist();" type="button" style="width:120px;height:35px;height-line:35px;background-color: #791268;color:white;font-size:18px;font-weight: bold;padding:0 10px 0 10px;cursor: pointer;" value="立即注册" /></td></tr>
+			  <tr><td colspan="3" style="text-align:center;"><input id="regist_submit" onclick="user_regist();" type="button"  value="立即注册" /></td></tr>
  <tr><td colspan="3" height="20"></td></tr>
 		   </table></form>
 		   </div>

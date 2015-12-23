@@ -48,11 +48,11 @@ function is_mobilephone(mobilephone){
 var funValidateSuccess = function(){
 	for(var v in validate){
 		if(!validate[v]){
-			$('#regist_submit').attr('disabled',true);//禁止提交
+			//$('#regist_submit').attr('disabled',true);//禁止提交
 			return false;
 		}
 	}
-	$('#regist_submit').attr('disabled',false);//允许提交
+	//$('#regist_submit').attr('disabled',false);//允许提交
 	return true;
 };
 
@@ -64,9 +64,10 @@ function user_regist(){
 	is_pass2($('#password2').val());
 	is_code($('#code').val());
 	is_sex();
-	$("#regist_submit").val("正在提交");
-	$("#regist_submit").attr("disabled",true);
+
 	if(funValidateSuccess()){
+		$("#regist_submit").val("正在提交");
+		$("#regist_submit").attr("disabled",true);
 		
 		$.ajax({
 	        type: "post",
@@ -92,7 +93,7 @@ function user_regist(){
 	    });
 		//form.submit();
 	}else{
-		alert("请确保信息填写无误。");
+		//alert("请确保信息填写无误。");
 	}
 }
 
@@ -186,6 +187,8 @@ function phone_callback(result){
 }
 
 function is_pass(v){
+	console.log("in pass");
+	console.log(v.length);
 	if(v.length < 6 || v.length>14){
 		$("#pass_Notice2").html("<img src='http://images.d1.com.cn/images2012/login/no.gif' />");
 		$("#pass_Notice").html("密码长度必须为6-14位").addClass('red');
@@ -254,9 +257,9 @@ function code_callback(result){
 
 function key_up(obj){
 	obj.value=obj.value.replace(/[^0-9]/g,'');
-	if(obj.value.length==4){
+	
 		is_code(obj.value);
-	}
+	
 }
 function key_down(e){
 	if(e.keyCode == '13'){
