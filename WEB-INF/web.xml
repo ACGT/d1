@@ -239,7 +239,7 @@
      </servlet>
   <servlet-mapping>    
      <servlet-name>PayUnloginServlet</servlet-name>   
-     <url-pattern>PayUnloginServlet</url-pattern> 
+     <url-pattern>/PayUnloginServlet</url-pattern> 
  </servlet-mapping>
 
   <servlet>  
