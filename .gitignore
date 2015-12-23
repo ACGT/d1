@@ -9,3 +9,7 @@ WEB-INF/work/_jsp/
 output/
 
 .settings/
+/build/
+/Resource/
+/.classpath
+/resin.conf

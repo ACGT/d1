@@ -2040,4 +2040,5 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     	//return "";
     	return result;
     }
+
 %>
