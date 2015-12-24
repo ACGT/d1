@@ -171,7 +171,7 @@ public class FindPwdServlet extends HttpServlet {
 					{
 						  // String msg="[D1优尚]请您输入激活码"+pc1.getPhonecode_code()+"，或手机访问：http://m.d1.cn/wap/regist.jsp完成验证！";
 						   String msg="优宝贝，您正在进行优尚网找回密码，验证码是："+pc1.getPhonecode_code()+"";
-						   if(telephone.equals("18903017255")||SendMessage.sendSms(telephone,msg))//18903017255是测试用的
+						   if(SendMessage.sendSms(telephone,msg))//18903017255是测试用的
 						   {
 							   pc1.setPhonecode_flag(pc1.getPhonecode_flag().longValue()+1);
 							   pc1.setPhonecode_updatetime(new Date());
@@ -202,7 +202,7 @@ public class FindPwdServlet extends HttpServlet {
 					   {//发送短信
 						   String msg="优宝贝，您正在进行优尚网找回密码，验证码是："+pc.getPhonecode_code()+"";
 						  
-						   if(telephone.equals("18903017255")||SendMessage.sendSms(telephone,msg))
+						   if(SendMessage.sendSms(telephone,msg))
 						   {
 							   out.print("{\"success\":true,\"message\":\""+ telephone+"\",\"type\":\""+ type +"\",\"mobile\":\""+ mobile +"\"}");
 							   return;
@@ -244,7 +244,7 @@ public class FindPwdServlet extends HttpServlet {
 			pwEmail.setSubject(mailSubject);
 			
 			Tools.getManager(Email.class).create(pwEmail);
-			SendMailByJavaMail.sendEmail("525141335@qq.com", mailSubject, mailbody);
+			SendMailByJavaMail.sendEmail(email, mailSubject, mailbody);
 			out.print("{\"success\":true,\"message\":\"邮件发送成功！\",\"type\":\""+ type +"\"}");
 		}
 	}

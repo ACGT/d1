@@ -22,7 +22,7 @@
 .xq_t {border-bottom: 1px dashed #D6D6D6;width: 510px;float: left;padding-bottom: 6px;margin-bottom: 4px;margin-left: 24px;}
 </style>
 <div class="dialogdiv02"><!-- 找回密码 -->
-<span class="xq_t" style="margin-left:0px;width:100%;"><strong>请输入您的用户名与验证码：</strong></span>
+<span class="xq_t" style="margin-left:0px;width:100%;"><strong>请输入您的帐号与验证码：</strong></span>
 <div class="mobile111">
 	<form id="form1" action="/" method="post" onsubmit="return false;">
  		<div id="c_mobile">
