@@ -238,6 +238,7 @@ String chePingAn = Tools.getCookie(request,"PINGAN");
            <li class="r"><a id="style014" href="http://www.d1.com.cn/result.jsp?productsort=014">美妆城</a></li>
            <li class="r"><a id="style030" href="http://www.d1.com.cn/result.jsp?productsort=030">男人馆</a></li>
            <li class="r"><a id="style020" href="http://www.d1.com.cn/result.jsp?productsort=020">女人街</a></li>
+           <li class="r"><a id="style010" href="http://www.d1.com.cn/shop/789/2"><span style="font-size:18px;">岁未清仓</span></a></li>
           </ul>
  
        </div>

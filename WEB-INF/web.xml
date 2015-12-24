@@ -11,36 +11,6 @@
         <!-- 业界标准 用.do后缀来表示 controler -->
         <url-pattern>/login.do</url-pattern>
     </servlet-mapping>
-	<servlet>
-        <servlet-name>register</servlet-name>
-        <servlet-class>com.d1.servlet.register.RegisterServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>register</servlet-name>
-        <url-pattern>/register.do</url-pattern>
-    </servlet-mapping>
-
-	<servlet>
-        <servlet-name>getPhoneCode</servlet-name>
-        <servlet-class>com.d1.servlet.register.GetPhoneCodeServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>getPhoneCode</servlet-name>
-        <url-pattern>/getPhoneCode.do</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>registerCheck</servlet-name>
-        <servlet-class>com.d1.servlet.register.RegisterCheckServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>registerCheck</servlet-name>
-        <url-pattern>/registerCheck.do</url-pattern>
-    </servlet-mapping>
-	
 
     <servlet>
         <servlet-name>afterlogin</servlet-name>
@@ -266,12 +236,12 @@
   <servlet>  
     <servlet-name>PayUnloginServlet</servlet-name>    
     <servlet-class>serverlet.PayUnloginServlet</servlet-class> 
-  </servlet> 
+     </servlet>
   <servlet-mapping>    
      <servlet-name>PayUnloginServlet</servlet-name>   
-     <url-pattern>/PayUnloginServlet</url-pattern> 
+     <url-pattern>PayUnloginServlet</url-pattern> 
  </servlet-mapping>
- 
+
   <servlet>  
     <servlet-name>PayNeedLoginServlet</servlet-name>    
     <servlet-class>serverlet.PayNeedLoginServlet</servlet-class> 
@@ -311,8 +281,5 @@
  
  <session-config>
 <session-timeout>60</session-timeout>
-</session-config>
- 
- 
-	
+</session-config>	
 </web-app>
