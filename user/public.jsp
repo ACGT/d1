@@ -433,7 +433,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
         		ps = 6;
         	}
         	
-        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58))){
+        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58) || payId == 61 )){
         		isShowPayButton = true;
     			switch ((int)payId){
     				case 4:
@@ -484,6 +484,9 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     				case 35:
     				case 39:
     					ps=1;
+    					break;
+    				case 61:
+    					ps = 61;
     					break;
     				default:{
     						ps=1;
@@ -642,6 +645,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					case 5:
 					case 51:
 					case 61:
+						
 					case 6:
 					{
 						Comment com=getCommentbyOrderId(orderid);
@@ -784,7 +788,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
         		ps = 6;
         	}
         	
-        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58))){
+        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58) || payId==61 )){
         		isShowPayButton = true;
     			switch ((int)payId){
     				case 4:
@@ -838,6 +842,9 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     					break;
     				case 60:
     					ps=6;
+    					break;
+    				case 61:
+    					ps=61;
     					break;
     				default:{
     						ps=1;
@@ -1567,6 +1574,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     			break;
     	  }
     	}
+    	//return "";
     	return result;
     }
     
@@ -1593,7 +1601,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
         		ps = 6;
         	}
         	
-        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || payId==60 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58))){
+        	if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || payId==60 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58) || payId == 61)){
         		isShowPayButton = true;
     			switch ((int)payId){
     				case 4:
@@ -1647,6 +1655,9 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     					break;
     				case 60:
     					ps=6;
+    					break;
+    				case 61:
+    					ps=61;
     					break;
     				default:{
     						ps=1;
@@ -2026,6 +2037,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     			break;
     	  }
     	}
+    	//return "";
     	return result;
     }
 %>

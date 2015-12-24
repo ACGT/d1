@@ -242,7 +242,7 @@
      </servlet>
   <servlet-mapping>    
      <servlet-name>PayUnloginServlet</servlet-name>   
-     <url-pattern>/wap_baidu_pay/PayUnloginServlet</url-pattern> 
+     <url-pattern>PayUnloginServlet</url-pattern> 
  </servlet-mapping>
 
   <servlet>  

@@ -144,6 +144,9 @@ table tr td div{ margin:0px auto;}
 				case 39:
 					p=1;
 					break;
+				case 61:
+					p=61;
+					break;
 			}
 			String end2="2012-11-21 00:00:00";
 			if(new Date().before(df.parse(end2))){

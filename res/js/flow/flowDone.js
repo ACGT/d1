@@ -1,5 +1,6 @@
 //javascript pay
 function payOrder(payId,obj){
+	//alert(payId);
 	obj.disabled = true;
 	switch(payId){
 		case 1:
@@ -57,6 +58,7 @@ function paysend_pingan(){
 }
 
 function payOrder2(payId,ordId , obj){
+	//alert(payId);
 	obj.disabled = true;
 	switch(payId){
 		case 1:
@@ -76,6 +78,9 @@ function payOrder2(payId,ordId , obj){
 			break;
 		case 6:
 			top.location.href="/pingan/pay.jsp?OdrID="+ordId;
+			break;
+		case 61:
+			top.location.href="/interface/pay/baidu/PayRequest.jsp?OdrID="+ordId;
 			break;
 		default:
 			alert("在线支付方式错误，请联系客服处理！");
