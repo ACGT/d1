@@ -263,7 +263,7 @@ public int getPsid(String shipname){
 			
 			 Comment comment = null;
 			
-				if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58))){
+				if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58) || payId == 61)){
 				switch ((int)payId){
 					case 4:
 					case 6:
@@ -317,6 +317,9 @@ public int getPsid(String shipname){
 					case 60:
     					ps=7;
     					break;
+					case 61:
+						ps = 61;
+						break;
 					default:
 						{
 							ps=1;
@@ -1439,4 +1442,3 @@ public int getPsid(String shipname){
  
 </body>
 </html>
-

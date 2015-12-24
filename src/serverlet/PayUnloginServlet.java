@@ -33,15 +33,15 @@ public class PayUnloginServlet extends HttpServlet {
 		super.destroy();
 	}
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-	}
+	//public void doGet(HttpServletRequest request, HttpServletResponse response)
+		//	throws ServletException, IOException {
+	//}
 
 	/**
 	 *接收pay_unlogin.html页面的post请求
 	 * 
 	 */
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		 /**
          * 1、设置编码
@@ -123,6 +123,7 @@ public class PayUnloginServlet extends HttpServlet {
 	   //后台通知地址
 	    String return_url ="return_url="+request.getParameter("return_url");
 	    String return_url1="return_url="+URLEncoder.encode(request.getParameter("return_url"),"gbk");
+        //String return_url = "return_url=http://"
 	   //前台通知地址
 	    String page_url ="page_url="+request.getParameter("page_url");
 	    String page_url1="page_url="+URLEncoder.encode(request.getParameter("page_url"),"gbk");
@@ -151,7 +152,6 @@ public class PayUnloginServlet extends HttpServlet {
 				goods_category,
 				goods_name,
 				goods_desc,
-				goods_url,
 				unit_amount,
 				unit_count,
 				transport_amount,
@@ -178,7 +178,6 @@ public class PayUnloginServlet extends HttpServlet {
 				goods_category,
 				goods_name1,
 				goods_desc1,
-				goods_url1,
 				unit_amount,
 				unit_count,
 				transport_amount,

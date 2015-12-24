@@ -15,6 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import baifubao.BfbSdkComm;
 
+import com.d1.dbcache.core.BaseEntity;
+import com.d1.util.*;
+import com.d1.helper.*;
+import com.d1.bean.*;
+import com.d1.service.*;
+import java.util.*;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
+
 public class ReturnServlet extends HttpServlet {
 
 	public ReturnServlet() {
@@ -70,7 +80,7 @@ public class ReturnServlet extends HttpServlet {
 			logger.log(Level.INFO,"本地签名串            ："+Localsign);
 			logger.log(Level.INFO,"百付宝返回签名串："+sign+"<br/>");
 			//打印完成关闭日志
-			logger.setLevel(Level.OFF);
+			//logger.setLevel(Level.OFF);
 			//比对签名
 			//out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 			
@@ -79,6 +89,37 @@ public class ReturnServlet extends HttpServlet {
 				
 				if(sign.trim().equalsIgnoreCase(Localsign.trim()))
 				{    
+					
+					String strOrderID = request.getParameter("extra");
+					
+					OrderBase order = OrderHelper.getById(strOrderID);
+					if(order != null){
+						if(Tools.longValue(order.getOdrmst_orderstatus()) == 0){
+							String total_fee = request.getParameter("fee_amount");
+							double r3_amount = Tools.parseDouble(total_fee)/100;
+							
+							OrderService os = (OrderService)Tools.getService(OrderService.class);
+							int reValue = os.updateOrderStatus(order,r3_amount);
+							
+							logger.log(Level.INFO,"reValue="+Integer.toString(reValue)+"<br/>r3_amount="+Double.toString(r3_amount));
+							
+							logger.setLevel(Level.OFF);
+							
+					        if(reValue == 0){
+					        	//logInfo("百度支付，及时反馈，订单："+strOrderID+"支付成功！");
+					        	response.sendRedirect("/user/selforder.jsp");
+								return;
+					        }else{
+					        	//response.sendRedirect("/user/selforder.jsp");
+								return;
+					        }
+						}else{
+							response.sendRedirect("/user/selforder.jsp");
+							return;
+						}
+					}else{
+						out.println("订单："+strOrderID+"未strOrderID！");
+					}
 					
 					
 					/**
@@ -95,6 +136,9 @@ public class ReturnServlet extends HttpServlet {
 					out.println("百付宝返回的签名串 :"+sign+"<br/>");
 					out.println("本地生成的签名串     :"+Localsign+"<br/>");
 					out.println("</body></html>");
+					
+					
+					
 					/**
 					*   1、重要：接收到百度钱包的后台通知后，商户须返回特定的HTML页面。该页面应该满足以下要求：
 					*	2、重要：HTML头部须包括<meta name="VIP_BFB_PAYMENT" content="BAIFUBAO">
