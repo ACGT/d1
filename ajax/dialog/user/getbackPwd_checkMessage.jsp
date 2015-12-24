@@ -2,11 +2,14 @@
 <% 
 String message = request.getParameter("message");//用request得到 
 String uid=request.getParameter("userid");
-String message_show= message.substring(0, 3) +"****"+ message.substring(message.length()-5, message.length()-1);
+String message_show= message.substring(0, 3) +"****"+ message.substring(message.length()-4, message.length());
 %> 
 <style>
 .notice{
 	height: 40px;
+}
+.notice1{
+	height: 50px;
 }
 #confirmChange{
 padding: 5px 10px 5px 10px;
@@ -20,7 +23,7 @@ padding: 5px;
 </style>
 <div>
 <div style="margin-top:10px;margin-bottom:10px;font-size: 14px;font-weight: bold;"><span>D1优尚已向您的手机:<%=message_show%>发送了验证码短信，请您查看!</span></div>
-<div class="notice"><span><input id="codeStr" type="text" maxlength="4" placeholder="短信验证码" onblur="check_codeStr();" onfocus="onFouces_all('code_notice');"/></span><span><input type="button" id="getPhoneCode" onclick="fnGetPhoneCode();" disabled value="获取验证码" /></span><div id="code_notice" ></div></div>
+<div class="notice1"><span><input id="codeStr" type="text" maxlength="4" placeholder="短信验证码" onblur="check_codeStr();" onfocus="onFouces_all('code_notice');"/></span><span><input type="button" id="getPhoneCode" onclick="fnGetPhoneCode();" disabled value="获取验证码" /></span><div id="code_notice" ></div></div>
 
 <div class="notice"><span><input type="password" id="pwd" placeholder="新密码" onblur="check_pwd();" onfocus="onFouces_all('pwd_notice');" /></span><div id="pwd_notice"></div></div>
 
@@ -49,8 +52,8 @@ function time() {
 
 $(document).ready(function(){
 	console.log("in ready");
-	time();
 	//获取手机验证码
+	fnGetPhoneCode();
 	
 });
 function fnGetPhoneCode(){
