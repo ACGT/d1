@@ -82,6 +82,66 @@
       	<url-pattern>/servlet/Upload1</url-pattern>
    	</servlet-mapping>
    	
+   	<servlet>
+   	    <servlet-name>register</servlet-name>
+        <servlet-class>com.d1.servlet.register.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register.do</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+        <servlet-name>getPhoneCode</servlet-name>
+        <servlet-class>com.d1.servlet.register.GetPhoneCodeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getPhoneCode</servlet-name>
+        <url-pattern>/getPhoneCode.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>getPhoneCodeForFindPwd</servlet-name>
+        <servlet-class>com.d1.servlet.user.GetPhoneCodeForFindPwdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getPhoneCodeForFindPwd</servlet-name>
+        <url-pattern>/user/getPhoneCodeForFindPwd.do</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>findPwdConfirm</servlet-name>
+        <servlet-class>com.d1.servlet.user.FindPwdCofirmServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>findPwdConfirm</servlet-name>
+        <url-pattern>/user/findPwdConfirm.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>registerCheck</servlet-name>
+        <servlet-class>com.d1.servlet.register.RegisterCheckServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registerCheck</servlet-name>
+        <url-pattern>/registerCheck.do</url-pattern>
+    </servlet-mapping>
+    
+    <!-- 找回密码 -->
+	<servlet>
+        <servlet-name>findPwd</servlet-name>
+        <servlet-class>com.d1.servlet.user.FindPwdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>findPwd</servlet-name>
+        <url-pattern>/user/findPwd.do</url-pattern>
+    </servlet-mapping>
    	
    	<filter>
 		<filter-name>UrlRewriteFilter</filter-name>

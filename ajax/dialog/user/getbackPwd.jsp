@@ -70,9 +70,9 @@ var g_getCodeLength = function(){
 	$.post("/user/findPwd.do", {"mobile":$("#txt_mobile").val(),"code":$('#txt_pic').val(),"m":new Date().getTime()},function(data){
 		if(data.success){
 			if(data.type=="phone"){
-				$.load("提示",580,"/ajax/dialog/user/getbackPwd_checkMessage.jsp?message="+data.message);
+				$.load("输入验证码",580,"/ajax/dialog/user/getbackPwd_checkMessage.jsp?message="+data.message+"&userid="+data.mobile);
 			}else{
-				$.load("提示",580,"/ajax/dialog/user/getbackPwd_confirm.jsp?message="+data.message);
+				$.load("邮件提示",580,"/ajax/dialog/user/getbackPwd_confirm.jsp?message="+data.message);
 			}
 		}else{
 			$('#div_CheckCodeMsg').attr('className','tips111').html(' <span class="img1"></span> '+data.message);
