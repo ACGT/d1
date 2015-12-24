@@ -27,9 +27,9 @@
 	<form id="form1" action="/" method="post" onsubmit="return false;">
  		<div id="c_mobile">
  			<div class="num">
-	 			<span class="l">用户名：</span> <span class="c"><input type="text" id="txt_mobile" maxlength="255" name="txt_mobile" class="inputmobile"></span>
+	 			<span class="l">帐号：</span> <span class="c"><input type="text" id="txt_mobile" maxlength="255" name="txt_mobile" class="inputmobile"></span>
 		        <!--成功-->
-	    	    <span class="tips11" id="div_CheckCodeMsg"> <span class="img1"></span> 请输入您的用户名</span>
+	    	    <span class="tips11" id="div_CheckCodeMsg"> <span class="img1"></span>手机号/用户名/邮箱</span>
 	        </div>
 	        <div class="code">
 	 			<span class="l">验证码：</span><span class="c"><input type="text" id="txt_pic" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d]/g,'');" name="txt_mobile" class="inputmobile"></span>
@@ -59,7 +59,7 @@ $('#b_getCode').click(function(){
 		return;
 	}
 	if(g_v.length!=4 || !/^[0-9]{4}/.test(g_v)){
-		$('#div_CheckCodeMsg').attr('className','tips111').html(' <span class="img1"></span> 验证码输入错误 ');
+		$('#div_CheckCodeMsg').attr('className','tips111').html(' <span class="img1"></span> 验证码格式错误 ');
 		$("#txt_pic").focus();
 		return;
 	}
@@ -67,9 +67,13 @@ $('#b_getCode').click(function(){
 	g_getCodeLength();
 });
 var g_getCodeLength = function(){
-	$.post("/ajax/user/findPwd.jsp", {"mobile":$("#txt_mobile").val(),"code":$('#txt_pic').val(),"m":new Date().getTime()},function(data){
+	$.post("/user/findPwd.do", {"mobile":$("#txt_mobile").val(),"code":$('#txt_pic').val(),"m":new Date().getTime()},function(data){
 		if(data.success){
-			$.load("提示",480,"/ajax/dialog/user/getbackPwd_confirm.jsp");
+			if(data.type=="phone"){
+				$.load("输入验证码",580,"/ajax/dialog/user/getbackPwd_checkMessage.jsp?message="+data.message+"&userid="+data.mobile);
+			}else{
+				$.load("邮件提示",580,"/ajax/dialog/user/getbackPwd_confirm.jsp?message="+data.message);
+			}
 		}else{
 			$('#div_CheckCodeMsg').attr('className','tips111').html(' <span class="img1"></span> '+data.message);
 			$('#b_getCode').attr('disabled',false);

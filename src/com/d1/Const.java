@@ -24,8 +24,8 @@ public class Const {
 	
 	public static final float VIP_DISCOUNT = 0.98f ;
 	
-	public static final String HIBERNATE_CON_FILE = "/Users/cangjie/Documents/workspace/d1web/WEB-INF/classes/hibernate_con.cfg.xml";
+	public static final String HIBERNATE_CON_FILE = "D:\\hibernate_con.cfg.xml";
 	
-	public static final String HIBERNATE_FILE = "/Users/cangjie/Documents/workspace/d1web/WEB-INF/classes/hibernate.cfg.xml";
+	public static final String HIBERNATE_FILE = "D:\\hibernate.cfg.xml";
 	
 }

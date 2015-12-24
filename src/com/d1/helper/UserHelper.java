@@ -102,6 +102,27 @@ public class UserHelper {
 			return false;
 		
 		}
+		//判断邮箱是否验证
+		public static User  getByUserMail2(String email){
+			if(Tools.isNull(email)) return null;
+			List<SimpleExpression> listRes = new ArrayList<SimpleExpression>();
+			listRes.add(Restrictions.eq("mbrmst_email", email));
+			//listRes.add(Restrictions.eq("mbrmst_mailflag", new Long(1)));
+			List<BaseEntity> list2 = Tools.getManager(User.class).getList(listRes, null, 0, 1000);
+			if(list2==null || list2.size()==0){
+				return null;
+			}
+			for(BaseEntity be:list2){
+				User user=(User)be;
+				if (user.getMbrmst_mailflag()!=null&&user.getMbrmst_mailflag().longValue()==1){
+					return user;
+				}
+				//list.add(user);
+				
+			}
+			return null;
+			
+		}
 	/**
 	 * 获取登录用户的userId！只要是登录状态就能获取到！！
 	 * @param request
