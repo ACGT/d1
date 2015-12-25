@@ -100,6 +100,9 @@ public class FindPwdServlet extends HttpServlet {
 							return;
 						}
 					}
+				}else{//手机/邮箱/用户 名都找不到，没有这个用户 
+					out.print("{\"success\":false,\"message\":\"没此用户或没绑定手机邮箱，请拨打400-680-8666！\"}");
+					return;
 				}
 			}
 		}
