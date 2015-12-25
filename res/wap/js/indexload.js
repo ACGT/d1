@@ -50,8 +50,8 @@ var lasthtml,
 thtml;
 lasthtml = "";
 
-var $imgH = $(".swipe img").height();
-$(".swipe li").height($imgH);
+//var $imgH = $(".swipe img").height();
+//$(".swipe li").height($imgH);
 
 for (var i = 0; i < num; i++) {
 thtml = "";
