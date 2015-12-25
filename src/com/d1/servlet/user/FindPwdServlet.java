@@ -188,7 +188,7 @@ public class FindPwdServlet extends HttpServlet {
 						   }
 						   else
 						   {
-							   out.print("{\"success\":false,\"message\":\"向您的手机"+ telephone.substring(0, 3) +"****"+ telephone.substring(telephone.length()-5, telephone.length()-1) +"发送验证码短信失败，请稍后重试！\"}");
+							   out.print("{\"success\":false,\"message\":\"向您的手机"+ telephone.substring(0, 3) +"****"+ telephone.substring(telephone.length()-4, telephone.length()) +"发送验证码短信失败，请稍后重试！\"}");
 							   return;
 						   }
 						  
