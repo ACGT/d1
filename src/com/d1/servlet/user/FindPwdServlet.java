@@ -78,7 +78,7 @@ public class FindPwdServlet extends HttpServlet {
 		if(user!=null){
 			type="phone";
 			
-		}else{//输入的是邮箱或者帐号的话就发邮件
+		}else{//输入的是邮箱的话就发邮件
 			user = UserHelper.getByUserMail2(mobile);
 			if(user!=null){
 				if(user.getMbrmst_usephone()!=""&&user.getMbrmst_phoneflag().longValue()==1){
@@ -90,11 +90,16 @@ public class FindPwdServlet extends HttpServlet {
 				//输入的是用户 名
 				user=UserHelper.getByUsername(mobile);
 				if(user!=null){
-					//因为getBysUsername方法已经做了手机绑定判断，所以user!=null的话就是一定会有手机的
-					type="phone";
-				}else{//手机/邮箱/用户 名都找不到，没有这个用户 
-					out.print("{\"success\":false,\"message\":\"没有此用户，请拨打400-680-8666求助客服！\"}");
-					return;
+					if(user.getMbrmst_usephone()!=""&&user.getMbrmst_phoneflag().longValue()==1){
+						type="phone";
+					}else{
+						if(user.getMbrmst_email()!=""&&user.getMbrmst_mailflag().longValue()==1){
+							type="email";
+						}else{//手机/邮箱/用户 名都找不到，没有这个用户 
+							out.print("{\"success\":false,\"message\":\"没有此用户，请拨打400-680-8666求助客服！\"}");
+							return;
+						}
+					}
 				}
 			}
 		}
@@ -162,9 +167,9 @@ public class FindPwdServlet extends HttpServlet {
 					c.set(Calendar.MINUTE,0);
 					c.set(Calendar.SECOND,0);
 					
-					if(new Date().after(pc1.getPhonecode_updatetime())&& pc1.getPhonecode_updatetime().after(c.getTime())&& pc1.getPhonecode_flag().longValue()%15==0)
+					if(new Date().after(pc1.getPhonecode_updatetime())&& pc1.getPhonecode_updatetime().after(c.getTime())&& pc1.getPhonecode_flag().longValue()%5==0)
 					{
-						out.print("{\"success\":false,\"message\":\"您今天只能发送15次激活码！\"}");
+						out.print("{\"success\":false,\"message\":\"您今天只能发送5次激活码！\"}");
 						  return;
 					}
 					else
@@ -183,7 +188,7 @@ public class FindPwdServlet extends HttpServlet {
 						   }
 						   else
 						   {
-							   out.print("{\"success\":false,\"message\":\"向您的手机"+ telephone.substring(0, 3) +"****"+ telephone.substring(telephone.length()-5, telephone.length()-1) +"发送验证码短信失败，请稍后重试！\"}");
+							   out.print("{\"success\":false,\"message\":\"向您的手机"+ telephone.substring(0, 3) +"****"+ telephone.substring(telephone.length()-4, telephone.length()) +"发送验证码短信失败，请稍后重试！\"}");
 							   return;
 						   }
 						  

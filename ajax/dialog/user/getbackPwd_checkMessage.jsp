@@ -53,7 +53,7 @@ function time() {
 $(document).ready(function(){
 	console.log("in ready");
 	//获取手机验证码
-	fnGetPhoneCode();
+	time();
 	
 });
 function fnGetPhoneCode(){

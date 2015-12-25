@@ -17,11 +17,11 @@ public class SendMailByJavaMail {
 
 	static String server = "smtp.d1.cn";// 邮件服务器mail.cpip.net.cn
 
-	static String from = "zhanghongqing@d1.cn";// 发送者,显示的发件人名字
+	static String from = "D1优尚网";// 发送者,显示的发件人名字
 
-	static String user = "zhanghongqing@d1.cn";// 发送者邮箱地址
+	static String user = "maillist@d1.cn";// 发送者邮箱地址
 
-	static String password = "Abc123025";// 密码
+	static String password = "Hellod1ys";// 密码
 
 	public static void sendEmail(String email, String subject, String body) throws UnsupportedEncodingException {
 		try {
@@ -51,8 +51,8 @@ public class SendMailByJavaMail {
 			e.printStackTrace();
 		}
 	}
-	public static void main(String[] args) throws UnsupportedEncodingException {
-		sendEmail("525141335@qq.com", "测试发送啊！", "哈哈哈只一");
-	}
+//	public static void main(String[] args) throws UnsupportedEncodingException {
+//		sendEmail("525141335@qq.com", "测试发送啊！", "哈哈哈只一");
+//	}
 
 }
