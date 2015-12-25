@@ -96,7 +96,7 @@ public class FindPwdServlet extends HttpServlet {
 						if(user.getMbrmst_email()!=""&&user.getMbrmst_mailflag().longValue()==1){
 							type="email";
 						}else{//手机/邮箱/用户 名都找不到，没有这个用户 
-							out.print("{\"success\":false,\"message\":\"没有此用户，请拨打400-680-8666求助客服！\"}");
+							out.print("{\"success\":false,\"message\":\"没此用户或没绑定手机邮箱，请拨打400-680-8666！\"}");
 							return;
 						}
 					}
@@ -188,7 +188,7 @@ public class FindPwdServlet extends HttpServlet {
 						   }
 						   else
 						   {
-							   out.print("{\"success\":false,\"message\":\"向您的手机"+ telephone.substring(0, 3) +"****"+ telephone.substring(telephone.length()-4, telephone.length()) +"发送验证码短信失败，请稍后重试！\"}");
+							   out.print("{\"success\":false,\"message\":\"向手机"+ telephone.substring(0, 3) +"****"+ telephone.substring(telephone.length()-4, telephone.length()) +"发送验证码失败，请重试！\"}");
 							   return;
 						   }
 						  
