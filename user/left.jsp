@@ -67,7 +67,7 @@ boolean getCjInfo(String mbrid){
 				</div>
 				<ul>
 				   <li><a href="/user/address.jsp">收货地址</a></li>
-				   <li><a href="/user/profile.jsp">修改个人资料</a></li>
+				   <li><a href="/newlogin/profile.jsp">修改个人资料</a></li>
 				   <li><a href="/user/changepassword.jsp">修改密码</a></li>
 				   <%if(lUser!=null && getCjInfo(lUser.getId())){ %><li><a href="/user/wycjinfo.jsp">我的兑换码</a></li><%} %>
 				</ul>

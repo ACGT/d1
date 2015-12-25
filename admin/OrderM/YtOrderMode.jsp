@@ -125,7 +125,7 @@ String apiUrl = "http://service.yto56.net.cn/CommonOrderModeBServlet.action";
 	xmlBuilder.append("<address>D1优尚网</address>");//用户详细地址
 	xmlBuilder.append("</sender>");
 	xmlBuilder.append("<receiver>");//收件人
-	xmlBuilder.append("<name>"+odrm.getOdrmst_rname().replace("&middot;", "").replace("(", "").replace(")", "")+"</name>");
+	xmlBuilder.append("<name>"+odrm.getOdrmst_rname().replace("&middot;", "").replace("(", "").replace(")", "").replace("&", "")+"</name>");
 	xmlBuilder.append("<postCode>"+odrm.getOdrmst_rzipcode()+"</postCode>");
 	xmlBuilder.append("<phone></phone>");
 	xmlBuilder.append("<mobile>"+(odrm.getOdrmst_rphone().length()>11?odrm.getOdrmst_rphone().substring(0,11):odrm.getOdrmst_rphone())+"</mobile>");

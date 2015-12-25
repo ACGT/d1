@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="com/d1/servlet/" kind="src" path="src"/>
-	<classpathentry kind="src" path="src/com/d1/servlet"/>
-	<classpathentry kind="lib" path="libs/hibernate-validator-4.0.2.GA.jar"/>
-	<classpathentry kind="lib" path="libs/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="libs/slf4j-nop-1.6.1.jar"/>
-	<classpathentry kind="lib" path="libs/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Resource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_43">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/99bill.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/alipay.jar"/>
@@ -19,6 +22,7 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/c3p0-0.9.1.2.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/cglib-2.2.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/ckeditor-java-core-3.5.3.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/classes12.zip"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-beanutils-1.8.3.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-codec-1.3.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-codec.jar"/>
@@ -52,7 +56,10 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/InfosecCrypto_Java1_02_JDK14+.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/ipseeker.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/itext-2.0.6.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/itext-asian-5.2.0.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/itextasian-1.5.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/iTextAsian.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/itextpdf-5.5.7.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jackson-core-asl-1.8.1.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jackson-mapper-asl-1.8.1.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/java_memcached-release_2.5.3.jar"/>
@@ -104,7 +111,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/slf4j-nop-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/smsapi.jar"/>
-	<classpathentry kind="lib" path="WEB-INF/lib/sqljdbc4.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/swarmcache-1.0RC2.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/taobao-sdk-java-base-20110909.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/tenpay.jar"/>
@@ -117,6 +123,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/xstream-1.3.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/yeepay.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/zookeeper-3.3.3.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="output"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/sqljdbc42.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

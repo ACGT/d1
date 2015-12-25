@@ -9,14 +9,24 @@ function loaddata(){
 				},success: function(json){
 						if(json.status=="1"){
 							showpm(json);
-							$("#sliderA").excoloSlider({
-				                mouseNav: false,
-				                interval: 5000, // = 5 seconds
-				                playReverse: true,
-				                width:640,
-				                height:250
-				            });
-							$(".es-caption").hide();
+//							 $(".touchslider").touchSlider({
+//								 container: this,
+//								 fixWidth:true,
+//								 flexible : true,
+//								 duration: 350, // the speed of the sliding animation in milliseconds
+//								 delay: 3000, // initial auto-scrolling delay for each loop
+//								 margin: 5, // borders size. The margin is set in pixels.
+//								 mouseTouch: true,
+//								 autoplay: true, // whether to move from image to image automatically
+//							 });
+//							$("#sliderA").excoloSlider({
+//				                mouseNav: false,
+//				                interval: 5000, // = 5 seconds
+//				                playReverse: true,
+//				                width:640,
+//				                height:250
+//				            });
+//							$(".es-caption").hide();
 						}else{
 							$(".tm").hide();
 						}
@@ -24,22 +34,96 @@ function loaddata(){
 		   });
 	}
 
+function banner(
+		sliderTs, //函数名
+		sliders,   //ul的ID的后面的数字
+		Pagenavi //分页按钮的ID
+		) {
+//$(Next).click(function(){sliderTs.next();});
+//$(Prev).click(function(){sliderTs.prev();});
+
+var num = 0;
+num = $("#slider" + sliders).children("li").length;
+var html = "";
+html = "<a href='javascript:void(0);' {c}>{i}</a>";
+var lasthtml,
+thtml;
+lasthtml = "";
+
+var $imgH = $(".swipe img").height();
+$(".swipe li").height($imgH);
+
+for (var i = 0; i < num; i++) {
+thtml = "";
+if (i == 0) {
+    thtml = html.replace("{c}", "class='active' ");
+
+} else {
+    thtml = html.replace("{c}", "");
+}
+thtml = thtml.replace("{i}", i + 1);
+lasthtml += thtml;
+};
+$(Pagenavi).html(lasthtml);
+var active = 0,
+as = $(Pagenavi).find("a");
+for (var i = 0; i < as.length; i++) {
+(function() {
+    var j = i;
+    as[i].onclick = function() {
+        sliderTs.slide(j);
+        return false;
+    }
+})();
+
+}
+var sliderTs=new TouchSlider("slider" + sliders,{
+duration:600, 
+direction:0, 
+interval:3000,//间隔时间
+fullsize:true,
+autoplay:true,
+});
+sliderTs.on('before',function(m,n){
+as[m].className='';
+as[n].className='active';
+});	
+setTimeout(function(){sliderTs.resize();},100);
+};
     
 
     function showpm(json){
     	var lblists=eval(json.lblist);
+    	console.log(lblists);
     	if(typeof lblists!="undefined"){
     	if(lblists.length>0){
     		var lblistsli="";
+    		//添加轮播图片
     	   for(var i=0;i<lblists.length;i++){
-    		  // lblistsli+='<div class="mod_01" ><a href="'+lblists[i].pmurl+'" title=\"'+lblists[i].pmtitle+'\"><img src="'+lblists[i].pmpic+'" ></a></div>'; 
-    		   lblistsli+='<img src="'+lblists[i].pmpic+'" data-plugin-slide-caption="<a href=\''+lblists[i].pmurl+'\' target=\'_blank\' ></a>"  /> ';
+    		   lblistsli+='<li><a href="'+lblists[i].pmurl+'" title=\"'+lblists[i].pmtitle+'\"><img src="'+lblists[i].pmpic+'" ></a></li>'; 
+    		   //lblistsli+='<img src="'+lblists[i].pmpic+'" data-plugin-slide-caption="<a href=\''+lblists[i].pmurl+'\' target=\'_blank\' ></a>"  /> ';
     		   }
-    	  // alert(lblistsli);
-    	   $("#sliderA").html(lblistsli);
+    		   //alert(lblistsli);
+    	   //添加轮播的导航
+    	   $("#slider1").html(lblistsli);
+    	   banner("slider1",//函数名
+    			   "1",//ul的ID的后面的数字-----id="slider1"
+    			   "#pagenavi"//分页按钮的ID   			 
+    			   );
+//    	   var nav="<div>";
+//    	   for(var i=0;i<lblists.length;i++){
+//    		   if(i==0){
+//    			   nav+='<a class="touchslider-nav-item touchslider-nav-item-current"> </a>';
+//    		   }else{
+//    			   nav+='<a class="touchslider-nav-item"> </a>';
+//    		   }
+//    	   }
+//    	   nav+="</div>";
+//    	   $(".touchslider-nav").html(nav);
+    	   
     	}
     	}else{
-    		$("#sliderA").parent().hide();
+    		//$("#sliderA").parent().hide();
     	}
     	var actpplists=eval(json.actpplist);
     	if(typeof actpplists!="undefined"){

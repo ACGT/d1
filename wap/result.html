@@ -215,7 +215,7 @@
 					
 				});
 	
-function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
+function loaddata(rackcode1,order1,pageno1,pprice1,brand1,shopd11,iftkt1){
 	
   var url=document.URL;
   var para="";
@@ -225,6 +225,7 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
   var brand="";
   var order=0;
   var shopd1="";
+  var iftkt="";
   if(rackcode1!=""){
 	  rackcode=rackcode1
 	  if(order1!=""){
@@ -238,6 +239,12 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 	  }
 	  if(brand1!=""){
 		  brand=brand1;
+	  }
+	  if(shopd1!=""){
+		  shopd1=shopd11;
+	  }
+	  if(iftkt!=""){
+		  iftkt=iftkt1;
 	  }
 
   }else{
@@ -260,6 +267,8 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 			   brand=arr[i].split("=")[1];
 		   }else if(arr[i].split("=")[0]=="shopd1"){
 			   shopd1=arr[i].split("=")[1];
+		   }else if(arr[i].split("=")[0]=="iftkt"){
+			   iftkt=arr[i].split("=")[1];
 		   }
 		}
    }
@@ -270,12 +279,12 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 	  $.ajax({
 		type: 'get', 
         url: '/ajax/wap/getresult.jsp',
-        data:{pageno:pageno,productsort:rackcode,order:order,psize:psize,pprice:pprice,brand:brand,shopd1:shopd1},
+        data:{pageno:pageno,productsort:rackcode,order:order,psize:psize,pprice:pprice,brand:brand,shopd1:shopd1,iftkt:iftkt},
 		dataType:'json',
 		success: function(data){
 				/*处理数据*/
 				if(data.pstatus=="1"){
-				showlist(data,psize,pageno,rackcode,order,pprice,brand,shopd1);
+				showlist(data,psize,pageno,rackcode,order,pprice,brand,shopd1,iftkt);
 				}
         }
 	});
@@ -289,9 +298,10 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 		if(c[3].length>0&&c[3]!=0)gourl+="&order="+c[3];
 		if(c[4].length>0&&c[4]!=1)gourl+="&pageno="+c[4];
 		if(c[5].length>0)gourl+="&shopd1="+c[5];
+		if(c.length>6)gourl+="&iftkt="+c[6];
 		window.location.href=gourl;
 	}
-	function showlist(p,psize,pageno,rackcode,order,pprice,brand,shopd1){
+	function showlist(p,psize,pageno,rackcode,order,pprice,brand,shopd1,iftkt){
 		if(p.rackname!=''){
 			$("#vrck").html(p.rackname);
 			}
@@ -388,25 +398,25 @@ function loaddata(rackcode1,order1,pageno1,pprice1,brand1){
 		$(".vselect").html(pageno+'/'+pagenum+'&nbsp;<i></i>');
 		 var pgnext=parseInt(pageno)+1;
 		 var pgup=parseInt(pageno)-1;
-		$(".m_page .mp_cell.s").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+',1,'+shopd1+'" href="javascript:void(0)">首页</a>');
+		$(".m_page .mp_cell.s").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+',1,'+shopd1+','+iftkt+'" href="javascript:void(0)">首页</a>');
 		if(parseInt(pgup)>=1){
-		$(".m_page .mp_cell.l").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+ pgup+','+shopd1+'" href="javascript:void(0)">上一页</a>');
+		$(".m_page .mp_cell.l").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+ pgup+','+shopd1+','+iftkt+'" href="javascript:void(0)">上一页</a>');
 		}else{
 			$(".m_page .mp_cell.l").hide();
 		}
 		 if(parseInt(pgnext)<=parseInt(pagenum)){
-		$(".m_page .mp_cell.r").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pgnext+','+shopd1+'" href="javascript:void(0)">下一页</a>');
+		$(".m_page .mp_cell.r").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pgnext+','+shopd1+','+iftkt+'" href="javascript:void(0)">下一页</a>');
 		 }else{
 				$(".m_page .mp_cell.r").hide();
 			}
-		$(".m_page .mp_cell.e").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pagenum+','+shopd1+'" href="javascript:void(0)">尾页</a>');
+		$(".m_page .mp_cell.e").html('<a attr="'+rackcode+','+pprice+','+brand+','+order+','+pagenum+','+shopd1+','+iftkt+'" href="javascript:void(0)">尾页</a>');
 		
 		pageselect="";
 		for(var i=1;i<=pagenum;i++){
 			if(i==pageno){
-			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+'" selected>第'+i+'页</option>';
+			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+','+iftkt+'" selected>第'+i+'页</option>';
 			}else{
-			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+'">第'+i+'页</option>';	
+			pageselect+='<option value="'+rackcode+','+pprice+','+brand+','+order+','+i+','+shopd1+','+iftkt+'">第'+i+'页</option>';	
 			}
 		}
 		$(".go_select").html(pageselect);
@@ -486,7 +496,7 @@ $(".mpsc_txt>a").click(function(){
 			}
 			//gourl(rackcode+','+corder+','+pageno);
 			
-			loaddata(rackcode,corder,pageno,pprice,brand);
+			loaddata(rackcode,corder,pageno,pprice,brand,shopd1,iftkt);
 	});
 $(".chc_row>li").click(function(){
 	var url=document.URL;
@@ -527,7 +537,7 @@ if(vid=="chprice"){
 	pprice=$(this).attr("data");
 	$("#vprice").html($(this).html());
 }
-gourl(''+rackcode+','+pprice+','+brand+',0,1,'+shopd1+'');
+gourl(''+rackcode+','+pprice+','+brand+',0,1,'+shopd1+','+iftkt+'');
 });
 		
 
