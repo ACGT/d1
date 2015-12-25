@@ -5,8 +5,8 @@
 		   "#next",//next按钮的ID
 		   "#prev"//prev按钮的ID
 		   );
-	banner("t2","2","#pagenavi2","#next2","#prev2");
-	banner("t3","3","#pagenavi3","#next3","#prev3");
+	//banner("t2","1","#pagenavi1","#next","#prev");
+	//banner("t3","3","#pagenavi3","#next3","#prev3");
 
 function banner(
 				sliderTs, //函数名
