@@ -1,10 +1,4 @@
 // JavaScript Document最好写到HTML页面!!!!!!!!!!!!!!!!!!!!!!!!
-	banner("slider1",//函数名
-		   "1",//ul的ID的后面的数字-----id="slider1"
-		   "#pagenavi",//分页按钮的ID
-		   "#next",//next按钮的ID
-		   "#prev"//prev按钮的ID
-		   );
 	//banner("t2","1","#pagenavi1","#next","#prev");
 	//banner("t3","3","#pagenavi3","#next3","#prev3");
 
