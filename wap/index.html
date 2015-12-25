@@ -11,8 +11,6 @@
 		<link rel="stylesheet" type="text/css" href="/res/wap/css/base.css" charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="/res/wap/css/index2015.css?1.6" charset="utf-8"/>
         <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
-        <script type="text/javascript" src="/res/wap/js/touchslider.js"></script>
-        <script type="text/javascript" src="/res/wap/js/banner.js"></script>
         <script src="/res/wap/js/jquery.excoloSlider.min.js?1.1"></script>
     <link href="/res/wap/css/jquery.excoloSlider.css" rel="stylesheet" />
 
@@ -24,61 +22,6 @@
 #slide_01_dot{text-align:center;}
 #slide_01_dot span{display:inline-block;margin:0 3px;width:5px;height:5px;vertical-align:middle;background:#f7f7f7;-webkit-border-radius:5px;}
 #slide_01_dot .selected{background:#66ff33;}
-#wrapper {
-	width: 100%;
-	overflow: hidden;
-	background:#FFF;
-}
-.swipe ul, .swipe li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	overflow: hidden;
-}
-.swipe img {
-	width:100%;
-	height:100%;
-	display: block;
-}
-.swipe {
-	overflow: hidden;
-	position: relative;
-}
-.swipe ul {
-	-webkit-transition: left 800ms ease-in 0;
-	-moz-transition: left 800ms ease-in 0;
-	-o-transition: left 800ms ease-in 0;
-	-ms-transition: left 800ms ease-in 0;
-	transition: left 800ms ease-in 0;
-}
-.swipe .pagenavi {
-	position: absolute;
-	left: 0;
-	bottom: 15px;
-	text-align: center;
-	width: 100%;
-	height:10px;
-	line-height:10px;
-}
-.swipe .pagenavi a {
-	width:7px;
-	height:7px;
-	line-height: 99em;
-	background:#fff;
-	margin:0 3px 1px;
-	overflow: hidden;
-	cursor: pointer;
-	display: inline-block;
-	*display:inline;
-	*zoom:1;
-	border-radius:50%;
-}
-.swipe .pagenavi a.active {
-	background: #d324ac;
-	width:7px;
-	height:7px;
-	margin-bottom:0 3px;
-}
 table { 
  border-collapse:collapse; 
  border-spacing:0px; 
@@ -126,21 +69,12 @@ tr,td {
 					<!-- <div style="width:320px;margin:0 auto;">				
 				<a href="act.html"><img src="http://images.d1.com.cn/images2014/index/phone320.jpg" border="0"></a>
 				</div> -->
-	<!-- slidePic -->
-    <div id="wrapper" class="m_agimg2">
-        <div class="swipe">
-            <ul id="slider1">
-               
-            </ul>
-            <div id="pagenavi" class="pagenavi"></div>
-        </div>
-    </div>
-    <!-- slidePic -->
-<!-- <div class="m_agimg2">
+
+<div class="m_agimg2">
 <div id="sliderA" class="slider" style="border:none;">
 				
 			</div>
-</div> -->
+</div>
  <div class="mp_list sg" id="mpadimg" style="display:none;">
 <div class="adimg">
  
@@ -226,6 +160,7 @@ tr,td {
 				       </div> -->
 				        
 					    <div class="mp_list sg" id="racks">
+					  
 					   </div>   
 				      
 					</div>
@@ -241,8 +176,6 @@ tr,td {
 				$(document).ready(function() {
 	    			loaddata();
 	    			loadrck();
-	    			//图片轮播，支持触屏
-	    			// $(".touchslider").touchSlider({/*options*/});
 	    		});
 
 				/*var slide_01 = new ScrollPic();
