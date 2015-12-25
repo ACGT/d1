@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -54,6 +55,7 @@ public class FindPwdServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 只验证mbrmst_uid这个字段，如果是手机就发手机短信验证码，如果是邮箱就发邮件验证，否则就提示联系客服。
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
@@ -72,43 +74,59 @@ public class FindPwdServlet extends HttpServlet {
 		}
 		
 		
-		User user=UserHelper.getByUserPhone(mobile);
+		User user=UserHelper.getByUsername(mobile);
 		String type="";
-		//手机号，需要发验证码给他
+		//手机号，需要发验证码给他,邮箱就发邮件验证
 		if(user!=null){
-			type="phone";
-			
-		}else{//输入的是邮箱的话就发邮件
-			user = UserHelper.getByUserMail2(mobile);
-			if(user!=null){
-				if(user.getMbrmst_usephone()!=""&&user.getMbrmst_phoneflag().longValue()==1){
-					type="phone";
-				}else{
-				type="email";
-				}
+			if(Tools.isMobile(mobile)){
+				type="phone";
 			}else{
-				//输入的是用户 名
-				user=UserHelper.getByUsername(mobile);
-				if(user!=null){
-					if(user.getMbrmst_usephone()!=""&&user.getMbrmst_phoneflag().longValue()==1){
-						type="phone";
-					}else{
-						if(user.getMbrmst_email()!=""&&user.getMbrmst_mailflag().longValue()==1){
-							type="email";
-						}else{//手机/邮箱/用户 名都找不到，没有这个用户 
-							out.print("{\"success\":false,\"message\":\"没此用户或没绑定手机邮箱，请拨打400-680-8666！\"}");
-							return;
-						}
-					}
-				}else{//手机/邮箱/用户 名都找不到，没有这个用户 
+				//是否是邮箱
+				String check = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";  
+				Pattern regex = Pattern.compile(check); 
+				if(regex.matcher(mobile).matches()){
+					type="email";
+				}else{
 					out.print("{\"success\":false,\"message\":\"没此用户或没绑定手机邮箱，请拨打400-680-8666！\"}");
 					return;
 				}
 			}
+		}else{
+			out.print("{\"success\":false,\"message\":\"没此用户或没绑定手机邮箱，请拨打400-680-8666！\"}");
+			return;
 		}
 		
+//		else{//输入的是邮箱的话就发邮件
+//			user = UserHelper.getByUserMail2(mobile);
+//			if(user!=null){
+//				if(user.getMbrmst_usephone()!=""&&user.getMbrmst_phoneflag().longValue()==1){
+//					type="phone";
+//				}else{
+//				type="email";
+//				}
+//			}else{
+//				//输入的是用户 名
+//				user=UserHelper.getByUsername(mobile);
+//				if(user!=null){
+//					if(user.getMbrmst_usephone()!=""&&user.getMbrmst_phoneflag().longValue()==1){
+//						type="phone";
+//					}else{
+//						if(user.getMbrmst_email()!=""&&user.getMbrmst_mailflag().longValue()==1){
+//							type="email";
+//						}else{//手机/邮箱/用户 名都找不到，没有这个用户 
+//							out.print("{\"success\":false,\"message\":\"没此用户或没绑定手机邮箱，请拨打400-680-8666！\"}");
+//							return;
+//						}
+//					}
+//				}else{//手机/邮箱/用户 名都找不到，没有这个用户 
+//					
+//					return;
+//				}
+//			}
+//		}
+		
 		String mbrName = Tools.trim(user.getMbrmst_uid());
-		String email = user.getMbrmst_email();
+		String email = mbrName;
 		String telephone=user.getMbrmst_usephone();
 		String self_mbrUid=user.getId();
 		Date self_createTime=new Date();
@@ -239,7 +257,7 @@ public class FindPwdServlet extends HttpServlet {
 			
 			String mailSubject = "找回D1优尚会员密码";
 			String mailSendemail = email;
-			String mailFromemail = "service@d1.com.cn";
+			String mailFromemail = SendMailByJavaMail.user;
 			
 			Email pwEmail = new Email();
 			pwEmail.setBody(mailbody);

@@ -4,13 +4,17 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
 
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 public class SendMailByJavaMail {
 	static int port = 25;// 587
@@ -19,7 +23,7 @@ public class SendMailByJavaMail {
 
 	static String from = "D1优尚网";// 发送者,显示的发件人名字
 
-	static String user = "maillist@d1.cn";// 发送者邮箱地址
+	public static String user = "maillist@d1.cn";// 发送者邮箱地址
 
 	static String password = "Hellod1ys";// 密码
 
@@ -41,8 +45,14 @@ public class SendMailByJavaMail {
 			toAddress[0] = new InternetAddress(email);
 			msg.setRecipients(Message.RecipientType.TO, toAddress);
 			msg.setSubject(subject, "UTF-8");
-			msg.setText(body, "UTF-8");
+			//msg.setText(body, "UTF-8");
+			BodyPart mdp = new MimeBodyPart();
+			mdp.setContent(body, "text/html;charset=utf-8");
+			Multipart mm = new MimeMultipart();
+			mm.addBodyPart(mdp);
+			msg.setContent(mm);
 			msg.saveChanges();
+
 			transport.sendMessage(msg, msg.getAllRecipients());
 			transport.close();
 		} catch (NoSuchProviderException e) {
@@ -51,8 +61,9 @@ public class SendMailByJavaMail {
 			e.printStackTrace();
 		}
 	}
-//	public static void main(String[] args) throws UnsupportedEncodingException {
-//		sendEmail("525141335@qq.com", "测试发送啊！", "哈哈哈只一");
-//	}
+	// public static void main(String[] args) throws
+	// UnsupportedEncodingException {
+	// sendEmail("525141335@qq.com", "测试发送啊！", "哈哈哈只一");
+	// }
 
 }
