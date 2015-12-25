@@ -127,7 +127,7 @@ public class FindPwdServlet extends HttpServlet {
 		
 		String mbrName = Tools.trim(user.getMbrmst_uid());
 		String email = mbrName;
-		String telephone=user.getMbrmst_usephone();
+		String telephone=mbrName;
 		String self_mbrUid=user.getId();
 		Date self_createTime=new Date();
 		Date self_validEndTime= new Date(System.currentTimeMillis()+Tools.DAY_MILLIS);
