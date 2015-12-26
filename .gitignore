@@ -13,3 +13,8 @@ output/
 WEB-INF/lib/sqljdbc4.jar
 WEB-INF/lib/sqljdbc.jar
 WEB-INF/lib/sqljdbc42.jar
+/build/
+/Resource/
+/.classpath
+/resin.conf
+

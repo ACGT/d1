@@ -72,7 +72,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 			case 3:
 			case 31:
 			{
-				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货申请</a>";
+				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货处理</a>";
 				break;
 			}
 			case 5:
@@ -80,7 +80,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 			case 6:
 			case 61:
 			{
-				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货申请</a>";
+				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货处理</a>";
 				break;
 			}
 			default:
@@ -121,7 +121,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 			case 3:
 			case 31:
 			{
-				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货申请</a>";
+				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货处理</a>";
 				break;
 			}
 			case 5:
@@ -129,7 +129,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 			case 6:
 			case 61:
 			{
-				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货申请</a>";
+				result="<a href='/user/thtkorder.jsp?orderid="+orderid+"&subodrid="+suborderid+"' target='_blank' class='a'>退换货处理</a>";
 				break;
 			}
 			default:
@@ -1247,8 +1247,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 				}
 				case 3:
 				{
-					//全部发货的时候显示退换货申请
-					result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+					//全部发货的时候显示退换货处理
+					result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					break;
 				}
 				case 31:
@@ -1266,7 +1266,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					}
 					result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 					//退换货申请
-					result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+					result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					break;
 				}
 				case 5:
@@ -1280,12 +1280,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					if(isShowOrder(orderid)){
 						//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 						//退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					}
 					}else if(isShowOrder(orderid)){
 						//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 						//退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					}
 					else
 					{
@@ -1326,8 +1326,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					case 1:
 					case 3:
 					{
-						//全部发货的时候显示退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//全部发货的时候显示退换货处理
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 31:
@@ -1340,7 +1340,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						}
 						result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 						//退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					
 					}
@@ -1356,12 +1356,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 							 if(isShowOrder(orderid)){
 									//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 								//退换货申请
-								result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+								result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 								}
 						}else if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}
 						else
 						{
@@ -1398,8 +1398,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					case 1:
 					case 3:
 					{
-						//全部发货的时候显示退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//全部发货的时候显示退换货处理
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 31:
@@ -1412,7 +1412,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						}
 						result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 						//退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 5:
@@ -1428,12 +1428,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}
 						}else if(isShowOrder(orderid)){
 								//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 							}
 						}
 						else
@@ -1495,8 +1495,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					case 2:
 					case 3:
 					{
-						//全部发货的时候显示退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//全部发货的时候显示退换货处理
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 31:
@@ -1509,7 +1509,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						}
 						result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 						//退换货申请
-						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 5:
@@ -1524,12 +1524,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					 if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 						//退换货申请
-							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}	
 						}else if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}
 					
 						else
@@ -1706,8 +1706,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 				}
 				case 3:
 				{
-					//全部发货的时候显示退换货申请
-					//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+					//全部发货的时候显示退换货处理
+					//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					result = "<a href='javascript:void(0)' onclick='tipdialog(188220092125)''><img src='http://images.d1.com.cn/images2012/New/user/qrsh_pj.jpg' width='114' height='27' style='vertical-align:middle;''></a>";
 					break;
 				}
@@ -1726,7 +1726,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					}
 					result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 					//退换货申请
-					//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+					//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					break;
 				}
 				case 5:
@@ -1740,12 +1740,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					if(isShowOrder(orderid)){
 						//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 						//退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					}
 					}else if(isShowOrder(orderid)){
 						//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 						//退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 					}
 					else
 					{
@@ -1786,8 +1786,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					case 1:
 					case 3:
 					{
-						//全部发货的时候显示退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//全部发货的时候显示退换货处理
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 31:
@@ -1800,7 +1800,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						}
 						result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 						//退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					
 					}
@@ -1816,12 +1816,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 							 if(isShowOrder(orderid)){
 									//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 								//退换货申请
-								//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+								//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 								}
 						}else if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}
 						else
 						{
@@ -1858,8 +1858,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					case 1:
 					case 3:
 					{
-						//全部发货的时候显示退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//全部发货的时候显示退换货处理
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 31:
@@ -1872,7 +1872,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						}
 						result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 						//退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 5:
@@ -1888,12 +1888,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}
 						}else if(isShowOrder(orderid)){
 								//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 							}
 						}
 						else
@@ -1956,8 +1956,8 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					case 2:
 					case 3:
 					{
-						//全部发货的时候显示退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//全部发货的时候显示退换货处理
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 31:
@@ -1970,7 +1970,7 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 						}
 						result+="<a href=\"/user/orderdetail.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">订单追踪</a>";
 						//退换货申请
-						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+						//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						break;
 					}
 					case 5:
@@ -1985,12 +1985,12 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
 					 if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 						//退换货申请
-							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}	
 						}else if(isShowOrder(orderid)){
 							//result+="<a href=\"/ShowOrder/showorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">我要晒单</a>";
 							//退换货申请
-							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货申请</a>";
+							//result+="<a href=\"/user/thtkorder.jsp?orderid="+orderid+"\" target=\"_blank\" class=\"a\">退换货处理</a>";
 						}
 					
 						else
@@ -2040,4 +2040,5 @@ public String getOrderStatuByPaytype1(String orderid, String suborderid, String 
     	//return "";
     	return result;
     }
+
 %>

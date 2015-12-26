@@ -545,7 +545,7 @@ function keepProfileInfo(){
 				     <%
 				     if(lUser.getMbrmst_mailflag()==null || lUser.getMbrmst_mailflag()!=1){
 				    	 %> 
-				    	 <span style="color:red;">&nbsp;&nbsp;为了您的账户安全，请<a href="/newlogin/valiemail.jsp" target="_blank" style="text-decoration:underline; color:#0149ab; ">验证邮箱</a></span>
+				    	<!--  <span style="color:red;">&nbsp;&nbsp;为了您的账户安全，请<a href="/newlogin/valiemail.jsp" target="_blank" style="text-decoration:underline; color:#0149ab; ">验证邮箱</a></span> -->
 				     <%}
 				     %>
 				     <span id="spanREmail" style="color:red;display:none;">*请输入您的常用邮箱地址 </span><img  id="imgemail" src="http://images.d1.com.cn/images2012/New/user/infosucc.jpg" style=" vertical-align:middle;display:none;" /></td>
@@ -591,7 +591,7 @@ function keepProfileInfo(){
 <tr>
 <td colspan="2" style="border-bottom:solid 1px #8A2B3F; width:100%;"> &nbsp;</td>
 </tr>
-<tr>
+<%-- <tr>
 <td colspan="2" > <br/> <font color="#000000" style=" font-size:15px;"><b>&nbsp;&nbsp;详细资料</b></font><span>(如下信息有助于我们为您提供个性化服务)</span></td>
 </tr>
 <tr>
@@ -899,7 +899,7 @@ if(plist!=null){
 <tr><td colspan="3" height="20">&nbsp;</td></tr>
 </table>
 </td>
-</tr>
+</tr> --%>
 
 
 			</table>

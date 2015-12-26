@@ -12,9 +12,9 @@
 .xq_t {border-bottom: 1px dashed #D6D6D6;width: 510px;float: left;padding-bottom: 6px;margin-bottom: 4px;margin-left: 24px;}
 </style>
 <div class="dialogdiv02"><!-- 验证手机 -->
-<span class="xq_t" style="margin-left:0px;width:100%;"><strong>我们已发出了通知信到您的邮箱中，请在点击邮件内的链接继续创建密码。</strong></span>
+<span class="xq_t" style="margin-left:0px;width:100%;"><strong>我们已发出了通知信到您的邮箱:<%request.getParameter("message"); %>，请在点击邮件内的链接继续创建密码。</strong></span>
 <div class="mobile111">
-	<span class="txt"><span class="blue">如果您忘记了注册的邮箱地址或者未收到邮件，请致电：<font color="red">010-51292956</font>，我们的客户服务人员很乐意帮助您。</span></span>
+	<span class="txt"><span class="blue">如果您忘记了注册的邮箱地址或者未收到邮件，请致电：<font color="red">400-680-8666</font>，我们的客户服务人员很乐意帮助您。</span></span>
 	<div class="button">
 		<input name="" type="button" class="layer_button" onclick="javascript:$.close();" onmousemove="this.className='layer_button_over'" onmouseout="this.className='layer_button'" value="关　　闭"/>
 	</div>

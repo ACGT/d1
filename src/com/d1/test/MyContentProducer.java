@@ -14,8 +14,7 @@ public class MyContentProducer implements ContentProducer {
 		this.content =content ;
 	}
 
-	@Override
-	 public void writeTo(OutputStream outstream) throws IOException {
+	public void writeTo(OutputStream outstream) throws IOException {
         Writer writer = new OutputStreamWriter(outstream, "UTF-8");
         writer.write(content);
         writer.flush();

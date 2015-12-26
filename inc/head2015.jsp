@@ -240,7 +240,6 @@ String chePingAn = Tools.getCookie(request,"PINGAN");
            <li class="r"><a id="style020" href="http://www.d1.com.cn/result.jsp?productsort=020">女人街</a></li>
           <li class="r"><a id="style010" href="http://www.d1.com.cn/shop/789/2">岁未清仓</a></li>
           </ul>
- 
        </div>
        <!--浮动层-->
 	<div id="head_floatdiv" style="margin:0px auto;max-width:1200px;position:relative;z-index:10000;">

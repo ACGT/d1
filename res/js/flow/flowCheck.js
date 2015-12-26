@@ -127,7 +127,7 @@ function ShowPayNet(){
     $('#trPayNet').show();
     var iChecked = $('#tblPayNetList input[type=radio]:checked').length;
     if (iChecked == 0){//没有选中的子项默认选中第1项
-    	var rdoDefault = $('#tblPayNetList input[type=radio][value=25]').get(0); //腾讯财付通
+    	var rdoDefault = $('#tblPayNetList input[type=radio][value=60]').get(0); //腾讯财付通
         if (rdoDefault != null){
             rdoDefault.checked = true;
             $('#rdoPayShow1').get(0).checked = true;
