@@ -57,8 +57,6 @@ public class FindPwdCofirmServlet extends HttpServlet {
 			out.print("{success:false,message:\"手机号码格式不正确！\"}");
 		} else if (code == null || code.length() == 0) {
 			out.print("{success:false,message:\"验证码不能为空！\"}");
-		} else if (code.length() < 4 || code.length() > 6) {
-			out.print("{success:false,message:\"验证码格式不正确！\"}");
 		} else if (pwd == null || pwd.length() == 0) {
 			out.print("{success:false,message:\"密码不能为空！\"}");
 		} else if (pwd.length() < 6 || pwd.length() > 14) {
