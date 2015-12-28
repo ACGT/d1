@@ -90,6 +90,7 @@ String raddr=odrm.getOdrmst_raddress();
 
 rphone=rphone.length()>11?rphone.substring(0, 11):rphone;
 */
+String strname="测试名";
 for(int l=0;l<n;l++){
 	String shipcode="0123456789";
  
@@ -110,27 +111,128 @@ Font f18 = new Font(bfChinese, 18, Font.BOLD, Color.BLACK);
 // 添加table实例
 
 PdfPCell cells = new PdfPCell();
-cells.setFixedHeight(420);
+cells.setFixedHeight(400);
 cells.setBorderWidth(0);
-cells.setPadding(0);
-PdfPTable iTable= new PdfPTable(1); 
-PdfPTable table = new PdfPTable(3);
+cells.setPadding(10);
+PdfPTable iTable= new PdfPTable(2); 
+PdfPTable table = new PdfPTable(2);
+PdfPTable iiTable= new PdfPTable(4); 
 table.setWidthPercentage(100);
 table.setHorizontalAlignment(PdfPTable.ALIGN_LEFT);
-table.setWidths(new float[]{0.07f,0.53f,0.40f});
+table.setWidths(new float[]{0.07f,0.93f});
 PdfPCell cell = new PdfPCell();
 PdfPCell icell = new PdfPCell();
-cell=celltype(cell,Element.ALIGN_RIGHT,Element.ALIGN_RIGHT,3,2);
+PdfPCell iicell = new PdfPCell();
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,3,2);
 cell.setFixedHeight(20);
-cell.setPhrase(getpar("上联：此联由圆通速递留存",f12));
+cell.setPhrase(getpar("D1优尚    发货单",f18));
 table.addCell(cell);
-cell = new PdfPCell(image128);
+/*cell = new PdfPCell(image128);
 cell.setFixedHeight(40);
-cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,2,2);
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_MIDDLE,1,2);
 table.addCell(cell);
 cells.addElement(table);
 tables.addCell(cells);
+ */
+cell = new PdfPCell();
+cell.setFixedHeight(60);
+table.addCell(cell);
  
+cell = new PdfPCell();
+iTable.setWidthPercentage(100);
+iTable.setWidths(new float[]{0.65f,0.35f});
+icell = new PdfPCell();
+icell.setFixedHeight(60);
+icell.setBorderColor(new Color(255, 255, 255));
+icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
+iiTable= new PdfPTable(4); 
+iiTable.setWidthPercentage(100);
+iiTable.setWidths(new float[]{0.45f,0.55f});
+
+iicell = new PdfPCell(getpar("收货人："+strname,f12));
+iicell.setFixedHeight(30);
+iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
+iicell.setBorderColor(new Color(255, 255, 255));
+iiTable.addCell(iicell);
+iicell = new PdfPCell(getpar("收货人电话："+strname,f12));
+iicell.setFixedHeight(30);
+iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
+iicell.setBorderColor(new Color(255, 255, 255));
+iiTable.addCell(iicell);
+iicell = new PdfPCell(getpar("收货人地址："+strname,f12));
+iicell.setFixedHeight(30);
+iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,2,2);
+iicell.setBorderColor(new Color(255, 255, 255));
+iiTable.addCell(iicell);
+
+icell.addElement(iiTable);
+iTable.addCell(icell);
+icell = new PdfPCell(image128);
+icell=celltype(icell,Element.ALIGN_CENTER,Element.ALIGN_TOP,0,2);
+icell.setBorderColor(new Color(255, 255, 255));
+iTable.addCell(icell);
+cell.addElement(iTable);
+
+cell = new PdfPCell();
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,2,2);
+iTable= new PdfPTable(7);
+iTable.setWidthPercentage(100);
+iTable.setWidths(new float[]{0.08f,0.14f,0.16f,0.16f,0.08f,0.12f,0.26f});
+icell = new PdfPCell(getpar("序号",f12));
+icell.setFixedHeight(30);
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("编号",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("商品条码",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("货位",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("数据",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("单价",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("商品名称",f12));
+iTable.addCell(icell);
+int j=3;
+for(int k=0;k<j;k++){
+icell = new PdfPCell(getpar("1",f12));
+icell.setFixedHeight(30);
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("00000000",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("12345678",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("03-02-01",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("2",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("22.5",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("商品名称商品名称商品名称商品名称商品名称",f12));
+iTable.addCell(icell);
+}
+cell.addElement(iTable);
+table.addCell(cell);
+
+cell = new PdfPCell();
+cell=celltype(cell,Element.ALIGN_CENTER,Element.ALIGN_TOP,2,2);
+iTable= new PdfPTable(5);
+iTable.setWidthPercentage(100);
+iTable.setWidths(new float[]{0.20f,0.20f,0.20f,0.20f,0.20f});
+icell = new PdfPCell(getpar("配送费：8元",f12));
+icell.setFixedHeight(30);
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("商品金额：88元",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("商品数量：3",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("优惠金额：0元",f12));
+iTable.addCell(icell);
+icell = new PdfPCell(getpar("应付金额：123元",f12));
+iTable.addCell(icell);
+
+cell.addElement(iTable);
+table.addCell(cell);
 
 }
 document.add(tables);
