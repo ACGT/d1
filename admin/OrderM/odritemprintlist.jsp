@@ -145,7 +145,7 @@ icell = new PdfPCell();
 icell.setFixedHeight(60);
 icell.setBorderColor(new Color(255, 255, 255));
 icell=celltype(icell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
-iiTable= new PdfPTable(4); 
+iiTable= new PdfPTable(2); 
 iiTable.setWidthPercentage(100);
 iiTable.setWidths(new float[]{0.45f,0.55f});
 
