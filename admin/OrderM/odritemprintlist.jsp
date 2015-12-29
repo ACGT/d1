@@ -234,6 +234,8 @@ iTable.addCell(icell);
 cell.addElement(iTable);
 table.addCell(cell);
 
+cells.addElement(table);
+tables.addCell(cells);
 }
 document.add(tables);
 document.close();
