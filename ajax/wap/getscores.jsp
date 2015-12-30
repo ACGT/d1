@@ -27,7 +27,7 @@
 JSONObject json = new JSONObject();
 String cls=request.getParameter("cls");
 long s=0;
-long e=500;
+long e=50000;
 if(cls.equals("1")){
 	 s=501;
 	 e=1000;
