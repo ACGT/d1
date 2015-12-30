@@ -15,6 +15,9 @@
 	charset="utf-8" />
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="/res/wap/js/waplistcart.js"></script>
+<script type="text/javascript" src="js/com.js?201509241839"></script>
+<script type="text/javascript" src="js/sync_d1_user.js"  ></script>
+
 </head>
 <body>
 	<header class="p_header">
@@ -32,7 +35,7 @@
 			<span>我的积分 </span> <a href="/wap/user/myscore.html">查看积分</a>
 		</div>
 		<div class="m_plist">
-			<div class="mp_sort" style="display:none;">
+		<!--	<div class="mp_sort">
 				<div class="mps_con">
 					<div class="mpsc_txt">
 						<a href="javascript:void(0)" attr="0" class="cur">1-500</a> <a
@@ -40,7 +43,7 @@
 							href="javascript:void(0)" attr="2">1001以上</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="mp_list">
 				<ul>
 
@@ -64,8 +67,10 @@
 	</div>
 
 	<div id="footer" class="footer">
-		<span class="user">请登陆&nbsp;&nbsp;注册</span> <span class="top"><a
-			href="#top">回到顶部</a></span>
+		<script language="javascript">
+		loadlogin();
+					getwapFoot();
+				   </script>
 	</div>
 	<script language="javascript">
 				function addCart(obj){
