@@ -485,4 +485,5 @@ setTimeout(function(){sliderTs.resize();},100);
     	}
     		
     
+    
 	
