@@ -337,6 +337,9 @@ $('.mbm_item li').mouseover(function(){
     <div class="main_div1" style="padding-top:20px; *padding-top:5px;">
       <%=getrck2015("3857,3858,3859,3860,3881","013018006",5) %>
     </div>
+    <div class="main_div1" style="padding-top:20px; *padding-top:5px;">
+      <%=getrck2015("3900,3901,3902,3903,3904","013018009",6) %>
+    </div>
      <div class="menrec">
 		<%=getmenrec("3862,3863,3864,3865,3866,3876","男人馆") %>
 	</div>
