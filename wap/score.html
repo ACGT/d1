@@ -15,6 +15,9 @@
 	charset="utf-8" />
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="/res/wap/js/waplistcart.js"></script>
+<script type="text/javascript" src="js/com.js?201509241839"></script>
+<script type="text/javascript" src="js/sync_d1_user.js"  ></script>
+
 </head>
 <body>
 	<header class="p_header">
@@ -64,8 +67,10 @@
 	</div>
 
 	<div id="footer" class="footer">
-		<span class="user">请登陆&nbsp;&nbsp;注册</span> <span class="top"><a
-			href="#top">回到顶部</a></span>
+		<script language="javascript">
+		loadlogin();
+					getwapFoot();
+				   </script>
 	</div>
 	<script language="javascript">
 				function addCart(obj){
