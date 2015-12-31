@@ -282,6 +282,8 @@ public static String getrck2015(String codeleft,String pprck,int num){
 		cimg="014005";
 	}else if(num==5){
 		cimg="014010";
+	}else if(num==6){
+		cimg="012";
 	}
 	sb.append("<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"border-bottom:1px solid #eee;\">");
 	sb.append("<tbody><tr>");
