@@ -111,28 +111,28 @@ public class ReturnServlet extends HttpServlet {
 					        if(reValue == 0){
 					        	//logInfo("百度支付，及时反馈，订单："+strOrderID+"支付成功！");
 					        	if (subAd=="phone") {
-					        		response.sendRedirect("/wap/user_orderlist.html");
+					        		//response.sendRedirect("/wap/user_orderlist.html");
 					        	}
 					        	else {
-					        		response.sendRedirect("/user/selforder.jsp");
+					        		//response.sendRedirect("/user/selforder.jsp");
 					        	}
 								return;
 					        }else{
 					        	//response.sendRedirect("/user/selforder.jsp");
 					        	if (subAd=="phone") {
-					        		response.sendRedirect("/wap/user_orderlist.html");
+					        		//response.sendRedirect("/wap/user_orderlist.html");
 					        	}
 					        	else {
-					        		response.sendRedirect("/user/selforder.jsp");
+					        		//response.sendRedirect("/user/selforder.jsp");
 					        	}
 								return;
 					        }
 						}else{
 							if (subAd=="phone") {
-				        		response.sendRedirect("/wap/user_orderlist.html");
+				        		//response.sendRedirect("/wap/user_orderlist.html");
 				        	}
 				        	else {
-				        		response.sendRedirect("/user/selforder.jsp");
+				        		//response.sendRedirect("/user/selforder.jsp");
 				        	}
 							return;
 						}
