@@ -19,6 +19,7 @@
 		return;
 	}
 	String domainName = "test.d1.com.cn";
+	/*
 	String baiduPayUrl = "http://" + domainName + "/PayUnloginServlet?goods_category=1&goods_name="+strOdrID+"&goods_desc=goods"
 			+ "&goods_url=http://www.d1.com.cn&unit_amount="
 			+ Tools.getFormatMoney(Tools.doubleValue(order.getOdrmst_acturepaymoney())*100)
@@ -27,5 +28,9 @@
 			+ "&buyer_sp_username=" + strOdrID + "&return_url=" 
 			+ URLEncoder.encode("http://" + domainName + "/ReturnServlet")
 			+ "&page_url="+ URLEncoder.encode("http://" + domainName + "/ReturnServlet") + "&pay_type=2&bank_no=201&sp_uno="+strOdrID+"&extra="+strOdrID;
+	*/
+	String return_url = URLEncoder.encode("http://" + domainName + "/ReturnServlet");
+	String baiduPayUrl = "http://" + domainName + "/PayUnloginServlet?order_id=" + strOdrID 
+		+ "&page_url=" + return_url	+ "&return_url=" + return_url;
 	response.sendRedirect(baiduPayUrl);
 	%><%=baiduPayUrl%>

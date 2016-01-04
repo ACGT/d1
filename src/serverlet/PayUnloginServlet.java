@@ -51,7 +51,7 @@ public class PayUnloginServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String d1_order_num = request.getParameter("goods_name");
+		String d1_order_num = request.getParameter("OdrID");
 		OrderBase d1_order = OrderHelper.getById(d1_order_num);
 		String acturePayMoney = Tools.getFormatMoney(Tools.doubleValue(d1_order.getOdrmst_acturepaymoney())*100);
 		
@@ -105,21 +105,21 @@ public class PayUnloginServlet extends HttpServlet {
 	     * 3、pay_unlogin.html页面post提交的变量值
 	     */
 	    //商品种类
-	    String goods_category ="goods_category="+request.getParameter("goods_category");
+	    String goods_category ="goods_category=" + d1_order_num;
 	    //商品名称
-	    String tempgoods_name=request.getParameter("goods_name");
+	    String tempgoods_name = d1_order_num;
 	    String goods_name ="goods_name="+tempgoods_name;
 	    String goods_name1="goods_name="+ URLEncoder.encode(request.getParameter("goods_name"),"gbk");
 	    //String goods_ame1 ="goods_name="+tempgoods_name;
 
 	    //商品描述
-	    String tempgoods_desc=request.getParameter("goods_desc");
-	    String goods_desc ="goods_desc="+tempgoods_desc;
-	    String goods_desc1= "goods_desc="+URLEncoder.encode(request.getParameter("goods_desc"),"gbk");
+	    //String tempgoods_desc=request.getParameter("goods_desc");
+	    //String goods_desc ="goods_desc="+tempgoods_desc;
+	    //String goods_desc1= "goods_desc="+URLEncoder.encode(request.getParameter("goods_desc"),"gbk");
 	    //String goods_desc1 ="goods_desc="+tempgoods_desc;
 	   //商品在商户网站上的URL
-	    String goods_url ="goods_url="+request.getParameter("goods_url");
-	    String goods_url1="goods_url="+URLEncoder.encode(request.getParameter("goods_url"),"gbk");
+	    //String goods_url ="goods_url="+request.getParameter("goods_url");
+	    //String goods_url1="goods_url="+URLEncoder.encode(request.getParameter("goods_url"),"gbk");
 	    
 	    //单价
 	    String unit_amount ="unit_amount="+acturePayMoney;
@@ -130,9 +130,9 @@ public class PayUnloginServlet extends HttpServlet {
 	    //总金额
 	    String total_amount ="total_amount="+acturePayMoney;
 	   //买家在商户网站的用户名
-	    String tempSPUserName=request.getParameter("buyer_sp_username");
-	    String buyer_sp_username ="buyer_sp_username="+tempSPUserName;
-        String buyer_sp_username1 ="buyer_sp_username="+URLEncoder.encode(tempSPUserName,"gbk");
+	    //String tempSPUserName=request.getParameter("buyer_sp_username");
+	    //String buyer_sp_username ="buyer_sp_username="+tempSPUserName;
+        //String buyer_sp_username1 ="buyer_sp_username="+URLEncoder.encode(tempSPUserName,"gbk");
 	   //后台通知地址
 	    String return_url ="return_url="+request.getParameter("return_url");
 	    String return_url1="return_url="+URLEncoder.encode(request.getParameter("return_url"),"gbk");
@@ -141,13 +141,15 @@ public class PayUnloginServlet extends HttpServlet {
 	    String page_url ="page_url="+request.getParameter("page_url");
 	    String page_url1="page_url="+URLEncoder.encode(request.getParameter("page_url"),"gbk");
        //支付方式
-	    String pay_type ="pay_type="+request.getParameter("pay_type");
+	    //String pay_type ="pay_type="+request.getParameter("pay_type");
+	    String pay_type = "pay_type=2";
 	    //默认银行的编码
-	    String bank_no ="bank_no="+request.getParameter("bank_no");
+	    //String bank_no ="bank_no="+request.getParameter("bank_no");
+	    String bank_no = "bank_no=201";
 	    //用户在商户端的用户ID
-	    String sp_uno ="sp_uno="+request.getParameter("sp_uno");
+	    //String sp_uno ="sp_uno="+request.getParameter("sp_uno");
 	    //商户自定义数据
-	    String tempextra=request.getParameter("extra");
+	    String tempextra=d1_order_num;
 	    String extra ="extra="+tempextra;
 	    String extra1="extra="+URLEncoder.encode(tempextra,"gbk");
 	    
@@ -164,13 +166,13 @@ public class PayUnloginServlet extends HttpServlet {
 				order_no,
 				goods_category,
 				goods_name,
-				goods_desc,
+				//goods_desc,
 				unit_amount,
 				unit_count,
 				transport_amount,
 				total_amount,
 				currency,
-				buyer_sp_username ,
+				//buyer_sp_username ,
 				return_url,
 				page_url,
 				pay_type,
@@ -190,13 +192,13 @@ public class PayUnloginServlet extends HttpServlet {
 				order_no,
 				goods_category,
 				goods_name1,
-				goods_desc1,
+				//goods_desc1,
 				unit_amount,
 				unit_count,
 				transport_amount,
 				total_amount,
 				currency,
-				buyer_sp_username1,
+				//buyer_sp_username1,
 				return_url1,
 				page_url1,
 				pay_type,
