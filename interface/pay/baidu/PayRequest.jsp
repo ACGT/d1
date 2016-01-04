@@ -30,7 +30,7 @@
 			+ "&page_url="+ URLEncoder.encode("http://" + domainName + "/ReturnServlet") + "&pay_type=2&bank_no=201&sp_uno="+strOdrID+"&extra="+strOdrID;
 	*/
 	String return_url = URLEncoder.encode("http://" + domainName + "/ReturnServlet");
-	String baiduPayUrl = "http://" + domainName + "/PayUnloginServlet?order_id=" + strOdrID 
+	String baiduPayUrl = "http://" + domainName + "/PayUnloginServlet?OdrID=" + strOdrID 
 		+ "&page_url=" + return_url	+ "&return_url=" + return_url;
 	response.sendRedirect(baiduPayUrl);
 	%><%=baiduPayUrl%>
