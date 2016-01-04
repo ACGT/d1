@@ -112,13 +112,17 @@ public class PayWapServlet extends HttpServlet {
 	    String goods_name1="goods_name="+ URLEncoder.encode(request.getParameter("goods_name"),"gbk");
 	    //String goods_ame1 ="goods_name="+tempgoods_name;
 	    //商品描述
-	    String tempgoods_desc=request.getParameter("goods_desc");
+	    //String tempgoods_desc=request.getParameter("goods_desc");
+	    String tempgoods_desc="";
 	    String goods_desc ="goods_desc="+tempgoods_desc;
 	    String goods_desc1= "goods_desc="+URLEncoder.encode(request.getParameter("goods_desc"),"gbk");
 	    //String goods_desc1 ="goods_desc="+tempgoods_desc;
 	   //商品在商户网站上的URL
-	    String goods_url ="goods_url="+request.getParameter("goods_url");
-	    String goods_url1="goods_url="+URLEncoder.encode(request.getParameter("goods_url"),"gbk");
+	    //String goods_url ="goods_url="+request.getParameter("goods_url");
+	    //String goods_url1="goods_url="+URLEncoder.encode(request.getParameter("goods_url"),"gbk");
+	    String goods_url = "";
+	    String goods_url1 = "";
+	    
 	    
 	    //单价
 	    String unit_amount ="unit_amount="+acturePayMoney;
