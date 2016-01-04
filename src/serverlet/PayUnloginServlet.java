@@ -124,9 +124,9 @@ public class PayUnloginServlet extends HttpServlet {
 	    //单价
 	    String unit_amount ="unit_amount="+acturePayMoney;
 	    //数量
-	    String unit_count ="unit_count="+1;
+	    String unit_count ="unit_count=1";
 	    //运费
-	    String transport_amount ="transport_amount="+0;
+	    String transport_amount ="transport_amount=0";
 	    //总金额
 	    String total_amount ="total_amount="+acturePayMoney;
 	   //买家在商户网站的用户名
