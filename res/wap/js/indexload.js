@@ -50,8 +50,8 @@ var lasthtml,
 thtml;
 lasthtml = "";
 
-var $imgH = $(".swipe img").height();
-$(".swipe li").height($imgH);
+//var $imgH = $(".swipe img").height();
+//$(".swipe li").height($imgH);
 
 for (var i = 0; i < num; i++) {
 thtml = "";
@@ -89,7 +89,7 @@ as[m].className='';
 as[n].className='active';
 });	
 setTimeout(function(){sliderTs.resize();},100);
-};
+}
     
 
     function showpm(json){
@@ -484,5 +484,6 @@ setTimeout(function(){sliderTs.resize();},100);
     	 }
     	}
     		
+    
     
 	
