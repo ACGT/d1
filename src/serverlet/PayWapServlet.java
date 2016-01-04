@@ -50,7 +50,7 @@ public class PayWapServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String d1_order_num = request.getParameter("goods_name");
+		String d1_order_num = request.getParameter("OdrID");
 		OrderBase d1_order = OrderHelper.getById(d1_order_num);
 		String acturePayMoney = Tools.getFormatMoney(Tools.doubleValue(d1_order.getOdrmst_acturepaymoney())*100);
 
@@ -107,7 +107,7 @@ public class PayWapServlet extends HttpServlet {
 	     *3、获取pay_unlogin.html页面post提交的变量值
 	     */
 	    //商品名称
-	    String tempgoods_name=request.getParameter("goods_name");
+	    String tempgoods_name = d1_order_num;
 	    String goods_name ="goods_name="+tempgoods_name;
 	    String goods_name1="goods_name="+ URLEncoder.encode(request.getParameter("goods_name"),"gbk");
 	    //String goods_ame1 ="goods_name="+tempgoods_name;
@@ -143,11 +143,13 @@ public class PayWapServlet extends HttpServlet {
 	    String page_url ="page_url="+request.getParameter("page_url");
 	    String page_url1="page_url="+URLEncoder.encode(request.getParameter("page_url"),"gbk");
        //支付方式
-	    String pay_type ="pay_type="+request.getParameter("pay_type");
+	    //String pay_type ="pay_type="+request.getParameter("pay_type");
+	    String pay_type = "pay_type=2";
 	    //默认银行的编码
-	    String bank_no ="bank_no="+request.getParameter("bank_no");
+	    //String bank_no ="bank_no="+request.getParameter("bank_no");
+	    String bank_no = "bank_no=201";
 	    //用户在商户端的用户ID
-	    String sp_uno ="sp_uno="+request.getParameter("sp_uno");
+	    //String sp_uno ="sp_uno="+request.getParameter("sp_uno");
 	    //商户自定义数据
 	    String tempextra=d1_order_num;
 	    String extra ="extra="+tempextra;
