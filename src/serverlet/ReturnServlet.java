@@ -93,6 +93,9 @@ public class ReturnServlet extends HttpServlet {
 					String strOrderID = request.getParameter("extra");
 					
 					OrderBase order = OrderHelper.getById(strOrderID);
+					
+					String subAd = order.getOdrmst_subad();
+					
 					if(order != null){
 						if(Tools.longValue(order.getOdrmst_orderstatus()) == 0){
 							String total_fee = request.getParameter("fee_amount");
@@ -107,14 +110,30 @@ public class ReturnServlet extends HttpServlet {
 							
 					        if(reValue == 0){
 					        	//logInfo("百度支付，及时反馈，订单："+strOrderID+"支付成功！");
-					        	response.sendRedirect("/user/selforder.jsp");
+					        	if (subAd=="phone") {
+					        		response.sendRedirect("/wap/user_orderlist.html");
+					        	}
+					        	else {
+					        		response.sendRedirect("/user/selforder.jsp");
+					        	}
 								return;
 					        }else{
 					        	//response.sendRedirect("/user/selforder.jsp");
+					        	if (subAd=="phone") {
+					        		response.sendRedirect("/wap/user_orderlist.html");
+					        	}
+					        	else {
+					        		response.sendRedirect("/user/selforder.jsp");
+					        	}
 								return;
 					        }
 						}else{
-							response.sendRedirect("/user/selforder.jsp");
+							if (subAd=="phone") {
+				        		response.sendRedirect("/wap/user_orderlist.html");
+				        	}
+				        	else {
+				        		response.sendRedirect("/user/selforder.jsp");
+				        	}
 							return;
 						}
 					}else{
