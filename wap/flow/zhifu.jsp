@@ -69,7 +69,7 @@ if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getPara
 		break;
 	case 7:
 		String page_url = URLEncoder.encode("http://" + domainName + "/ReturnServlet?from_wap=1");
-		response.sendRedirect("/PayWapServlet?goods_name=" + request.getParameter("OdrID") 
+		response.sendRedirect("/PayWapServlet?pay_type=2&bank_no=201&goods_name=" + request.getParameter("OdrID") 
 			+ "&page_url=" + page_url + "&return_url=" + page_url);
 		break;
 	default:
