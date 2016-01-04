@@ -20,6 +20,13 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
 
+import com.d1.bean.OrderBase;
+import com.d1.dbcache.core.BaseEntity;
+import com.d1.dbcache.core.MyHibernateUtil;
+import com.d1.service.OrderService;
+import com.d1.util.Tools;
+import com.d1.helper.OrderHelper;
+
 public class PayUnloginServlet extends HttpServlet {
  
 	
@@ -43,6 +50,11 @@ public class PayUnloginServlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		String d1_order_num = request.getParameter("goods_name");
+		OrderBase d1_order = OrderHelper.getById(d1_order_num);
+		String acturePayMoney = Tools.getFormatMoney(Tools.doubleValue(d1_order.getOdrmst_acturepaymoney())*100);
+		
 		 /**
          * 1、设置编码
          */
@@ -74,7 +86,7 @@ public class PayUnloginServlet extends HttpServlet {
 	    String order_create_time1=formatter.format(System.currentTimeMillis()); 
 	    //订单号
 	    //String order_no="order_no=" +order_create_time1+(int)(Math.random() * 1000); 
-	    String order_no = "order_no=" + request.getParameter("goods_name");
+	    String order_no = "order_no=" + d1_order_num;
 	    String order_create_time="order_create_time=" +order_create_time1;
 	    //币种
 	    String currency="currency=" +scon.getServletContext().getInitParameter("BFB_INTERFACE_CURRENTCY");
@@ -110,13 +122,13 @@ public class PayUnloginServlet extends HttpServlet {
 	    String goods_url1="goods_url="+URLEncoder.encode(request.getParameter("goods_url"),"gbk");
 	    
 	    //单价
-	    String unit_amount ="unit_amount="+request.getParameter("unit_amount");
+	    String unit_amount ="unit_amount="+acturePayMoney;
 	    //数量
-	    String unit_count ="unit_count="+request.getParameter("unit_count");
+	    String unit_count ="unit_count="+1;
 	    //运费
-	    String transport_amount ="transport_amount="+request.getParameter("transport_amount");
+	    String transport_amount ="transport_amount="+0;
 	    //总金额
-	    String total_amount ="total_amount="+request.getParameter("total_amount");
+	    String total_amount ="total_amount="+acturePayMoney;
 	   //买家在商户网站的用户名
 	    String tempSPUserName=request.getParameter("buyer_sp_username");
 	    String buyer_sp_username ="buyer_sp_username="+tempSPUserName;
