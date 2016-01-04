@@ -40,6 +40,7 @@ if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getPara
 		break;
 }
 	*/
+	String domainName = "test.d1.com.cn";
 	switch(payId){
 	case 1:
 		response.sendRedirect("/interface/pay/mobile/mobileRequest.jsp?OdrID="+request.getParameter("OdrID"));
@@ -67,7 +68,9 @@ if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getPara
 		response.sendRedirect("/pingan/pay.jsp?OdrID="+request.getParameter("OdrID"));
 		break;
 	case 7:
-		response.sendRedirect("http://baidupaymentgateway.d1.cn/baidu_wap_payment_gateway.aspx?goods_name="+request.getParameter("OdrID"));
+		String page_url = URLEncoder.encode("http://" + domainName + "/ReturnServlet?from_wap=1");
+		response.sendRedirect("/PayWapServlet?goods_name=" + request.getParameter("OdrID") 
+			+ "&page_url=" + page_url + "&return_url=" + page_url);
 		break;
 	default:
 		out.print("在线支付方式错误，请联系客服处理！");
