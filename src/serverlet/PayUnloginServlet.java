@@ -109,7 +109,7 @@ public class PayUnloginServlet extends HttpServlet {
 	    //商品名称
 	    String tempgoods_name = d1_order_num;
 	    String goods_name ="goods_name="+tempgoods_name;
-	    String goods_name1="goods_name="+ URLEncoder.encode(request.getParameter("goods_name"),"gbk");
+	    String goods_name1="goods_name="+ URLEncoder.encode(tempgoods_name,"gbk");
 	    //String goods_ame1 ="goods_name="+tempgoods_name;
 
 	    //商品描述
