@@ -73,8 +73,8 @@ public class PayUnloginServlet extends HttpServlet {
 	    //订单创建时间
 	    String order_create_time1=formatter.format(System.currentTimeMillis()); 
 	    //订单号
-	    String order_no="order_no=" +order_create_time1+(int)(Math.random() * 1000); 
-	    //String order_no = request.getParameter("goods_name");
+	    //String order_no="order_no=" +order_create_time1+(int)(Math.random() * 1000); 
+	    String order_no = "order_no=" + request.getParameter("goods_name");
 	    String order_create_time="order_create_time=" +order_create_time1;
 	    //币种
 	    String currency="currency=" +scon.getServletContext().getInitParameter("BFB_INTERFACE_CURRENTCY");
