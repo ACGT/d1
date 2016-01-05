@@ -107,7 +107,7 @@ public class ReturnServlet extends HttpServlet {
 							OrderService os = (OrderService)Tools.getService(OrderService.class);
 							int reValue = os.updateOrderStatus(order,r3_amount);
 							
-							logger.log(Level.INFO,"reValue="+Integer.toString(reValue)+"<br/>r3_amount="+Double.toString(r3_amount));
+							logger.log(Level.INFO,"sub_ad=" + subAd + "<br/>reValue="+Integer.toString(reValue)+"<br/>r3_amount="+Double.toString(r3_amount));
 							
 							logger.setLevel(Level.OFF);
 							
