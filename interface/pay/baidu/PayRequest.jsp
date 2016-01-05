@@ -20,6 +20,7 @@
 	}
 	String domainName = "test.d1.com.cn";
 	/*
+	String domainName = "www.d1.com.cn";
 	String baiduPayUrl = "http://" + domainName + "/PayUnloginServlet?goods_category=1&goods_name="+strOdrID+"&goods_desc=goods"
 			+ "&goods_url=http://www.d1.com.cn&unit_amount="
 			+ Tools.getFormatMoney(Tools.doubleValue(order.getOdrmst_acturepaymoney())*100)

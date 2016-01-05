@@ -90,7 +90,6 @@ as[n].className='active';
 });	
 setTimeout(function(){sliderTs.resize();},100);
 }
-    
 
     function showpm(json){
     	var lblists=eval(json.lblist);
@@ -484,6 +483,5 @@ setTimeout(function(){sliderTs.resize();},100);
     	 }
     	}
     		
-    
     
 	

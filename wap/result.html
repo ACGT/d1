@@ -495,7 +495,36 @@ $(".mpsc_txt>a").click(function(){
 				this.attr='1'
 			}
 			//gourl(rackcode+','+corder+','+pageno);
-			
+			url=document.URL;
+			 para="";
+			  pageno=1;
+			  rackcode="014";
+			   pprice="";
+			   brand="";
+			   shopd1="";
+			  iftkt="";
+			  if(url.lastIndexOf("?")>0)
+			   {
+			        para=url.substring(url.lastIndexOf("?")+1,url.length);
+					var arr=para.split("&");
+					para="";
+					for(var i=0;i<arr.length;i++)
+					{
+					   if(arr[i].split("=")[0]=="pageno"){
+						   pageno=arr[i].split("=")[1];
+					   }else if(arr[i].split("=")[0]=="rackcode"){
+						   rackcode=arr[i].split("=")[1];
+					   }else if(arr[i].split("=")[0]=="pprice"){
+						   pprice=arr[i].split("=")[1];
+					   }else if(arr[i].split("=")[0]=="brand"){
+						   brand=arr[i].split("=")[1];
+					   }else if(arr[i].split("=")[0]=="shopd1"){
+						   shopd1=arr[i].split("=")[1];
+					   }else if(arr[i].split("=")[0]=="iftkt"){
+						   iftkt=arr[i].split("=")[1];
+					   }
+					}
+			   }
 			loaddata(rackcode,corder,pageno,pprice,brand,shopd1,iftkt);
 	});
 $(".chc_row>li").click(function(){

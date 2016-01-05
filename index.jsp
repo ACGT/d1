@@ -349,9 +349,9 @@ $('.mbm_item li').mouseover(function(){
   </div>
   </div>
   <script type="text/javascript">
-//<!--
+
 //var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
-var TabbedPanels2 = new Spry.Widget.TabbedPanels3("TabbedPanels2");
+var TabbedPanels2 = new Spry.Widget.TabbedPanels2("TabbedPanels2");
 var TabbedPanels3 = new Spry.Widget.TabbedPanels3("TabbedPanels3");
 var TabbedPanels4 = new Spry.Widget.TabbedPanels3("TabbedPanels4");
 var TabbedPanels5 = new Spry.Widget.TabbedPanels3("TabbedPanels5");
