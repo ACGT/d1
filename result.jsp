@@ -1993,7 +1993,7 @@ if(productsort.equals("020")&&showmenu&&!"1".equals(shopd1)){
 	rckcode="013016008";
 }else if(productsort.equals("014")&&showmenu&&!"1".equals(shopd1)){
 	rckcode="013016009";
-}else if(productsort.equals("012")&&showmenu&&!"1".equals(shopd1)){
+}else if(productsort.equals("012a")&&showmenu&&!"1".equals(shopd1)){
 	rckcode="013016012";
 }else if(productsort.equals("050")&&showmenu&&!"1".equals(shopd1)){
 	rckcode="013016010";

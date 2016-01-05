@@ -9,11 +9,12 @@ WEB-INF/work/_jsp/
 output/
 
 .settings/
+.classpath
+WEB-INF/lib/sqljdbc4.jar
+WEB-INF/lib/sqljdbc.jar
+WEB-INF/lib/sqljdbc42.jar
 /build/
 /Resource/
 /.classpath
 /resin.conf
-WEB-INF/lib/sqljdbc4.jar
-WEB-INF/lib/sqljdbc.jar
-WEB-INF/lib/sqljdbc42.jar
-.classpath
+

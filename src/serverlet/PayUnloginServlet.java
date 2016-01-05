@@ -192,7 +192,11 @@ public class PayUnloginServlet extends HttpServlet {
 				order_no,
 				goods_category,
 				goods_name1,
+<<<<<<< HEAD
 				//goods_desc1,
+=======
+				goods_desc1,
+>>>>>>> refs/remotes/origin/launch
 				unit_amount,
 				unit_count,
 				transport_amount,
