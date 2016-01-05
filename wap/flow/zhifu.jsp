@@ -68,7 +68,7 @@ if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getPara
 		response.sendRedirect("/pingan/pay.jsp?OdrID="+request.getParameter("OdrID"));
 		break;
 	case 7:
-		String return_url = URLEncoder.encode("http://" + domainName + "/ReturnServlet?from_wap=1");
+		String return_url = URLEncoder.encode("http://" + domainName + "/ReturnServlet");
 		response.sendRedirect("/PayWapServlet?OdrID=" + request.getParameter("OdrID") 
 			+ "&page_url=" + return_url + "&return_url=" + return_url);
 		break;
