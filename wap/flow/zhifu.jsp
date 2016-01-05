@@ -40,7 +40,7 @@ if(!Tools.isNull(request.getParameter("payId")) && !Tools.isNull(request.getPara
 		break;
 }
 	*/
-	String domainName = "test.d1.com.cn";
+	String domainName = "www.d1.com.cn";
 	switch(payId){
 	case 1:
 		response.sendRedirect("/interface/pay/mobile/mobileRequest.jsp?OdrID="+request.getParameter("OdrID"));

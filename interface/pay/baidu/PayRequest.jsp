@@ -18,7 +18,7 @@
 		out.print("您的订单不在未支付状态！");
 		return;
 	}
-	String domainName = "test.d1.com.cn";
+	String domainName = "www.d1.com.cn";
 	/*
 	String domainName = "www.d1.com.cn";
 	String baiduPayUrl = "http://" + domainName + "/PayUnloginServlet?goods_category=1&goods_name="+strOdrID+"&goods_desc=goods"
