@@ -114,7 +114,7 @@ public class ReturnServlet extends HttpServlet {
 					        
 						}
 						
-						if (subAd=="phone") {
+						if (subAd.equals("phone")) {
 			        		response.sendRedirect("/wap/user_orderlist.html");
 			        	}
 			        	else {
