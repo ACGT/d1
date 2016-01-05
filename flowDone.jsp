@@ -92,7 +92,7 @@ table tr td div{ margin:0px auto;}
 	       <tr><td height="10"></td></tr>
 	   </table><%//34 交通银行    
 	   //37 广东发展银行
-		if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58))){
+		if(Tools.floatCompare(fltActurePayMoney,0) == 1 && strOrderStatus == 0 && (payId == 4 || payId == 6 || payId == 14 || (payId >=16 && payId <=21) || (payId>=25 && payId<=27) || payId==30 || payId==31 || (payId >= 33 && payId <= 43) || (payId >= 45 && payId <= 58) || payId == 61)){
 			int p = 0;
 			switch ((int)payId){
 				case 4:
