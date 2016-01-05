@@ -94,11 +94,14 @@ public class ReturnServlet extends HttpServlet {
 					
 					OrderBase order = OrderHelper.getById(strOrderID);
 					
-					String subAd = order.getOdrmst_subad();
+					
 					
 					if(order != null){
+						
+						String subAd = order.getOdrmst_subad();
+						
 						if(Tools.longValue(order.getOdrmst_orderstatus()) == 0){
-							String total_fee = request.getParameter("fee_amount");
+							String total_fee = request.getParameter("total_amount");
 							double r3_amount = Tools.parseDouble(total_fee)/100;
 							
 							OrderService os = (OrderService)Tools.getService(OrderService.class);
@@ -108,35 +111,18 @@ public class ReturnServlet extends HttpServlet {
 							
 							logger.setLevel(Level.OFF);
 							
-					        if(reValue == 0){
-					        	//logInfo("百度支付，及时反馈，订单："+strOrderID+"支付成功！");
-					        	if (subAd=="phone") {
-					        		//response.sendRedirect("/wap/user_orderlist.html");
-					        	}
-					        	else {
-					        		//response.sendRedirect("/user/selforder.jsp");
-					        	}
-								return;
-					        }else{
-					        	//response.sendRedirect("/user/selforder.jsp");
-					        	if (subAd=="phone") {
-					        		//response.sendRedirect("/wap/user_orderlist.html");
-					        	}
-					        	else {
-					        		//response.sendRedirect("/user/selforder.jsp");
-					        	}
-								return;
-					        }
-						}else{
-							if (subAd=="phone") {
-				        		//response.sendRedirect("/wap/user_orderlist.html");
-				        	}
-				        	else {
-				        		//response.sendRedirect("/user/selforder.jsp");
-				        	}
-							return;
+					        
 						}
+						
+						if (subAd=="phone") {
+			        		response.sendRedirect("/wap/user_orderlist.html");
+			        	}
+			        	else {
+			        		response.sendRedirect("/user/selforder.jsp");
+			        	}
+						
 					}else{
+						response.sendRedirect("/user/selforder.jsp");
 						out.println("订单："+strOrderID+"未strOrderID！");
 					}
 					
