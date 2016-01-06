@@ -10,9 +10,7 @@ output/
 
 .settings/
 .classpath
-WEB-INF/lib/sqljdbc4.jar
-WEB-INF/lib/sqljdbc.jar
-WEB-INF/lib/sqljdbc42.jar
+WEB-INF/lib/*.jar
 /build/
 /Resource/
 /.classpath
