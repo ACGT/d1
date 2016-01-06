@@ -17,9 +17,9 @@ try
 {
 	openId = WeixinShopTokenHelper.checkToken(token,originalId);
 }
-catch
+catch(Exception ex)
 {
-	
+ex.printStackTrace();	
 }
 
 
