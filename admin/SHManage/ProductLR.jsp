@@ -405,7 +405,10 @@ if("form_search".equals(act)){
              <a href="javascript:void(0)" onclick="addSku()">
              <span id="xz_sku"><img src="/admin/SHManage/images/xzsku.png" /></span>
              <span id="xz_kc"><img src="/admin/SHManage/images/xzkc.png" /></span>
-             </a></td></tr>
+             </a></td>
+             <td><font style="color:red;">注意：sku命名请勿用英文特殊符号，例如 : ,;<>+:~!)</font>
+             </td>
+             </tr>
              </table>
             
           </div>
