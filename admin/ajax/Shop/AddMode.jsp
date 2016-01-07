@@ -1,3 +1,5 @@
+<%@page import="com.itextpdf.text.log.SysoCounter"%>
+<%@page import="java.util.*"%>
 <%@ page contentType="text/html; charset=UTF-8"%><%@include file="/html/header.jsp" %>
 <%@include file="/html/public.jsp"%>
 <%!
@@ -112,10 +114,10 @@ if(Tools.isNull(c)){
     return;
 }
 //type为图文编辑器的时候验证a链接是否存在外链
-if(type.equals("1") && !check_url(c)&&!("13100902").equals(session.getAttribute("shopcodelog").toString())){
+/* if(type.equals("1") && !check_url(c)&&!("13100902").equals(session.getAttribute("shopcodelog").toString())){
 	  out.print("{\"succ\":false,message:\"您所要保存的内容存在外链，请修改后保存！\"}");
 	  return;
-}
+} */
 //if(Tools.isNull(t)){
 	//out.print("{\"succ\":false,message:\"模块标题不能为空！\"}");
     //return;
@@ -138,11 +140,12 @@ String noExsitsgid="";
 String noqxgid="";
 String zqgid="";
 ShopInfo shop_info=(ShopInfo)Tools.getManager(ShopInfo.class).get(shopid);
+String splList="";//2016-01-06 修改by zhq:图文编辑框里有${1234}这种格式的内容就取出1234作为推荐位的id查询出相关内容,最终要保存到shopmodel_list里面 
 try{
-	if(type.equals("2")&&!c.startsWith("$")){
+	if((type.equals("2")&&!c.startsWith("$"))){
 		//整理商品编号
-		
-		String[] goodsarr=c.replace('，', ',').split(",");
+		String[] goodsarr=null;
+		goodsarr=c.replace('，', ',').split(",");
 		if(goodsarr!=null&&goodsarr.length>0){
 			for(String str:goodsarr){
 				if(Tools.isNull(str)||str.length()!=8 && str.length() != 4 && str.length() != 11){
@@ -182,12 +185,14 @@ try{
 					PromotionProduct pProduct_l = null;
 					for(int z =0;z<goodsarr.length;z++){
 					//根据推荐编码获得推荐商品信息列表
+					
 					 ArrayList<PromotionProduct> list=PromotionProductHelper.getPProductByCode(goodsarr[z],100);
 					 ArrayList gdsidlist=new ArrayList();
 					 if(list!=null && list.size()>0){
 					 	for(PromotionProduct pProduct:list){
 					 		gdsidlist.add(pProduct.getSpgdsrcm_gdsid());
 					 	}
+					 	
 					 	if(gdsidlist!=null && gdsidlist.size()>0){
 						 	int i=0;
 						 	//通过商品id过滤商品信息--有货
@@ -254,6 +259,20 @@ try{
 			out.print("{\"succ\":false,message:\"您选择的商品不符合条件，错误是（"+msg+"）\"}");
 		    return;
 		}
+	}else if(type.equals("1")){
+		//图文编辑框加上${}这种格式来存放推荐位的商品
+		//开始处理${}格式 内容 
+	    String regex = "(?i)\\$\\{([1-9]\\d*)\\}";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(c);
+		List<String> goodsarr_list=new ArrayList<String>();
+		while(m.find()) {
+			goodsarr_list.add(m.group(1)+"");
+		} 
+		for(String str:goodsarr_list){
+			splList+=","+str;
+		}
+		splList=splList.substring(1);//去除前面第一个,
 	}
 	
 	
@@ -267,7 +286,7 @@ try{
 		sm.setShopmodel_type(new Long(type));
 		if(type.equals("1")){
 			sm.setShopmodel_content(c);
-			sm.setShopmodel_list("");
+			sm.setShopmodel_list(splList);
 			sm.setShopmodel_size(null);
 		}
 		else
@@ -310,7 +329,7 @@ try{
 			sm.setShopmodel_gdsnum(new Long(gdsnum));
 			if(type.equals("1")){
 				sm.setShopmodel_content(c);
-				sm.setShopmodel_list("");
+				sm.setShopmodel_list(splList);
 				sm.setShopmodel_size(null);
 			}
 			else
