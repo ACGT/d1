@@ -1,5 +1,20 @@
 .project
 
+
+shopimg/
+
+taobao/
+
+upload/
+
+uploads/
+
+zhuanti/
+
+pingan/
+
+
+
 weixin/paywx_img.gif
 
 src/com/d1/dbcache/core/MyHibernateUtil.java
