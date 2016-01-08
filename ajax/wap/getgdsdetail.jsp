@@ -3,7 +3,7 @@
 private static BrandMst getbrandmst(String brandcode,String rackcode){
 	BrandMst  brandm=null;
 	List<SimpleExpression> clist = new ArrayList<SimpleExpression>();
-	clist.add(Restrictions.eq("id",brandcode));
+	clist.add(Restrictions.eq("brandmst_code",brandcode));
 	clist.add(Restrictions.eq("brandmst_rackcode",rackcode));
 	
 	

@@ -518,7 +518,23 @@ private static String repbrandstr(String bkeywords){
     bkeywords=bkeywords.replace("系列", "");
     return bkeywords;
 }
+private static BrandMst getbrandmst(String brandcode,String rackcode){
+	BrandMst  brandm=null;
+	List<SimpleExpression> clist = new ArrayList<SimpleExpression>();
+	clist.add(Restrictions.eq("brandmst_code",brandcode));
+	clist.add(Restrictions.eq("brandmst_rackcode",rackcode));
+	
+	
+	List<BaseEntity> list = Tools.getManager(BrandMst.class).getList(clist, null, 0, 1);
+	if(list!=null){
+		for(BaseEntity be:list){
+			brandm = (BrandMst)be;
+		}
+	}
 
+  return brandm;
+
+}
 //搜索物品。
 //返回一个Object数组，第一个是物品的List，第二个是品牌Set，第三个是该品牌下的所有分类
 private static Object[] getResultProductList(String productprice,String productname,String rackcode, String brand_name, String fg1, String fg2, String fg3, String fg4, String fg5, String fg6, String fg7, String fg8, String fg9, String fg10, String fg11, String fg12, String order, int start, int pagesize,HttpServletRequest request,String brandcode,String msflag,String shopd1,String bkey,String iftkt){
@@ -542,7 +558,7 @@ private static Object[] getResultProductList(String productprice,String productn
 	HashMap<String,Integer>  bkeyMap =new HashMap<String,Integer>();
 	String bkeywords="";
 	/*if(!Tools.isNull(brandcode)){
-		BrandMst brandm=(BrandMst)Tools.getManager(BrandMst.class).get(brandcode);
+		BrandMst brandm=getbrandmst(brandcode,rackcode.substring(0, 3));
 		if(brandm!=null){
 			bkeywords=brandm.getBrandmst_keywords();
 			if(!Tools.isNull(bkeywords)){
