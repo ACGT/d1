@@ -1,5 +1,7 @@
 .project
 
+bin/
+
 upload/
 
 WeiGou/IncrementIndex.xml
