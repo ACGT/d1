@@ -1,5 +1,7 @@
 .project
 
+weixin/paywx_img.gif
+
 src/com/d1/dbcache/core/MyHibernateUtil.java
 
 WEB-INF/classes
