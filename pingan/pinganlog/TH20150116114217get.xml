@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?Siebel-Property-Set EscapeNames="true"?><PropertySet><SiebelMessage><PointsLeft/><AmountLeft/><TCPoints/><TCAmount/><STRedeemNumber/><STCancelNumber/><ErrorCode>25</ErrorCode><ErrorMessage>必填字段：param不能为空</ErrorMessage></SiebelMessage></PropertySet>
