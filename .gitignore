@@ -1,5 +1,13 @@
 .project
 
+upload/
+
+WeiGou/IncrementIndex.xml
+
+createcard/
+
+uploads/
+
 src/com/d1/dbcache/core/MyHibernateUtil.java
 
 WEB-INF/classes
@@ -8,9 +16,20 @@ WEB-INF/work/_jsp/
 
 output/
 
+weixin/paywx_img.gif
+
+log/
+
+lucene
+
+zhuanti
+
+pingan/
+
+taobao
+
 .settings/
 .classpath
-WEB-INF/lib/*.jar
 /build/
 /Resource/
 /.classpath
