@@ -230,7 +230,7 @@
 	 <div style="padding-top:15px;padding-left:30px;">为了您的账户安全，请验证手机和邮箱。验证通过后可接收账户金额及订单状态的变动提醒，使用快速找回密码、发表评论等功能。</div>
 	<div style="padding-top:35px;padding-left:30px;">
 	<ul class="ulvalidate">
-	<%if(!isemailflag){ %><li><a href="/newlogin/valiemail.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_21.jpg" border="0"/></a></li><%} %>
+	<%-- <%if(!isemailflag){ %><li><a href="/newlogin/valiemail.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_21.jpg" border="0"/></a></li><%} %> --%>
 	<%if(!isphoneflag){ %><li><a href="/newlogin/valitel.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_23.jpg" border="0"/></a></li><%} %>
 	<%if(!isdetail){ %><li><a href="/newlogin/profile.jsp" target="_blank"><img src="http://images.d1.com.cn/images2012/login/zc_25.jpg" border="0"/></a><br/>
 	<span style="color:red;font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生日期间可收到生日礼物哦</span></li><%} %>
@@ -517,8 +517,7 @@
 		   
 		   %>		   
 		   
-		   <tr><td colspan="6" style=" text-align:right; padding-right:10px;" height="40" ><a href="/user/selforder.jsp" target="_blank" class="a">查看全部订单>></a></td></tr>
-		   </table>
+<!-- 		   <tr><td colspan="6" style=" text-align:right; padding-right:10px;" height="40" ><a href="/user/selforder.jsp" target="_blank" class="a">查看全部订单>></a></td></tr>-->		   </table>
 		   
 		   
 		   <table width="769"  border="0" cellspacing="0" cellpadding="0"><tr><td height="50"></td></tr></table>

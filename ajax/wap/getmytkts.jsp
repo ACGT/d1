@@ -118,6 +118,10 @@ if(tktw.getType()==0)
 		if(dir!=null&&!"000".equals(dir.getId())){
 			range = "<a href=\"http://m.d1.cn/wap/result.html?rackcode="+dir.getId()+"&shopd1=1\" style=\" text-decoration:underline;\" target=\"_blank\" >自营"+dir.getRakmst_rackname()+"</a>";
 		}
+		if("017".equals(dir.getId())){
+			range = "<a href=\"http://m.d1.cn/wap/shopview.html?id=781\" style=\" text-decoration:underline;\" target=\"_blank\" >自营服饰</a>";
+		
+		}
 	}
 }
 else

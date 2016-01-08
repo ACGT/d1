@@ -21,6 +21,9 @@ function payOrder(payId,obj){
 		case 6:
 			paysend_pingan();
 			break;
+		case 61:
+			paysend_baifubao();//百度钱包支付
+			break;
 		default:
 			alert("在线支付方式错误，请联系客服处理！");
 			obj.disabled = false;
@@ -56,7 +59,11 @@ function paysend_pingan(){
     document.form1.action = "/pingan/pay.jsp";
 	document.form1.submit();
 }
-
+//百度钱包 2015-12-15增加
+function paysend_baifubao(){
+	document.form1.action = "/interface/pay/baidu/PayRequest.jsp";
+	document.form1.submit();
+}
 function payOrder2(payId,ordId , obj){
 	//alert(payId);
 	obj.disabled = true;

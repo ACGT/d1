@@ -156,7 +156,4 @@ else {
 }
 
 out.print(JSONObject.fromObject(map));
-
-
-
 %>

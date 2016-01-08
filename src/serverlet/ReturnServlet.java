@@ -93,31 +93,36 @@ public class ReturnServlet extends HttpServlet {
 					String strOrderID = request.getParameter("extra");
 					
 					OrderBase order = OrderHelper.getById(strOrderID);
+					
+					
+					
 					if(order != null){
+						
+						String subAd = order.getOdrmst_subad();
+						
 						if(Tools.longValue(order.getOdrmst_orderstatus()) == 0){
-							String total_fee = request.getParameter("fee_amount");
+							String total_fee = request.getParameter("total_amount");
 							double r3_amount = Tools.parseDouble(total_fee)/100;
 							
 							OrderService os = (OrderService)Tools.getService(OrderService.class);
 							int reValue = os.updateOrderStatus(order,r3_amount);
 							
-							logger.log(Level.INFO,"reValue="+Integer.toString(reValue)+"<br/>r3_amount="+Double.toString(r3_amount));
+							logger.log(Level.INFO,"sub_ad=" + subAd + "<br/>reValue="+Integer.toString(reValue)+"<br/>r3_amount="+Double.toString(r3_amount));
 							
 							logger.setLevel(Level.OFF);
 							
-					        if(reValue == 0){
-					        	//logInfo("百度支付，及时反馈，订单："+strOrderID+"支付成功！");
-					        	response.sendRedirect("/user/selforder.jsp");
-								return;
-					        }else{
-					        	//response.sendRedirect("/user/selforder.jsp");
-								return;
-					        }
-						}else{
-							response.sendRedirect("/user/selforder.jsp");
-							return;
+					        
 						}
+						
+						if (subAd.equals("phone")) {
+			        		response.sendRedirect("/wap/user_orderlist.html");
+			        	}
+			        	else {
+			        		response.sendRedirect("/user/selforder.jsp");
+			        	}
+						
 					}else{
+						response.sendRedirect("/user/selforder.jsp");
 						out.println("订单："+strOrderID+"未strOrderID！");
 					}
 					

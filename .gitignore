@@ -11,3 +11,10 @@ output/
 WEB-INF/lib/sqljdbc*.jar
 
 .settings/
+.classpath
+WEB-INF/lib/*.jar
+/build/
+/Resource/
+/.classpath
+/resin.conf
+
