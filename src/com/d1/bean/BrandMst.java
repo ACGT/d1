@@ -17,8 +17,8 @@ public class BrandMst extends BaseEntity implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="brandmst_code")
 	private String id;//done
+	private String brandmst_code;
 	private String brandmst_rackcode;// 顶级分类号
 	private String brandmst_engname;//  品牌英文名
 	private String brandmst_brandname;//  品牌中文名
@@ -39,6 +39,13 @@ public class BrandMst extends BaseEntity implements java.io.Serializable {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getBrandmst_code() {
+		return brandmst_code;
+	}
+	public void setBrandmst_code(String brandmst_code) {
+		this.brandmst_code = brandmst_code;
 	}
 	public String getBrandmst_rackcode() {
 		return brandmst_rackcode;
