@@ -248,8 +248,7 @@ public static boolean getmsflag(Product p){
         return bd.toString();  
     } 
 %>
-<%
-//根据推荐编码获得推荐商品信息列表
+<%//根据推荐编码获得推荐商品信息列表
 	String act= request.getParameter("act");
 	String code= request.getParameter("code");
 	if("form_search".equals(act)){
@@ -292,8 +291,21 @@ String shopcode="";
 if(request.getParameter("sc")!=null&&request.getParameter("sc").length()>0){
 	shopcode=request.getParameter("sc");
 }
+
 if(shopcode.equals("")){
 	out.print("参数不正确！<a href=\"http://www.d1.com.cn/\">返回D1首页</a>");
+}else{
+	//20160110添加，status!=1的店不显示。
+	ShpMst shopmst=null;
+	ArrayList<ShpMst> shpmstlist2= getShopSM(shopcode);
+	if(shpmstlist2!=null&&shpmstlist2.size()>0){
+	System.out.println("%%%%%%%###########################"+shopcode);
+		shopmst=shpmstlist2.get(0);
+		if(shopmst.getShpmst_status()!=1){
+			response.setContentType("text/html; charset=gb2312");
+			response.sendRedirect("/404.jsp");
+		}
+	}
 }
 String shopinfo_logo = "";
 String shopinfo_bigimg = "";
