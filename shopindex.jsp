@@ -247,7 +247,6 @@ public static boolean getmsflag(Product p){
         bd = bd.setScale(2, RoundingMode.HALF_UP);  
         return bd.toString();  
     } 
-	
 %>
 <%
 //根据推荐编码获得推荐商品信息列表
@@ -875,7 +874,7 @@ bottom: 136px;
 <input type="hidden" id="xs_shopcode" name="xs_shopcode" value="<%=xs_shopcode%>"/>
 <%@include file="/inc/head.jsp" %>
 <%
-
+System.out.println("########################22233334");
 
 if(("522").equals(request.getParameter("sc"))){ %>
 <style>
@@ -999,8 +998,8 @@ div.slider-nav span.left { left:0px;background:url(http://images.d1.com.cn/zt201
 	 
 	  <%} %> 
 	<input type="hidden" id="click_flag" name="click_flag" value="2"/>
-	   <%  ArrayList<ShopModel> smlist=getShopModelList(si.getId().toString());
-	       if(smlist!=null&&smlist.size()>0){
+	   <% ArrayList<ShopModel> smlist=getShopModelList(si.getId().toString());
+	   if(smlist!=null&&smlist.size()>0){
 	    	   for(ShopModel sm:smlist){
 	    		   if(sm!=null){%>
 	    		   <%
@@ -1051,9 +1050,31 @@ div.slider-nav span.left { left:0px;background:url(http://images.d1.com.cn/zt201
                 	    	 </div>
                 	    </div>
                 	    <%}%>
-	                    <% if(sm.getShopmodel_type()==1){%>
+	                    <% if(sm.getShopmodel_type()==1){//图文编辑模块，解释${}这种格式的推荐位
+	                    
+	                    %>
 	                    	     <div class="mode_content">
-	                    	          <%= sm.getShopmodel_content() %>
+	                    	        <%
+	                    	        String[] splList=sm.getShopmodel_list().split(",");
+	                    	        String realContent="";
+	                    	        realContent=sm.getShopmodel_content();
+	                    	        for(int i=0;i<splList.length;i++){
+	                    	        	String[] tmp={splList[i]+""};
+	                    	        	List<Promotion> splmstList=PromotionHelper.getBrandList(tmp);
+	                    	       	 	String content_tmp="";
+	                    	       	 	for(Promotion prmt:splmstList){
+		                    	        	
+	                    	       	 		content_tmp+="<div><a href="+prmt.getSplmst_url()+"><img src="+prmt.getSplmst_picstr()+"></img></a></div>";
+		                    	        	
+		                    	       	 }
+	                    	       	 	
+	                    	       	 realContent= realContent.replace("${"+splList[i]+"}", content_tmp);
+	                    	       	
+	                    	        }
+	                    	        out.print(realContent);
+	                    	       	out.flush();
+	                    	        %>
+	                    	         
 	                    	     </div> 
 	                         <%}
 	                         else
