@@ -442,7 +442,7 @@ function preview_b(){
        </tr>
            <tr><td colspan="3" align="center">
    <div id="mode_h2" style="background:#fff;<% if(smlist!=null&&smlist.size()>1&&smlist.get(1)!=null&&smlist.get(1).getShopmodel_type()!=null&&smlist.get(1).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/><textarea id="mode_html2" style="width: 790px;height: 300px;" ><% if(smlist!=null&&smlist.size()>1&&smlist.get(1)!=null&&smlist.get(1).getShopmodel_content()!=null){out.print(smlist.get(1).getShopmodel_content());} %></textarea>
     <br/></div>
     <div id="mode_list2" style="font-size:12px;text-align:left;<% if((smlist!=null&&smlist.size()>1&&smlist.get(1)!=null&&smlist.get(1).getShopmodel_type()!=null&&smlist.get(1).getShopmodel_type()!=2)||(smlist==null||smlist.size()<2)) out.print("display:none;");  %>">
@@ -526,7 +526,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h3" style="background:#fff;<% if(smlist!=null&&smlist.size()>2&&smlist.get(2)!=null&&smlist.get(2).getShopmodel_type()!=null&&smlist.get(2).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/><textarea id="mode_html3" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>2&&smlist.get(2)!=null&&smlist.get(2).getShopmodel_content()!=null){out.print(smlist.get(2).getShopmodel_content());} %>
     </textarea><br/>
     </div>
@@ -607,7 +607,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h4" style="background:#fff;<% if(smlist!=null&&smlist.size()>3&&smlist.get(3)!=null&&smlist.get(3).getShopmodel_type()!=null&&smlist.get(3).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/><textarea id="mode_html4" style="width: 790px;height: 300px;" ><% if(smlist!=null&&smlist.size()>3&&smlist.get(3)!=null&&smlist.get(3).getShopmodel_content()!=null){out.print(smlist.get(3).getShopmodel_content());} %></textarea>
     <br/>
     </div>
@@ -687,7 +687,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h5" style="background:#fff;<% if(smlist!=null&&smlist.size()>4&&smlist.get(4)!=null&&smlist.get(4).getShopmodel_type()!=null&&smlist.get(4).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/><textarea id="mode_html5" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>4&&smlist.get(4)!=null&&smlist.get(4).getShopmodel_content()!=null){out.print(smlist.get(4).getShopmodel_content());} %>
     </textarea><br/>
     </div>
@@ -768,7 +768,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h6" style="background:#fff;<% if(smlist!=null&&smlist.size()>5&&smlist.get(5)!=null&&smlist.get(5).getShopmodel_type()!=null&&smlist.get(5).getShopmodel_type()!=1) out.print("display:none;"); %>">
-   <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+   <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/><textarea id="mode_html6" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>5&&smlist.get(5)!=null&&smlist.get(5).getShopmodel_content()!=null){out.print(smlist.get(5).getShopmodel_content());} %>
     </textarea><br/>
     </div>
@@ -849,7 +849,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h7" style="background:#fff;<% if(smlist!=null&&smlist.size()>6&&smlist.get(6)!=null&&smlist.get(6).getShopmodel_type()!=null&&smlist.get(6).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/><textarea id="mode_html7" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>6&&smlist.get(6)!=null&&smlist.get(6).getShopmodel_content()!=null){out.print(smlist.get(6).getShopmodel_content());} %>
     </textarea><br/>
     </div>
@@ -928,7 +928,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h8" style="background:#fff;<% if(smlist!=null&&smlist.size()>7&&smlist.get(7)!=null&&smlist.get(7).getShopmodel_type()!=null&&smlist.get(7).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/><textarea id="mode_html8" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>7&&smlist.get(7)!=null&&smlist.get(7).getShopmodel_content()!=null){out.print(smlist.get(7).getShopmodel_content());} %>
     </textarea><br/>
     </div>
@@ -1009,7 +1009,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h9" style="background:#fff;<% if(smlist!=null&&smlist.size()>8&&smlist.get(8)!=null&&smlist.get(8).getShopmodel_type()!=null&&smlist.get(8).getShopmodel_type()!=1) out.print("display:none;"); %>">
-   <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+   <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <br/>
     <textarea id="mode_html9" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>8&&smlist.get(8)!=null&&smlist.get(8).getShopmodel_content()!=null){out.print(smlist.get(8).getShopmodel_content());} %>
     </textarea><br/>
@@ -1090,7 +1090,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h10" style="background:#fff;<% if(smlist!=null&&smlist.size()>9&&smlist.get(9)!=null&&smlist.get(9).getShopmodel_type()!=null&&smlist.get(9).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html10" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>9&&smlist.get(9)!=null&&smlist.get(9).getShopmodel_content()!=null){out.print(smlist.get(9).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1170,7 +1170,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h11" style="background:#fff;<% if(smlist!=null&&smlist.size()>10&&smlist.get(10)!=null&&smlist.get(10).getShopmodel_type()!=null&&smlist.get(10).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html11" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>10&&smlist.get(10)!=null&&smlist.get(10).getShopmodel_content()!=null){out.print(smlist.get(10).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1250,7 +1250,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h12" style="background:#fff;<% if(smlist!=null&&smlist.size()>11&&smlist.get(11)!=null&&smlist.get(11).getShopmodel_type()!=null&&smlist.get(11).getShopmodel_type()!=1) out.print("display:none;"); %>">
-   <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+   <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html12" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>11&&smlist.get(11)!=null&&smlist.get(11).getShopmodel_content()!=null){out.print(smlist.get(11).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1330,7 +1330,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h13" style="background:#fff;<% if(smlist!=null&&smlist.size()>12&&smlist.get(12)!=null&&smlist.get(12).getShopmodel_type()!=null&&smlist.get(12).getShopmodel_type()!=1) out.print("display:none;"); %>">
-   <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+   <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html13" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>12&&smlist.get(12)!=null&&smlist.get(12).getShopmodel_content()!=null){out.print(smlist.get(12).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1410,8 +1410,8 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h14" style="background:#fff;<% if(smlist!=null&&smlist.size()>13&&smlist.get(13)!=null&&smlist.get(13).getShopmodel_type()!=null&&smlist.get(13).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html14" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>13&&smlist.get(13)!=null&&smlist.get(13).getShopmodel_content()!=null){out.print(smlist.get(13).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1491,7 +1491,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h15" style="background:#fff;<% if(smlist!=null&&smlist.size()>14&&smlist.get(14)!=null&&smlist.get(14).getShopmodel_type()!=null&&smlist.get(14).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html15" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>14&&smlist.get(14)!=null&&smlist.get(14).getShopmodel_content()!=null){out.print(smlist.get(14).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1571,7 +1571,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h16" style="background:#fff;<% if(smlist!=null&&smlist.size()>15&&smlist.get(15)!=null&&smlist.get(15).getShopmodel_type()!=null&&smlist.get(15).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html16" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>15&&smlist.get(15)!=null&&smlist.get(15).getShopmodel_content()!=null){out.print(smlist.get(15).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1651,7 +1651,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h17" style="background:#fff;<% if(smlist!=null&&smlist.size()>16&&smlist.get(16)!=null&&smlist.get(16).getShopmodel_type()!=null&&smlist.get(9).getShopmodel_type()!=1) out.print("display:none;"); %>">
-  <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+  <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html17" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>16&&smlist.get(16)!=null&&smlist.get(16).getShopmodel_content()!=null){out.print(smlist.get(16).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1731,7 +1731,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h18" style="background:#fff;<% if(smlist!=null&&smlist.size()>17&&smlist.get(17)!=null&&smlist.get(17).getShopmodel_type()!=null&&smlist.get(17).getShopmodel_type()!=1) out.print("display:none;"); %>">
-   <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+   <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html18" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>17&&smlist.get(17)!=null&&smlist.get(17).getShopmodel_content()!=null){out.print(smlist.get(17).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1811,7 +1811,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h19" style="background:#fff;<% if(smlist!=null&&smlist.size()>18&&smlist.get(18)!=null&&smlist.get(18).getShopmodel_type()!=null&&smlist.get(18).getShopmodel_type()!=1) out.print("display:none;"); %>">
-   <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+   <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html19" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>18&&smlist.get(18)!=null&&smlist.get(18).getShopmodel_content()!=null){out.print(smlist.get(18).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1891,7 +1891,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h20" style="background:#fff;<% if(smlist!=null&&smlist.size()>19&&smlist.get(19)!=null&&smlist.get(19).getShopmodel_type()!=null&&smlist.get(19).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html20" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>19&&smlist.get(19)!=null&&smlist.get(19).getShopmodel_content()!=null){out.print(smlist.get(19).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -1971,7 +1971,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h21" style="background:#fff;<% if(smlist!=null&&smlist.size()>20&&smlist.get(20)!=null&&smlist.get(20).getShopmodel_type()!=null&&smlist.get(20).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html21" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>20&&smlist.get(20)!=null&&smlist.get(20).getShopmodel_content()!=null){out.print(smlist.get(20).getShopmodel_content());} %>
     </textarea>
     </div>
@@ -2051,7 +2051,7 @@ function preview_b(){
    </td></tr>
    <tr><td colspan="3" align="center">
    <div id="mode_h22" style="background:#fff;<% if(smlist!=null&&smlist.size()>21&&smlist.get(21)!=null&&smlist.get(21).getShopmodel_type()!=null&&smlist.get(21).getShopmodel_type()!=1) out.print("display:none;"); %>">
-    <div style="color:red">用${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
+    <div style="color:red">用\${1234}格式可以获取推荐位的列表，1234为推荐位的id。</div>
     <textarea id="mode_html22" style="width: 790px;height: 300px;"><% if(smlist!=null&&smlist.size()>21&&smlist.get(21)!=null&&smlist.get(21).getShopmodel_content()!=null){out.print(smlist.get(21).getShopmodel_content());} %>
     </textarea>
     </div>
