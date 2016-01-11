@@ -118,8 +118,9 @@ public class Upload1 extends HttpServlet {
     			}                
               
                 File file = null;
+                SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
                 do {                    
-                	 name =gdsid+"_"+types;
+                	 name =gdsid+sdf.format(new Date())+"_"+types;
                      file = new File(fname); 
                 } while (file.exists());
                 fname=savePath + name + extName;
