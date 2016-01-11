@@ -140,7 +140,6 @@ cell.setFixedHeight(60);
 table.addCell(cell);
  
 cell = new PdfPCell();
-cell.setBorderColor(new Color(255, 255, 255));
 iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.65f,0.35f});
 icell = new PdfPCell();
