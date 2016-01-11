@@ -272,7 +272,9 @@ try{
 		for(String str:goodsarr_list){
 			splList+=","+str;
 		}
-		splList=splList.substring(1);//去除前面第一个,
+		if(!"".equals(splList)){
+			splList=splList.substring(1);//去除前面第一个,
+		}
 	}
 	
 	
@@ -367,6 +369,9 @@ try{
 	
 }
 catch(Exception e){
+	System.out.println(e.getMessage());
+	System.out.println(e.toString());
+	System.out.println(e.getCause());
 	out.print("{\"succ\":false,message:\"操作出错，请稍后重试！\"}");
     return;
 }
