@@ -152,9 +152,12 @@ for(int l=0;l<smcount;l++){
 			 pcount=plist.size();
 			 ptype=1;
 		}else if(ppstrlist[0].length()==4){
-			 pplist=PromotionProductHelper.getPProductByCode(ppstrlist[0],gdsnum);
-			 pcount=pplist.size();
-			 ptype=2;
+			 
+			pplist=PromotionProductHelper.getPProductByCode(ppstrlist[0],gdsnum);
+			if(pplist!=null){
+			 	pcount=pplist.size();
+			 	ptype=2;
+			}
 		}
 	}
 if(pstatus.equals("0")&&(pcount>0||smcount>0)){
@@ -266,11 +269,31 @@ JSONArray jsonarr=new JSONArray();
 		        		
 		        		jsonarr.add(jsonitem);
      }
+	 //System.out.println("开始图文编辑模块啦##########################");
+	 //20160111修改：商家后专题编辑的图文编辑模块的${}功能 :${1234} 1234是广告推荐位的id,查出 1234的所有列表，显示图片和链接begin，看没有注释的代码真的很痛苦
+     String realContent="";
+     realContent=sm.getShopmodel_content();
+	if(sm.getShopmodel_type()==1){
+	 String[] splList=sm.getShopmodel_list().split(",");
+     for(int i=0;i<splList.length;i++){
+     	String[] tmp={splList[i]+""};
+     	List<Promotion> splmstList=PromotionHelper.getBrandList(tmp);
+    	 	String content_tmp="";
+    	 	for(Promotion prmt:splmstList){
+	        	
+    	 		content_tmp+="<div><a href="+prmt.getSplmst_url()+"><img src="+prmt.getSplmst_picstr()+"></img></a></div>";
+	        	
+	       	 }
+    	 	
+    	 realContent= realContent.replace("${"+splList[i]+"}", content_tmp);
+    	
+     }
+	}//图文编辑模块的${}功能 end
 	 jsonlitem.put("products", jsonarr);
 	 jsonlitem.put("ptitle", sm.getShopmodel_txt()!=null?sm.getShopmodel_txt():"");
 	 jsonlitem.put("ptitlecolor", sm.getShopmodel_txtcolor()!=null?sm.getShopmodel_txtcolor():"");
 	 jsonlitem.put("ptitlebg", sm.getShopmodel_title()!=null?sm.getShopmodel_title():"");
-	 jsonlitem.put("pcontent", sm.getShopmodel_content()!=null?sm.getShopmodel_content():"");
+	 jsonlitem.put("pcontent", realContent);
 	 jsonlarr.add(jsonlitem);
  }
  json.put("pstatus", pstatus);
