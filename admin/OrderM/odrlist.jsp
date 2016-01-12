@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %><%@include file="/html/header.jsp"%>
-<%@include file="/admin/chkshop.jsp"%>
+
 
 <%
 /*
