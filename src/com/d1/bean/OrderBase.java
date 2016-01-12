@@ -620,6 +620,8 @@ public abstract class OrderBase extends BaseEntity implements java.io.Serializab
 	private Float odrmst_tmfx=new Float(0);     //天猫返现
 	private Long odrmst_tmfxstatus=new Long(0);  //天猫返现状态
 	private String odrmst_tmfximg;   //天猫返现截图
+	
+	private String odrmst_wareh;//订单分仓
 	/**
 	 * 1=cache订单，2=main订单，3=recent订单，4=history订单
 	 */
@@ -1477,6 +1479,12 @@ public abstract class OrderBase extends BaseEntity implements java.io.Serializab
 	}
 	public void setOdrmst_tmfximg(String odrmst_tmfximg) {
 		this.odrmst_tmfximg = odrmst_tmfximg;
+	}
+	public String getOdrmst_wareh() {
+		return odrmst_wareh;
+	}
+	public void setOdrmst_wareh(String odrmst_wareh) {
+		this.odrmst_wareh = odrmst_wareh;
 	}
 	
 }
