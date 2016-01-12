@@ -2,7 +2,7 @@
 <%@include file="/admin/chkshop.jsp"%>
 
 <%
-
+/*
 if(session.getAttribute("type_flag")!=null){
 	String userid = "";
 	if(session.getAttribute("admin_mng") != null){
@@ -15,7 +15,7 @@ if(session.getAttribute("type_flag")!=null){
 		return;	
 	}
 }
-
+*/
 %>
 <%!
 /**
@@ -158,7 +158,7 @@ public static ArrayList<OrderCache> getOrderCacheList(HttpServletRequest request
 
     List<Order> olist=new ArrayList<Order>();
     olist.add(Order.desc("odrmst_orderdate"));
-	List<BaseEntity> list2 = Tools.getManager(OrderCache.class).getList(listRes, olist, 0, 3000);
+	List<BaseEntity> list2 = Tools.getManager(OrderCache.class).getList(listRes, olist, 0, 20);
 	if(list2==null || list2.size()==0){
 		return null;
 	}
@@ -310,7 +310,7 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
 
     List<Order> olist=new ArrayList<Order>();
     olist.add(Order.desc("odrmst_orderdate"));
-	List<BaseEntity> list2 = Tools.getManager(OrderMain.class).getList(listRes, olist, 0, 3000);
+	List<BaseEntity> list2 = Tools.getManager(OrderMain.class).getList(listRes, olist, 0, 20);
 	if(list2==null || list2.size()==0){
 		return null;
 	}
@@ -463,7 +463,7 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
 
 	    List<Order> olist=new ArrayList<Order>();
 	    olist.add(Order.desc("odrmst_orderdate"));
-		List<BaseEntity> list2 = Tools.getManager(OrderRecent.class).getList(listRes, olist, 0, 3000);
+		List<BaseEntity> list2 = Tools.getManager(OrderRecent.class).getList(listRes, olist, 0, 20);
 		if(list2==null || list2.size()==0){
 			return null;
 		}
@@ -747,14 +747,15 @@ function excel_export(){
   </tr>
   <tr>
     <td><input type="checkbox" name="chk_all" id="chk_all" />全选/取消全选  </td>
-    <td>批量配货单打印</td>
-    <td>批量快递单打印</td>
+      <td><a href="javascript:odrphlist();" >批量配货单打印</a></td>
+    <td><a href="javascript:odrshiplist();" >批量快递单打印</a></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
 </table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0"><%
-	String shopCode=session.getAttribute("shopcodelog").toString();
+	String shopCode="00000000";
+	//session.getAttribute("shopcodelog").toString();
 	SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	String ggURL = Tools.addOrUpdateParameter(request,null,null);
       ArrayList<OrderBase> list=new ArrayList<OrderBase>();
@@ -907,6 +908,41 @@ out.print(status);
       <td colspan="7">&nbsp;</td>
     </tr>
 </table>
+
+<script type="text/javascript">
+$("#chk_all").click(function(){
+     //$("input[name='odr_list']").attr("checked",$(this).attr("checked"));
+	 if ($(this).attr("checked")) { // 全选 
+$("input[name='odr_list']").attr("checked",$(this).attr("checked"));
+} else { // 取消全选 
+$("input[name='odr_list']").attr("checked",false);
+} 
+});
+function odrphlist(){
+    //获取到所有name为'chk_list'并选中的checkbox(集合)
+    var arrChk=$("input[name='chk_list]:checked");
+    //遍历得到每个checkbox的value值
+    var odrstr="";
+    for (var i=0;i<arrChk.lengtrh;i++)
+    {
+        // alert(arrChk[i].value);
+         odrstr += arrChk[i].value+","		
+    }
+    window.open ('odritemprintlist.jsp?odrids='+odrstr);
+}
+function odrshiplist(){
+    //获取到所有name为'chk_list'并选中的checkbox(集合)
+    var arrChk=$("input[name='chk_list]:checked");
+    //遍历得到每个checkbox的value值
+    var odrstr="";
+    for (var i=0;i<arrChk.lengtrh;i++)
+    {
+        // alert(arrChk[i].value);
+         odrstr += arrChk[i].value+","		
+    }
+    window.open ('YtOrderModelist.jsp?odrid='+odrstr);
+}
+</script>
 </body>
 </html>
 
