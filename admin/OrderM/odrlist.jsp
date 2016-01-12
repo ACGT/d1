@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" import="cn.b2m.eucp.sdkhttp.*"%><%@include file="/inc/header.jsp"%>
+<%@ page contentType="text/html; charset=UTF-8" %><%@include file="/html/header.jsp"%>
 <%@include file="/admin/chkshop.jsp"%>
 
 <%
