@@ -697,6 +697,8 @@ function excel_export(){
 </script>
 
 <body style="overflow-x: hidden">
+<form id="search1" name="search1" method="post" action="odrlist.jsp" >
+<input type="hidden" name="act" value="list" />
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="18%">订单号
@@ -753,6 +755,7 @@ function excel_export(){
     <td>&nbsp;</td>
   </tr>
 </table>
+</form>
 <table width="100%" border="0" cellspacing="0" cellpadding="0"><%
 	String shopCode="00000000";
 	//session.getAttribute("shopcodelog").toString();
