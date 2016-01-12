@@ -475,7 +475,7 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
 	
 
 	
-	public static ArrayList<OrderBase> getOrderList(HttpServletRequest request,HttpServletResponse response,String shopCode){
+	public static ArrayList<OrderMain> getOrderList(HttpServletRequest request,HttpServletResponse response,String shopCode){
 		ArrayList<OrderBase> list=new ArrayList<OrderBase>();
 		 String req_rname= request.getParameter("req_rname");
 		   String req_odrid= request.getParameter("req_odrid");
@@ -490,23 +490,8 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
 			}
 		}*/
 		ArrayList<OrderMain> listmain=getOrderMainList( request,response,shopCode);
-		if(listmain!=null){
-			for(OrderMain ordermain:listmain){
-				list.add(ordermain);
-			}
-		}
-		if(Tools.isNull(req_odrstatus)||(!Tools.isNull(req_odrstatus)&&Tools.parseInt(req_odrstatus)>=3)){
-		ArrayList<OrderRecent> listrecent=getOrderRecentList( request, response,shopCode);
-		if(listrecent!=null){
-			for(OrderRecent orderrecent:listrecent){
-				list.add(orderrecent);
-			}
-		}
-		}
-		if(list==null || list.size()==0){
-			return null;
-		}
-		return list;
+		
+		return listmain;
 	}
 	public static  ArrayList<OrderItemBase> getOrderDetail(String odrid){
 		ArrayList<OrderItemBase> list=new ArrayList<OrderItemBase>();
@@ -761,12 +746,12 @@ function excel_export(){
 	//session.getAttribute("shopcodelog").toString();
 	SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	String ggURL = Tools.addOrUpdateParameter(request,null,null);
-      ArrayList<OrderBase> list=new ArrayList<OrderBase>();
+      ArrayList<OrderMain> list=new ArrayList<OrderMain>();
       String act=request.getParameter("act");
       System.out.println(act);
-      if(act!=null&&act.equals("list")){
+      //if(act!=null&&act.equals("list")){
       list=getOrderList(request,response,shopCode);
-      }
+    //  }
       /*
       if(act!=null&&act.equals("export")){
     	  ArrayList<OrderMain> om_list = getOrderMainList(request,response,shopCode);
@@ -808,7 +793,7 @@ function excel_export(){
  	    	 
  	      for(int i=(pageno1-1)*30;i<list.size()&&i<pageno1*30;i++)
      	  {
- 	    	  OrderBase odr=list.get(i);
+ 	    	 OrderMain odr=list.get(i);
  	    	 long odrstatus=odr.getOdrmst_orderstatus().longValue();
  	
  	    	 // User user=UserHelper.getById(odr.getOdrmst_mbrid().toString());
