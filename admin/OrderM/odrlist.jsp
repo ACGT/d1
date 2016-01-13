@@ -910,7 +910,7 @@ $("input[name='odr_list']").attr("checked",false);
 });
 function odrphlist(){
     //获取到所有name为'chk_list'并选中的checkbox(集合)
-    var arrChk=$("input[name='chk_list]:checked");
+    var arrChk=$("input[name='odr_list]:checked");
     //遍历得到每个checkbox的value值
     var odrstr="";
     for (var i=0;i<arrChk.lengtrh;i++)
@@ -922,7 +922,7 @@ function odrphlist(){
 }
 function odrshiplist(){
     //获取到所有name为'chk_list'并选中的checkbox(集合)
-    var arrChk=$("input[name='chk_list]:checked");
+    var arrChk=$("input[name='odr_list]:checked");
     //遍历得到每个checkbox的value值
     var odrstr="";
     for (var i=0;i<arrChk.lengtrh;i++)
