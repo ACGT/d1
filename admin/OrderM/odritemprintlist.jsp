@@ -187,7 +187,8 @@ iiTable= new PdfPTable(2);
 iiTable.setWidthPercentage(100);
 iiTable.setWidths(new float[]{0.45f,0.55f});
 
-System.out.println(getutft1("收货人：")+rname+"=======");
+System.out.println(getutf("收货人：")+rname+"======="+"收货人："+rname);
+System.out.println(getutft1("收货人：")+rname+"======="+getutft2("收货人：")+rname+"======="+getutft3("收货人：")+rname);
 iicell = new PdfPCell(getpar("收货人："+rname,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
