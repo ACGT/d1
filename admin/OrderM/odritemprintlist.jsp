@@ -20,7 +20,7 @@ java.io.*"%>
 	if(str.length()==0)return null;
 	try{
 	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
-    String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
+    String newStr=new String(temp,"GBK");//这里写转换后的编码方式
 Paragraph par = new Paragraph(newStr,fn);
     return par;
 	}catch(Exception ex){
@@ -187,8 +187,8 @@ iiTable= new PdfPTable(2);
 iiTable.setWidthPercentage(100);
 iiTable.setWidths(new float[]{0.45f,0.55f});
 
-
-iicell = new PdfPCell(getpar2("收货人："+rname,f12));
+System.out.println("收货人："+rname+"=========================");
+iicell = new PdfPCell(getpar("收货人："+rname,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
