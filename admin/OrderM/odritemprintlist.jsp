@@ -188,17 +188,17 @@ iiTable.setWidthPercentage(100);
 iiTable.setWidths(new float[]{0.45f,0.55f});
 
 
-iicell = new PdfPCell(getpar("收货人："+rname,f12));
+iicell = new PdfPCell(getpar2("收货人："+rname,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar("收货人电话："+getutft3(rname),f12));
+iicell = new PdfPCell(getpar2("收货人电话："+getutft3(rname),f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar("收货人地址："+getutft2(rname),f12));
+iicell = new PdfPCell(getpar2("收货人地址："+getutft2(rname),f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,2,2);
 iicell.setBorderColor(new Color(255, 255, 255));
