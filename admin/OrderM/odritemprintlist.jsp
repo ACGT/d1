@@ -54,6 +54,40 @@ public static String getutf(String str){
 		return null;
 	}
 }
+
+public static String getutft1(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("utf-8");//这里写原编码方式
+  String newStr=new String(temp,"ISO-8859-1");//这里写转换后的编码方式
+
+    return str;
+	}catch(Exception ex){
+		return null;
+	}
+}
+public static String getutft2(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
+  String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
+
+    return str;
+	}catch(Exception ex){
+		return null;
+	}
+}
+public static String getutft3(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
+  String newStr=new String(temp,"GBK");//这里写转换后的编码方式
+
+    return str;
+	}catch(Exception ex){
+		return null;
+	}
+}
 %>
 <%/*
 if(session.getAttribute("admin_mng")!=null){
@@ -90,7 +124,7 @@ for(int i=0;i<odrlen;i++)
 {
 	String odrid=odrs[i];
 	OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
-	String rname=getutf(odrm.getOdrmst_rname().trim());
+	String rname=odrm.getOdrmst_rname().trim();
 	String rphone=getutf(odrm.getOdrmst_rphone().trim());
 	String rzipcode=getutf(odrm.getOdrmst_rzipcode());
 	String rprv=getutf(odrm.getOdrmst_rprovince());
@@ -158,12 +192,28 @@ iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar("收货人电话："+rphone,f12));
+iicell = new PdfPCell(getpar("收货人电话："+getutf(rname),f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar("收货人地址："+rprv+rcity+raddr,f12));
+iicell = new PdfPCell(getpar("收货人地址："+getutft1(rname),f12));
+iicell.setFixedHeight(30);
+iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,2,2);
+iicell.setBorderColor(new Color(255, 255, 255));
+iiTable.addCell(iicell);
+
+iicell = new PdfPCell(getpar("收货人："+rname,f12));
+iicell.setFixedHeight(30);
+iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
+iicell.setBorderColor(new Color(255, 255, 255));
+iiTable.addCell(iicell);
+iicell = new PdfPCell(getpar("收货人电话："+getutft3(rname),f12));
+iicell.setFixedHeight(30);
+iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
+iicell.setBorderColor(new Color(255, 255, 255));
+iiTable.addCell(iicell);
+iicell = new PdfPCell(getpar("收货人地址："+getutft2(rname),f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,2,2);
 iicell.setBorderColor(new Color(255, 255, 255));
