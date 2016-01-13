@@ -21,7 +21,7 @@ java.io.*"%>
 	try{
 	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
     String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
-Paragraph par = new Paragraph(str,fn);
+Paragraph par = new Paragraph(newStr,fn);
     return par;
 	}catch(Exception ex){
 		return null;
