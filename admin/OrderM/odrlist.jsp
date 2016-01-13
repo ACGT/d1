@@ -173,7 +173,7 @@ public static ArrayList<OrderCache> getOrderCacheList(HttpServletRequest request
 public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,HttpServletResponse response,String shopCode){
 	ArrayList<OrderMain> list=new ArrayList<OrderMain>();
 	List<SimpleExpression> listRes = new ArrayList<SimpleExpression>();
-	   String req_rname= request.getParameter("req_rname");
+	   /*String req_rname= request.getParameter("req_rname");
 	   String req_odrid= request.getParameter("req_odrid");
 	   String req_goodsodrid= request.getParameter("req_goodsodrid");
 	   String orderdate_s= request.getParameter("orderdate_s");
@@ -279,7 +279,7 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
 				   }
 		   }*/
 	
-	   }else{
+	 /*  }else{
 		   if(Tools.isNull(req_odrid)&&Tools.isNull(req_goodsodrid)&&Tools.isNull(req_rname)){
 		   SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		   try{
@@ -302,7 +302,7 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
 		   }
 		   }
 	   }
-
+*/
 	   if(!Tools.isNull(shopCode)){
 		   listRes.add(Restrictions.eq("odrmst_sndshopcode", shopCode));
 	   }
@@ -311,6 +311,8 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
     List<Order> olist=new ArrayList<Order>();
     olist.add(Order.desc("odrmst_orderdate"));
 	List<BaseEntity> list2 = Tools.getManager(OrderMain.class).getList(listRes, olist, 0, 20);
+	
+	System.out.println(list2.size()+"======="+shopCode);
 	if(list2==null || list2.size()==0){
 		return null;
 	}
