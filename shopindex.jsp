@@ -395,6 +395,7 @@ if(checkMobile()){
 }
 <%}%>
 </script>
+<script type="text/javascript" src="/res/wap/js/loadDuiHuan.js"></script>
 <style type="text/css">
 .widauto {
 	width:100%;
