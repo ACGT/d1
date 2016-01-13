@@ -913,11 +913,12 @@ function odrphlist(){
     var arrChk=$("input[name='odr_list]:checked");
     //遍历得到每个checkbox的value值
     var odrstr="";
-    for (var i=0;i<arrChk.lengtrh;i++)
-    {
-        // alert(arrChk[i].value);
-         odrstr += arrChk[i].value+","		
-    }
+    $("input[name='odr_list']:checkbox").each(function(){
+  	  
+		   if($(this).attr("checked")){
+			   odrstr += $(this).val()+","		  
+		   }
+	   });
     window.open ('odritemprintlist.jsp?odrids='+odrstr);
 }
 function odrshiplist(){
@@ -925,11 +926,12 @@ function odrshiplist(){
     var arrChk=$("input[name='odr_list]:checked");
     //遍历得到每个checkbox的value值
     var odrstr="";
-    for (var i=0;i<arrChk.lengtrh;i++)
-    {
-        // alert(arrChk[i].value);
-         odrstr += arrChk[i].value+","		
-    }
+    $("input[name='odr_list']:checkbox").each(function(){
+    	  
+		   if($(this).attr("checked")){
+			   odrstr += $(this).val()+","		  
+		   }
+	   });
     window.open ('YtOrderModelist.jsp?odrid='+odrstr);
 }
 </script>
