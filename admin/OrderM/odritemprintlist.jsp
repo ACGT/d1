@@ -47,7 +47,7 @@ public static String getutf(String str){
 	if(str.length()==0)return null;
 	try{
 	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
-    String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
+    String newStr=new String(temp,"gbk");//这里写转换后的编码方式
 
     return newStr;
 	}catch(Exception ex){
@@ -205,7 +205,7 @@ int j=1;
 long ogdscount=0;
 for(BaseEntity be:list2){
 	OrderItemBase oi= (OrderItemBase)be;
-	String gdsname=oi.getOdrdtl_gdsname();
+	String gdsname=getutf(oi.getOdrdtl_gdsname());
 	gdsname=gdsname.replace("%", "");
 	String gdsid=oi.getOdrdtl_gdsid();
 	Product p=ProductHelper.getById(gdsid);
