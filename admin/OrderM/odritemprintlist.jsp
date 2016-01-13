@@ -43,7 +43,17 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
 	 cell.setPadding(padd);
 	return cell;
 }
+public static String getutf(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
+    String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
 
+    return newStr;
+	}catch(Exception ex){
+		return null;
+	}
+}
 %>
 <%/*
 if(session.getAttribute("admin_mng")!=null){
@@ -80,12 +90,12 @@ for(int i=0;i<odrlen;i++)
 {
 	String odrid=odrs[i];
 	OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
-	String rname=odrm.getOdrmst_rname().trim();
-	String rphone=odrm.getOdrmst_rphone().trim();
-	String rzipcode=odrm.getOdrmst_rzipcode();
-	String rprv=odrm.getOdrmst_rprovince();
-	String rcity=odrm.getOdrmst_rcity();
-	String raddr=odrm.getOdrmst_raddress();
+	String rname=getutf(odrm.getOdrmst_rname().trim());
+	String rphone=getutf(odrm.getOdrmst_rphone().trim());
+	String rzipcode=getutf(odrm.getOdrmst_rzipcode());
+	String rprv=getutf(odrm.getOdrmst_rprovince());
+	String rcity=getutf(odrm.getOdrmst_rcity());
+	String raddr=getutf(odrm.getOdrmst_raddress());
 	rphone=rphone.length()>11?rphone.substring(0, 11):rphone;
 PdfContentByte cb = writer.getDirectContent();
 
