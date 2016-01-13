@@ -46,10 +46,10 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
 public static String getutf(String str){
 	if(str.length()==0)return null;
 	try{
-	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
-    String newStr=new String(temp,"GBK");//这里写转换后的编码方式
+	//byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
+   // String newStr=new String(temp,"GBK");//这里写转换后的编码方式
 
-    return newStr;
+    return str;
 	}catch(Exception ex){
 		return null;
 	}
