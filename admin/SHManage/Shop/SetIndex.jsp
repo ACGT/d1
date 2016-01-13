@@ -98,9 +98,9 @@
 </title>
 <script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/d1.js")%>"></script>
 <script type="text/javascript" src="/admin/SHManage/Shop/SetJS.js?1.37"></script>
-<!-- <script type="text/javascript" src="/d1xheditor/xheditor-zh-cn.min.js"></script> -->
-<script type="text/javascript" src="/d1xheditor/xheditor-1.2.2.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/d1xheditor/xheditor_lang/zh-cn.js"></script>
+<script type="text/javascript" src="/d1xheditor/xheditor-zh-cn.min.js"></script>
+<!-- <script type="text/javascript" src="/d1xheditor/xheditor-1.2.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/d1xheditor/xheditor_lang/zh-cn.js"></script> -->
 <script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/uploadify/swfobject.js")%>"></script>
 <script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/uploadify/jquery.uploadify.v2.1.4.js")%>"></script>
 <script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/DatePicker/WdatePicker.js")%>"></script>
@@ -111,7 +111,8 @@ a img{border:none;}
 .model_txt{margin-left: 80px;}
 .model_txtcolor{margin-left: 16px;}
 .btnCode {
-		background: transparent url(/res/images/xhEditor/dui.png) no-repeat -2px -2px;
+		background: transparent url(/res/images/xhEditor/dui.png) no-repeat -2px -3px;
+		}
 </style>
 <script type="text/javascript">
 //专题页预览
@@ -343,8 +344,6 @@ function preview_b(){
        <input type="hidden" value="<%= smlist!=null&&smlist.size()>0?smlist.size():0 %>" id="display" ></input>   
    </td></tr>
    <!-- 模块一 -->
-   <textarea id="content" style="width: 790px;height: 300px;"></textarea>
-   
    <tr id="mode_1" <% if(smlist!=null&&smlist.size()>0) out.print("style=\"display:block\""); else  out.print("style=\"display:none\""); %>>
    <td>
    <table cellspacing="0" cellpadding="0" border="0" width="832" height="100%">
@@ -2127,9 +2126,9 @@ function preview_b(){
 
 
 	   var plugins={
-			Code:{c:'btnCode',t:'插入兑换框',h:1,e:function(){
-				var _this=this;
-				var htmlcode2="<style type='text/css'>";
+			duihuan:{c:'btnCode',t:'兑换模块操作：菜单调用 (Ctrl+5)',s:'ctrl+5',h:1,e:function(){
+	            var _this=this;
+	            var htmlcode2="<!--dh--><p><style type='text/css'>";
 				htmlcode2+=".round {";
 				htmlcode2+="width: 90%;";
 				htmlcode2+="height: 2em; border : 0.2em solid #dedede;";
@@ -2139,8 +2138,6 @@ function preview_b(){
 				htmlcode2+="border: 0.2em solid #dedede;";
 				htmlcode2+="}";
 				htmlcode2+="</style>";
-				htmlcode2+="<script type='text/javascript' src='/res/wap/js/waplistcart.js'>";
-				htmlcode2+="</"+"script>";
 				htmlcode2+="<div style='margin-bottom: 1em; width: 100%;text-align: center;'>";
 				htmlcode2+="<input name='dhcode' id='dhcode' class='round' type='text' ";
 				htmlcode2+="	placeholder='输入商品兑换码'>";
@@ -2154,30 +2151,26 @@ function preview_b(){
 				htmlcode2+="</div>";
 				htmlcode2+="<div class='choose_sku' id='choose_sku' style='display: none;'></div>";
 				htmlcode2+="<div class='cart_msg' id='cartmsg' style='display: none;'>";
-				htmlcode2+=	"<div class='txt'>";
+				htmlcode2+=	"<div class='txt' style='color:white;'>";
 				htmlcode2+=	"<i>加入购物车成功!</i>";
-				htmlcode2+=	"	<div class='but'>";
-				htmlcode2+=	"	<a href='javascript:void(0)' onclick='$('#cartmsg').hide();'";
-				htmlcode2+=" id='stroll'>继续购物</a><a href='flow.html'>去购物车</a>";
+				htmlcode2+=	"<div class='but'>";
+				htmlcode2+=	"<a href='javascript:continueBuy();' id='stroll'>继续购物</a><a href='flow.html'>去购物车</a>";
 				htmlcode2+="</div>";
 				htmlcode2+="</div>";
 				htmlcode2+="</div>";
-				var htmlCode="<div>";
-					htmlCode+="<textarea id='xheCodeValue' wrap='soft' spellcheck='false' style='display:none;'>";
-					htmlCode+=htmlcode2;
-					htmlCode+="</textarea>";
-					htmlCode+="</div><div style='text-align:right;'><input type='button' id='xheSave' value='插入兑换模块' /></div>";			
-				var jCode=$(htmlCode),jType=$('#xheCodeType',jCode),jValue=$('#xheCodeValue',jCode),jSave=$('#xheSave',jCode);
-				jSave.click(function(){
-					_this.loadBookmark();
-					_this.pasteHTML(jValue.val());
-					_this.hidePanel();
-					return false;	
-				});
-				_this.saveBookmark();
-				_this.showDialog(jCode);
-			}},
-			
+				htmlcode2+="</p><p></p><!--dhe-->";
+	            var arrMenu=[{s:'插入',v:'menu1',t:'插入兑换模块'},{s:'删除',v:'menu2',t:'删除兑换模块'}];
+	            _this.saveBookmark();
+	            _this.showMenu(arrMenu,function(v){
+	            	if(v=="menu1"){_this.pasteHTML(htmlcode2);}
+	            	else if(v=="menu2"){
+	            		var oldSource=_this.getSource();
+	            		var temp=oldSource.match(/(<\!--dh-->=?)(\S.*)(?=<\!--dhe-->)/);
+	            		var newSource=oldSource.replace(temp[0],'');
+	            		_this.setSource(newSource);
+	            	}
+	            });
+	        }},
 		};
 		
 
@@ -2215,9 +2208,9 @@ SCTPinit();
 $(pageInit);
 function pageInit()
 {  
- $('#content').xheditor({plugins:plugins,skin:'vista',upLinkUrl:"!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=附件文件(*.zip;*.rar;*.txt)",upImgUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=图片文件(*.jpg;*.jpeg;*.gif;*.png)',upFlashUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=Flash动画(*.swf)',upMediaUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=多媒体文件(*.wmv;*.avi;*.wma;*.mp3;*.mid)',shortcuts:{'ctrl+enter':submitForm}});
  $('#sh_logo').xheditor({plugins:plugins,skin:'vista',upLinkUrl:"!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=附件文件(*.zip;*.rar;*.txt)",upImgUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=图片文件(*.jpg;*.jpeg;*.gif;*.png)',upFlashUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=Flash动画(*.swf)',upMediaUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=多媒体文件(*.wmv;*.avi;*.wma;*.mp3;*.mid)',shortcuts:{'ctrl+enter':submitForm}});
  $('#bgimg').xheditor({plugins:plugins,skin:'vista',upLinkUrl:"!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=附件文件(*.zip;*.rar;*.txt)",upImgUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=图片文件(*.jpg;*.jpeg;*.gif;*.png)',upFlashUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=Flash动画(*.swf)',upMediaUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=多媒体文件(*.wmv;*.avi;*.wma;*.mp3;*.mid)',shortcuts:{'ctrl+enter':submitForm}});
+ $('#mode_html1').xheditor({plugins:plugins,skin:'vista',upLinkUrl:"!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=附件文件(*.zip;*.rar;*.txt)",upImgUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=图片文件(*.jpg;*.jpeg;*.gif;*.png)',upFlashUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=Flash动画(*.swf)',upMediaUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=多媒体文件(*.wmv;*.avi;*.wma;*.mp3;*.mid)',shortcuts:{'ctrl+enter':submitForm}});
  $('#mode_html2').xheditor({plugins:plugins,skin:'vista',upLinkUrl:"!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=附件文件(*.zip;*.rar;*.txt)",upImgUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=图片文件(*.jpg;*.jpeg;*.gif;*.png)',upFlashUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=Flash动画(*.swf)',upMediaUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=多媒体文件(*.wmv;*.avi;*.wma;*.mp3;*.mid)',shortcuts:{'ctrl+enter':submitForm}});
  $('#mode_html3').xheditor({plugins:plugins,skin:'vista',upLinkUrl:"!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=附件文件(*.zip;*.rar;*.txt)",upImgUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=图片文件(*.jpg;*.jpeg;*.gif;*.png)',upFlashUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=Flash动画(*.swf)',upMediaUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=多媒体文件(*.wmv;*.avi;*.wma;*.mp3;*.mid)',shortcuts:{'ctrl+enter':submitForm}});
  $('#mode_html4').xheditor({plugins:plugins,skin:'vista',upLinkUrl:"!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=附件文件(*.zip;*.rar;*.txt)",upImgUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=图片文件(*.jpg;*.jpeg;*.gif;*.png)',upFlashUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=Flash动画(*.swf)',upMediaUrl:'!{editorRoot}xheditor_plugins/multiupload/multiupload.html?uploadurl={editorRoot}/d1upload.jsp%3Fimmediate%3D1&ext=多媒体文件(*.wmv;*.avi;*.wma;*.mp3;*.mid)',shortcuts:{'ctrl+enter':submitForm}});

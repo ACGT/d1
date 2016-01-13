@@ -16,6 +16,7 @@ function dhok(obj) {
 			error : function(XmlHttpRequest) {
 			},
 			success : function(json) {
+				console.log(json);
 				if (json.code == 1) {
 					alert(json.message);
 				} else if (json.code == 0) {
@@ -58,4 +59,7 @@ $choosesku = function(code, chsku) {
 			chsku.show();
 		}
 	});
+};
+var continueBuy=function(){
+	$("#cartmsg").slideUp();
 };
