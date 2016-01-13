@@ -1,4 +1,4 @@
-<%@ page  language="java"  charset=UTF-8"   import="com.lowagie.text.Table,java.io.*,java.awt.Color,com.lowagie.text.*,com.lowagie.text.pdf.*"%><%@page 
+<%@ page  language="java"  pageEncoding="UTF-8"  import="com.lowagie.text.Table,java.io.*,java.awt.Color,com.lowagie.text.*,com.lowagie.text.pdf.*"%><%@page 
 import="com.d1.*,
 com.d1.bean.*,
 com.d1.manager.*,
