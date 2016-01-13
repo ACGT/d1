@@ -1,4 +1,4 @@
-<%@ page  language="java"  pageEncoding="UTF-8"  import="com.lowagie.text.Table,java.io.*,java.awt.Color,com.lowagie.text.*,com.lowagie.text.pdf.*"%><%@page 
+<%@ page  language="java"  import="com.lowagie.text.Table,java.io.*,java.awt.Color,com.lowagie.text.*,com.lowagie.text.pdf.*"%><%@page 
 import="com.d1.*,
 com.d1.bean.*,
 com.d1.manager.*,
@@ -46,8 +46,8 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
 public static String getutf(String str){
 	if(str.length()==0)return null;
 	try{
-	//byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
-  //String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
+	byte[] temp=str.getBytes("utf-8");//这里写原编码方式
+  String newStr=new String(temp,"ISO-8859-1");//这里写转换后的编码方式
 
     return str;
 	}catch(Exception ex){
