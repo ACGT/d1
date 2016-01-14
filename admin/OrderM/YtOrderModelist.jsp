@@ -56,8 +56,8 @@ public static String postShipXml(String strxml,String apiUrl,String parternId,St
 public static String shipprintOrder(HttpServletResponse response,String odrids,String parternId,String customerId,String clientId){
 	
 	
-//String apiUrl = "http://112.64.239.247:7800/web/CommonOrderModeBServlet.action";
-String apiUrl = "http://service.yto56.net.cn/CommonOrderModeBServlet.action";
+String apiUrl = "http://112.64.239.247:7800/web/CommonOrderModeBServlet.action";
+//String apiUrl = "http://service.yto56.net.cn/CommonOrderModeBServlet.action";
 
 //String parternId = "123456";
 //	String clientId = "K10101010";
@@ -76,7 +76,7 @@ int odrlen=odrs.length;
 		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		 SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMddHHmmssSSS");
 		 String printpcs=fmt.format(new Date());
-
+boolean ret=false;
 for(int i=0;i<odrlen;i++)
 {
 	String odrid=odrs[i];
@@ -198,7 +198,9 @@ for(int i=0;i<odrlen;i++)
 		fw.write("圆通单号="+mailNo+"=d1订单号="+odrid+"=大头笔="+bigPen+"==时间"+new Date()+System.getProperty("line.separator"));
 		fw.flush();
 		fw.close();*/
-	   	if(!sendflag){
+	   	if(sendflag){
+	   		ret=true;
+	   	}else{
 	   		cancelshipcode(odrid,parternId,customerId,clientId,mailNo);
 	   	}
 	  }
@@ -211,6 +213,7 @@ for(int i=0;i<odrlen;i++)
 }
 
 }
+if(!ret)printpcs="";
 return printpcs;
 }
 public static boolean saveShipCode(String id, String odrmst_d1shipmethod, String odrmst_goodsodrid,String bigpen,String printpcs) {
@@ -325,7 +328,11 @@ if("c".equals(type)){
 }else{
 
 String pcnos= shipprintOrder(response,odrid,parternId,customerId,clientId);
-response.sendRedirect("http://www.d1.com.cn/admin/OrderM/odrprintytlist.jsp?pcnos="+pcnos);
+if(Tools.isNull(pcnos)){
+	out.print("获取快递单号错误");
+}else{
+response.sendRedirect("/admin/OrderM/odrprintytlist.jsp?pcnos="+pcnos);
+}
 }
 
 %>
