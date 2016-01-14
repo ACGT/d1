@@ -75,7 +75,7 @@ List<OrderMain> odrlist=getOrderlist(pcnos);
 response.setContentType("application/pdf;");
 int odrnum=odrlist.size();
 
-Rectangle pageSize = new Rectangle(278,425*odrnum);
+Rectangle pageSize = new Rectangle(278,425);
 Document document = new Document(pageSize, 0,0,0,0);//左 右 上下
 ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 PdfWriter writer=PdfWriter.getInstance( document, buffer );
@@ -92,7 +92,7 @@ Font f18 = new Font(bfChinese, 18, Font.BOLD, Color.BLACK);
 
 PdfPTable tablem = new PdfPTable(1);
 tablem.setWidthPercentage(100);
-PdfPCell cellm = new PdfPCell();
+
 
 for(OrderMain odrm:odrlist){
 
@@ -118,6 +118,8 @@ int len = fullCode.length();
 code128.setX(130/((len+2)*11 + 2f));
 Image image128 = code128.createImageWithBarcode(cb, null, null);   
 //document.add(new Phrase(new Chunk(image128, 20, -50)));
+PdfPCell cellm = new PdfPCell();
+cellm.setFixedHeight(425);
 
 // 添加table实例
 PdfPTable tables = new PdfPTable(1);
