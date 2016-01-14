@@ -198,7 +198,7 @@ System.out.println(iso+"=======2");
 iso = new String(gbkstr.getBytes("ISO-8859-1"),"GBK"); 
 System.out.println(iso+"=======3");
 iso = new String(gbkstr.getBytes("ISO-8859-1"),"UTF-8"); 
-System.out.println(iso+"=======4");
+System.out.println(iso+"=======4"+rname);
 
 iicell = new PdfPCell(getpar("收货人："+rname,f12));
 iicell.setFixedHeight(30);
