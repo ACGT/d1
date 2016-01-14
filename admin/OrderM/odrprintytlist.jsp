@@ -93,9 +93,10 @@ Font f18 = new Font(bfChinese, 18, Font.BOLD, Color.BLACK);
 PdfPTable tablem = new PdfPTable(1);
 tablem.setWidthPercentage(100);
 
-
+int j=0;
 for(OrderMain odrm:odrlist){
-
+j++;
+System.out.println(j+"=========");
 String shipcode=odrm.getOdrmst_goodsodrid();
 shipcode="1234567890";
 if(Tools.isNull(shipcode))return;
