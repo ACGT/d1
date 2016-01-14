@@ -308,7 +308,6 @@ cell.setPhrase(getpar("此运单仅代圆通速递签约客户使用，相关责
 table.addCell(cell);
 cells.addElement(table);
 tables.addCell(cells);
-document.add(tables);
 
 cellm.addElement(tables);
 tablem.addCell(cellm);
