@@ -1498,7 +1498,7 @@ div.slider-nav span.left { left:0px;background:url(http://images.d1.com.cn/zt201
 																        </td>
 																      </tr>
 																       <tr><!-- 星星 -->
-																       <%
+																      <%--这段代码会造成线程堵塞，2016年01月14日将它就地正法了  <%
 																	     //评论
 																	   	int contentcount =0;
 																	   	ArrayList<Comment> commentlists=getCommentList(p.getId());
@@ -1510,8 +1510,8 @@ div.slider-nav span.left { left:0px;background:url(http://images.d1.com.cn/zt201
 																	   		score=10;
 																	   	}
 																       
-																       %>
-																        <td width="222" height="25" align="left">
+																       %> 
+																        	<td width="222" height="25" align="left">
 																        	<!-- <div style="float:left; padding-top:6px;">顾客评分：</div> -->
 																	     	<div class="sa<%=score %>" style="float:left;" ></div>
 																		    <div style="float:left;padding-top:6px;">
@@ -1521,7 +1521,7 @@ div.slider-nav span.left { left:0px;background:url(http://images.d1.com.cn/zt201
 																		     &nbsp; &nbsp; &nbsp; &nbsp;
 																		    
 																		    </div>
-																        </td>
+																        </td> --%>
 																      </tr>
 																      <tr>
 																        <td height="53"><a id="now_buy" href="http://www.d1.com.cn/Product/<%= p.getId() %>" target="_blank"></a></td>
