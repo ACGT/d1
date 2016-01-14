@@ -106,7 +106,7 @@ int odrlen=odrs.length;
 
 
 
-Rectangle pageSize = new Rectangle(582,420*odrlen);//A5 宽582 高420 
+Rectangle pageSize = new Rectangle(582,420);//A5 宽582 高420 
 Document document = new Document(pageSize, 0,0,0,0);//左 右 上下
 ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 PdfWriter writer=PdfWriter.getInstance( document, buffer );
@@ -114,8 +114,7 @@ document.open();
 //设置中文字体
 BaseFont bfChinese =BaseFont.createFont( "STSong-Light","UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
 
-PdfPTable tables = new PdfPTable(1);
-tables.setWidthPercentage(100);
+
 
 
 for(int i=0;i<odrlen;i++)
@@ -144,7 +143,8 @@ Font f12 = new Font(bfChinese, 10, Font.BOLD, Color.BLACK);
 Font f25 = new Font(bfChinese, 28, Font.BOLD, Color.BLACK);
 Font f18 = new Font(bfChinese, 18, Font.BOLD, Color.BLACK);
 // 添加table实例
-
+PdfPTable tables = new PdfPTable(1);
+tables.setWidthPercentage(100);
 PdfPCell cells = new PdfPCell();
 cells.setFixedHeight(400);
 cells.setBorderWidth(0);
@@ -297,8 +297,9 @@ table.addCell(cell);
 
 cells.addElement(table);
 tables.addCell(cells);
-}
 document.add(tables);
+}
+
 document.close();
 
 DataOutput output = new DataOutputStream(response.getOutputStream());
