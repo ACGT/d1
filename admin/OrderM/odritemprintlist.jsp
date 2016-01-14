@@ -189,9 +189,17 @@ iiTable.setWidths(new float[]{0.45f,0.55f});
 
 System.out.println(getutf("收货人：")+rname+"======="+"收货人："+rname);
 System.out.println(getutft1("收货人：")+rname+"======="+getutft2("收货人：")+rname+"======="+getutft3("收货人：")+rname);
-String gbkstr="收货人："+rname;
+String gbkstr="收货人：";
+System.out.println(gbkstr);
 String iso = new String(gbkstr.getBytes("UTF-8"),"ISO-8859-1"); 
-System.out.println(iso);
+System.out.println(iso+"=======1");
+iso = new String(gbkstr.getBytes("GBK"),"ISO-8859-1"); 
+System.out.println(iso+"=======2");
+iso = new String(gbkstr.getBytes("ISO-8859-1"),"GBK"); 
+System.out.println(iso+"=======3");
+iso = new String(gbkstr.getBytes("ISO-8859-1"),"UTF-8"); 
+System.out.println(iso+"=======4");
+
 iicell = new PdfPCell(getpar("收货人："+rname,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
