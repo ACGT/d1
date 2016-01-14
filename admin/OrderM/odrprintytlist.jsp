@@ -90,8 +90,8 @@ Font f25 = new Font(bfChinese, 28, Font.BOLD, Color.BLACK);
 Font f18 = new Font(bfChinese, 18, Font.BOLD, Color.BLACK);
 
 
-PdfPTable tablem = new PdfPTable(1);
-tablem.setWidthPercentage(100);
+//PdfPTable tablem = new PdfPTable(1);
+//tablem.setWidthPercentage(100);
 
 int j=0;
 for(OrderMain odrm:odrlist){
@@ -119,8 +119,8 @@ int len = fullCode.length();
 code128.setX(130/((len+2)*11 + 2f));
 Image image128 = code128.createImageWithBarcode(cb, null, null);   
 //document.add(new Phrase(new Chunk(image128, 20, -50)));
-PdfPCell cellm = new PdfPCell();
-cellm.setFixedHeight(425);
+//PdfPCell cellm = new PdfPCell();
+//cellm.setFixedHeight(425);
 
 // 添加table实例
 PdfPTable tables = new PdfPTable(1);
@@ -308,11 +308,12 @@ cell.setPhrase(getpar("此运单仅代圆通速递签约客户使用，相关责
 table.addCell(cell);
 cells.addElement(table);
 tables.addCell(cells);
+document.add(tables);
 
-cellm.addElement(tables);
-tablem.addCell(cellm);
+//cellm.addElement(tables);
+//tablem.addCell(cellm);
 }
-document.add(tablem);
+//document.add(tablem);
 
 document.close();
 
