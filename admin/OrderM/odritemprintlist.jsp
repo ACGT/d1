@@ -100,7 +100,7 @@ if(session.getAttribute("admin_mng")!=null){
 } 
 else {return;}*/
 
-response.setContentType("application/pdf;charset=UTF-8"); 
+response.setContentType("application/pdf;"); 
 String odrids=request.getParameter("odrids");
 if(odrids.endsWith(","))odrids=odrids.substring(0,odrids.length());
 String[] odrs=odrids.split(",");
