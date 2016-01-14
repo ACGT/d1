@@ -100,7 +100,7 @@ if(session.getAttribute("admin_mng")!=null){
 } 
 else {return;}*/
 
-response.setContentType("application/pdf;"); 
+response.setContentType("application/pdf;charset=UTF-8"); 
 String odrids=request.getParameter("odrids");
 if(odrids.endsWith(","))odrids=odrids.substring(0,odrids.length());
 String[] odrs=odrids.split(",");
@@ -194,9 +194,9 @@ iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar(getutft1("收货人电话：")+rname,f12));
+iicell = new PdfPCell(getpar(getutft1("电话：")+rname,f12));
 iicell.setFixedHeight(30);
-iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
+iicell=celltype(iicell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
 iicell = new PdfPCell(getpar2(getutf("收货人地址：")+rname,f12));
@@ -261,7 +261,7 @@ if(odrm.getOdrmst_wareh() =="广州仓"){
 }else if (odrm.getOdrmst_wareh()=="化验店仓"){
 	siteno=p.getGdsmst_tydgdssite();
 }*/
-icell = new PdfPCell(getpar(siteno,f12));
+icell = new PdfPCell(getpar2(siteno,f12));
 iTable.addCell(icell);
 icell = new PdfPCell(getpar(oi.getOdrdtl_gdscount()+"",f12));
 iTable.addCell(icell);
