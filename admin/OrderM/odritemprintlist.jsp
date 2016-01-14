@@ -189,12 +189,12 @@ iiTable.setWidths(new float[]{0.45f,0.55f});
 //iso = new String(gbkstr.getBytes("ISO-8859-1"),"UTF-8"); 
 //System.out.println(iso+"=======4"+rname);
 
-iicell = new PdfPCell(getpar(gettoutf("收货人：")+rname,f12));
+iicell = new PdfPCell(getpar2(gettoutf("收货人：")+rname,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar(gettoutf("电话：")+rphone,f12));
+iicell = new PdfPCell(getpar2(gettoutf("电话：")+rphone,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
@@ -267,7 +267,7 @@ icell = new PdfPCell(getpar(oi.getOdrdtl_gdscount()+"",f12));
 iTable.addCell(icell);
 icell = new PdfPCell(getpar(oi.getOdrdtl_finalprice()+"",f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar(gdsname,f12));
+icell = new PdfPCell(getpar2(gdsname,f12));
 iTable.addCell(icell);
 j++;
 }
