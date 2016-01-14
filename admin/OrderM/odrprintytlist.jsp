@@ -48,7 +48,7 @@ public static  ArrayList<OrderMain> getOrderlist(String pcnos){
 	ArrayList<OrderMain> list=new ArrayList<OrderMain>();
 	List<SimpleExpression> listRes = new ArrayList<SimpleExpression>();
 	listRes.add(Restrictions.eq("odrmst_ads2", pcnos));
-	listRes.add(Restrictions.ne("odrmst_goodsodrid", ""));
+	//listRes.add(Restrictions.ne("odrmst_goodsodrid", ""));
 	List<BaseEntity> list2 = Tools.getManager(OrderMain.class).getList(listRes, null, 0, 10);
 	if(list2==null || list2.size()==0){
 		return null;
@@ -97,6 +97,7 @@ PdfPCell cellm = new PdfPCell();
 for(OrderMain odrm:odrlist){
 
 String shipcode=odrm.getOdrmst_goodsodrid();
+shipcode="1234567890";
 if(Tools.isNull(shipcode))return;
 String rname=odrm.getOdrmst_rname().trim();
 String rphone=odrm.getOdrmst_rphone().trim();
