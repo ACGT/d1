@@ -77,13 +77,11 @@ public static String getutft2(String str){
 		return null;
 	}
 }
-public static String getutft3(String str){
+public static String gettoutf(String str){
 	if(str.length()==0)return null;
 	try{
-	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
-  String newStr=new String(temp,"GBK");//这里写转换后的编码方式
-
-    return str;
+  String newStr= new String(str.getBytes("ISO-8859-1"),"UTF-8"); 
+    return newStr;
 	}catch(Exception ex){
 		return null;
 	}
@@ -125,11 +123,11 @@ for(int i=0;i<odrlen;i++)
 	String odrid=odrs[i];
 	OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
 	String rname=odrm.getOdrmst_rname().trim();
-	String rphone=getutf(odrm.getOdrmst_rphone().trim());
-	String rzipcode=getutf(odrm.getOdrmst_rzipcode());
-	String rprv=getutf(odrm.getOdrmst_rprovince());
-	String rcity=getutf(odrm.getOdrmst_rcity());
-	String raddr=getutf(odrm.getOdrmst_raddress());
+	String rphone=odrm.getOdrmst_rphone().trim();
+	String rzipcode=odrm.getOdrmst_rzipcode();
+	String rprv=odrm.getOdrmst_rprovince();
+	String rcity=odrm.getOdrmst_rcity();
+	String raddr=odrm.getOdrmst_raddress();
 	rphone=rphone.length()>11?rphone.substring(0, 11):rphone;
 PdfContentByte cb = writer.getDirectContent();
 
@@ -187,30 +185,21 @@ iiTable= new PdfPTable(2);
 iiTable.setWidthPercentage(100);
 iiTable.setWidths(new float[]{0.45f,0.55f});
 
-System.out.println(getutf("收货人：")+rname+"======="+"收货人："+rname);
-System.out.println(getutft1("收货人：")+rname+"======="+getutft2("收货人：")+rname+"======="+getutft3("收货人：")+rname);
-String gbkstr="收货人：";
-System.out.println(gbkstr);
-String iso = new String(gbkstr.getBytes("UTF-8"),"ISO-8859-1"); 
-System.out.println(iso+"=======1");
-iso = new String(gbkstr.getBytes("GBK"),"ISO-8859-1"); 
-System.out.println(iso+"=======2");
-iso = new String(gbkstr.getBytes("ISO-8859-1"),"GBK"); 
-System.out.println(iso+"=======3");
-iso = new String(gbkstr.getBytes("ISO-8859-1"),"UTF-8"); 
-System.out.println(iso+"=======4"+rname);
+ 
+//iso = new String(gbkstr.getBytes("ISO-8859-1"),"UTF-8"); 
+//System.out.println(iso+"=======4"+rname);
 
-iicell = new PdfPCell(getpar("收货人："+rname,f12));
+iicell = new PdfPCell(getpar(gettoutf("收货人：")+rname,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar(getutft1("电话：")+rname,f12));
+iicell = new PdfPCell(getpar(gettoutf("电话：")+rphone,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar2(getutf("收货人地址：")+rname,f12));
+iicell = new PdfPCell(getpar2(gettoutf("收货人地址：")+rprv+rcity+raddr,f12));
 iicell.setFixedHeight(30);
 iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,2,2);
 iicell.setBorderColor(new Color(255, 255, 255));
@@ -252,7 +241,7 @@ int j=1;
 long ogdscount=0;
 for(BaseEntity be:list2){
 	OrderItemBase oi= (OrderItemBase)be;
-	String gdsname=getutf(oi.getOdrdtl_gdsname());
+	String gdsname=oi.getOdrdtl_gdsname();
 	gdsname=gdsname.replace("%", "");
 	String gdsid=oi.getOdrdtl_gdsid();
 	Product p=ProductHelper.getById(gdsid);
