@@ -2128,19 +2128,11 @@ function preview_b(){
 	   var plugins={
 			duihuan:{c:'btnCode',t:'兑换模块操作：菜单调用 (Ctrl+5)',s:'ctrl+5',h:1,e:function(){
 	            var _this=this;
-	            var htmlcode2="<!--dh--><p><style type='text/css'>";
-				htmlcode2+=".round {";
-				htmlcode2+="width: 90%;";
-				htmlcode2+="height: 2em; border : 0.2em solid #dedede;";
-				htmlcode2+="-moz-border-radius: 15px; ";
-				htmlcode2+="-webkit-border-radius: 15px;";
-				htmlcode2+="border-radius: 15px;";
-				htmlcode2+="border: 0.2em solid #dedede;";
-				htmlcode2+="}";
-				htmlcode2+="</style>";
-				htmlcode2+="<div style='margin-bottom: 1em; width: 100%;text-align: center;'>";
+	            var htmlcode2="<!--dh--><p>";
+				htmlcode2+="<div style='margin-bottom: 1.5em; width: 100%;text-align: center;'>";
 				htmlcode2+="<input name='dhcode' id='dhcode' class='round' type='text' ";
 				htmlcode2+="	placeholder='输入商品兑换码'>";
+				htmlcode2+="<div style='color:red;font-size:1em;display: inline-block;' class='dh_err'></div>";
 				htmlcode2+="</div>";
 				htmlcode2+="<div style='margin-bottom: 1em; width: 100%;text-align: center;'>";
 				htmlcode2+="<a href='javascript:dhok(this);' style='display: inline-block;'>";
