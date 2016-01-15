@@ -23,7 +23,8 @@
 	$.inCart.shopcarAddItemCallBack = function(obj,o,json,skuId){
 		switch(json.code){
 			case 0://success
-				$("#cartmsg .txt i").html(json.message)
+				$("#cartmsg .txt i").html("放入购物车成功！");
+				$("#cartmsg .txt em").html("放入购物车成功！");
 			    $("#cartmsg").show();
 				break;
 			case 3://sku
@@ -31,7 +32,8 @@
 				break;
 			
 			default:
-				$("#cartmsg .txt i").html(json.message)
+				$("#cartmsg .txt i").html(json.message);
+				$("#cartmsg .txt em").html(json.message);
 			    $("#cartmsg").show();
 		}
 	};
