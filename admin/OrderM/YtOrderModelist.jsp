@@ -56,7 +56,7 @@ public static String postShipXml(String strxml,String apiUrl,String parternId,St
 public static String shipprintOrder(HttpServletResponse response,String odrids,String parternId,String customerId,String clientId){
 	
 	
-String apiUrl = "http://112.64.239.247:7800/web/CommonOrderModeBServlet.action";
+String apiUrl = "http://58.32.246.71:8000/CommonOrderModeBServlet.action";
 //String apiUrl = "http://service.yto56.net.cn/CommonOrderModeBServlet.action";
 
 //String parternId = "123456";
