@@ -170,7 +170,7 @@ for(int i=0;i<odrlen;i++)
 	long c = b - a;
 	//System.err.print("响应时间："+c + "ms\n");
 	
-	//System.err.print("请求的返回信息："+responseString);
+	System.err.print("请求的返回信息："+responseString);
 	try{
 		byte[] temp=responseString.getBytes("GBK");//这里写原编码方式
 	    String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
