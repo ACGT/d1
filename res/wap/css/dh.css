@@ -86,5 +86,16 @@ height: 100%;
 .main .cart_msg .txt .but{height:0.35rem;color:#fff;line-height:0.35rem;}
 .main .cart_msg .txt .but a{height:0.35rem;display:inline-block;width:50%;color:#fff;cursor:pointer;}
 
+.round {
+	width: 90%;
+	height: 4em;
+	font-size:1.8m;
+	border: 0.2em solid #dedede;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	border: 0.2em solid #dedede;
+	
+}
 
 
