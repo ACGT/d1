@@ -244,8 +244,8 @@ public static boolean saveShipCode(String id, String odrmst_d1shipmethod, String
 	}
 }
 public static boolean cancelshipcode(String odrid,String parternId,String customerId,String clientId,String mailNo){
- String apiUrl = "http://service.yto56.net.cn/CommonOrderModeBServlet.action";
-
+// String apiUrl = "http://service.yto56.net.cn/CommonOrderModeBServlet.action";
+ String apiUrl = "http://58.32.246.71:8000/CommonOrderModeBServlet.action";
 	//测试环境：http://112.64.239.247:7800/web/CommonOrderModeBServlet.action
 	//	生产环境：http://service.yto56.net.cn/CommonOrderModeBServlet.action
 OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
