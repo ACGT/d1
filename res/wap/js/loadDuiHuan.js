@@ -1,6 +1,7 @@
 $chsku = $("#choose_sku");
 function dhok(obj) {
-	var dhcode = $("#dhcode").val().trim().replaceAll("　","");
+	var dhcode = $("#dhcode").val().trim();
+	dhcode=dhcode.replace("　","");
 	if (dhcode == '') {
 		$(".dh_err").html("兑换码不能为空，请输入！");
 		return;
