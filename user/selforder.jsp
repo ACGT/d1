@@ -533,7 +533,7 @@ public static class OrderBaseComparator implements Comparator<OrderBase>{
 		             		 <td width="80"><span><font color="red"><b>￥<%=OrderHelper.getOrderTotalMoney(ob.getId()) %></b></font></span></td>
 		             		  <td><%= getPayMethod(ob.getOdrmst_paytype().toString())%>                          </td>
                              <td width="85">
-                             <%= getOrderStatuByPaytype(ob.getOdrmst_paytype().toString(),ob.getOdrmst_orderstatus().toString())+"<br>"   %>
+                             <%=if(ob.getType()!=3){ getOrderStatuByPaytype(ob.getOdrmst_paytype().toString(),ob.getOdrmst_orderstatus().toString())+"<br>" }  %>
                              <%if(ob.getOdrmst_orderstatus().intValue()==31 || ob.getOdrmst_orderstatus().intValue()==3) {
 	                          out.println("<a href=\"javascript:void(0)\" onclick=\"tipdialog("+ob.getId()+")\" class=\"a\">确认收货并评价</a>");
 	                           }
