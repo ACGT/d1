@@ -318,8 +318,8 @@ public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,H
 
     List<Order> olist=new ArrayList<Order>();
     olist.add(Order.desc("odrmst_orderdate"));
-    listRes=null;//测试环境用
-	List<BaseEntity> list2 = Tools.getManager(OrderMain.class).getList(olist, 0, 100);
+    //listRes=null;//测试环境
+	List<BaseEntity> list2 = Tools.getManager(OrderMain.class).getList(listRes, olist, 0, 100);
 	
 	if(list2==null || list2.size()==0){
 		return null;
