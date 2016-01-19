@@ -1,4 +1,4 @@
-<%@ page  language="java"   import="com.lowagie.text.Table,java.io.*,java.awt.Color,com.lowagie.text.*,com.lowagie.text.pdf.*"%><%@page 
+<%@ page  language="java"  import="com.lowagie.text.Table,java.io.*,java.awt.Color,com.lowagie.text.*,com.lowagie.text.pdf.*"%><%@page 
 import="com.d1.*,
 com.d1.bean.*,
 com.d1.manager.*,
@@ -43,7 +43,49 @@ public static PdfPCell celltype(PdfPCell cell,int horali,int verali,int cols,int
 	 cell.setPadding(padd);
 	return cell;
 }
+public static String getutf(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("GBK");//这里写原编码方式
+  String newStr=new String(temp,"ISO-8859-1");//这里写转换后的编码方式
 
+    return str;
+	}catch(Exception ex){
+		return null;
+	}
+}
+
+public static String getutft1(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("utf-8");//这里写原编码方式
+  String newStr=new String(temp,"ISO-8859-1");//这里写转换后的编码方式
+
+    return str;
+	}catch(Exception ex){
+		return null;
+	}
+}
+public static String getutft2(String str){
+	if(str.length()==0)return null;
+	try{
+	byte[] temp=str.getBytes("ISO-8859-1");//这里写原编码方式
+  String newStr=new String(temp,"utf-8");//这里写转换后的编码方式
+
+    return str;
+	}catch(Exception ex){
+		return null;
+	}
+}
+public static String gettoutf(String str){
+	if(str.length()==0)return null;
+	try{
+  String newStr= new String(str.getBytes("ISO-8859-1"),"UTF-8"); 
+    return newStr;
+	}catch(Exception ex){
+		return null;
+	}
+}
 %>
 <%/*
 if(session.getAttribute("admin_mng")!=null){
@@ -57,48 +99,40 @@ if(session.getAttribute("admin_mng")!=null){
 else {return;}*/
 
 response.setContentType("application/pdf;"); 
-int n=3;
+String odrids=request.getParameter("odrids");
+if(odrids.endsWith(","))odrids=odrids.substring(0,odrids.length());
+String[] odrs=odrids.split(",");
+int odrlen=odrs.length;
 
-Rectangle pageSize = new Rectangle(582,420*n);//A5 宽582 高420 
+
+
+Rectangle pageSize = new Rectangle(582,420);//A5 宽582 高420 
 Document document = new Document(pageSize, 0,0,0,0);//左 右 上下
 ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 PdfWriter writer=PdfWriter.getInstance( document, buffer );
 document.open();
 //设置中文字体
 BaseFont bfChinese =BaseFont.createFont( "STSong-Light","UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
-String odrid=request.getParameter("odrid");
-String bigPen=request.getParameter("bigPen");//大头笔
-if(!Tools.isNull(bigPen))bigPen=URLDecoder.decode(bigPen, "utf-8");
-//OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
-//List<BaseEntity> omList = Tools.getManager(OrderMain.class).txGetList(null,null,0,5);
-PdfPTable tables = new PdfPTable(1);
-tables.setWidthPercentage(100);
 
-/*
-for(BaseEntity o:omList){
-	OrderMain odrm=(OrderMain)o;
-if(odrm==null)return;
 
-String shipcode=odrm.getOdrmst_goodsodrid();
-if(Tools.isNull(shipcode))return;
-String rname=odrm.getOdrmst_rname().trim();
-String rphone=odrm.getOdrmst_rphone().trim();
-String rzipcode=odrm.getOdrmst_rzipcode();
-String rprv=odrm.getOdrmst_rprovince();
-String rcity=odrm.getOdrmst_rcity();
-String raddr=odrm.getOdrmst_raddress();
 
-rphone=rphone.length()>11?rphone.substring(0, 11):rphone;
-*/
-String strname="测试名";
-for(int l=0;l<n;l++){
-	String shipcode="0123456789";
- 
+
+for(int i=0;i<odrlen;i++)
+{
+	String odrid=odrs[i];
+	OrderMain odrm = (OrderMain)Tools.getManager(OrderMain.class).get(odrid);
+	String rname=odrm.getOdrmst_rname().trim();
+	String rphone=odrm.getOdrmst_rphone().trim();
+	String rzipcode=odrm.getOdrmst_rzipcode();
+	String rprv=odrm.getOdrmst_rprovince();
+	String rcity=odrm.getOdrmst_rcity();
+	String raddr=odrm.getOdrmst_raddress();
+	rphone=rphone.length()>11?rphone.substring(0, 11):rphone;
 PdfContentByte cb = writer.getDirectContent();
 
 Barcode128 code128 = new Barcode128(); 
-code128.setCode(shipcode);   
-String fullCode = code128.getRawText(shipcode,false);
+code128.setCode(odrid);   
+String fullCode = code128.getRawText(odrid,false);
 int len = fullCode.length();
 code128.setX(130/((len+2)*11 + 2f));
 Image image128 = code128.createImageWithBarcode(cb, null, null);   
@@ -109,7 +143,8 @@ Font f12 = new Font(bfChinese, 10, Font.BOLD, Color.BLACK);
 Font f25 = new Font(bfChinese, 28, Font.BOLD, Color.BLACK);
 Font f18 = new Font(bfChinese, 18, Font.BOLD, Color.BLACK);
 // 添加table实例
-
+PdfPTable tables = new PdfPTable(1);
+tables.setWidthPercentage(100);
 PdfPCell cells = new PdfPCell();
 cells.setFixedHeight(400);
 cells.setBorderWidth(0);
@@ -140,7 +175,6 @@ cell.setFixedHeight(60);
 table.addCell(cell);
  
 cell = new PdfPCell();
-cell.setBorderColor(new Color(255, 255, 255));
 iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.65f,0.35f});
 icell = new PdfPCell();
@@ -151,19 +185,23 @@ iiTable= new PdfPTable(2);
 iiTable.setWidthPercentage(100);
 iiTable.setWidths(new float[]{0.45f,0.55f});
 
-iicell = new PdfPCell(getpar("收货人："+strname,f12));
+ 
+//iso = new String(gbkstr.getBytes("ISO-8859-1"),"UTF-8"); 
+//System.out.println(iso+"=======4"+rname);
+
+iicell = new PdfPCell(getpar2(gettoutf("收货人：")+rname,f12));
 iicell.setFixedHeight(30);
-iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
+iicell=celltype(iicell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar("收货人电话："+strname,f12));
+iicell = new PdfPCell(getpar2(gettoutf("电话：")+rphone,f12));
 iicell.setFixedHeight(30);
-iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,0,2);
+iicell=celltype(iicell,Element.ALIGN_LEFT,Element.ALIGN_TOP,0,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
-iicell = new PdfPCell(getpar("收货人地址："+strname,f12));
+iicell = new PdfPCell(getpar2(gettoutf("收货人地址：")+rprv+rcity+raddr,f12));
 iicell.setFixedHeight(30);
-iicell=celltype(iicell,Element.ALIGN_RIGHT,Element.ALIGN_TOP,2,2);
+iicell=celltype(iicell,Element.ALIGN_LEFT,Element.ALIGN_TOP,2,2);
 iicell.setBorderColor(new Color(255, 255, 255));
 iiTable.addCell(iicell);
 
@@ -196,23 +234,42 @@ icell = new PdfPCell(getpar("单价",f12));
 iTable.addCell(icell);
 icell = new PdfPCell(getpar("商品名称",f12));
 iTable.addCell(icell);
-int j=3;
-for(int k=0;k<j;k++){
-icell = new PdfPCell(getpar("1",f12));
+List<SimpleExpression> listRes = new ArrayList<SimpleExpression>();
+listRes.add(Restrictions.eq("odrdtl_odrid", odrid));
+List<BaseEntity> list2 = Tools.getManager(OrderItemMain.class).getList(listRes, null, 0, 20);
+int j=1;
+long ogdscount=0;
+for(BaseEntity be:list2){
+	OrderItemBase oi= (OrderItemBase)be;
+	String gdsname=oi.getOdrdtl_gdsname();
+	gdsname=gdsname.replace("%", "");
+	String gdsid=oi.getOdrdtl_gdsid();
+	Product p=ProductHelper.getById(gdsid);
+	if(p==null)continue;
+	ogdscount=ogdscount+oi.getOdrdtl_gdscount().longValue();
+icell = new PdfPCell(getpar(j+"",f12));
 icell.setFixedHeight(30);
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("00000000",f12));
+icell = new PdfPCell(getpar(gdsid,f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("12345678",f12));
+icell = new PdfPCell(getpar(p.getGdsmst_barcode(),f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("03-02-01",f12));
+String siteno=p.getGdsmst_gdssite();
+/*
+if(odrm.getOdrmst_wareh() =="广州仓"){
+	siteno=p.getGdsmst_gzgdssite();
+}else if (odrm.getOdrmst_wareh()=="化验店仓"){
+	siteno=p.getGdsmst_tydgdssite();
+}*/
+icell = new PdfPCell(getpar2(siteno,f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("2",f12));
+icell = new PdfPCell(getpar(oi.getOdrdtl_gdscount()+"",f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("22.5",f12));
+icell = new PdfPCell(getpar(oi.getOdrdtl_finalprice()+"",f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("商品名称商品名称商品名称商品名称商品名称",f12));
+icell = new PdfPCell(getpar2(gdsname,f12));
 iTable.addCell(icell);
+j++;
 }
 cell.addElement(iTable);
 table.addCell(cell);
@@ -223,16 +280,16 @@ cell.setBorderColor(new Color(255, 255, 255));
 iTable= new PdfPTable(5);
 iTable.setWidthPercentage(100);
 iTable.setWidths(new float[]{0.20f,0.20f,0.20f,0.20f,0.20f});
-icell = new PdfPCell(getpar("配送费：8元",f12));
+icell = new PdfPCell(getpar("配送费："+odrm.getOdrmst_shipfee()+"元",f12));
 icell.setFixedHeight(30);
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("商品金额：88元",f12));
+icell = new PdfPCell(getpar("商品金额："+odrm.getOdrmst_gdsmoney()+"元",f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("商品数量：3",f12));
+icell = new PdfPCell(getpar("商品数量："+ogdscount,f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("优惠金额：0元",f12));
+icell = new PdfPCell(getpar("优惠金额："+odrm.getOdrmst_tktvalue()+"元",f12));
 iTable.addCell(icell);
-icell = new PdfPCell(getpar("应付金额：123元",f12));
+icell = new PdfPCell(getpar("应付金额："+odrm.getOdrmst_acturepaymoney()+"元",f12));
 iTable.addCell(icell);
 
 cell.addElement(iTable);
@@ -240,8 +297,9 @@ table.addCell(cell);
 
 cells.addElement(table);
 tables.addCell(cells);
-}
 document.add(tables);
+}
+
 document.close();
 
 DataOutput output = new DataOutputStream(response.getOutputStream());
