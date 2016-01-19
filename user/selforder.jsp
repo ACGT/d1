@@ -541,7 +541,7 @@ public static class OrderBaseComparator implements Comparator<OrderBase>{
 	                           %>
 	                           <a href="/user/orderdetail.jsp?orderid=<%= ob.getId() %>" target="_blank"> 查看物流</a>
 	                          <%}%>
-                             <%= getOpreatBypayandstatus3(ob.getOdrmst_paytype().toString(),ob.getOdrmst_orderstatus().toString(),ob.getId(),String.valueOf(ob.getType())) %>
+                             <%=if(ob.getType()!=3){ getOpreatBypayandstatus3(ob.getOdrmst_paytype().toString(),ob.getOdrmst_orderstatus().toString(),ob.getId(),String.valueOf(ob.getType()))) %>
                              </td>
 		             		  </tr>
 		   
