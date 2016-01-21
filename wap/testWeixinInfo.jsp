@@ -13,6 +13,8 @@
 	Map<String, Object> map = new HashMap<String, Object>();
 	if (weixinShopToken != null) {
 		long currentTimeStamp = (new Date()).getTime();
+	System.out.println("##############"+(weixinShopToken.getExpire_date()-currentTimeStamp));
+	System.out.println("##############"+weixinShopToken.getStatus());
 
 		if (weixinShopToken.getExpire_date() > currentTimeStamp && weixinShopToken.getStatus() == 1) {//access_token未过期
 			map.put("status", "0");
@@ -32,7 +34,8 @@
 			//更新数据库的access_token
 			weixinShopToken.setToken(token);
 			System.out.println("access_token更新前"+weixinShopToken.getExpire_date());
-			weixinShopToken.setExpire_date(weixinShopToken.getExpire_date()+1000*60*60*24);
+			weixinShopToken.setExpire_date(weixinShopToken.getExpire_date()+1000*60*60*2);//access_token有效期2小时
+			weixinShopToken.setStatus(1);
 			WeixinShopTokenHelper.manager.update(weixinShopToken, true);
 			System.out.println("access_token更新后"+weixinShopToken.getExpire_date());
 			
