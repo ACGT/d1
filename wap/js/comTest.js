@@ -99,10 +99,11 @@ function getwapFoot()
 	
 	$.ajax({
 		type:"get",
-		url:"/wap/testWeixinInfo.jsp?token="+token,
+		url:"testWeixinInfo.jsp?token="+token,
 		dataType:"json",
-		async: false, 
+		//async: false, 
 		success:function(ret) {
+			console.log("in test footer");
 			if (ret.subscribe=="1") {
 				var token = window.localStorage.getItem("token");
 				nick = ret.nickname;
@@ -115,8 +116,8 @@ function getwapFoot()
 			    str+='		客服热线:400-680-8666(工作日9:00-18:00)<br>';
 			    str+='	     Copyright ©2015 京030072';
 			    str+='	</div>';
-			    document.write(str);
-				
+			   // document.write(str);
+				$("#footer").append(str);
 			}
 		}
 	});
