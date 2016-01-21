@@ -4,8 +4,7 @@
 	private static String access_token;
 	private static long exr_timeStamp;
 	public static String getAccess_token() {
-		System.out.println("#############access_token:"+access_token);
-		System.out.println("############exr_timeStamp:"+exr_timeStamp);
+		
 		String appId = PubConfig.get("WeiXinAppId");
 		String appSecret = PubConfig.get("WeiXinAppSecret");
 		long currentTime=System.currentTimeMillis();
@@ -19,7 +18,8 @@
 			access_token= jsonob.getString("access_token");  
 			exr_timeStamp=currentTime;
 		}
-
+		System.out.println("#############access_token:"+access_token);
+		System.out.println("############exr_timeStamp:"+exr_timeStamp);
 		return access_token;
 	}
 %>
@@ -32,7 +32,7 @@
 	String openId = weixinShopToken.getOpen_id();
 	
 	String loginurl = "https://api.weixin.qq.com/cgi-bin/user/info";
-	String parm = "access_token=" + getAccess_token() + "&openid=" + openId + "&lang=zh_CN";
+	String parm = "access_token=" + WeiXinTokenUtil.getAccess_token() + "&openid=" + openId + "&lang=zh_CN";
 	String ret = HttpUtil.getUrlContentByPost(loginurl, parm, "utf-8");
 	System.out.print("##############################;ret:"+ret);
 	out.print(ret);
