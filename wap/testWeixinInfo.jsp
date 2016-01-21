@@ -37,5 +37,6 @@
 	String loginurl = "https://api.weixin.qq.com/cgi-bin/user/info";
 	String parm = "access_token=" + getAccess_token() + "&openid=" + openId + "&lang=zh_CN";
 	String ret = HttpUtil.getUrlContentByPost(loginurl, parm, "utf-8");
+	System.out.print("##############################;ret:"+ret);
 	out.print(ret);
 %>
