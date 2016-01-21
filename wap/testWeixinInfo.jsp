@@ -1,9 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"
 	import="com.d1.*,net.sf.json.JSONArray,net.sf.json.JSONObject,com.d1.bean.*,com.d1.helper.*,java.util.*,com.d1.util.*,com.d1.PubConfig"%>
-	//String appId = "wx23ea18f35e5db774";
-	//String appSecret = "38b518033fdc5372289c70875824a169";
-
-
 <%!
 	private static String access_token;
 	private static long exr_timeStamp;
