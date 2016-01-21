@@ -12,7 +12,7 @@
 	String openId = weixinShopToken.getOpen_id();
 	Map<String, Object> map = new HashMap<String, Object>();
 	if (weixinShopToken != null) {
-		long currentTimeStamp = (new Date()).getTime();
+		long currentTimeStamp = System.currentTimeMillis();
 	System.out.println("##############"+(weixinShopToken.getExpire_date()-currentTimeStamp));
 	System.out.println("##############"+weixinShopToken.getStatus());
 
