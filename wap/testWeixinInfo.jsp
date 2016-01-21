@@ -31,7 +31,11 @@
 			token = jsonob.getString("access_token");
 			//更新数据库的access_token
 			weixinShopToken.setToken(token);
+			System.out.println("access_token更新前"+weixinShopToken.getExpire_date());
 			weixinShopToken.setExpire_date(weixinShopToken.getExpire_date()+1000*60*60*24);
+			WeixinShopTokenHelper.manager.update(weixinShopToken, true);
+			System.out.println("access_token更新后"+weixinShopToken.getExpire_date());
+			
 		}
 
 	}
