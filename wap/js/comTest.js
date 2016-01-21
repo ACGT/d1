@@ -116,6 +116,7 @@ function getwapFoot()
 			    str+='		客服热线:400-680-8666(工作日9:00-18:00)<br>';
 			    str+='	     Copyright ©2015 京030072';
 			    str+='	</div>';
+			    console.log("in test footer2");
 			   // document.write(str);
 				$("#footer").append(str);
 			}
