@@ -99,7 +99,7 @@ function getwapFoot()
 	
 	$.ajax({
 		type:"get",
-		url:"testWeixinInfo.jsp?test=tt&&token="+token,
+		url:"testWeixinInfo.jsp?token="+token,
 		dataType:"json",
 		//async: false, 
 		success:function(ret) {

@@ -287,13 +287,88 @@ function loaddata(status1){
 		 }
 	 });
 	}
-	loaddata('');
+	
+	var is_login = 0;
+	var user_agent = window.navigator.userAgent.toLowerCase();
+	if(user_agent.match(/MicroMessenger/i) == 'micromessenger'){
+		checkLogin();
+	}
+	function checkLogin() {
+		
+		//alert(window.navigator.userAgent.toLowerCase());
+		
+		var token = "";
+		
+		try {
+			token = window.localStorage.getItem("token");
+		}
+		catch(err){
+			
+		}
+		
+		//alert(window.location.href+":checkLogin():token:"+window.localStorage.getItem("token"));
+		
+		var is_token_available = 1; 
+		
+		if (token==undefined || token == "" ) {	
+			is_token_available = 0;
+		}else{
+			
+			$.ajax({
+				type:"get",
+				url:"api/check_token.jsp?token="+token,
+				dataType:'json',
+				async:false,
+				success:function (ret) {
+					//alert("token_available:"+ret.token_available);
+					if (ret.status=="0") {
+						if (ret.token_available=="1") {
+							is_token_available = 1;
+						}
+						else {
+							is_token_available = 1;
+							var current_url = document.location.href;
+							current_url = encodeURIComponent(current_url);
+							window.location.href = "authorize.jsp?callback="+current_url;
+						}
+					}
+				}
+			});
+		}
+		
+		if (is_token_available==0) {
+			
+			is_login = 0;
+			var current_url = document.location.href;
+			current_url = encodeURIComponent(current_url);
+			window.location.href = "authorize.jsp?callback="+current_url;
+			
+		} 
+		else {
+			is_login = 1;
+		}
+			
+	}
+	function sync_login(){
+		var login_url = "api/sync_d1_user_info.jsp?token="+window.localStorage.getItem("token");
+		//alert(login_url);
+		$.ajax({
+			type:"get",
+			url:login_url,
+			dataType:"json",
+			async:false,
+			success:function(ret) {
+				loaddata('');
+			}
+		});
+	}
+	sync_login();
 	
 	loadlogin();
 	
 	//alert(loginflag);
 	
-	sleep(1500);
+	//sleep(1500);
 	
 	//alert(loginflag);
 	
