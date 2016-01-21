@@ -17,8 +17,8 @@
 	System.out.println("##############"+weixinShopToken.getStatus());
 
 		if (weixinShopToken.getExpire_date() > currentTimeStamp && weixinShopToken.getStatus() == 1) {//access_token未过期
-			map.put("status", "0");
-			map.put("token_available", "1");
+			weixinShopToken.setStatus(1);
+			WeixinShopTokenHelper.manager.update(weixinShopToken, true);
 		} else {//过期
 
 			map.put("status", "0");
