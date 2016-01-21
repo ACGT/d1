@@ -15,11 +15,10 @@ public class WeiXinTokenUtil {
 		super();
 			}
 	public static String getAccess_token() {
-		System.out.println("#############access_token:"+access_token);
-		System.out.println("############exr_timeStamp:"+exr_timeStamp);
 		String appId = PubConfig.get("WeiXinAppId");
 		String appSecret = PubConfig.get("WeiXinAppSecret");
 		long currentTime=System.currentTimeMillis();
+		System.out.println("#############access_token:"+access_token+"  exr_timeStamp:"+(currentTime-exr_timeStamp));
 		if(access_token==null||currentTime-exr_timeStamp>=(7000*1000)){//过期了或者刚初始化，用7000而不是7200是为了提前去获取。
 			String tokenurl="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appId 
 				+ "&secret=" + appSecret;
