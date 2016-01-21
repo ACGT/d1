@@ -287,7 +287,7 @@ function loaddata(status1){
 		 }
 	 });
 	}
-	
+	//微信登录开始
 	var is_login = 0;
 	var user_agent = window.navigator.userAgent.toLowerCase();
 	if(user_agent.match(/MicroMessenger/i) == 'micromessenger'){
@@ -363,7 +363,7 @@ function loaddata(status1){
 		});
 	}
 	sync_login();
-	
+	//微信登录结束
 	loadlogin();
 	
 	//alert(loginflag);
