@@ -255,13 +255,14 @@ iTable.addCell(icell);
 icell = new PdfPCell(getpar(p.getGdsmst_barcode(),f12));
 iTable.addCell(icell);
 String siteno=p.getGdsmst_gdssite();
+//System.out.println(siteno);
 /*
 if(odrm.getOdrmst_wareh() =="广州仓"){
 	siteno=p.getGdsmst_gzgdssite();
 }else if (odrm.getOdrmst_wareh()=="化验店仓"){
 	siteno=p.getGdsmst_tydgdssite();
 }*/
-icell = new PdfPCell(getpar2(siteno,f12));
+icell = new PdfPCell(getpar2(siteno==null?"":siteno,f12));
 iTable.addCell(icell);
 icell = new PdfPCell(getpar(oi.getOdrdtl_gdscount()+"",f12));
 iTable.addCell(icell);
