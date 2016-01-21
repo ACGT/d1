@@ -12,7 +12,7 @@ String appSecret = PubConfig.get("WeiXinAppSecret");
 String token = request.getParameter("token");
 WeixinShopToken weixinShopToken = (WeixinShopToken)WeixinShopTokenHelper.manager.findByProperty("token", token);
 String openId = weixinShopToken.getOpen_id();
-
+/* 
 String tokenurl="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appId 
 	+ "&secret=" + appSecret;
 
@@ -20,9 +20,9 @@ String ret=  HttpUtil.getUrlContentByPost(tokenurl, "","utf-8");
 
 JSONObject  jsonob = JSONObject.fromObject(ret); 
 String access_token = jsonob.getString("access_token");  
-
+ */
 String loginurl="https://api.weixin.qq.com/cgi-bin/user/info";
-String parm="access_token="+access_token+"&openid="+openId+"&lang=zh_CN";
-ret=  HttpUtil.getUrlContentByPost(loginurl, parm,"utf-8");
+String parm="access_token="+WeiXinTokenUtil.getAccess_token()+"&openid="+openId+"&lang=zh_CN";
+String  ret=  HttpUtil.getUrlContentByPost(loginurl, parm,"utf-8");
 out.print(ret);
 %>
