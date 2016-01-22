@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="/res/wap/css/reg.css"/>
 <link rel="stylesheet" type="text/css" href="/res/wap/css/dh.css?20160115" />
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="js/com.js?20160122"></script>
+<script type="text/javascript" src="js/comNew.js?20160122"></script>
 <script type="text/javascript" src="/res/wap/js/index.js"></script>
 <script type="text/javascript" src="/res/wap/js/loadDuiHuan.js"></script>
 <script type="text/javascript" src="/res/wap/js/waplistcart.js"></script>
@@ -297,6 +297,7 @@ if(mid==""){
   }
  }
 }
+	loaddata();
 
 	//微信登录开始
 	var is_login = 0;
@@ -329,7 +330,7 @@ if(mid==""){
 				type:"get",
 				url:"api/check_token.jsp?token="+token,
 				dataType:'json',
-				async:false,
+				//async:false,
 				success:function (ret) {
 					//alert("token_available:"+ret.token_available);
 					if (ret.status=="0") {
@@ -369,11 +370,11 @@ if(mid==""){
 			dataType:"json",
 			//async:false,
 			success:function(ret) {
-				loaddata();
+				
 			}
 		});
 	}
-	sync_login();
+	//sync_login();
 	//微信登录结束
 	
 	</script>
