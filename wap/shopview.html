@@ -14,11 +14,11 @@
 <link rel="stylesheet" type="text/css" href="/res/wap/css/reg.css"/>
 <link rel="stylesheet" type="text/css" href="/res/wap/css/dh.css?20160115" />
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="js/com.js"></script>
+<script type="text/javascript" src="js/comNew.js?20160122"></script>
 <script type="text/javascript" src="/res/wap/js/index.js"></script>
 <script type="text/javascript" src="/res/wap/js/loadDuiHuan.js"></script>
 <script type="text/javascript" src="/res/wap/js/waplistcart.js"></script>
-<script type="text/javascript" src="js/sync_d1_user.js"  ></script>
+<!-- <script type="text/javascript" src="js/sync_d1_user.js"  ></script> -->
 <style>
 .shoplist li .listitem .txt {
 	height: 1.20rem;
@@ -299,6 +299,84 @@ if(mid==""){
 }
 	loaddata();
 
+	//微信登录开始
+	var is_login = 0;
+	var user_agent = window.navigator.userAgent.toLowerCase();
+	if(user_agent.match(/MicroMessenger/i) == 'micromessenger'){
+		checkLogin();
+	}
+	function checkLogin() {
+		
+		//alert(window.navigator.userAgent.toLowerCase());
+		
+		var token = "";
+		
+		try {
+			token = window.localStorage.getItem("token");
+		}
+		catch(err){
+			
+		}
+		
+		//alert(window.location.href+":checkLogin():token:"+window.localStorage.getItem("token"));
+		
+		var is_token_available = 1; 
+		
+		if (token==undefined || token == "" ) {	
+			is_token_available = 0;
+		}else{
+			
+			$.ajax({
+				type:"get",
+				url:"api/check_token.jsp?token="+token,
+				dataType:'json',
+				//async:false,
+				success:function (ret) {
+					//alert("token_available:"+ret.token_available);
+					if (ret.status=="0") {
+						if (ret.token_available=="1") {
+							is_token_available = 1;
+						}
+						else {
+							is_token_available = 1;
+							var current_url = document.location.href;
+							current_url = encodeURIComponent(current_url);
+							window.location.href = "authorize.jsp?callback="+current_url;
+						}
+					}
+				}
+			});
+		}
+		
+		if (is_token_available==0) {
+			
+			is_login = 0;
+			var current_url = document.location.href;
+			current_url = encodeURIComponent(current_url);
+			window.location.href = "authorize.jsp?callback="+current_url;
+			
+		} 
+		else {
+			is_login = 1;
+		}
+			
+	}
+	function sync_login(){
+		var login_url = "api/sync_d1_user_info.jsp?token="+window.localStorage.getItem("token");
+		//alert(login_url);
+		$.ajax({
+			type:"get",
+			url:login_url,
+			dataType:"json",
+			//async:false,
+			success:function(ret) {
+				
+			}
+		});
+	}
+	//sync_login();
+	//微信登录结束
+	
 	</script>
 	<div style="display: none;">
 		<script language="javascript">
