@@ -255,7 +255,6 @@ iTable.addCell(icell);
 icell = new PdfPCell(getpar(p.getGdsmst_barcode(),f12));
 iTable.addCell(icell);
 String siteno=p.getGdsmst_gdssite();
-//System.out.println(siteno);
 /*
 if(odrm.getOdrmst_wareh() =="广州仓"){
 	siteno=p.getGdsmst_gzgdssite();
