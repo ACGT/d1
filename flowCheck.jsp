@@ -520,11 +520,11 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
         			<td height="2">&nbsp;</td>
       			</tr>
         		<tr>
-          			<td width="200" height="30"><span class="t23">送货时间 </span></td>
+          			<td width="200" height="30"><span class="t23">快递选择</span></td>
           			<td>
 						<table border="0" cellspacing="0" cellpadding="0">
               				<tr>
-                				<td><span id="spanShipTimeMsg" style="display:none" class="t16"></span></td>
+                				<td></td>
               				</tr>
           				</table>
 					</td>
@@ -553,6 +553,30 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
         		</tr>
     		</table>
     		<!-- End:快递选择 -->
+    		 <!-- Start:送货时间头 -->
+            <a name="shipTime_top"></a>
+      		<table width="887" border="0" align="center" cellpadding="0" cellspacing="0" id="tblShipTimeHead">
+            	<tr>
+        			<td height="2">&nbsp;</td>
+      			</tr>
+        		<tr>
+          			<td width="200" height="30"><span class="t23">送货时间 </span></td>
+          			<td>
+						<table border="0" cellspacing="0" cellpadding="0">
+              				<tr>
+                				<td><span id="spanShipTimeMsg" style="display:none" class="t16"></span></td>
+              				</tr>
+          				</table>
+					</td>
+        		</tr>
+        		<tr>
+          			<td height="1px" style="background-color:#b43f5c" colspan="2"></td>
+        		</tr>
+        		<tr>
+          			<td colspan="2" style="height:6px"></td>
+        		</tr>
+      		</table>
+			<!-- End:送货时间头 --> 
 		    <!-- Start:送货时间头 -->
     		<table width="861" border="0" align="center" cellpadding="2" cellspacing="2" id="tblShipTime">
         		<tr>
