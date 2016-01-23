@@ -1,4 +1,23 @@
-<%@ page contentType="text/html; charset=UTF-8"%><%@include file="../../inc/header.jsp" %><%@include file="../islogin.jsp" %><%
+<%@ page contentType="text/html; charset=UTF-8"%><%@include file="../../inc/header.jsp" %><%@include file="../islogin.jsp" %><%!
+public  boolean getshiptype(HttpServletRequest request,HttpServletResponse response){
+		//获取购物车里所有记录
+		ArrayList<Cart> cartList = CartHelper.getCartItems(request,response) ;
+		
+		//把支付价加起来
+		if(cartList==null||cartList.size()==0){
+			 return false;
+		}else{
+			float total = 0f;
+			for(int i=0;i<cartList.size();i++){
+				Cart cart = cartList.get(i);
+				  if(!"00000000".equals(cart.getShopcode())) return true;
+				  if(cart.getAmount().longValue()+ CartItemHelper.getProductOccupyStock(cart.getProductId(), cart.getSkuId())
+						>ProductHelper.getVirtualStock(cart.getProductId(), cart.getSkuId()))return true;
+			 }
+	}
+		 return false;
+}
+%><%
 String tktid = request.getParameter("tktid");//优惠券ID
 String payid = request.getParameter("payid");//支付方式ID
 String IsUsePrepay = request.getParameter("IsUsePrepay");//是否使用预付款
@@ -42,7 +61,7 @@ float iL_TktValue = TicketHelper.getMaxTicketSaveMoney(request,response,tktid+""
 iL_TktValue=Tools.getFloat(iL_TktValue, 0);
 float fltL_ShipFee = OrderHelper.getExpressFee(request,response,addressId,payid,iL_TktValue);//商品运费
 
-
+boolean shiptypeflag=getshiptype(request,response);//判断是否要显示顺丰快递
 
 float getshopactmoney=  CartHelper.getShopActCutMoney(request, response); //满减活动优惠金额
 
@@ -83,6 +102,7 @@ map.put("D1ActValue",Tools.getFormatMoney(getshopactmoney));
 map.put("UsePrepay",Tools.getFormatMoney(fltUsedPrepay));
 map.put("lblGdsFee" , Tools.getFormatMoney(fltTotal));
 map.put("Total",Tools.getFormatMoney(yingfu));
+map.put("shiptypeflag",shiptypeflag);
 
 
 if(Tools.floatCompare(fltPrepay,0) == 1){

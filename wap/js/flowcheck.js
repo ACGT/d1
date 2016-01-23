@@ -368,6 +368,7 @@ function loadprice(){
             alert("更新总金额出错，请刷新总金额！");
         },success: function(json){
         	if(json.success){
+        		if(json.shiptypeflag)$('#shiptypediv').hide();
                 var tothtml='<p><span class="r">商品金额：</span><span>'+json.lblGdsFee+'元</span></p>';
 				  if(json.TktValue>0){
 					tothtml+='<p><span class="r">-优惠券：</span><span>'+json.TktValue+'元</span></p>';

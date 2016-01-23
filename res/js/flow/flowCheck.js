@@ -820,6 +820,10 @@ function loadprice(){
             alert("更新总金额出错，请刷新总金额！");
         },success: function(json){
         	if(json.success){
+        		if(json.shiptypeflag){
+        			$('#tblShipTypeHead').hide();
+        			$('#tblShipType').hide();
+        		}
         		$('#spanShipFee').html(json.ShipFee);
                 $('#spanTktValue').html(json.TktValue);
                 $('#spanUsePrepay').html(json.UsePrepay);
