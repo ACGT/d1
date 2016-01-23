@@ -428,13 +428,24 @@ function sendupdate(){
 	}
 
     var ticketIdStr =$("#tktid").val();
+    var shiptype = 0; //选择的快递方式
+    // 遍历支付方式, 记录选中项
+    var req_shiptype = $('input[type=radio][name=shiptype]');
+    if (req_shiptype.length > 0){
+    	req_shiptype.each(function(){
+    		if(this.checked){
+    			shiptype = this.value;
+    			return false;
+    		}
+    	});
+    }
     
     $.ajax({
         type: "post",
         dataType: "json",
         url: "/ajax/flow/flowDone.jsp",
         cache: false,
-        data:{addressId: iIsChkMbrcst,payId:payid,deliver:deliverStr,ticketId:ticketIdStr,userPrepay:1,memo:$('#memo').val()},
+        data:{addressId: iIsChkMbrcst,payId:payid,shiptype:shiptype,deliver:deliverStr,ticketId:ticketIdStr,userPrepay:1,memo:$('#memo').val()},
         error: function(XmlHttpRequest){
             $('#msgerr').show();
     		$('#msgerr .txt>i').html("创建订单失败，请重新再试或者联系客服处理！!");
