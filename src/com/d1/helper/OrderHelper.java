@@ -535,6 +535,13 @@ public class OrderHelper {
 		
 		if(pay==null||ua==null)return 10f;//不要出现这种情况！！！
 		
+		String shiptype = request.getParameter("shiptype");//选择的快递方式
+		float shipnum=0f;
+		if("1".equals(shiptype))
+		{
+			shipnum=10f;
+		}
+		
 		float cartMoney = CartHelper.getTotalPayMoney(request, response);//购物车支付金额
 		cartMoney=cartMoney-tktvalue;
 		//System.out.println("d1gjl货到付款1:"+cartMoney);
@@ -667,19 +674,20 @@ public class OrderHelper {
 				}*/
 			}
 			if(only&&dhfee==0f){
-				return 0f;
+				
+				return 0f+shipnum;
 			}
-			if(gdstwofee>=2&&dhfee==0f)return 0f;
+			if(gdstwofee>=2&&dhfee==0f)return 0f+shipnum;
 		}
 		
 		if(!payId.equals("0")&&!payId.equals("44")){//电汇、邮局、和网银支付
 			if(cartMoney>=59f&&dhfee==0f){
-				return 0f ;//满99免运费
+				return 0f+shipnum ;//满99免运费
 			}else{
 				if(dhfee<10f){
-				return 10f;
+				return 10f+shipnum;
 				}else{
-					return dhfee;
+					return dhfee+shipnum;
 				}
 			}
 		}else{//货到付款
@@ -699,12 +707,12 @@ public class OrderHelper {
 				}
 			}else{//一般不会出现这种情况*/
 			if(cartMoney>=99f&&dhfee==0f){
-				return 0f;
+				return 0f+shipnum;
 			}else{
 				if(dhfee<10f){
-					return 10f;
+					return 10f+shipnum;
 					}else{
-						return dhfee;
+						return dhfee+shipnum;
 					}
 			}
 			//}

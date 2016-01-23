@@ -72,7 +72,7 @@ function Bindaddr(t){
 	}
 
 function wxpay(){
-	
+	/*
 	$("#paytxt").val("1");
 	$.ajax({
 		type: 'get', 
@@ -81,16 +81,16 @@ function wxpay(){
 		success: function(json){
 		 if(json.status=="-1"){
 			 window.location.href='/wap/login.html';
-		 }else{
+		 }else{*/
 			 var payhtml='<span><input class="pay" type="radio" checked  id="payid2" onclick="loadprice();" name="payid" value="60">微信支付</span>';
-			 if(json.ifCanHF){
-				 payhtml+='<span><input class="pay" type="radio" id="payid2" name="payid" onclick="loadprice();" value="0">货到付款</span>';
-			 }
+			 //if(json.ifCanHF){
+			//	 payhtml+='<span><input class="pay" type="radio" id="payid2" name="payid" onclick="loadprice();" value="0">货到付款</span>';
+			// }
 			 $(".m_pay .item").append(payhtml);
-			 loadprice();
+			/* loadprice();
 		 }
 		}
-	  });
+	  });*/
 
 }
 
@@ -319,6 +319,10 @@ function Bindcart(){
 
 				
 }
+	//更新快递更换后的运费
+function shipchange(){
+	    loadprice();
+	}
 //ajax更新总金额
 function loadprice(){
     var aj_tktid = -1; //选择的优惠券ID
@@ -342,12 +346,24 @@ function loadprice(){
     if (chkPrepay != null && chkPrepay.checked){
         iIsUsePrepay = 1;
     }
+    var shiptype = 0; //选择的快递方式
+
+    // 遍历支付方式, 记录选中项
+    var req_shiptype = $('input[type=radio][name=shiptype]');
+    if (req_shiptype.length > 0){
+    	req_shiptype.each(function(){
+    		if(this.checked){
+    			shiptype = this.value;
+    			return false;
+    		}
+    	});
+    }
     $.ajax({
         type: "post",
         dataType: "json",
         url: "/ajax/flow/loadPrice.jsp",
         cache: false,
-        data:{tktid: aj_tktid,payid: aj_payid,IsUsePrepay: iIsUsePrepay,addId:addrid},
+        data:{tktid: aj_tktid,payid: aj_payid,shiptype:shiptype,IsUsePrepay: iIsUsePrepay,addId:addrid},
         error: function(XmlHttpRequest, textStatus, errorThrown){
             alert("更新总金额出错，请刷新总金额！");
         },success: function(json){

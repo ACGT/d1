@@ -147,7 +147,7 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
 <link type="text/css" rel="Stylesheet" href="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/css/flowCheck.css")%>" />
 <script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/d1.js")%>"></script>
 <script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/PublicFunction.js")%>"></script>
-<script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/flow/flowCheck.js")%>"></script>
+<script type="text/javascript" src="<%=com.d1.helper.ResourceHelper.getResourceVersion("/res/js/flow/flowCheck.js?123")%>"></script>
 <style>
 .mod_cb_addr { width:831px; font-size:12px; border:1px solid #add9fb; background:#ecf7ff; padding:8px 12px 4px; }
 .mod_cb_addr p ,.mod_cb_addr dl ,.mod_cb_addr dt ,.mod_cb_addr dd { margin:0; padding:0;}
@@ -537,6 +537,22 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
         		</tr>
       		</table>
 			<!-- End:送货时间头 --> 
+			<!-- Start:快递选择头 -->
+    		<table width="861" border="0" align="center" cellpadding="2" cellspacing="2" id="tblShipTime">
+        		<tr>
+          			<td align="right" style="width:100px">
+          				<input type="radio" value="0" checked name="shiptype" onclick="shipchange();"  />
+          			</td>
+          			<td class="t00">普通快递</td>
+        		</tr>
+        		<tr>
+          			<td align="right">
+          				<input type="radio" value="1" name="shiptype" onclick="shipchange();" />
+          			</td>
+          			<td class="t00">顺丰快递</td>
+        		</tr>
+    		</table>
+    		<!-- End:快递选择 -->
 		    <!-- Start:送货时间头 -->
     		<table width="861" border="0" align="center" cellpadding="2" cellspacing="2" id="tblShipTime">
         		<tr>
