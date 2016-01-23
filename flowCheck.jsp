@@ -549,7 +549,7 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
           			<td align="right">
           				<input type="radio" value="1" name="shiptype" onclick="shipchange();" />
           			</td>
-          			<td class="t00">顺丰快递</td>
+          			<td class="t00">顺丰速运（需额外加收10元运费）</td>
         		</tr>
     		</table>
     		<!-- End:快递选择 -->
@@ -860,7 +860,8 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
                   							<td align="left" class="t13-b yfgz"><span id="spanShipFee">--</span>元&nbsp;&nbsp;&nbsp;<font id="ccdzb" style=" color:#020399;font-size:12px; cursor:hand;" onmouseover="ccdzb()" onmouseout="ccdzb1()">运费标准</font>
 <div id="ccdzb_img" style="position:absolute;display:none;border:1px solid #ccc;background:#fff;height:60px;padding:10px;" onmouseover="ccdzb()" onmouseout="ccdzb1()">
 在线支付：   全国运费10元，满59元免运费<br>
-货到付款：   全国运费10元，满99元免运费
+货到付款：   全国运费10元，满99元免运费<br>
+如果您选择顺丰，需额外加收10元费用
 </div></td>
                 						</tr>
                 						<tr>
