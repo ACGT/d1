@@ -176,6 +176,14 @@ public class OrderService {
 			}
 		}
 		
+		String shiptype = request.getParameter("shiptype");//选择的快递方式
+
+		if("1".equals(shiptype))
+		{
+			memo=memo+"<br>用户选择顺丰快递邮费已付，发货请注意！！！！";
+			order.setOdrmst_d1shipmethod("顺丰快递");
+		}
+		
 		//送货时间+买家留言
 		order.setOdrmst_customerword("[送货时间:"+deliver+" 务必送前联系,本人签收 须当面拆箱验货（化妆品拒收不可拆产品包装）]<br><span style=\"color:#FF0000\">"+memo+"</span>");
 		order.setOdrmst_internalmemo("[送货时间:"+deliver+" 务必送前联系,本人签收 须当面拆箱验货（化妆品拒收不可拆产品包装）]<br><span style=\"color:#FF0000\">买家留言:"+memo+"</span>");
