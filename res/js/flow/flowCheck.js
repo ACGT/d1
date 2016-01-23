@@ -790,6 +790,19 @@ function loadprice(){
     		}
     	});
     }
+    
+    var shiptype = 0; //选择的快递方式
+
+    // 遍历支付方式, 记录选中项
+    var req_shiptype = $('input[type=radio][name=shiptype]');
+    if (req_shiptype.length > 0){
+    	req_shiptype.each(function(){
+    		if(this.checked){
+    			shiptype = this.value;
+    			return false;
+    		}
+    	});
+    }
 
     var strGdsFee = $('#lblGdsFee').text(); //商品金额
     var iIsUsePrepay = 0;
@@ -802,7 +815,7 @@ function loadprice(){
         dataType: "json",
         url: "/ajax/flow/loadPrice.jsp",
         cache: false,
-        data:{tktid: aj_tktid,payid: aj_payid,IsUsePrepay: iIsUsePrepay,addId:$("input[type='radio'][name='rdoMbrcstList']:checked").val()},
+        data:{tktid: aj_tktid,payid: aj_payid,shiptype:shiptype,IsUsePrepay: iIsUsePrepay,addId:$("input[type='radio'][name='rdoMbrcstList']:checked").val()},
         error: function(XmlHttpRequest, textStatus, errorThrown){
             alert("更新总金额出错，请刷新总金额！");
         },success: function(json){
@@ -834,6 +847,10 @@ function loadprice(){
 function paykindrchange(){
     //检查卷
     checktktpayid();
+    loadprice();
+}
+//更新快递更换后的运费
+function shipchange(){
     loadprice();
 }
 //检查券的支付方式

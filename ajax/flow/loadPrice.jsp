@@ -3,6 +3,8 @@ String tktid = request.getParameter("tktid");//优惠券ID
 String payid = request.getParameter("payid");//支付方式ID
 String IsUsePrepay = request.getParameter("IsUsePrepay");//是否使用预付款
 String addressId = request.getParameter("addId");//用户选择的地址ID
+
+
 /*String cartshopcode="00000000";
 if(session.getAttribute("Cart_ShopCode")!=null){
 cartshopcode= session.getAttribute("Cart_ShopCode").toString();
@@ -23,9 +25,8 @@ if(!Tools.isNull(tktid)){
 	}
 }
 
-if(!Tools.isNumber(addressId)){
-	return;
-}
+
+if(addressId==null)addressId="-1";
 UserAddress address = UserAddressHelper.getById(addressId);
 if(address == null){
 	out.print("{\"success\":false,\"message\":\"找不到地址！\"}");
@@ -40,6 +41,8 @@ float fltTotal = CartHelper.getTotalPayMoney(request,response);//商品总金额
 float iL_TktValue = TicketHelper.getMaxTicketSaveMoney(request,response,tktid+"",ticket_type+"",addressId+"",payid+"");//优惠券减免金额
 iL_TktValue=Tools.getFloat(iL_TktValue, 0);
 float fltL_ShipFee = OrderHelper.getExpressFee(request,response,addressId,payid,iL_TktValue);//商品运费
+
+
 
 float getshopactmoney=  CartHelper.getShopActCutMoney(request, response); //满减活动优惠金额
 
