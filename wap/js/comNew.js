@@ -5,7 +5,7 @@ var user_agent = window.navigator.userAgent.toLowerCase();
 	checkLogin();
 }*/
 function checkLogin() {
-	
+	console.log('checklogin begin');
 	//alert(window.navigator.userAgent.toLowerCase());
 	
 	var token = "";
@@ -168,7 +168,11 @@ function loadlogin(){
 					}
 					$(".myuser a").attr("href","login.html");
 				}
+				if(loginflag != 1){
+					window.location.href="login.html";
+				}
         }
+	  
 	});
 	}
 	function showlogin(json){

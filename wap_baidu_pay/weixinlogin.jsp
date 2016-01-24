@@ -27,6 +27,7 @@ if(ret.indexOf("errcode")>=0){
 	response.sendRedirect(backurl+"&err=1");
 	 return;
 }
+System.out.println("微信登录:"+ret);
 //System.out.println(ret);
 JSONObject  jsonob = JSONObject.fromObject(ret); 
 String access_token = jsonob.getString("access_token");  
@@ -46,13 +47,14 @@ String nickname ="";
 String sex ="";
 String country = ""; 
 String province = "";
+String headerImgUrl="";
 if(!Tools.isNull(ret)&&ret.indexOf("\"errcode\":")==-1){
 JSONObject  jsonuser = JSONObject.fromObject(ret); 
   nickname = jsonuser.getString("nickname");  
   sex = jsonuser.getString("sex");  
   country = jsonuser.getString("country");  
   province = jsonuser.getString("province"); 
- 
+ headerImgUrl=jsonuser.getString("headimgurl");
 }
 	String strUserName = openid+"@@weixin";
 	
@@ -95,7 +97,7 @@ JSONObject  jsonuser = JSONObject.fromObject(ret);
 			u.setMbrmst_myd1count(new Long(10));
 			u.setMbrmst_myd1codes("");
 			u.setMbrmst_specialtype(new Long(0));
-			u.setMbrmst_srcurl("");
+			u.setMbrmst_srcurl(headerImgUrl);
 			u.setMbrmst_peoplercm("");
 			u.setMbrmst_subad("");
 			u.setMbrmst_temp("WeiXin_login");

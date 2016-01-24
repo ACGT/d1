@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>锄禾食品-我的订单</title>
+<title>D1优尚网触屏版</title>
 <meta name="author" content="m.d1.cn">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -14,15 +14,29 @@
 <link rel="stylesheet" type="text/css" href="/res/wap/css/odrlist.css"
 	charset="utf-8" />
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="js/com.js?201509071512"></script>
-<script type="text/javascript" src="js/sync_d1_uer.js" ></script>
+<script type="text/javascript" src="js/comNew.js?201509291503"></script>
+<!-- <script type="text/javascript" src="js/sync_d1_user.js"  ></script> -->
+
 </head>
 <body>
 	<header class="p_header">
-		<script type="text/javascript">
-			var title_string = "我的订单";
-		</script>
-		<script type="text/javascript" src="js/headers/header_with_title.js?201509111528"  ></script>
+		<div class="h_txt">
+			<div class="pageback">
+				<a href="javascript:window.history.back(-1);">返回</a>
+			</div>
+			<div class="h_h2">
+				<h2>我的订单</h2>
+			</div>
+			<div class="home">
+				<a href="/wap/index.html"></a>
+			</div>
+			<div class="myuser">
+				<a href="/wap/user/index.html"></a>
+			</div>
+			<div class="carth">
+				<a href="/wap/flow.html"></a>
+			</div>
+		</div>
 	</header>
 	<div class="main">
 		<div class="orderselect">
@@ -114,7 +128,7 @@ function loaddata(status1){
 
 	function gourl(parr){
 		c=parr.split(",");
-		var gourl="orderlist.html?pageno="+c[0]+"&status="+c[1]+"";
+		var gourl="user_orderlist.html?pageno="+c[0]+"&status="+c[1]+"";
 		window.location.href=gourl;
 	}
 	function showlist(p,psize,pageno,status){
@@ -168,14 +182,18 @@ function loaddata(status1){
 		var status=""
 	   for(var i=0;i<odrlen;i++){
 		   status=orders[i].order_status;
+		   payid=orders[i].order_payid;
+		   paytxt="";
+		   if(payid==6)paytxt="微信支付";
 		pli='<li>';
 		pli+='<div class="mo_item">';
 		pli+='<div class="order">';
 		pli+='    <span>订单号：<a href="/wap/orderdetail.html?odrid='+orders[i].order_odrid+'" style="color:#36c;">'+orders[i].order_odrid+' </a>';
-		if(orders[i].order_payid!=0&&orders[i].order_status==0){
-			pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" class="pays" >去支付</a>';
-			}
-		pli+='</span><span>金额：'+orders[i].order_allmoney+'&nbsp;&nbsp;'+orders[i].order_statustxt+'</span></div>';
+		
+		pli+='</span><span>金额：'+orders[i].order_allmoney+'&nbsp;&nbsp;';
+		
+		pli+='</span></div>';
+
 		pli+='<ul>';
 		var items=eval(orders[i].order_items);
 		var itemlen= items.length;
@@ -210,6 +228,12 @@ function loaddata(status1){
 				pli+='		<p class="price">商品单价：<font color="#f1424f">￥'+items[j].orderitem_price+'</font>&nbsp;&nbsp;&nbsp;&nbsp;商品数量：<font color="#f1424f">'+items[j].orderitem_count+'</font></p>';
 				pli+='		<p class="dtlstatus">'+itemstatustxt+'';
 				pli+='&nbsp;&nbsp;'+thtxt;
+				if(orders[i].order_payid!=0&&orders[i].order_payid!=6&&orders[i].order_status==0){
+					pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" style="color:#36c" class="pays" >去支付</a>';
+					}else if(orders[i].order_payid==6&&orders[i].order_status==0){
+						pli+='&nbsp;&nbsp;<a  href="/wap/orderdetail.html?odrid='+orders[i].order_odrid+'" style="color:#36c"  class="pays" >微信支付</a>';
+
+					}
 				pli+='	</p></div>';
 				pli+='  </div>';
 				pli+='</li>';
@@ -263,7 +287,94 @@ function loaddata(status1){
 		 }
 	 });
 	}
-	loaddata('');
+	//微信登录开始
+	var is_login = 0;
+	var user_agent = window.navigator.userAgent.toLowerCase();
+	if(user_agent.match(/MicroMessenger/i) == 'micromessenger'){
+		checkLogin();
+	}
+	function checkLogin() {
+		
+		//alert(window.navigator.userAgent.toLowerCase());
+		
+		var token = "";
+		
+		try {
+			token = window.localStorage.getItem("token");
+		}
+		catch(err){
+			
+		}
+		
+		//alert(window.location.href+":checkLogin():token:"+window.localStorage.getItem("token"));
+		
+		var is_token_available = 1; 
+		
+		if (token==undefined || token == "" ) {	
+			is_token_available = 0;
+		}else{
+			
+			$.ajax({
+				type:"get",
+				url:"api/check_token.jsp?token="+token,
+				dataType:'json',
+				async:false,
+				success:function (ret) {
+					//alert("token_available:"+ret.token_available);
+					if (ret.status=="0") {
+						if (ret.token_available=="1") {
+							is_token_available = 1;
+						}
+						else {
+							is_token_available = 1;
+							var current_url = document.location.href;
+							current_url = encodeURIComponent(current_url);
+							window.location.href = "authorize.jsp?callback="+current_url;
+						}
+					}
+				}
+			});
+		}
+		
+		if (is_token_available==0) {
+			
+			is_login = 0;
+			var current_url = document.location.href;
+			current_url = encodeURIComponent(current_url);
+			window.location.href = "authorize.jsp?callback="+current_url;
+			
+		} 
+		else {
+			is_login = 1;
+		}
+			
+	}
+	function sync_login(){
+		var login_url = "api/sync_d1_user_info.jsp?token="+window.localStorage.getItem("token");
+		//alert(login_url);
+		$.ajax({
+			type:"get",
+			url:login_url,
+			dataType:"json",
+			async:false,
+			success:function(ret) {
+				loaddata('');
+			}
+		});
+	}
+	sync_login();
+	//微信登录结束
+	loadlogin();
+	
+	//alert(loginflag);
+	
+	//sleep(1500);
+	
+	//alert(loginflag);
+	
+	if(loginflag!=1) {
+		window.location.href="login.html";
+	}
 	
 	</script>
 	<div style="display: none;">
