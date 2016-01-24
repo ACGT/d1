@@ -3863,13 +3863,13 @@ public class CartHelper {
 	public static boolean getmsflag(Product p){
 		Date nowday=new Date();
 		 boolean ismiaoshao=false;
-		 SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+		 //SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");//会造成线程阻塞
 		 if(p.getGdsmst_promotionstart()!=null&&p.getGdsmst_promotionend()!=null&&p.getGdsmst_msprice()!=null){
 		 	Date sdate=p.getGdsmst_promotionstart();
 		 	Date edate=p.getGdsmst_promotionend();	
 
 		 	if(nowday.getTime()>=sdate.getTime()&&edate.getTime()> nowday.getTime()
-		 			&&Tools.getDateDiff(ft.format(sdate),ft.format(edate))<31
+		 			&&(edate.getTime()-sdate.getTime())<(long)1000*60*60*24*31
 		 			&&p.getGdsmst_msprice().floatValue()>=0f){
 		 		ismiaoshao = true;
 		 	}

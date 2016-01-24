@@ -159,6 +159,7 @@ if(list!=null&&odrcount>0)
 		 jsonorder.put("order_shipname", ob.getOdrmst_d1shipmethod());
 		 jsonorder.put("order_status", orderstatus);
 		 jsonorder.put("order_statustxt", statustxt);
+		 jsonorder.put("order_type", ob.getType());
 		 int pid=0;
 		 switch (ob.getOdrmst_payid().intValue()){
 			case 4:

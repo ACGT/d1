@@ -11,9 +11,7 @@ public static void setCookie(HttpServletResponse response , String name , String
 
 private static final Object obj = new Object();//同步锁
 %>
-<%
-//String APPID=PubConfig.get("WeiXinAppId");
-String APPID = "wx23ea18f35e5db774";
+<%String APPID=PubConfig.get("WeiXinAppId");
 String code=request.getParameter("code");
 String backurl=request.getParameter("backurl");
 String mid=request.getParameter("mid");
@@ -29,6 +27,7 @@ if(ret.indexOf("errcode")>=0){
 	response.sendRedirect(backurl+"&err=1");
 	 return;
 }
+System.out.println("微信登录:"+ret);
 //System.out.println(ret);
 JSONObject  jsonob = JSONObject.fromObject(ret); 
 String access_token = jsonob.getString("access_token");  
@@ -48,13 +47,14 @@ String nickname ="";
 String sex ="";
 String country = ""; 
 String province = "";
+String headerImgUrl="";
 if(!Tools.isNull(ret)&&ret.indexOf("\"errcode\":")==-1){
 JSONObject  jsonuser = JSONObject.fromObject(ret); 
   nickname = jsonuser.getString("nickname");  
   sex = jsonuser.getString("sex");  
   country = jsonuser.getString("country");  
   province = jsonuser.getString("province"); 
- 
+ headerImgUrl=jsonuser.getString("headimgurl");
 }
 	String strUserName = openid+"@@weixin";
 	
@@ -97,7 +97,7 @@ JSONObject  jsonuser = JSONObject.fromObject(ret);
 			u.setMbrmst_myd1count(new Long(10));
 			u.setMbrmst_myd1codes("");
 			u.setMbrmst_specialtype(new Long(0));
-			u.setMbrmst_srcurl("");
+			u.setMbrmst_srcurl(headerImgUrl);
 			u.setMbrmst_peoplercm("");
 			u.setMbrmst_subad("");
 			u.setMbrmst_temp("WeiXin_login");
@@ -133,6 +133,10 @@ JSONObject  jsonuser = JSONObject.fromObject(ret);
 		out.print("获得用户信息出错，请重新登录！");
 		return;
 	}
+	else{
+		WeixinOpenIdMbrIdPairHelper.MapWeixinOpenIdAndMbrId(openid, "weixin", Integer.parseInt(u.getId()));
+	}
+	
 	
 	if(u != null && u.getId() != null&&wx==null){
 		wx = new UserWeiXin();
@@ -140,12 +144,19 @@ JSONObject  jsonuser = JSONObject.fromObject(ret);
 		wx.setWeixin_name(nickname);
 		wx.setWeixin_openid(openid);
 		wx.setWeixin_sex(Tools.parseInt(sex));
-
+		
+		
 		Tools.getManager(UserWeiXin.class).create(wx);
 
 	}
+	
+	
+
+	
    if (wx!=null&&u != null && u.getId() != null){
 		UserHelper.setLoginUserId(session,u.getId());
+		
+		
 		session.setAttribute("WeixinUName", nickname);
 		session.setAttribute("Weixinopenid", openid);
 		 setCookie(response,"WeixinUName",nickname,(int)(Tools.YEAR_MILLIS/1000));
@@ -155,7 +166,7 @@ JSONObject  jsonuser = JSONObject.fromObject(ret);
 
 	 if("null".equals(backurl)||Tools.isNull(backurl)){
 
-	   String url="http://m.d1.cn/wap/flow.html";
+	   String url="flow.html";
 
 	    response.sendRedirect(url);
 

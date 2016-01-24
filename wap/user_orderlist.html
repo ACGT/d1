@@ -111,7 +111,7 @@ function loaddata(status1){
         data:{pg:pageno,psize:psize,status:status},
 		dataType:'json',
 		success: function(data){
-			
+			console.log(data);
 				/*处理数据*/
 				if(data.status=="1"){
 				showlist(data,psize,pageno,status);
@@ -184,6 +184,7 @@ function loaddata(status1){
 		   status=orders[i].order_status;
 		   payid=orders[i].order_payid;
 		   paytxt="";
+		   order_type=orders[i].order_type;
 		   if(payid==6)paytxt="微信支付";
 		pli='<li>';
 		pli+='<div class="mo_item">';
@@ -220,6 +221,9 @@ function loaddata(status1){
 				}else{
 					itemstatustxt="已取消";
 				}
+				if(order_type==3&&status==0){
+					itemstatustxt="交易关闭(未支付)";
+				}
 				pli+='<li>';
 				pli+='  <div class="product">';
 				pli+='	<img src="'+items[j].orderitem_img+'" class="pimg" />';
@@ -228,12 +232,15 @@ function loaddata(status1){
 				pli+='		<p class="price">商品单价：<font color="#f1424f">￥'+items[j].orderitem_price+'</font>&nbsp;&nbsp;&nbsp;&nbsp;商品数量：<font color="#f1424f">'+items[j].orderitem_count+'</font></p>';
 				pli+='		<p class="dtlstatus">'+itemstatustxt+'';
 				pli+='&nbsp;&nbsp;'+thtxt;
-				if(orders[i].order_payid!=0&&orders[i].order_payid!=6&&orders[i].order_status==0){
-					pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" style="color:#36c" class="pays" >去支付</a>';
+				if(order_type!=3){//recent表订单未付款的不显示支付按钮了
+					
+					if(orders[i].order_payid!=0&&orders[i].order_payid!=6&&orders[i].order_status==0){
+						pli+='&nbsp;&nbsp;<a  href="/wap/flow/zhifu.jsp?payId='+orders[i].order_payid+'&OdrID='+orders[i].order_odrid+'" style="color:#36c" class="pays" >去支付</a>';
 					}else if(orders[i].order_payid==6&&orders[i].order_status==0){
 						pli+='&nbsp;&nbsp;<a  href="/wap/orderdetail.html?odrid='+orders[i].order_odrid+'" style="color:#36c"  class="pays" >微信支付</a>';
 
 					}
+				}
 				pli+='	</p></div>';
 				pli+='  </div>';
 				pli+='</li>';

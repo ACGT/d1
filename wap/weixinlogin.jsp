@@ -27,6 +27,7 @@ if(ret.indexOf("errcode")>=0){
 	response.sendRedirect(backurl+"&err=1");
 	 return;
 }
+System.out.println("微信登录:"+ret);
 //System.out.println(ret);
 JSONObject  jsonob = JSONObject.fromObject(ret); 
 String access_token = jsonob.getString("access_token");  
