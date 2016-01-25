@@ -260,8 +260,12 @@ function loaddata(){
 	     citemhtml=citemhtml+'		<p>节省：<span class="red">￥'+cartlist[j].shopactmoney+'</span></p>';
 	     }
 	     citemhtml=citemhtml+'	</div></div>';
+	     citemhtml=citemhtml+'<div class="mcs_totle" style="text-align:left>';
+	     citemhtml=citemhtml+'【春节发货安排】<br>1月26日-2月2日、2月11日-2月16日 普通快递停止发货，如果您希望采用顺丰速递，需额外加10元运费。<br>';
+	     citemhtml=citemhtml+'2月3日-2月10日 d1优尚库房放假，暂停发货。<br>  为了表示歉意，1月26日-2月14日付款的所有订单，都将获赠一份神秘小礼品。';
 	     citemhtml=citemhtml+'</div>';
-	    
+	     citemhtml=citemhtml+'</div>';
+
 	     $(".m_cartlist").append(citemhtml);
 		}
 		 $(".m_totleprice .price").append(' <p>总商品件数：<span class="red">'+json.allgdscount+'</span><br>总金额：<span class="red">￥'+json.allmoney+'</span></p>');
