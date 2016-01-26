@@ -74,19 +74,18 @@ public class PostXml {
 		httpsClient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT,
 				200);
 		HttpPost httpGet = new HttpPost(Dom4J.getDocumentValue("url"));
-		//StringEntity entiy = new StringEntity(new XmlRequest().getXmlRequest(), "UTF-8");
-		StringEntity entiy = new StringEntity(xmlpost, "UTF-8");
+		StringEntity entiy = new StringEntity(xmlpost, "GBK");
 		httpGet.setEntity(entiy);
 		HttpResponse response = httpsClient.execute(httpGet);
 		BufferedReader br = new BufferedReader(new InputStreamReader(response
-				.getEntity().getContent(),"UTF-8"));
+				.getEntity().getContent()));
 		StringBuffer content = new StringBuffer();
 		for (String line; (line = br.readLine()) != null;) {
 			content.append(line + "\r\n");
 		}
 		System.out.println(content.toString());
 		return content.toString();
-	}
+}
 }
 
 
