@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<url>https://121.8.124.249:19211/ngboss/sendmail</url> 
+	<!--<url>https://192.168.19.114:9211/ngboss/sendmail</url> -->
+	<!-- <url>http://deliveryapi.mail.10086.cn:9210/syn10086v2</url>-->
+	<keyStore>conf/client.pfx</keyStore>
+	<trustStore>conf/client.jks</trustStore>
+	<keyPassword>123456</keyPassword>
+	<trustPassword>123456</trustPassword>
+	
+	
+	<provice>qg</provice>
+	
+	<comefrom>smflfhtz</comefrom>
+	
+	<key>MKDK5Lu9JvbD8GnY</key>
+	
+	<from>service@smfl.cn</from>
+	
+	<fromname>神马福利</fromname>
+	
+	<to>hb.zhaofang@mail01.huawei.com</to>
+	
+	<title>测试测试</title>
+	
+	<busicode>d1ysw</busicode>
+	
+	<infotype>2</infotype>
+	
+	<toname>张三</toname>
+	
+	<brand>神州行</brand>
+	
+	<INFO>
+		<ITEM>
+			<ID>userName</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>小马</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>orderID</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>591781769812</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>expressCompany</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>圆通速递</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>trackingNumber</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>98918918257</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>ReceiveInfo</ID>
+			<TYPE>text/xml</TYPE>
+			<VALUE><![CDATA[
+				<ReceiveInfo name="收货信息">
+					<orderID name="订单号">591781769812</orderID>
+					<consignee name="收货人">小马</consignee>
+					<phoneNumber name="收货人电话">132****1423</phoneNumber>
+					<address name="收货地址">北京北京北京北京</address>
+				</ReceiveInfo>
+			]]></VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>GOODSLIST</ID>
+			<TYPE>text/xml</TYPE>
+			<VALUE><![CDATA[
+				<GOODSLIST name="商品清单">
+					<ProductID name="编号">118687629876</ProductID>
+					<ProductName name="名称">项链项链</ProductName>
+					<unitPrice name="单价">19.0</unitPrice>
+					<quantity name="数量">1</quantity>
+					<privilege name="优惠">0.00</privilege>
+					<subtotal name="小计">19.00</subtotal>
+					<ProductID name="编号">118687629876</ProductID>
+					<ProductName name="名称">自动搅拌咖啡杯</ProductName>
+					<unitPrice name="单价">20.0</unitPrice>
+					<quantity name="数量">1</quantity>
+					<privilege name="优惠">0.00</privilege>
+					<subtotal name="小计">20.00</subtotal>
+				</GOODSLIST>
+			]]></VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>sum</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>2</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>totalPrice</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>39.00</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>freight</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>0.00</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>benefits</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>0.00</VALUE>
+		</ITEM>
+		<ITEM>
+			<ID>payment</ID>
+			<TYPE>text/plain</TYPE>
+			<VALUE>39.00</VALUE>
+		</ITEM>
+	</INFO>
+	<querytime>20151210 20:00:00</querytime>
+</root>
