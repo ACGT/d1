@@ -90,7 +90,7 @@ java.util.UUID
 		String skey =api10086.MD5.md5(comefrom + commandid + from + to + busicode + templateid  + key);
 
     	sXmlRequest = String.format(sXmlRequest,provice,comefrom,commandid,skey,reqcode,querytime,from,fromName,to,toname,brand,busicode,templateid,title,infotype,info);
-    	System.out.println("2=========================="+sXmlRequest);
+    	
     	return sXmlRequest;
     }
     private long DateToValue(String DateStringValue){
@@ -106,6 +106,7 @@ java.util.UUID
 %>
 <%
 PostXml postxml = new PostXml();
+System.out.println("2=========================="+getXmlRequest());
 String reqstr= postxml.PostData(getXmlRequest());
 
 %>
