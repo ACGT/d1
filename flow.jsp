@@ -563,7 +563,7 @@ if (bwydxflag||otherdhflag){
 2月3日-2月10日
 d1优尚库房放假，暂停发货。
 <br>
-为了表示歉意，1月26日-2月14日付款的所有订单，都将获赠一份神秘小礼品。<br>		
+为了表示歉意，1月26日-2月14日付款的所有订单，都将获得一次领红包的机会（支付后在d1优尚手机端订单页面领取红包）<br>		
 								   	<!--<a href="http://www.d1.com.cn/html/notice.jsp" target="_blank" style="color:#f00; font-weight:bold;">2013年春节，快递公司送货时间说明，详见《D1优尚网2013年春节假期服务说明》</a>	<br/>  -->				   
 									 【免运费规则】<br/>
                                      1.	在线支付：实际支付金额满<font color="#a22d48" style="font-weight:bold">100</font>元免运费；不满足条件时，每单收取<font color="#a22d48" style="font-weight:bold">10</font>元运费。<br/>

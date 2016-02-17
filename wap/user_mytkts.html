@@ -16,6 +16,9 @@
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="js/com.js?1.21"></script>
 <script type="text/javascript" src="js/sync_d1_user.js"  ></script>
+<style>
+.itop span a{color:#da2f3b}
+</style>
 </head>
 <body>
 	<header class="p_header">
@@ -170,7 +173,7 @@ function loaddata(type1,pageno1){
 		pli='<li>';
 		pli+='<div class="item">';
 	
-		pli+='	<div  class="ibot" style="background:#ececec;"><span class="l" style="color:#da2f3b">金额：'+tkts[i].tktvalue+'元</span>';
+		pli+='	<div  class="ibot" style="background:#ececec;"><span class="l" style="color:#da2f3b"><font style="font-size:.16rem">￥</font><font style="font-size:.24rem">'+tkts[i].tktvalue+'</font></span>';
 		pli+='	<span class="r" style="color:#000;">';
 		pli+="有效期至"+tkts[i].tktetime;
 		pli+='	</span></div>';

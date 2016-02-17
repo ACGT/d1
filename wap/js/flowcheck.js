@@ -87,6 +87,7 @@ function wxpay(){
 			//	 payhtml+='<span><input class="pay" type="radio" id="payid2" name="payid" onclick="loadprice();" value="0">货到付款</span>';
 			// }
 			 $(".m_pay .item").append(payhtml);
+			 Bindaddr('0');
 			/* loadprice();
 		 }
 		}
@@ -112,7 +113,9 @@ function Bindpay(){
 				 payhtml+='<span><input class="pay" type="radio" id="payid2" name="payid" onclick="loadprice();" value="0">货到付款</span>';
 			 }
 			 $(".m_pay .item").append(payhtml);
-			 loadprice();
+			 //loadprice();
+			 Bindaddr('0');
+
 		 }
 		}
 	  });

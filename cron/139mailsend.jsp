@@ -42,6 +42,48 @@ java.text.SimpleDateFormat,
 java.util.Date,
 java.util.UUID
 "%><%!
+public static Date addmin(Date d,long min) throws ParseException { 
+
+	long time = d.getTime(); 
+	min = min*60*1000; 
+	time+=min; 
+	return new Date(time); 
+
+	} 
+public static ArrayList<OrderMain> getOrderMainList(HttpServletRequest request,HttpServletResponse response,String shopCode){
+	ArrayList<OrderMain> list=new ArrayList<OrderMain>();
+	List<SimpleExpression> listRes = new ArrayList<SimpleExpression>();
+ 
+		   listRes.add(Restrictions.ne("odrmst_goodsodrid", ""));
+	        listRes.add(Restrictions.ge("odrmst_orderstatus",new Long(3)));
+		    listRes.add(Restrictions.le("odrmst_orderstatus", new Long(31)));
+		
+ 
+       SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		   try{
+			   Date sDate= addmin(new Date(), -60); 
+			   listRes.add(Restrictions.ge("odrmst_shipdate", sDate ));
+			  }catch(Exception ex){
+			   ex.printStackTrace();
+		   }
+         listRes.add(Restrictions.eq("odrmst_sndshopcode", "00000000"));
+	 
+
+
+   // List<Order> olist=new ArrayList<Order>();
+    //olist.add(Order.asc("odrmst_shipdate"));
+	List<BaseEntity> list2 = Tools.getManager(OrderMain.class).getList(listRes, null, 0, 100);
+	
+	if(list2==null || list2.size()==0){
+		return null;
+	}
+	for(BaseEntity be:list2){
+		OrderMain odrm =(OrderMain)be;
+		list.add(odrm);
+	}
+	return list;
+}	
+
    public String getXmlRequest() {
     	String sXmlRequest="<?xml version=\"1.0\" encoding=\"gbk\"?>" +
     						"<EMAIL>" +
@@ -74,8 +116,7 @@ java.util.UUID
 		String busicode = Dom4J.getDocumentValue("busicode");
 				
 		String from = Dom4J.getDocumentValue("from");
-		String fromName = "";
-				//Dom4J.getDocumentValue("fromname");
+		String fromName =Dom4J.getDocumentValue("fromname");
 		String to = Dom4J.getDocumentValue("to");
 		String toname = Dom4J.getDocumentValue("toname");
 		String brand = Dom4J.getDocumentValue("brand");
@@ -83,7 +124,84 @@ java.util.UUID
 		String templateid = "ha0001_20120501.html";
 		String title = Dom4J.getDocumentValue("title");
 		String infotype = Dom4J.getDocumentValue("infotype");
-		String info = Dom4J.getDocumentValue("INFO");
+		//String info = Dom4J.getDocumentValue("INFO");
+		String info="<INFO>" +
+	      "<ITEM>" +
+				"<ID>name</ID>" +
+				"<TYPE>text/plain</TYPE>" +
+				"<VALUE>阿罗</VALUE>" +
+	      "</ITEM>" +
+	      "<ITEM>" +
+	          "<ID>orderNum</ID>" +
+	          "<TYPE>text/plain</TYPE>" +
+	          "<VALUE>589969485236</VALUE>" +
+	      "</ITEM>" +
+	      "<ITEM>" +
+	          "<ID>deliveryCor</ID>" +
+	          "<TYPE>text/plain</TYPE>" +
+	          "<VALUE>圆通速递</VALUE>" +
+	      "</ITEM>" +
+		  "<ITEM>" +
+	          "<ID>expressNo</ID>" +
+	          "<TYPE>text/plain</TYPE>" +
+	          "<VALUE>9897945452</VALUE>" +
+	      "</ITEM>" +
+		  "<ITEM>" +
+	          "<ID>ORDERINFO</ID>" +
+	          "<TYPE>text/xml</TYPE>" +
+			  "<VALUE><![CDATA[" +
+				"<ORDERINFO name=\"订单信息\">" +
+					"<orderNo name=\"订单号\">4678798752131</orderNo>" +
+					"<to name=\"收货人\">阿罗</to>" +
+					"<phone name=\"收货电话\">1393939393</phone>" +
+					"<city name=\"送货城市\">吉林省长春市</city>" +
+					"<address name=\"送货地址\">长春市 净月旅游开发区 博硕路333号</address>" +
+				"</ORDERINFO>" +
+			  "]]></VALUE>" +
+		  "</ITEM>" +
+	      "<ITEM>" +
+	          "<ID>GOODSLIST</ID>" +
+	          "<TYPE>text/xml</TYPE>" +
+	          "<VALUE><![CDATA[" +
+				"<GOODSLIST name=\"商品清单\">" +
+					"<goodsNo name=\"编号\">01416895</goodsNo>" +
+					"<goodsName name=\"名称\">欧莱雅男士控油谭爽冰感洁面膏100ml</goodsName>" +
+					"<goodsNum name=\"发货数量\">1</goodsNum>" +
+					"<goodsDeal name=\"成交价\">35</goodsDeal>" +
+					"<goodsNo name=\"编号\">01416895</goodsNo>" +
+					"<goodsName name=\"名称\">欧莱雅男士控油谭爽冰感洁面膏100ml</goodsName>" +
+					"<goodsNum name=\"发货数量\">1</goodsNum>" +
+					"<goodsDeal name=\"成交价\">35</goodsDeal>" +
+					"<goodsNo name=\"编号\">01416895</goodsNo>" +
+					"<goodsName name=\"名称\">欧莱雅男士控油谭爽冰感洁面膏100ml</goodsName>" +
+					"<goodsNum name=\"发货数量\">1</goodsNum>" +
+					"<goodsDeal name=\"成交价\">35</goodsDeal>" +
+				"</GOODSLIST>" +
+			  "]]></VALUE>" +
+	      "</ITEM>" +
+		  "<ITEM>" +
+	          "<ID>totalMoney</ID>" +
+	          "<TYPE>text/plain</TYPE>" +
+	          "<VALUE>105</VALUE>" +
+	      "</ITEM>" +
+		  "<ITEM>" +
+	          "<ID>deliveryFee</ID>" +
+	          "<TYPE>text/plain</TYPE>" +
+	          "<VALUE>0</VALUE>" +
+	      "</ITEM>" +
+	      "<ITEM>" +
+	          "<ID>discountFee</ID>" +
+	          "<TYPE>text/plain</TYPE>" +
+	          "<VALUE>10</VALUE>" +
+	      "</ITEM>" +
+	      "<ITEM>" +
+	          "<ID>payMoney</ID>" +
+	          "<TYPE>text/plain</TYPE>" +
+	          "<VALUE>95</VALUE>" +
+	      "</ITEM>" +
+	"</INFO>";
+		
+		
     	String querytime = new SimpleDateFormat("yyyyMMdd HH:mm:ss").format(new Date());
     	
     	String commandid="CMD00001";

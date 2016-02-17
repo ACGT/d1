@@ -127,6 +127,24 @@ if(list!=null&&odrcount>0)
     int shipstatus=0;
     long orderstatus=0;
     String statustxt="";
+    Date orderdate=null;
+    int tktyear2016=0;
+    SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+    Date dStartDate=null;
+    Date dsDate=null;
+    try{
+    	 dStartDate =fmt.parse("2016-02-15");
+    	 dsDate =fmt.parse("2016-01-26");
+    	 }
+    catch(Exception ex){
+    	ex.printStackTrace();
+    }
+    boolean tktyear2016flag=true;
+    if(Tools.dateValue(dStartDate)<System.currentTimeMillis())
+    {
+    	tktyear2016flag=false;
+    }
+    
 	 for(int t=pbegin; t<odrcount&&t<pend;t++ )
      {
 		 OrderBase ob = list.get(t);
@@ -137,6 +155,15 @@ if(list!=null&&odrcount>0)
 			 shipstatus=1;
 		 }
 		 orderstatus=ob.getOdrmst_orderstatus().longValue();
+		 orderdate=ob.getOdrmst_orderdate();
+		 if(tktyear2016flag&&Tools.dateValue(dStartDate)>Tools.dateValue(orderdate)&&Tools.dateValue(orderdate)>=Tools.dateValue(dsDate)){
+		 if(orderstatus==1||orderstatus==2||orderstatus==3||orderstatus==31||
+				 orderstatus==5||orderstatus==51||orderstatus==6||orderstatus==61){
+		 if(tktyear2016==0&&ob.getOdrmst_customerword()!=null&&ob.getOdrmst_customerword().indexOf("新年赠券已领")==-1){
+			 tktyear2016=1;
+			}
+		 }
+		 }
 		 if(orderstatus==5||orderstatus==51||orderstatus==6||orderstatus==61){
 			  statustxt="交易完成";
 		  }else if(orderstatus==3||orderstatus==31){
@@ -287,6 +314,8 @@ if(list!=null&&odrcount>0)
 		 jsonarr.add(jsonorder);
      }
 	 json.put("orders", jsonarr);
+	 json.put("tktyears", tktyear2016);
+	 
 }else{
 	json.put("status", "0");
 	out.print(json);
