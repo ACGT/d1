@@ -14,9 +14,84 @@
 <link rel="stylesheet" type="text/css" href="/res/wap/css/odrlist.css"
 	charset="utf-8" />
 <script type="text/javascript" src="/res/wap/js/jquery-1.7.min.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="js/comNew.js?201509291503"></script>
 <!-- <script type="text/javascript" src="js/sync_d1_user.js"  ></script> -->
+=======
+<script type="text/javascript" src="js/com.js?201509291503"></script>
+<script type="text/javascript" src="js/sync_d1_user.js"  ></script>
+<style>
+.main .tkt_msg {
+    position: fixed;
+    z-index: 102;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 0.14rem;
+    display: none;
+}
+.main .tkt_msg .txt {
+    display: inline-block;
+    vertical-align: middle;
+    /*padding: 0.08rem;*/
+    line-height:24px;
+    width: 240px;
+	 height: 300px;
+    background:url(http://images.d1.com.cn/shopadmin/splimg/201602/tktopenmsg3.png);
+   /* -webkit-border-radius: .02rem;
+    border-radius: .02rem;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.3);*/
+}
+.main .tkt_but {
+    width:167px;
+    height:145px;
+    margin:0 auto;
+    position:fixed;
+    bottom:50px;
+    right:0;
+ 
+}
+>>>>>>> new_develop
 
+.main .tkt_msg::after {
+content: '\20';
+vertical-align: middle;
+display: inline-block;
+height: 100%;
+}
+.main .tkt_msg .txt td{padding:0px;margin:0px;}
+.main .tkt_msg .txt .but{height:0.35rem;color:#fff;line-height:0.35rem;}
+.main .tkt_msg .txt .but a{height:0.35rem;display:inline-block;width:50%;color:#fff;cursor:pointer;}
+.main .tkt_msg .txt i {
+    color: #fff;
+    font-style:normal;
+    /* font-style: normal; */
+    /* padding: 0.08rem; */
+    /* font-size: .14rem; */
+    /* display: inline-block; */
+}
+.main .tkt_but {
+    width:120px;
+    height:103px;
+    margin:0 auto;
+    position:fixed;
+    bottom:60px;
+    right:10px;
+ 
+}
+.tktmsg1{
+	font-size: 32px;
+	font-family: "微软雅黑";
+	color: #F7ED00;
+	line-height:32px;
+}
+.tktmsg4 {font-family: "微软雅黑"; color: #F7ED00; font-size: 16px;line-height:23px;}
+.tktmsg5 {font-family: "微软雅黑"; font-size: 14px;line-height:22px;}
+.tktopbut{height:42px;}
+</style>
 </head>
 <body>
 	<header class="p_header">
@@ -67,8 +142,13 @@
 			</div>
 		</div>
 
-
-
+<div class="tkt_msg" id="tkt_msg" style="display: none;">
+			<div class="txt">
+				
+			</div>
+		</div>
+<div class="tkt_but" style="display: none;"><a  onclick="tktmsg(this)"><img src="http://images.d1.com.cn/shopadmin/splimg/201601/ticket-button-s.png"></a>
+		</div>
 	</div>
 	<div id="footer" class="footer">
 		<script language="javascript">
@@ -76,6 +156,24 @@
 				</script>
 	</div>
 	<script language="javascript">
+	 function tktmsg(obj){
+	     
+	     $.ajax({
+	 		type: 'get', 
+	         url: '/ajax/wap/getwaptkt.jsp',
+	       //  data:{pg:pageno,psize:psize,status:status},
+	 		dataType:'text',
+	 		success: function(data){
+	 			
+	 			  $('#tkt_msg .txt').html(data);
+	 			 $('#tkt_msg').show();
+	         }
+	 	});
+	  }
+ function closetktmsg(obj){
+	
+	   $('#tkt_msg').hide();
+	    }
 function selectorder(status){
 	loaddata(status);
 }
@@ -136,7 +234,9 @@ function loaddata(status1){
 		if(p.num1==0) $(".orderstatus option[value='1']").remove();  
 		if(p.num2==0) $(".orderstatus option[value='2']").remove();  
 		}
-		
+		if(p.tktyears==1){
+			$(".tkt_but").show();
+		}
 		var pagenum=parseInt(p.allcount/psize);
 		if(p.allcount%psize>0) {
 			pagenum=pagenum+1;

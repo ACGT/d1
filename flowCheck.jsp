@@ -514,7 +514,7 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
             <div id="divPayList"></div>
             <!--End:支付方式-->
             <!-- Start:送货时间头 -->
-      		<table width="887" border="0" align="center" cellpadding="0" cellspacing="0" id="tblShipTypeHead">
+      		<table width="887" border="0" align="center" cellpadding="0" cellspacing="0" id="tblShipTypeHead"  style="display:none;">
             	<tr>
         			<td height="2">&nbsp;</td>
       			</tr>
@@ -537,7 +537,7 @@ if(lUser.getMbrmst_phoneflag()!=null&&lUser.getMbrmst_phoneflag().longValue()==1
       		</table>
 			<!-- End:送货时间头 --> 
 			<!-- Start:快递选择头 -->
-    		<table width="861" border="0" align="center" cellpadding="2" cellspacing="2" id="tblShipType">
+    		<table width="861" border="0" align="center" cellpadding="2" cellspacing="2" id="tblShipType"  style="display:none;">
         		<tr>
           			<td align="right" style="width:100px">
           				<input type="radio" value="0" checked name="shiptype" onclick="shipchange();"  />

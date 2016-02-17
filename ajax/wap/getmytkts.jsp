@@ -116,10 +116,10 @@ if(tktw.getType()==0)
 		Directory dir = (Directory)Tools.getManager(Directory.class).get(tktw.getTicket().getTktmst_rackcode());
 		
 		if(dir!=null&&!"000".equals(dir.getId())){
-			range = "<a href=\"http://m.d1.cn/wap/result.html?rackcode="+dir.getId()+"&shopd1=1\" style=\" text-decoration:underline;\" target=\"_blank\" >自营"+dir.getRakmst_rackname()+"</a>";
+			range = "<a href=\"http://m.d1.cn/wap/result.html?rackcode="+dir.getId()+"&shopd1=1\" style=\" text-decoration:underline;color:#da2f3b\" target=\"_blank\" >自营"+dir.getRakmst_rackname()+"  点击购买>></a>";
 		}
 		if("017".equals(dir.getId())){
-			range = "<a href=\"http://m.d1.cn/wap/shopview.html?id=781\" style=\" text-decoration:underline;\" target=\"_blank\" >自营服饰</a>";
+			range = "<a href=\"http://m.d1.cn/wap/shopview.html?id=781\" style=\" text-decoration:underline;color:#da2f3b\" target=\"_blank\" >自营服饰    点击购买>></a>";
 		
 		}
 	}
@@ -136,7 +136,7 @@ else
          Directory dir = (Directory)Tools.getManager(Directory.class).get(tktw.getTicketCrd().getTktcrd_rackcode());
 
          if(dir!=null&&!"000".equals(dir.getId())){
-				range = "<a href=\"http://m.d1.cn/wap/result.html?rackcode="+dir.getId()+"&shopd1=1\" style=\" text-decoration:underline;\" target=\"_blank\" >自营"+dir.getRakmst_rackname()+"</a>";
+				range = "<a href=\"http://m.d1.cn/wap/result.html?rackcode="+dir.getId()+"&shopd1=1\" style=\" text-decoration:underline;color:#da2f3b\" target=\"_blank\" >自营"+dir.getRakmst_rackname()+"  点击购买>></a>";
 			}
 	}
 
